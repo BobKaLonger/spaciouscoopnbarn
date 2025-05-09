@@ -36,7 +36,9 @@ namespace spaciouscoopnbarn
 
             var mi = Helper.ModRegistry.Get("bobkalonger.spaciouscoopnbarn");
             cpPack = mi.GetType().GetProperty("ContentPack")?.GetValue(mi) as IContentPack;
-
+            
+            helper.Events.GameLoop.SaveLoaded += this.OnSaveLoaded;
+            helper.Events.GameLoop.DayStarted += this.OnDayStarted;
             helper.Events.Player.Warped += PlayerOnWarped;
 
             var harmony = new Harmony(this.ModManifest.UniqueID);
