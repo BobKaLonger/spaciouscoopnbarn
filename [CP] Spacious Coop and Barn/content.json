@@ -355,55 +355,56 @@
                 "Width": 40,
                 "Height": 12
 							},
-							"DrawPosition": "28, 116",
-              				"DrawInBackground": false
-						},
-						{
-							"Id": "Default_AnimalDoor",
-							"Texture": null,
-              "SourceRect": {
-								"X": 0,
-								"Y": 144,
-								"Width": 40,
-								"Height": 16
-							},
-							"DrawPosition": "28, 127",
-							"DrawInBackground": false,
-              "SortTileOffset": 0.02,
-              "OnlyDrawIfChestHasContents": null,
-              "FrameDuration": 90,
-              "FrameCount": 1,
-              "FramesPerRow": -1,
-              "AnimalDoorOffset": {
-								"X": 0,
-                "Y": -12
-							}
-						},
-						{
-							"Id": "Default_AnimalDoor_Open",
-							"Texture": null,
-              "SourceRect": {
-								"X": 48,
-                "Y": 144,
-                "Width": 40,
-                "Height": 16
-							},
-							"DrawPosition": "28, 127",
-							"DrawInBackground": false,
-              "SortTileOffset": 1.0,
-              "OnlyDrawIfChestHasContents": null,
-              "FrameDuration": 90,
-              "FrameCount": 1,
-              "FramesPerRow": -1,
-              "AnimalDoorOffset": {
-								"X": 0,
-                "Y": 0
-							}
-						}
-					],
-					"CustomFields": null
+"DrawPosition": "28, 116",
+"DrawInBackground": false
+},
+{
+"Id": "Default_AnimalDoor",
+"Texture": null,
+"SourceRect": {
+"X": 0,
+"Y": 144,
+"Width": 40,
+"Height": 16
+},
+"DrawPosition": "28, 127",
+"DrawInBackground": false,
+"SortTileOffset": 0.02,
+"OnlyDrawIfChestHasContents": null,
+"FrameDuration": 90,
+"FrameCount": 1,
+"FramesPerRow": -1,
+"AnimalDoorOffset": {
+"X": 0,
+"Y": -12
+}
+},
+{
+"Id": "Default_AnimalDoor_Open",
+"Texture": null,
+"SourceRect": {
+"X": 48,
+"Y": 144,
+"Width": 40,
+"Height": 16
+},
+"DrawPosition": "28, 127",
+"DrawInBackground": false,
+"SortTileOffset": 1.0,
+"OnlyDrawIfChestHasContents": null,
+"FrameDuration": 90,
+"FrameCount": 1,
+"FramesPerRow": -1,
+"AnimalDoorOffset": {
+"X": 0,
+"Y": 0
+}
+}
+],
+"CustomFields": null
+					}
 				}
 			}
-		}
-	]
+		]
+	}
 }
