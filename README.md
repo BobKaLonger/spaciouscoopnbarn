@@ -1,4 +1,4 @@
-//UPDATE PENDING
+!! UPDATE PENDING !!
 
 Adds a 4th upgrade after the Mega Coop and Barn (added by jenf1) upping animal capacity to 40.
 
