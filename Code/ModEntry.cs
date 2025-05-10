@@ -31,9 +31,8 @@ namespace spaciouscoopnbarn
         public override void Entry(IModHelper helper)
         {
             ModEntry.modInstance = this;
-
             I18n.Init(Helper.Translation);
-
+           
             var mi = Helper.ModRegistry.Get("bobkalonger.spaciouscoopnbarnCP");
             cpPack = mi.GetType().GetProperty("ContentPack")?.GetValue(mi) as IContentPack;
 
@@ -42,10 +41,7 @@ namespace spaciouscoopnbarn
             TouchActionProperties.Enable(helper, Monitor);
 
             var harmony = new Harmony(this.ModManifest.UniqueID);
-            ActionProperties.ApplyPatch(harmony, Monitor);
             
-            HarmonyPatch_TMXLLoadMapFacingDirection.ApplyPatch(harmony, Monitor);
-
             harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
 
