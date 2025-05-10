@@ -34,7 +34,7 @@ namespace spaciouscoopnbarn
 
             I18n.Init(Helper.Translation);
 
-            var mi = Helper.ModRegistry.Get("bobkalonger.spaciouscoopnbarn");
+            var mi = Helper.ModRegistry.Get("bobkalonger.spaciouscoopnbarnCP");
             cpPack = mi.GetType().GetProperty("ContentPack")?.GetValue(mi) as IContentPack;
 
             helper.Events.Player.Warped += PlayerOnWarped;
