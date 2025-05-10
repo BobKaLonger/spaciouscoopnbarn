@@ -1,0 +1,30 @@
+{
+    "Name": "Spacious Coop and Barn",
+    "Author": "bobkalonger",
+    "Version": "1.1.3",
+    "UniqueID": "bobkalonger.spaciouscoopnbarn",
+    "MinimumApiVersion": "4.0.0",
+    "Description": "Adds Spacious Coop and Spacious Barn upgrades, increasing maximum animal capacity to 48.",
+    "UpdateKeys": [ "Nexus:???" ],
+     "ContentPackFor": {
+         "UniqueID": "Pathoschild.ContentPatcher",
+         "MinimumVersion": "2.0.0"
+    },
+    "Dependencies": [
+    {
+      "UniqueID": "Pathoschild.ContentPatcher",
+      "MinimumVersion": "2.0.0",
+      "IsRequired": true
+    },
+    {
+      "UniqueID": "jenf1.megacoopbarn",
+      "MinimumVersion": "1.4.2",
+      "IsRequired": false
+    },
+    {
+      "UniqueID": "FlashShifter.StardewValleyExpandedCP",
+      "MinimumVersion": "1.15.10",
+      "IsRequired": false
+    }
+  ]
+}
