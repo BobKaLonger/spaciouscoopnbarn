@@ -1,3 +1,5 @@
+//UPDATE PENDING
+
 Adds a 4th upgrade after the Mega Coop and Barn (added by jenf1) upping animal capacity to 40.
 
 Is mega still not enough? Do you want to have a silly amount of animals in one building? Well, for some reason, I did, so I made this mod.
