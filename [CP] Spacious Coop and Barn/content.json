@@ -233,128 +233,128 @@
 					"ID": "{{i18n: SpaciousCoopName}}",
           "Name": "{{i18n: SpaciousCoopName}}",
           "Description": "{{i18n: SpaciousCoopDescription}}",
-          "Texture": "Buildings\\SVE_PremiumCoop",
-          "Skins": [],
-          "DrawShadow": true,
-          "UpgradeSignTile": "2, 2",
-          "UpgradeSignHeight": 18.0,
-          "Size": {
-						"X": 9,
-            "Y": 4
-					},
-          "FadeWhenBehind": true,
-          "SourceRect": {
-						"X": 0,
-            "Y": 0,
-            "Width": 144,
-            "Height": 144
-					},
-					"SeasonOffset": {
-						"X": 0,
-            "Y": 0
-					},
-					"DrawOffset": "0, 0",
-          "SortTileOffset": 2.5,
-          "CollisionMap": "XXXXXXOOO\nXXXXXXXXX\nXXXXXXXXX\nXXXXXXOOO",
-          "AdditionalPlacementTiles": null,
-          "BuildingType": null,
-          "Builder": "Robin",
-          "BuildCondition": "ANY \"BUILDINGS_CONSTRUCTED All FlashShifter.StardewValleyExpandedCP_PremiumCoop\"",
-          "BuildDays": 5,
-          "BuildCost": 300000,
-          "BuildMaterials": [
-						{
-							"ItemId": "(O)328",
-              "Amount": 800
-						},
-            {
-              "ItemId": "(O)322",
-              "Amount": 400
-            },
-            {
-              "ItemId": "(O)337",
-              "Amount": 20
-            }
-					],
-					"BuildingToUpgrade": "FlashShifter.StardewValleyExpandedCP_PremiumCoop",
-          "MagicalConstruction": false,
-          "BuildMenuDrawOffset": {
-						"X": 0,
-            "Y": 0
-          },
-          "HumanDoor": {
-            "X": 7,
-            "Y": 2
-          },
-          "AnimalDoor": {
-            "X": 2,
-            "Y": 3,
-            "Width": 2,
-            "Height": 1
-          },
-          "AnimalDoorOpenDuration": 0.3125,
-          "AnimalDoorOpenSound": "doorCreak",
-          "AnimalDoorCloseDuration": 0.3125,
-          "AnimalDoorCloseSound": "doorCreakReverse",
-          "NonInstancedIndoorLocation": null,
-          "IndoorMap": "bobkalonger.spaciouscoopnbarn_SpaciousCoop",
-          "IndoorMapType": "StardewValley.AnimalHouse",
-          "MaxOccupants": 48,
-          "ValidOccupantTypes": [
-						"Coop"
-					],
-          "AllowAnimalPregnancy": false,
-          "IndoorItemMoves": null,
-          "IndoorItems": [
-						{
-							"Id": "Default_FeedHopper",
-              "ItemId": "(BC)99",
-              "Tile": {
-								"X": 4,
-                "Y": 3
-							},
-							"Indestructible": true
-						},
-						{
-							"Id": "Default_Incubator",
-							"ItemId": "(BC)101",
-              "Tile": {
-								"X": 3,
-                "Y": 3
-							},
-							"Indestructible": true
-						},
-						{
-							"Id": "Extra_Incubator",
-              "ItemId": "(BC)101",
-              "Tile": {
-								"X": 24,
-                "Y": 3
-							},
-							"Indestructible": false
-						}
-					],
-					"AddMailOnBuild": null,
-          "Metadata": {},
-          "ModData": {},
-          "HayCapacity": 0,
-          "Chests": null,
-          "DefaultAction": null,
-          "AdditionalTilePropertyRadius": 0,
-          "AllowsFlooringUnderneath": true,
-          "ActionTiles": [],
-          "TileProperties": [],
-          "ItemConversions": null,
-          "DrawLayers": [
-						{
-							"Id": "Default_Overlay",
-              "Texture": null,
-              "SourceRect": {
-								"X": 90,
-                "Y": 146,
-                "Width": 40,
-                "Height": 12
-							},
+"Texture": "Buildings\\SVE_PremiumCoop",
+"Skins": [],
+"DrawShadow": true,
+"UpgradeSignTile": "2, 2",
+"UpgradeSignHeight": 18.0,
+"Size": {
+"X": 9,
+"Y": 4
+},
+"FadeWhenBehind": true,
+"SourceRect": {
+"X": 0,
+"Y": 0,
+"Width": 144,
+"Height": 144
+},
+"SeasonOffset": {
+"X": 0,
+"Y": 0
+},
+"DrawOffset": "0, 0",
+"SortTileOffset": 2.5,
+"CollisionMap": "XXXXXXOOO\nXXXXXXXXX\nXXXXXXXXX\nXXXXXXOOO",
+"AdditionalPlacementTiles": null,
+"BuildingType": null,
+"Builder": "Robin",
+"BuildCondition": "ANY \"BUILDINGS_CONSTRUCTED All FlashShifter.StardewValleyExpandedCP_PremiumCoop\"",
+"BuildDays": 5,
+"BuildCost": 300000,
+"BuildMaterials": [
+{
+"ItemId": "(O)328",
+"Amount": 800
+},
+{
+"ItemId": "(O)322",
+"Amount": 400
+},
+{
+"ItemId": "(O)337",
+"Amount": 20
+}
+],
+"BuildingToUpgrade": "FlashShifter.StardewValleyExpandedCP_PremiumCoop",
+"MagicalConstruction": false,
+"BuildMenuDrawOffset": {
+"X": 0,
+"Y": 0
+},
+"HumanDoor": {
+"X": 7,
+"Y": 2
+},
+"AnimalDoor": {
+"X": 2,
+"Y": 3,
+"Width": 2,
+"Height": 1
+},
+"AnimalDoorOpenDuration": 0.3125,
+"AnimalDoorOpenSound": "doorCreak",
+"AnimalDoorCloseDuration": 0.3125,
+"AnimalDoorCloseSound": "doorCreakReverse",
+"NonInstancedIndoorLocation": null,
+"IndoorMap": "bobkalonger.spaciouscoopnbarn_SpaciousCoop",
+"IndoorMapType": "StardewValley.AnimalHouse",
+"MaxOccupants": 48,
+"ValidOccupantTypes": [
+"Coop"
+],
+"AllowAnimalPregnancy": false,
+"IndoorItemMoves": null,
+"IndoorItems": [
+{
+"Id": "Default_FeedHopper",
+"ItemId": "(BC)99",
+"Tile": {
+"X": 4,
+"Y": 3
+},
+"Indestructible": true
+},
+{
+"Id": "Default_Incubator",
+"ItemId": "(BC)101",
+"Tile": {
+"X": 3,
+"Y": 3
+},
+"Indestructible": true
+},
+{
+"Id": "Extra_Incubator",
+"ItemId": "(BC)101",
+"Tile": {
+"X": 24,
+"Y": 3
+},
+"Indestructible": false
+}
+],
+"AddMailOnBuild": null,
+"Metadata": {},
+"ModData": {},
+"HayCapacity": 0,
+"Chests": null,
+"DefaultAction": null,
+"AdditionalTilePropertyRadius": 0,
+"AllowsFlooringUnderneath": true,
+"ActionTiles": [],
+"TileProperties": [],
+"ItemConversions": null,
+"DrawLayers": [
+{
+"Id": "Default_Overlay",
+"Texture": null,
+"SourceRect": {
+"X": 90,
+"Y": 146,
+"Width": 40,
+"Height": 12
+},
 "DrawPosition": "28, 116",
 "DrawInBackground": false
 },
