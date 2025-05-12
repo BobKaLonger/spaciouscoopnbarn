@@ -41,6 +41,7 @@ namespace spaciouscoopnbarn
             TouchActionProperties.Enable(helper, Monitor);
 
             var harmony = new Harmony(this.ModManifest.UniqueID);
+            HarmonyPatch_TMXLLoadMapFacingDirection.ApplyPatch(harmony, Monitor);
             
             harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
@@ -49,6 +50,35 @@ namespace spaciouscoopnbarn
         {
             if (e.NewLocation == null)
                 return;
+
+            if (e.NewLocation.Name == "Farm" && !Game1.getFarm().modData.ContainsKey("SVE.SpawnedDogHouse"))
+            {
+                int x = -1, y = -1;
+                if (Game1.whichFarm == 0)
+                {
+                    if (Helper.ModRegistry.IsLoaded("flashshifter.immersivefarm2remastered"))
+                    {
+                        x = 52;
+                        y = 6;
+                    }
+                    else if (Helper.ModRegistry.IsLoaded("flashshifter.GrandpasFarm"))
+                    {
+                        x = 101;
+                        y = 37;
+                    }
+                }
+                else if (Game1.whichFarm == Farm.mod_layout && Game1.whichModFarm.Id == "FrontierFarm")
+                {
+                    x = 119;
+                    y = 14;
+                }
+
+                if (x != -1 && y != -1)
+                {
+                    Game1.getFarm().modData.Add("SVE.SpawnedDogHouse", "meow");
+                    Game1.getFarm().furniture.Add(new Furniture("Doghouse", new Vector2(x, y)));
+                }
+            }
 
             foreach (var b in e.NewLocation.buildings)
             {
