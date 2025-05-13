@@ -21,14 +21,14 @@
 
 	"CustomLocations": [
 		{
-			"Name": "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn",
+			"Name": "bobkalonger.spaciouscoopnbarn_SpaciousBarn",
 			"FromMapFile": "assets/SpaciousBarn.tmx",
 			"When": {
 				"Spacious Barn": "True"
 			}
 		},
 		{
-			"Name": "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop",
+			"Name": "bobkalonger.spaciouscoopnbarn_SpaciousCoop",
 			"FromMapFile": "assets/SpaciousCoop.tmx",
 			"When": {
 				"Spacious Coop": "True"
@@ -131,7 +131,7 @@
 					"AnimalDoorCloseDuration": 0.75,
 					"AnimalDoorCloseSound": "doorCreakReverse",
 					"NonInstancedIndoorLocation": null,
-					"IndoorMap": "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn",
+					"IndoorMap": "bobkalonger.spaciouscoopnbarn_SpaciousBarn",
 					"IndoorMapType": "StardewValley.AnimalHouse",
 					"MaxOccupants": 48,
 					"ValidOccupantTypes": [
@@ -297,7 +297,7 @@
 					"AnimalDoorCloseDuration": 0.3125,
 					"AnimalDoorCloseSound": "doorCreakReverse",
 					"NonInstancedIndoorLocation": null,
-					"IndoorMap": "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop",
+					"IndoorMap": "bobkalonger.spaciouscoopnbarn_SpaciousCoop",
 					"IndoorMapType": "StardewValley.AnimalHouse",
 					"MaxOccupants": 48,
 					"ValidOccupantTypes": [
