@@ -1,8 +1,8 @@
 {
     "Name": "Spacious Coop and Barn",
     "Author": "bobkalonger",
-    "Version": "1.1.6",
-    "UniqueID": "bobkalonger.spaciouscoopnbarnCP",
+    "Version": "1.1.7",
+    "UniqueID": "bobkalonger.spaciouscoopnbarn",
     "MinimumApiVersion": "4.0.0",
     "Description": "Adds Spacious Coop and Spacious Barn upgrades, increasing maximum animal capacity to 48.",
     "UpdateKeys": [ "Nexus:???" ],
