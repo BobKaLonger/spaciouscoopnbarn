@@ -41,6 +41,7 @@ namespace spaciouscoopnbarn
             TouchActionProperties.Enable(helper, Monitor);
 
             var harmony = new Harmony(this.ModManifest.UniqueID);
+            ActionProperties.ApplyPatch(harmony, Monitor);
             HarmonyPatch_TMXLLoadMapFacingDirection.ApplyPatch(harmony, Monitor);
             
             harmony.PatchAll(Assembly.GetExecutingAssembly());
