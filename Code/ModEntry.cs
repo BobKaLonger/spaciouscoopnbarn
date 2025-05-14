@@ -33,7 +33,7 @@ namespace spaciouscoopnbarn
             ModEntry.modInstance = this;
             I18n.Init(Helper.Translation);
            
-            var mi = Helper.ModRegistry.Get("bobkalonger.spaciouscoopnbarn");
+            var mi = Helper.ModRegistry.Get("{{ModId}}");
             cpPack = mi.GetType().GetProperty("ContentPack")?.GetValue(mi) as IContentPack;
 
             helper.Events.Player.Warped += PlayerOnWarped;
@@ -83,7 +83,7 @@ namespace spaciouscoopnbarn
 
             foreach (var b in e.NewLocation.buildings)
             {
-                if (b.buildingType.Value == "bobkalonger.spaciouscoopnbarn_SpaciousBarn")
+                if (b.buildingType.Value == "{{ModId}}_SpaciousBarn")
                 {
                     Point tileLoc = new(b.tileX.Value + 2, b.tileY.Value + 2);
                     var l = new LightSource($"SVE_PremiumBarnLight_{b.tileX.Value}_{b.tileY.Value}_1", 4, tileLoc.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
@@ -101,7 +101,7 @@ namespace spaciouscoopnbarn
         {
             public static void Postfix(Building __instance, int tile_x, int tile_y, string property_name, string layer_name, ref string property_value, ref bool __result)
             {
-                if (__instance.buildingType.Value == "bobkalonger.spaciouscoopnbarn_SpaciousBarn" && __instance.daysOfConstructionLeft.Value <= 0)
+                if (__instance.buildingType.Value == "{{ModId}}_SpaciousBarn" && __instance.daysOfConstructionLeft.Value <= 0)
                 {
                     var interior = __instance.GetIndoors();
                     if (tile_x == __instance.tileX.Value + __instance.humanDoor.X + 8 &&
@@ -128,7 +128,7 @@ namespace spaciouscoopnbarn
                     return;
                 }
 
-                if (__instance.buildingType.Value == "bobkalonger.spaciouscoopnbarn_SpaciousBarn" && __instance.daysOfConstructionLeft.Value <= 0)
+                if (__instance.buildingType.Value == "{{ModId}}_SpaciousBarn" && __instance.daysOfConstructionLeft.Value <= 0)
                 {
                     var interior = __instance.GetIndoors();
                     if (tileLocation.X == __instance.tileX.Value + __instance.humanDoor.X + 8 &&
@@ -166,7 +166,7 @@ namespace spaciouscoopnbarn
         {
             public static void Postfix(Building __instance, GameLocation interior)
             {
-                if (__instance.buildingType.Value != "bobkalonger.spaciouscoopnbarn_SpaciousBarn")
+                if (__instance.buildingType.Value != "{{ModId}}_SpaciousBarn")
                     return;
                 if (interior == null || interior.warps.Count == 0)
                     return;
@@ -184,11 +184,11 @@ namespace spaciouscoopnbarn
                 string toCheck = null;
                 if (buildingId == "Coop" || buildingId == "Deluxe Coop" || buildingId == "Big Coop")
                 {
-                    toCheck = "bobkalonger.spaciouscoopnbarn_SpaciousCoop";
+                    toCheck = "{{ModId}}_SpaciousCoop";
                 }
                 else if (buildingId == "Barn" || buildingId == "Deluxe Barn" || buildingId == "Big Barn")
                 {
-                    toCheck = "bobkalonger.spaciouscoopnbarn_SpaciousBarn";
+                    toCheck = "{{ModId}}_SpaciousBarn";
                 }
 
                 if (!__result && toCheck != null)
@@ -209,8 +209,8 @@ namespace spaciouscoopnbarn
         {
             if (!forConstruction)
                 return;
-            if (__instance.buildingType.Value != "bobkalonger.spaciouscoopnbarn_SpaciousCoop" &&
-                 __instance.buildingType.Value != "bobkalonger.spaciouscoopnbarn_SpaciousBarn")
+            if (__instance.buildingType.Value != "{{ModId}}_SpaciousCoop" &&
+                 __instance.buildingType.Value != "{{ModId}}_SpaciousBarn")
                 return;
 
             foreach (var obj in __instance.indoors.Value.Objects.Values)

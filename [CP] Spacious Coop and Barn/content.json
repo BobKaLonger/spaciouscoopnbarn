@@ -21,14 +21,14 @@
 
 	"CustomLocations": [
 		{
-			"Name": "bobkalonger.spaciouscoopnbarn_SpaciousBarn",
+			"Name": "{{ModId}}_SpaciousBarn",
 			"FromMapFile": "assets/SpaciousBarn.tmx",
 			"When": {
 				"Spacious Barn": "True"
 			}
 		},
 		{
-			"Name": "bobkalonger.spaciouscoopnbarn_SpaciousCoop",
+			"Name": "{{ModId}}_SpaciousCoop",
 			"FromMapFile": "assets/SpaciousCoop.tmx",
 			"When": {
 				"Spacious Coop": "True"
@@ -38,8 +38,18 @@
 	
 	"Changes": [
 		{
+            "Action": "Load",
+            "Target": "Maps/{{ModId}}_SpaciousCoop",
+            "FromFile": "assets/SpaciousCoop.tmx"
+        },
+		{
+            "Action": "Load",
+            "Target": "Maps/{{ModId}}_SpaciousBarn",
+            "FromFile": "assets/SpaciousBarn.tmx"
+        },
+		{
 			"Action": "Load",
-			"Target": "assets/SpaciousBarn_PaintMask",
+			"Target": "Buildings/SpaciousBarn_PaintMask",
 			"FromFile": "assets/Buildings/SpaciousBarn_PaintMask.png"
 		},
 		{
@@ -51,8 +61,8 @@
 			"Action": "EditData",
 			"Target": "Data/PaintData",
 			"Entries": {
-				"bobkalonger.spaciouscoopnbarn_SpaciousBarn": "Building/-10 0/Roof/-10 5/Trim/-5 0",
-				"bobkalonger.spaciouscoopnbarn_SpaciousCoop": "Building/-12 0/Roof/-10 5/Trim/-10 5"
+				"{{ModId}}_SpaciousBarn": "Building/-10 0/Roof/-10 5/Trim/-5 0",
+				"{{ModId}}_SpaciousCoop": "Building/-12 0/Roof/-10 5/Trim/-10 5"
 			}
 		},
 		{
@@ -131,7 +141,7 @@
 					"AnimalDoorCloseDuration": 0.75,
 					"AnimalDoorCloseSound": "doorCreakReverse",
 					"NonInstancedIndoorLocation": null,
-					"IndoorMap": "bobkalonger.spaciouscoopnbarn_SpaciousBarn",
+					"IndoorMap": "{{ModId}}_SpaciousBarn",
 					"IndoorMapType": "StardewValley.AnimalHouse",
 					"MaxOccupants": 48,
 					"ValidOccupantTypes": [
@@ -297,7 +307,7 @@
 					"AnimalDoorCloseDuration": 0.3125,
 					"AnimalDoorCloseSound": "doorCreakReverse",
 					"NonInstancedIndoorLocation": null,
-					"IndoorMap": "bobkalonger.spaciouscoopnbarn_SpaciousCoop",
+					"IndoorMap": "{{ModId}}_SpaciousCoop",
 					"IndoorMapType": "StardewValley.AnimalHouse",
 					"MaxOccupants": 48,
 					"ValidOccupantTypes": [
