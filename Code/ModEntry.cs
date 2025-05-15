@@ -38,10 +38,7 @@ namespace spaciouscoopnbarn
 
             helper.Events.Player.Warped += PlayerOnWarped;
 
-            TouchActionProperties.Enable(helper, Monitor);
-
             var harmony = new Harmony(this.ModManifest.UniqueID);
-            ActionProperties.ApplyPatch(harmony, Monitor);
             HarmonyPatch_TMXLLoadMapFacingDirection.ApplyPatch(harmony, Monitor);
             
             harmony.PatchAll(Assembly.GetExecutingAssembly());
@@ -51,35 +48,6 @@ namespace spaciouscoopnbarn
         {
             if (e.NewLocation == null)
                 return;
-
-            if (e.NewLocation.Name == "Farm" && !Game1.getFarm().modData.ContainsKey("SVE.SpawnedDogHouse"))
-            {
-                int x = -1, y = -1;
-                if (Game1.whichFarm == 0)
-                {
-                    if (Helper.ModRegistry.IsLoaded("flashshifter.immersivefarm2remastered"))
-                    {
-                        x = 52;
-                        y = 6;
-                    }
-                    else if (Helper.ModRegistry.IsLoaded("flashshifter.GrandpasFarm"))
-                    {
-                        x = 101;
-                        y = 37;
-                    }
-                }
-                else if (Game1.whichFarm == Farm.mod_layout && Game1.whichModFarm.Id == "FrontierFarm")
-                {
-                    x = 119;
-                    y = 14;
-                }
-
-                if (x != -1 && y != -1)
-                {
-                    Game1.getFarm().modData.Add("SVE.SpawnedDogHouse", "meow");
-                    Game1.getFarm().furniture.Add(new Furniture("Doghouse", new Vector2(x, y)));
-                }
-            }
 
             foreach (var b in e.NewLocation.buildings)
             {
@@ -97,7 +65,7 @@ namespace spaciouscoopnbarn
         }
 
         [HarmonyPatch(typeof(Building), nameof(Building.doesTileHaveProperty))]
-        public static class BuildingDeluxeBarnDoorCursorPatch
+        public static class BuildingSpaciousBarnDoorCursorPatch
         {
             public static void Postfix(Building __instance, int tile_x, int tile_y, string property_name, string layer_name, ref string property_value, ref bool __result)
             {
@@ -119,7 +87,7 @@ namespace spaciouscoopnbarn
         }
 
         [HarmonyPatch(typeof(Building), nameof(Building.doAction))]
-        public static class BuildingDeluxeBarnDoorPatch
+        public static class BuildingSpaciousBarnDoorPatch
         {
             public static void Postfix(Building __instance, Vector2 tileLocation, Farmer who, ref bool __result)
             {
@@ -162,7 +130,7 @@ namespace spaciouscoopnbarn
         }
         
         [HarmonyPatch(typeof(Building), nameof(Building.updateInteriorWarps))]
-        public static class BuildingDeluxeBarnWarpPatch
+        public static class BuildingSpaciousBarnWarpPatch
         {
             public static void Postfix(Building __instance, GameLocation interior)
             {
@@ -175,35 +143,10 @@ namespace spaciouscoopnbarn
                 interior.warps[1] = new(w.X, w.Y, w.TargetName, w.TargetX + 8, w.TargetY, w.flipFarmer.Value, w.npcOnly.Value);
             }
         }
-        
-        [HarmonyPatch(typeof(Utility), "_HasBuildingOrUpgrade")]
-        public static class UtilityHasCoopBarnPatch
-        {
-            public static void Postfix(GameLocation location, string buildingId, ref bool __result)
-            {
-                string toCheck = null;
-                if (buildingId == "Coop" || buildingId == "Deluxe Coop" || buildingId == "Big Coop")
-                {
-                    toCheck = "{{ModId}}_SpaciousCoop";
-                }
-                else if (buildingId == "Barn" || buildingId == "Deluxe Barn" || buildingId == "Big Barn")
-                {
-                    toCheck = "{{ModId}}_SpaciousBarn";
-                }
 
-                if (!__result && toCheck != null)
-                {
-                    if (location.getNumberBuildingsConstructed(toCheck) > 0)
-                    {
-                        __result = true;
-                    }
-                }
-            }
-        }
-    }
     
     [HarmonyPatch(typeof(Building), nameof(Building.InitializeIndoor))]
-    public static class BuildingAutoGrabberFix
+    public static class SpaciousBarnAutoGrabberFix
     {
         public static void Postfix(Building __instance, BuildingData data, bool forConstruction, bool forUpgrade)
         {
