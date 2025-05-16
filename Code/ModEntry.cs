@@ -10,8 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
+using System.Reflection.Emit;
 using StardewValley.Menus;
 using StardewValley.Objects;
 using Enumerable = System.Linq.Enumerable;
@@ -33,13 +33,12 @@ namespace spaciouscoopnbarn
             ModEntry.modInstance = this;
             I18n.Init(Helper.Translation);
            
-            var mi = Helper.ModRegistry.Get("{{ModId}}");
+            var mi = Helper.ModRegistry.Get("bobkalonger.spaciouscoopnbarn");
             cpPack = mi.GetType().GetProperty("ContentPack")?.GetValue(mi) as IContentPack;
 
             helper.Events.Player.Warped += PlayerOnWarped;
 
             var harmony = new Harmony(this.ModManifest.UniqueID);
-            HarmonyPatch_TMXLLoadMapFacingDirection.ApplyPatch(harmony, Monitor);
             
             harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
@@ -150,10 +149,10 @@ namespace spaciouscoopnbarn
     {
         public static void Postfix(Building __instance, BuildingData data, bool forConstruction, bool forUpgrade)
         {
-            if (!forConstruction)
+            if (!forUpgrade)
                 return;
             if (__instance.buildingType.Value != "{{ModId}}_SpaciousCoop" &&
-                 __instance.buildingType.Value != "{{ModId}}_SpaciousBarn")
+                __instance.buildingType.Value != "{{ModId}}_SpaciousBarn")
                 return;
 
             foreach (var obj in __instance.indoors.Value.Objects.Values)
