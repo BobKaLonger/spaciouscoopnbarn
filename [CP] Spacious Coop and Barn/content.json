@@ -8,28 +8,20 @@
 		"Spacious Coop": {
 			"AllowValues": "True, False",
 			"Default": "True"
-		},
-		"SVE Premium": {
-			"AllowValues": "True, False",
-			"Default": "True"
-		},
-		"Jen's Mega": {
-			"AllowValues": "True, False",
-			"Default": "True"
 		}
 	},
 
 	"CustomLocations": [
 		{
-			"Name": "{{ModId}}_SpaciousBarn",
-			"FromMapFile": "assets/SpaciousBarn.tmx",
+			"Name": "bobkalonger.spaciouscoopnbarn_SpaciousBarn",
+			"FromMapFile": "assets/Maps/Buildings/SpaciousBarn.tmx",
 			"When": {
 				"Spacious Barn": "True"
 			}
 		},
 		{
-			"Name": "{{ModId}}_SpaciousCoop",
-			"FromMapFile": "assets/SpaciousCoop.tmx",
+			"Name": "bobkalonger.spaciouscoopnbarn_SpaciousCoop",
+			"FromMapFile": "assets/Maps/Buildings/SpaciousCoop.tmx",
 			"When": {
 				"Spacious Coop": "True"
 			}
@@ -39,32 +31,14 @@
 	"Changes": [
 		{
             "Action": "Load",
-            "Target": "Maps/{{ModId}}_SpaciousCoop",
-            "FromFile": "assets/SpaciousCoop.tmx"
+            "Target": "Maps/bobkalonger.spaciouscoopnbarn_SpaciousCoop",
+            "FromFile": "assets/Maps/Buildings/SpaciousCoop.tmx"
         },
 		{
             "Action": "Load",
-            "Target": "Maps/{{ModId}}_SpaciousBarn",
-            "FromFile": "assets/SpaciousBarn.tmx"
+            "Target": "Maps/bobkalonger.spaciouscoopnbarn_SpaciousBarn",
+            "FromFile": "assets/Maps/Buildings/SpaciousBarn.tmx"
         },
-		{
-			"Action": "Load",
-			"Target": "Buildings/SpaciousBarn_PaintMask",
-			"FromFile": "assets/Buildings/SpaciousBarn_PaintMask.png"
-		},
-		{
-			"Action": "Load",
-			"Target": "Buildings/SpaciousCoop_PaintMask",
-			"FromFile": "assets/Buildings/SpaciousCoop_PaintMask.png"
-		},
-		{
-			"Action": "EditData",
-			"Target": "Data/PaintData",
-			"Entries": {
-				"{{ModId}}_SpaciousBarn": "Building/-10 0/Roof/-10 5/Trim/-5 0",
-				"{{ModId}}_SpaciousCoop": "Building/-12 0/Roof/-10 5/Trim/-10 5"
-			}
-		},
 		{
 			"LogName": "Create Spacious Barn",
 			"Action": "EditData",
@@ -74,36 +48,27 @@
 			},
 			"Entries": {
 				"{{ModId}}_SpaciousBarn": {
-					"ID": "{{i18n: SpaciousBarnName}}",
-					"Name": "{{i18n: SpaciousBarnName}}",
-					"Description": "{{i18n: SpaciousBarnDescription}}",
+					"Name": "{{i18n:SpaciousBarnName}}",
+					"Description": "{{i18n:SpaciousBarnDescription}}",
 					"Texture": "Buildings\\SVE_PremiumBarn",
-					"Skins": [],
+					"Builder": "Robin",
 					"DrawShadow": true,
-					"UpgradeSignTile": "4.5, 2",
+					"UpgradeSignTile": "5, 2",
 					"UpgradeSignHeight": 31.0,
 					"Size": {
 						"X": 11,
 						"Y": 4
 					},
-					"FadeWhenBehind": true,
 					"SourceRect": {
 						"X": 0,
 						"Y": 0,
 						"Width": 176,
 						"Height": 144
 					},
-					"SeasonOffset": {
-						"X": 0,
-						"Y": 0
-					},
-					"DrawOffset": "0, 0",
-					"SortTileOffset": 0.0,
-					"CollisionMap": null,
-					"AdditionalPlacementTiles": null,
-					"BuildingType": null,
-					"Builder": "Robin",
+					"FadeWhenBehind": true,
 					"BuildCondition": "ANY \"BUILDINGS_CONSTRUCTED All FlashShifter.StardewValleyExpandedCP_PremiumBarn\"",
+					"BuildingToUpgrade": "FlashShifter.StardewValleyExpandedCP_PremiumBarn",
+					"MagicalConstruction": "false",
 					"BuildDays": 5,
 					"BuildCost": 350000,
 					"BuildMaterials": [
@@ -120,8 +85,6 @@
 							"Amount": 30
 						}
 					],
-					"BuildingToUpgrade": "FlashShifter.StardewValleyExpandedCP_PremiumBarn",
-					"MagicalConstruction": false,
 					"BuildMenuDrawOffset": {
 						"X": 0,
 						"Y": 5
@@ -141,36 +104,6 @@
 					"AnimalDoorCloseDuration": 0.75,
 					"AnimalDoorCloseSound": "doorCreakReverse",
 					"NonInstancedIndoorLocation": null,
-					"IndoorMap": "{{ModId}}_SpaciousBarn",
-					"IndoorMapType": "StardewValley.AnimalHouse",
-					"MaxOccupants": 48,
-					"ValidOccupantTypes": [
-						"Barn"
-					],
-					"AllowAnimalPregnancy": true,
-					"IndoorItemMoves": null,
-					"IndoorItems": [
-						{
-							"Id": "Default_FeedHopper",
-							"ItemId": "(BC)99",
-							"Tile": {
-								"X": 21,
-								"Y": 3
-							},
-							"Indestructible": true
-						}
-					],
-					"AddMailOnBuild": null,
-					"Metadata": {},
-					"ModData": {},
-					"HayCapacity": 0,
-					"Chests": null,
-					"DefaultAction": null,
-					"AdditionalTilePropertyRadius": 0,
-					"AllowsFlooringUnderneath": true,
-					"ActionTiles": [],
-					"TileProperties": [],
-					"ItemConversions": null,
 					"DrawLayers": [
 						{
 							"Id": "Default_Overlay",
@@ -227,6 +160,31 @@
 							}
 						}
 					],
+					"IndoorMap": "{{ModId}}_SpaciousBarn",
+					"IndoorMapType": "StardewValley.AnimalHouse",
+					"MaxOccupants": 48,
+					"ValidOccupantTypes": [
+						"Barn"
+					],
+					"AllowAnimalPregnancy": true,
+					"IndoorItemMoves": null,
+					"IndoorItems": [
+						{
+							"Id": "Default_FeedHopper",
+							"ItemId": "(BC)99",
+							"Tile": {
+								"X": 21,
+								"Y": 3
+							},
+							"Indestructible": true
+						}
+					],
+					"SortTileOffset": 0.0,
+					"CollisionMap": null,
+					"DefaultAction": null,
+					"AllowsFlooringUnderneath": true,
+					"ActionTiles": [],
+					"TileProperties": [],
 					"CustomFields": null
 				}
 			}
@@ -240,11 +198,10 @@
 			},
 			"Entries": {
 				"{{ModId}}_SpaciousCoop": {
-					"ID": "{{i18n: SpaciousCoopName}}",
-					"Name": "{{i18n: SpaciousCoopName}}",
-					"Description": "{{i18n: SpaciousCoopDescription}}",
+					"Name": "{{i18n:SpaciousCoopName}}",
+					"Description": "{{i18n:SpaciousCoopDescription}}",
 					"Texture": "Buildings\\SVE_PremiumCoop",
-					"Skins": [],
+					"Builder": "Robin",
 					"DrawShadow": true,
 					"UpgradeSignTile": "2, 2",
 					"UpgradeSignHeight": 18.0,
@@ -252,24 +209,16 @@
 						"X": 9,
 						"Y": 4
 					},
-					"FadeWhenBehind": true,
 					"SourceRect": {
 						"X": 0,
 						"Y": 0,
 						"Width": 144,
 						"Height": 144
 					},
-					"SeasonOffset": {
-						"X": 0,
-						"Y": 0
-					},
-					"DrawOffset": "0, 0",
-					"SortTileOffset": 2.5,
-					"CollisionMap": "XXXXXXOOO\nXXXXXXXXX\nXXXXXXXXX\nXXXXXXOOO",
-					"AdditionalPlacementTiles": null,
-					"BuildingType": null,
-					"Builder": "Robin",
+					"FadeWhenBehind": true,
 					"BuildCondition": "ANY \"BUILDINGS_CONSTRUCTED All FlashShifter.StardewValleyExpandedCP_PremiumCoop\"",
+					"BuildingToUpgrade": "FlashShifter.StardewValleyExpandedCP_PremiumCoop",
+					"MagicalConstruction": false,
 					"BuildDays": 5,
 					"BuildCost": 300000,
 					"BuildMaterials": [
@@ -286,8 +235,6 @@
 							"Amount": 20
 						}
 					],
-					"BuildingToUpgrade": "FlashShifter.StardewValleyExpandedCP_PremiumCoop",
-					"MagicalConstruction": false,
 					"BuildMenuDrawOffset": {
 						"X": 0,
 						"Y": 0
@@ -307,54 +254,6 @@
 					"AnimalDoorCloseDuration": 0.3125,
 					"AnimalDoorCloseSound": "doorCreakReverse",
 					"NonInstancedIndoorLocation": null,
-					"IndoorMap": "{{ModId}}_SpaciousCoop",
-					"IndoorMapType": "StardewValley.AnimalHouse",
-					"MaxOccupants": 48,
-					"ValidOccupantTypes": [
-						"Coop"
-					],
-					"AllowAnimalPregnancy": false,
-					"IndoorItemMoves": null,
-					"IndoorItems": [
-						{
-							"Id": "Default_FeedHopper",
-							"ItemId": "(BC)99",
-							"Tile": {
-								"X": 4,
-								"Y": 3
-							},
-							"Indestructible": true
-						},
-						{
-							"Id": "Default_Incubator",
-							"ItemId": "(BC)101",
-							"Tile": {
-								"X": 3,
-								"Y": 3
-							},
-							"Indestructible": true
-						},
-						{
-							"Id": "Extra_Incubator",
-							"ItemId": "(BC)101",
-							"Tile": {
-								"X": 24,
-								"Y": 3
-							},
-							"Indestructible": false
-						}
-					],
-					"AddMailOnBuild": null,
-					"Metadata": {},
-					"ModData": {},
-					"HayCapacity": 0,
-					"Chests": null,
-					"DefaultAction": null,
-					"AdditionalTilePropertyRadius": 0,
-					"AllowsFlooringUnderneath": true,
-					"ActionTiles": [],
-					"TileProperties": [],
-					"ItemConversions": null,
 					"DrawLayers": [
 						{
 							"Id": "Default_Overlay",
@@ -411,6 +310,49 @@
 							}
 						}
 					],
+					"IndoorMap": "{{ModId}}_SpaciousCoop",
+					"IndoorMapType": "StardewValley.AnimalHouse",
+					"MaxOccupants": 48,
+					"ValidOccupantTypes": [
+						"Coop"
+					],
+					"AllowAnimalPregnancy": false,
+					"IndoorItemMoves": null,
+					"IndoorItems": [
+						{
+							"Id": "Default_FeedHopper",
+							"ItemId": "(BC)99",
+							"Tile": {
+								"X": 4,
+								"Y": 3
+							},
+							"Indestructible": true
+						},
+						{
+							"Id": "Default_Incubator",
+							"ItemId": "(BC)101",
+							"Tile": {
+								"X": 3,
+								"Y": 3
+							},
+							"Indestructible": true
+						},
+						{
+							"Id": "Extra_Incubator",
+							"ItemId": "(BC)101",
+							"Tile": {
+								"X": 24,
+								"Y": 3
+							},
+							"Indestructible": false
+						}
+					],
+					"SortTileOffset": 2.5,
+					"CollisionMap": "XXXXXXOOO\nXXXXXXXXX\nXXXXXXXXX\nXXXXXXOOO",
+					"DefaultAction": null,
+					"AllowsFlooringUnderneath": true,
+					"ActionTiles": [],
+					"TileProperties": [],
 					"CustomFields": null
 				}
 			}
