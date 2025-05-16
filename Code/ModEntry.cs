@@ -143,7 +143,7 @@ namespace spaciouscoopnbarn
                 interior.warps[1] = new(w.X, w.Y, w.TargetName, w.TargetX + 8, w.TargetY, w.flipFarmer.Value, w.npcOnly.Value);
             }
         }
-
+    }
     
     [HarmonyPatch(typeof(Building), nameof(Building.InitializeIndoor))]
     public static class SpaciousBarnAutoGrabberFix
