@@ -40,6 +40,14 @@
             "FromFile": "assets/Maps/Buildings/SpaciousBarn.tmx"
         },
 		{
+            "Action": "EditData",
+            "Target": "Data/PaintData",
+            "Entries": {
+			    "FlashShifter.StardewValleyExpandedCP_PremiumBarn": "Building/-10 0/Roof/-10 5/Trim/-5 0",
+				"FlashShifter.StardewValleyExpandedCP_PremiumCoop": "Building/-12 0/Roof/-10 5/Trim/-10 5"
+			}
+		},
+		{
 			"LogName": "Create Spacious Barn",
 			"Action": "EditData",
 			"Target": "Data/Buildings",
