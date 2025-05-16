@@ -64,7 +64,7 @@ namespace spaciouscoopnbarn
         }
 
         [HarmonyPatch(typeof(Building), nameof(Building.doesTileHaveProperty))]
-        public static class BuildingSpaciousBarnDoorCursorPatch
+        public static class BuildingDeluxeBarnDoorCursorPatch
         {
             public static void Postfix(Building __instance, int tile_x, int tile_y, string property_name, string layer_name, ref string property_value, ref bool __result)
             {
@@ -86,7 +86,7 @@ namespace spaciouscoopnbarn
         }
 
         [HarmonyPatch(typeof(Building), nameof(Building.doAction))]
-        public static class BuildingSpaciousBarnDoorPatch
+        public static class BuildingDeluxeBarnDoorPatch
         {
             public static void Postfix(Building __instance, Vector2 tileLocation, Farmer who, ref bool __result)
             {
@@ -129,7 +129,7 @@ namespace spaciouscoopnbarn
         }
         
         [HarmonyPatch(typeof(Building), nameof(Building.updateInteriorWarps))]
-        public static class BuildingSpaciousBarnWarpPatch
+        public static class BuildingDeluxeBarnWarpPatch
         {
             public static void Postfix(Building __instance, GameLocation interior)
             {
@@ -140,27 +140,6 @@ namespace spaciouscoopnbarn
 
                 var w = interior.warps[1];
                 interior.warps[1] = new(w.X, w.Y, w.TargetName, w.TargetX + 8, w.TargetY, w.flipFarmer.Value, w.npcOnly.Value);
-            }
-        }
-    }
-    
-    [HarmonyPatch(typeof(Building), nameof(Building.InitializeIndoor))]
-    public static class SpaciousBarnAutoGrabberFix
-    {
-        public static void Postfix(Building __instance, BuildingData data, bool forConstruction, bool forUpgrade)
-        {
-            if (!forUpgrade)
-                return;
-            if (__instance.buildingType.Value != "{{ModId}}_SpaciousCoop" &&
-                __instance.buildingType.Value != "{{ModId}}_SpaciousBarn")
-                return;
-
-            foreach (var obj in __instance.indoors.Value.Objects.Values)
-            {
-                if (obj.QualifiedItemId == "(BC)165" && obj.heldObject.Value == null)
-                {
-                    obj.heldObject.Value = new Chest();
-                }
             }
         }
     }
