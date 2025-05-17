@@ -9,7 +9,7 @@
   <property name="NightTiles" value="Buildings 17 2 26 Buildings 21 2 26 Buildings 25 2 26 Buildings 30 2 26 Buildings 35 2 26 Buildings 40 2 26 Buildings 44 2 26 Buildings 48 2 26 Back 17 6 12 Back 21 6 12 Back 25 6 54 Back 30 6 54 Back 35 6 54 Back 40 6 54 Back 44 6 12 Back 48 6 12"/>
   <property name="ProduceArea" value="16 5 34 22"/>
   <property name="ViewportFollowPlayer" type="bool" value="true"/>
-  <property name="Warp" value="19 30 Farm 1 1 46 30 Farm 1 1"/>
+  <property name="Warp" value="19 30 Farm 1 1 46 30 Farm 9 1"/>
  </properties>
  <tileset firstgid="1" name="barn" tilewidth="16" tileheight="16" tilecount="84" columns="4">
   <image source="coopTiles" width="64" height="336"/>

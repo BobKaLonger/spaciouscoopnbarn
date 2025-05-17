@@ -194,7 +194,12 @@
 					"DefaultAction": null,
 					"AllowsFlooringUnderneath": true,
 					"ActionTiles": [
-
+						{
+							"X": 9,
+							"Y": 3,
+							"Action": "Warp",
+							"Target": "SpaciousBarn 46 29"
+						}
 					],
 					"TileProperties": [],
 					"CustomFields": null
