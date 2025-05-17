@@ -50,7 +50,7 @@ namespace spaciouscoopnbarn
 
             foreach (var b in e.NewLocation.buildings)
             {
-                if (b.buildingType.Value == "{{ModId}}_SpaciousBarn")
+                if (b.buildingType.Value == "bobkalonger.spaciouscoopnbarn_SpaciousBarn")
                 {
                     Point tileLoc = new(b.tileX.Value + 2, b.tileY.Value + 2);
                     var l = new LightSource($"SVE_PremiumBarnLight_{b.tileX.Value}_{b.tileY.Value}_1", 4, tileLoc.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
@@ -68,7 +68,7 @@ namespace spaciouscoopnbarn
         {
             public static void Postfix(Building __instance, int tile_x, int tile_y, string property_name, string layer_name, ref string property_value, ref bool __result)
             {
-                if (__instance.buildingType.Value == "{{ModId}}_SpaciousBarn" && __instance.daysOfConstructionLeft.Value <= 0)
+                if (__instance.buildingType.Value == "bobkalonger.spaciouscoopnbarn_SpaciousBarn" && __instance.daysOfConstructionLeft.Value <= 0)
                 {
                     var interior = __instance.GetIndoors();
                     if (tile_x == __instance.tileX.Value + __instance.humanDoor.X + 8 &&
@@ -95,7 +95,7 @@ namespace spaciouscoopnbarn
                     return;
                 }
 
-                if (__instance.buildingType.Value == "{{ModId}}_SpaciousBarn" && __instance.daysOfConstructionLeft.Value <= 0)
+                if (__instance.buildingType.Value == "bobkalonger.spaciouscoopnbarn_SpaciousBarn" && __instance.daysOfConstructionLeft.Value <= 0)
                 {
                     var interior = __instance.GetIndoors();
                     if (tileLocation.X == __instance.tileX.Value + __instance.humanDoor.X + 8 &&
@@ -133,12 +133,12 @@ namespace spaciouscoopnbarn
         {
             public static void Postfix(Building __instance, GameLocation interior)
             {
-                if (__instance.buildingType.Value != "{{ModId}}_SpaciousBarn")
+                if (__instance.buildingType.Value != "bobkalonger.spaciouscoopnbarn_SpaciousBarn")
                     return;
                 if (interior == null || interior.warps.Count == 0)
                     return;
 
-                var w = interior.warps[1];
+                var w = interior.warps[2];
                 interior.warps[1] = new(w.X, w.Y, w.TargetName, w.TargetX + 8, w.TargetY, w.flipFarmer.Value, w.npcOnly.Value);
             }
         }
