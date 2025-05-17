@@ -10,41 +10,43 @@
 			"Default": "True"
 		}
 	},
-
-	"CustomLocations": [
-		{
-			"Name": "bobkalonger.spaciouscoopnbarn_SpaciousBarn",
-			"FromMapFile": "assets/Maps/Buildings/SpaciousBarn.tmx",
-			"When": {
-				"Spacious Barn": "True"
-			}
-		},
-		{
-			"Name": "bobkalonger.spaciouscoopnbarn_SpaciousCoop",
-			"FromMapFile": "assets/Maps/Buildings/SpaciousCoop.tmx",
-			"When": {
-				"Spacious Coop": "True"
-			}
-		}
-	],
 	
 	"Changes": [
+		// add location data
+		{
+			"Action": "EditData",
+			"Target": "Data/Locations",
+			"Entries": {
+				"{{ModId}}_SpaciousBarn": {
+					"CreateOnLoad": {
+						"MapPath": "Maps/{{ModId}}_SpaciousBarn"
+					}
+				},
+				"{{ModId}}_SpaciousCoop": {
+					"CreateOnLoad": {
+						"MapPath": "Maps/{{ModId}}_SpaciousCoop"
+					}
+				}
+			}
+		},
+
+		// add the map files
 		{
             "Action": "Load",
-            "Target": "Maps/bobkalonger.spaciouscoopnbarn_SpaciousCoop",
-            "FromFile": "assets/Maps/Buildings/SpaciousCoop.tmx"
+            "Target": "Maps/{{ModId}}_SpaciousBarn",
+            "FromFile": "assets/Maps/Buildings/SpaciousBarn.tmx"
         },
 		{
             "Action": "Load",
-            "Target": "Maps/bobkalonger.spaciouscoopnbarn_SpaciousBarn",
-            "FromFile": "assets/Maps/Buildings/SpaciousBarn.tmx"
+            "Target": "Maps/{{ModId}}_SpaciousCoop",
+            "FromFile": "assets/Maps/Buildings/SpaciousCoop.tmx"
         },
 		{
             "Action": "EditData",
             "Target": "Data/PaintData",
             "Entries": {
-			    "FlashShifter.StardewValleyExpandedCP_PremiumBarn": "Building/-10 0/Roof/-10 5/Trim/-5 0",
-				"FlashShifter.StardewValleyExpandedCP_PremiumCoop": "Building/-12 0/Roof/-10 5/Trim/-10 5"
+			    "{{ModId}}_SpaciousBarn": "Building/-10 0/Roof/-10 5/Trim/-5 0",
+				"{{ModId}}_SpaciousCoop": "Building/-12 0/Roof/-10 5/Trim/-10 5"
 			}
 		},
 		{
@@ -191,7 +193,9 @@
 					"CollisionMap": null,
 					"DefaultAction": null,
 					"AllowsFlooringUnderneath": true,
-					"ActionTiles": [],
+					"ActionTiles": [
+
+					],
 					"TileProperties": [],
 					"CustomFields": null
 				}
