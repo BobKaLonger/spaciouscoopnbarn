@@ -17,54 +17,56 @@
 		{
 			"Action": "Load",
 			"Target": "Buildings/{{ModId}}_SpaciousCoop",
-			"FromFile": "assets/Buildings/SpaciousCoop.png"
+			"FromFile": "assets/SpaciousCoop.png"
 		},
 		{
 			"Action": "Load",
 			"Target": "Buildings/{{ModId}}_SpaciousBarn",
-			"FromFile": "assets/Buildings/SpaciousBarn.png"
-		},
-		
-		// add location data
-		{
-			"Action": "EditData",
-			"Target": "Data/Locations",
-			"Entries": {
-				"SpaciousBarn": {
-					"CreateOnLoad": {
-						"MapPath": "Maps/{{ModId}}_SpaciousBarn"
-					}
-				},
-				"SpaciousCoop": {
-					"CreateOnLoad": {
-						"MapPath": "Maps/{{ModId}}_SpaciousCoop"
-					}
-				}
-			}
+			"FromFile": "assets/SpaciousBarn.png"
 		},
 
 		// add the map files
 		{
             "Action": "Load",
             "Target": "Maps/{{ModId}}_SpaciousBarn",
-            "FromFile": "assets/Maps/Buildings/SpaciousBarn.tmx"
+            "FromFile": "assets/SpaciousBarn.tmx"
         },
 		{
             "Action": "Load",
             "Target": "Maps/{{ModId}}_SpaciousCoop",
-            "FromFile": "assets/Maps/Buildings/SpaciousCoop.tmx"
+            "FromFile": "assets/SpaciousCoop.tmx"
         },
+
+		// add location data
+		{
+			"Action": "EditData",
+			"Target": "Data/Locations",
+			"Entries": {
+				"{{ModId}}_SpaciousBarn": {
+					"CreateOnLoad": {
+						"MapPath": "Maps/{{ModId}}_SpaciousBarn",
+						"Type": "StardewValley.GameLocation"
+					}
+				},
+				"{{ModId}}_SpaciousCoop": {
+					"CreateOnLoad": {
+						"MapPath": "Maps/{{ModId}}_SpaciousCoop",
+						"Type": "StardewValley.GameLocation"
+					}
+				}
+			}
+		},
 
 		//load paint masks from SVE
 		{
             "Action": "Load",
             "Target": "Buildings/{{ModId}}_SpaciousBarn_PaintMask",
-            "FromFile": "assets/Buildings/SpaciousBarn_PaintMask.png"
+            "FromFile": "assets/SpaciousBarn_PaintMask.png"
         },
 		{
             "Action": "Load",
             "Target": "Buildings/{{ModId}}_SpaciousCoop_PaintMask",
-            "FromFile": "assets/Buildings/SpaciousCoop_PaintMask.png"
+            "FromFile": "assets/SpaciousCoop_PaintMask.png"
         },
 		{
             "Action": "EditData",
