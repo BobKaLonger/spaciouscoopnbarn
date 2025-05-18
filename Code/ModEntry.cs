@@ -1,25 +1,43 @@
 ﻿using HarmonyLib;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using StardewModdingAPI;
-using StardewModdingAPI.Events;
-using StardewValley;
-using StardewValley.Locations;
-using StardewValley.TerrainFeatures;
+using Netcode;
+using Rectangle = Microsoft.Xna.Framework.Rectangle;
+
 using System;
-using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Collections.Generic;
 using System.Reflection.Emit;
-using StardewValley.Menus;
-using StardewValley.Objects;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
 using Enumerable = System.Linq.Enumerable;
-using StardewValley.Tools;
+
+using StardewValley;
 using StardewValley.Buildings;
+using StardewValley.Events;
+using StardewValley.Extensions;
+using StardewValley.GameData;
+using StardewValley.Locations;
+using StardewValley.Menus;
+using StardewValley.Network;
+using StardewValley.Objects;
+using StardewValley.TerrainFeatures;
+using StardewValley.Tools;
+using StardewValley.GameData.Buildings;
 using StardewValley.GameData.LocationContexts;
 using StardewValley.TokenizableStrings;
-using StardewValley.GameData.Buildings;
+
+using StardewModdingAPI;
+using StardewModdingAPI.Events;
+using StardewModdingAPI.Utilities;
+
+using xTile.Dimensions;
+using xTile.ObjectModel;
 
 namespace spaciouscoopnbarn
 {
@@ -45,7 +63,7 @@ namespace spaciouscoopnbarn
 
             ActionProperties.ApplyPatch(harmony, Monitor);
             HarmonyPatch_TMXLLoadMapFacingDirection.ApplyPatch(harmony, Monitor);
-            
+
             harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
 
@@ -92,7 +110,7 @@ namespace spaciouscoopnbarn
                     Game1.currentLightSources.Add(l.Id, l);
 
                     tileLoc = new(b.tileX.Value + 8, b.tileY.Value + 2);
-                    l = new LightSource($"SVE_PremiumBarnLight_{b.tileX.Value}_{b.tileY.Value}_2",4, tileLoc.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
+                    l = new LightSource($"SVE_PremiumBarnLight_{b.tileX.Value}_{b.tileY.Value}_2", 4, tileLoc.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
                     Game1.currentLightSources.Add(l.Id, l);
                 }
             }
