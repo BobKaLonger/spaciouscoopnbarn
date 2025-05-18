@@ -55,8 +55,6 @@ namespace spaciouscoopnbarn
             var mi = Helper.ModRegistry.Get("bobkalonger.spaciouscoopnbarn");
             cpPack = mi.GetType().GetProperty("ContentPack")?.GetValue(mi) as IContentPack;
 
-            helper.Events.Player.Warped += PlayerOnWarped;
-
             TouchActionProperties.Enable(helper, Monitor);
 
             var harmony = new Harmony(this.ModManifest.UniqueID);
@@ -67,61 +65,12 @@ namespace spaciouscoopnbarn
             harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
 
-        private void PlayerOnWarped(object sender, WarpedEventArgs e)
-        {
-            if (e.NewLocation == null)
-                return;
-
-            if (e.NewLocation.Name == "Farm" && !Game1.getFarm().modData.ContainsKey("SVE.SpawnedDogHouse"))
-            {
-                int x = -1, y = -1;
-                if (Game1.whichFarm == 0)
-                {
-                    if (Helper.ModRegistry.IsLoaded("flashshifter.immersivefarm2remastered"))
-                    {
-                        x = 52;
-                        y = 6;
-                    }
-                    else if (Helper.ModRegistry.IsLoaded("flashshifter.GrandpasFarm"))
-                    {
-                        x = 101;
-                        y = 37;
-                    }
-                }
-                else if (Game1.whichFarm == Farm.mod_layout && Game1.whichModFarm.Id == "FrontierFarm")
-                {
-                    x = 119;
-                    y = 14;
-                }
-
-                if (x != -1 && y != -1)
-                {
-                    Game1.getFarm().modData.Add("SVE.SpawnedDogHouse", "meow");
-                    Game1.getFarm().furniture.Add(new Furniture("Doghouse", new Vector2(x, y)));
-                }
-            }
-
-            foreach (var b in e.NewLocation.buildings)
-            {
-                if (b.buildingType.Value == "bobkalonger.spaciouscoopnbarn_SpaciousBarn")
-                {
-                    Point tileLoc = new(b.tileX.Value + 2, b.tileY.Value + 2);
-                    var l = new LightSource($"SVE_PremiumBarnLight_{b.tileX.Value}_{b.tileY.Value}_1", 4, tileLoc.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
-                    Game1.currentLightSources.Add(l.Id, l);
-
-                    tileLoc = new(b.tileX.Value + 8, b.tileY.Value + 2);
-                    l = new LightSource($"SVE_PremiumBarnLight_{b.tileX.Value}_{b.tileY.Value}_2", 4, tileLoc.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
-                    Game1.currentLightSources.Add(l.Id, l);
-                }
-            }
-        }
-
         [HarmonyPatch(typeof(Building), nameof(Building.doesTileHaveProperty))]
         public static class BuildingDeluxeBarnDoorCursorPatch
         {
             public static void Postfix(Building __instance, int tile_x, int tile_y, string property_name, string layer_name, ref string property_value, ref bool __result)
             {
-                if (__instance.buildingType.Value == "bobkalonger.spaciouscoopnbarn_SpaciousBarn" && __instance.daysOfConstructionLeft.Value <= 0)
+                if (__instance.buildingType.Value == "SpaciousBarn" && __instance.daysOfConstructionLeft.Value <= 0)
                 {
                     var interior = __instance.GetIndoors();
                     if (tile_x == __instance.tileX.Value + __instance.humanDoor.X + 8 &&
@@ -148,7 +97,7 @@ namespace spaciouscoopnbarn
                     return;
                 }
 
-                if (__instance.buildingType.Value == "bobkalonger.spaciouscoopnbarn_SpaciousBarn" && __instance.daysOfConstructionLeft.Value <= 0)
+                if (__instance.buildingType.Value == "SpaciousBarn" && __instance.daysOfConstructionLeft.Value <= 0)
                 {
                     var interior = __instance.GetIndoors();
                     if (tileLocation.X == __instance.tileX.Value + __instance.humanDoor.X + 8 &&
@@ -185,7 +134,7 @@ namespace spaciouscoopnbarn
         {
             public static void Postfix(Building __instance, GameLocation interior)
             {
-                if (__instance.buildingType.Value != "bobkalonger.spaciouscoopnbarn_SpaciousBarn")
+                if (__instance.buildingType.Value != "SpaciousBarn")
                     return;
                 if (interior == null || interior.warps.Count == 0)
                     return;
@@ -202,11 +151,11 @@ namespace spaciouscoopnbarn
                 string toCheck = null;
                 if (buildingId == "Coop" || buildingId == "Deluxe Coop" || buildingId == "Big Coop" || buildingId == "FlashShifter.StardewValleyExpandedCP_PremiumCoop")
                 {
-                    toCheck = "bobkalonger.spaciouscoopnbarn_SpaciousCoop";
+                    toCheck = "SpaciousCoop";
                 }
                 else if (buildingId == "Barn" || buildingId == "Deluxe Barn" || buildingId == "Big Barn" || buildingId == "FlashShifter.StardewValleyExpandedCP_PremiumBarn")
                 {
-                    toCheck = "bobkalonger.spaciouscoopnbarn_SpaciousBarn";
+                    toCheck = "SpaciousBarn";
                 }
 
                 if (!__result && toCheck != null)
