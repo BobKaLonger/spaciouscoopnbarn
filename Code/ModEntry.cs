@@ -52,7 +52,7 @@ namespace spaciouscoopnbarn
 
             I18n.Init(Helper.Translation);
 
-            var mi = Helper.ModRegistry.Get("bobkalonger.spaciouscoopnbarn");
+            var mi = Helper.ModRegistry.Get("bobkalonger.spaciouscoopnbarnCP");
             cpPack = mi.GetType().GetProperty("ContentPack")?.GetValue(mi) as IContentPack;
 
             TouchActionProperties.Enable(helper, Monitor);
@@ -70,7 +70,7 @@ namespace spaciouscoopnbarn
         {
             public static void Postfix(Building __instance, int tile_x, int tile_y, string property_name, string layer_name, ref string property_value, ref bool __result)
             {
-                if (__instance.buildingType.Value == "bobkalonger.spaciouscoopnbarn_SpaciousBarn" && __instance.daysOfConstructionLeft.Value <= 0)
+                if (__instance.buildingType.Value == "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn" && __instance.daysOfConstructionLeft.Value <= 0)
                 {
                     var interior = __instance.GetIndoors();
                     if (tile_x == __instance.tileX.Value + __instance.humanDoor.X + 8 &&
@@ -97,7 +97,7 @@ namespace spaciouscoopnbarn
                     return;
                 }
 
-                if (__instance.buildingType.Value == "bobkalonger.spaciouscoopnbarn_SpaciousBarn" && __instance.daysOfConstructionLeft.Value <= 0)
+                if (__instance.buildingType.Value == "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn" && __instance.daysOfConstructionLeft.Value <= 0)
                 {
                     var interior = __instance.GetIndoors();
                     if (tileLocation.X == __instance.tileX.Value + __instance.humanDoor.X + 8 &&
@@ -134,37 +134,13 @@ namespace spaciouscoopnbarn
         {
             public static void Postfix(Building __instance, GameLocation interior)
             {
-                if (__instance.buildingType.Value != "bobkalonger.spaciouscoopnbarn_SpaciousBarn")
+                if (__instance.buildingType.Value != "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn")
                     return;
                 if (interior == null || interior.warps.Count == 0)
                     return;
 
                 var w = interior.warps[1];
                 interior.warps[1] = new(w.X, w.Y, w.TargetName, w.TargetX + 8, w.TargetY, w.flipFarmer.Value, w.npcOnly.Value);
-            }
-        }
-        [HarmonyPatch(typeof(Utility), "_HasBuildingOrUpgrade")]
-        public static class UtilityHasCoopBarnPatch
-        {
-            public static void Postfix(GameLocation location, string buildingId, ref bool __result)
-            {
-                string toCheck = null;
-                if (buildingId == "Coop" || buildingId == "Deluxe Coop" || buildingId == "Big Coop" || buildingId == "FlashShifter.StardewValleyExpandedCP_PremiumCoop")
-                {
-                    toCheck = "bobkalonger.spaciouscoopnbarn_SpaciousCoop";
-                }
-                else if (buildingId == "Barn" || buildingId == "Deluxe Barn" || buildingId == "Big Barn" || buildingId == "FlashShifter.StardewValleyExpandedCP_PremiumBarn")
-                {
-                    toCheck = "bobkalonger.spaciouscoopnbarn_SpaciousBarn";
-                }
-
-                if (!__result && toCheck != null)
-                {
-                    if (location.getNumberBuildingsConstructed(toCheck) > 0)
-                    {
-                        __result = true;
-                    }
-                }
             }
         }
     }
@@ -176,8 +152,8 @@ namespace spaciouscoopnbarn
         {
             if (!forUpgrade)
                 return;
-            if (__instance.buildingType.Value != "bobkalonger.spaciouscoopnbarn_SpaciousCoop" &&
-                __instance.buildingType.Value != "bobkalonger.spaciouscoopnbarn_SpaciousBarn")
+            if (__instance.buildingType.Value != "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop" &&
+                __instance.buildingType.Value != "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn")
                 return;
 
             foreach (var obj in __instance.indoors.Value.Objects.Values)
