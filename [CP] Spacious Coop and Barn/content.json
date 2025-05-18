@@ -16,13 +16,13 @@
 		//load artwork from SVE
 		{
 			"Action": "Load",
-			"Target": "assets/Buildings/SpaciousCoop",
-			"FromFile": "Buildings/SpaciousCoop.png"
+			"Target": "Buildings/SpaciousCoop",
+			"FromFile": "assets/Buildings/SpaciousCoop.png"
 		},
 		{
 			"Action": "Load",
-			"Target": "assets/Buildings/SpaciousBarn",
-			"FromFile": "Buildings/SpaciousBarn.png"
+			"Target": "Buildings/SpaciousBarn",
+			"FromFile": "assets/Buildings/SpaciousBarn.png"
 		},
 		
 		// add location data
