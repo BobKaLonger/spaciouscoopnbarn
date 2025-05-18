@@ -31,14 +31,20 @@ namespace spaciouscoopnbarn
         public override void Entry(IModHelper helper)
         {
             ModEntry.modInstance = this;
+
             I18n.Init(Helper.Translation);
-           
+
             var mi = Helper.ModRegistry.Get("bobkalonger.spaciouscoopnbarn");
             cpPack = mi.GetType().GetProperty("ContentPack")?.GetValue(mi) as IContentPack;
 
             helper.Events.Player.Warped += PlayerOnWarped;
 
+            TouchActionProperties.Enable(helper, Monitor);
+
             var harmony = new Harmony(this.ModManifest.UniqueID);
+
+            ActionProperties.ApplyPatch(harmony, Monitor);
+            HarmonyPatch_TMXLLoadMapFacingDirection.ApplyPatch(harmony, Monitor);
             
             harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
@@ -47,6 +53,35 @@ namespace spaciouscoopnbarn
         {
             if (e.NewLocation == null)
                 return;
+
+            if (e.NewLocation.Name == "Farm" && !Game1.getFarm().modData.ContainsKey("SVE.SpawnedDogHouse"))
+            {
+                int x = -1, y = -1;
+                if (Game1.whichFarm == 0)
+                {
+                    if (Helper.ModRegistry.IsLoaded("flashshifter.immersivefarm2remastered"))
+                    {
+                        x = 52;
+                        y = 6;
+                    }
+                    else if (Helper.ModRegistry.IsLoaded("flashshifter.GrandpasFarm"))
+                    {
+                        x = 101;
+                        y = 37;
+                    }
+                }
+                else if (Game1.whichFarm == Farm.mod_layout && Game1.whichModFarm.Id == "FrontierFarm")
+                {
+                    x = 119;
+                    y = 14;
+                }
+
+                if (x != -1 && y != -1)
+                {
+                    Game1.getFarm().modData.Add("SVE.SpawnedDogHouse", "meow");
+                    Game1.getFarm().furniture.Add(new Furniture("Doghouse", new Vector2(x, y)));
+                }
+            }
 
             foreach (var b in e.NewLocation.buildings)
             {
@@ -127,7 +162,6 @@ namespace spaciouscoopnbarn
                 }
             }
         }
-        
         [HarmonyPatch(typeof(Building), nameof(Building.updateInteriorWarps))]
         public static class BuildingDeluxeBarnWarpPatch
         {
@@ -138,8 +172,53 @@ namespace spaciouscoopnbarn
                 if (interior == null || interior.warps.Count == 0)
                     return;
 
-                var w = interior.warps[2];
+                var w = interior.warps[1];
                 interior.warps[1] = new(w.X, w.Y, w.TargetName, w.TargetX + 8, w.TargetY, w.flipFarmer.Value, w.npcOnly.Value);
+            }
+        }
+        [HarmonyPatch(typeof(Utility), "_HasBuildingOrUpgrade")]
+        public static class UtilityHasCoopBarnPatch
+        {
+            public static void Postfix(GameLocation location, string buildingId, ref bool __result)
+            {
+                string toCheck = null;
+                if (buildingId == "Coop" || buildingId == "Deluxe Coop" || buildingId == "Big Coop" || buildingId == "FlashShifter.StardewValleyExpandedCP_PremiumCoop")
+                {
+                    toCheck = "bobkalonger.spaciouscoopnbarn_SpaciousCoop";
+                }
+                else if (buildingId == "Barn" || buildingId == "Deluxe Barn" || buildingId == "Big Barn" || buildingId == "FlashShifter.StardewValleyExpandedCP_PremiumBarn")
+                {
+                    toCheck = "bobkalonger.spaciouscoopnbarn_SpaciousBarn";
+                }
+
+                if (!__result && toCheck != null)
+                {
+                    if (location.getNumberBuildingsConstructed(toCheck) > 0)
+                    {
+                        __result = true;
+                    }
+                }
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(Building), nameof(Building.InitializeIndoor))]
+    public static class BuildingAutoGrabberFix
+    {
+        public static void Postfix(Building __instance, BuildingData data, bool forConstruction, bool forUpgrade)
+        {
+            if (!forUpgrade)
+                return;
+            if (__instance.buildingType.Value != "bobkalonger.spaciouscoopnbarn_SpaciousCoop" &&
+                __instance.buildingType.Value != "bobkalonger.spaciouscoopnbarn_SpaciousBarn")
+                return;
+
+            foreach (var obj in __instance.indoors.Value.Objects.Values)
+            {
+                if (obj.QualifiedItemId == "(BC)165" && obj.heldObject.Value == null)
+                {
+                    obj.heldObject.Value = new Chest();
+                }
             }
         }
     }

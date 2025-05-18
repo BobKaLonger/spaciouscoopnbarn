@@ -1,12 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <AssemblyName>spaciouscoopnbarn</AssemblyName>
     <RootNamespace>spaciouscoopnbarn</RootNamespace>
-    <Version>1.2.1</Version>
+    <Version>1.3.2</Version>
     <TargetFramework>net6.0</TargetFramework>
     <Platforms>AnyCPU</Platforms>
     <PlatformTarget>AnyCPU</PlatformTarget>
-
     <EnableHarmony>true</EnableHarmony>
 	  <LangVersion>latest</LangVersion>
   </PropertyGroup>
@@ -18,14 +17,4 @@
   <ItemGroup>
     <Reference Include="ContentPatcher" HintPath="$(GameModsPath)\ContentPatcher\ContentPatcher.dll" Private="False" />
   </ItemGroup>
-  <ItemGroup>
-    <None Update="i18n\default.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
-  <PropertyGroup Condition="'$(OS)' == 'Windows_NT'">
-      <StartProgram>$(GamePath)\StardewModdingAPI.exe</StartProgram>
-      <StartWorkingDirectory>$(GamePath)</StartWorkingDirectory>
-  </PropertyGroup>
 </Project>
