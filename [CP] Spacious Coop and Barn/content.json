@@ -12,6 +12,19 @@
 	},
 	
 	"Changes": [
+		
+		//load artwork from SVE
+		{
+			"Action": "Load",
+			"Target": "Buildings/{{ModId}}_SpaciousCoop",
+			"FromFile": "assets/Buildings/SpaciousCoop.png"
+		},
+		{
+			"Action": "Load",
+			"Target": "Buildings/{{ModId}}_SpaciousBarn",
+			"FromFile": "assets/Buildings/SpaciousBarn.png"
+		}
+		
 		// add location data
 		{
 			"Action": "EditData",
@@ -41,6 +54,18 @@
             "Target": "Maps/{{ModId}}_SpaciousCoop",
             "FromFile": "assets/Maps/Buildings/SpaciousCoop.tmx"
         },
+
+		//load paint masks from SVE
+		{
+            "Action": "Load",
+            "Target": "Buildings/{{ModId}}_SpaciousBarn_PaintMask",
+            "FromFile": "assets/Buildings/SpaciousBarn_PaintMask.png"
+        },
+		{
+            "Action": "Load",
+            "Target": "Buildings/{{ModId}}_SpaciousCoop_PaintMask",
+            "FromFile": "assets/Buildings/SpaciousCoop_PaintMask.png"
+        },
 		{
             "Action": "EditData",
             "Target": "Data/PaintData",
@@ -60,7 +85,7 @@
 				"{{ModId}}_SpaciousBarn": {
 					"Name": "{{i18n:SpaciousBarnName}}",
 					"Description": "{{i18n:SpaciousBarnDescription}}",
-					"Texture": "Buildings\\SVE_PremiumBarn",
+					"Texture": "{{ModId}}_SpaciousBarn.png",
 					"Builder": "Robin",
 					"DrawShadow": true,
 					"UpgradeSignTile": "5, 2",
@@ -210,7 +235,7 @@
 				"{{ModId}}_SpaciousCoop": {
 					"Name": "{{i18n:SpaciousCoopName}}",
 					"Description": "{{i18n:SpaciousCoopDescription}}",
-					"Texture": "Buildings\\SVE_PremiumCoop",
+					"Texture": "{{ModId}}_SpaciousCoop",
 					"Builder": "Robin",
 					"DrawShadow": true,
 					"UpgradeSignTile": "2, 2",
