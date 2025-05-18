@@ -16,12 +16,12 @@
 		//load artwork from SVE
 		{
 			"Action": "Load",
-			"Target": "Buildings/SpaciousCoop",
+			"Target": "assets/Buildings/SpaciousCoop",
 			"FromFile": "Buildings/SpaciousCoop.png"
 		},
 		{
 			"Action": "Load",
-			"Target": "Buildings/SpaciousBarn",
+			"Target": "assets/Buildings/SpaciousBarn",
 			"FromFile": "Buildings/SpaciousBarn.png"
 		},
 		
@@ -47,24 +47,24 @@
 		{
             "Action": "Load",
             "Target": "Maps/SpaciousBarn",
-            "FromFile": "Maps/Buildings/SpaciousBarn.tmx"
+            "FromFile": "assets/Maps/Buildings/SpaciousBarn.tmx"
         },
 		{
             "Action": "Load",
             "Target": "Maps/SpaciousCoop",
-            "FromFile": "Maps/Buildings/SpaciousCoop.tmx"
+            "FromFile": "assets/Maps/Buildings/SpaciousCoop.tmx"
         },
 
 		//load paint masks from SVE
 		{
             "Action": "Load",
             "Target": "Buildings/SpaciousBarn_PaintMask",
-            "FromFile": "Buildings/SpaciousBarn_PaintMask.png"
+            "FromFile": "assets/Buildings/SpaciousBarn_PaintMask.png"
         },
 		{
             "Action": "Load",
             "Target": "Buildings/SpaciousCoop_PaintMask",
-            "FromFile": "Buildings/SpaciousCoop_PaintMask.png"
+            "FromFile": "assets/Buildings/SpaciousCoop_PaintMask.png"
         },
 		{
             "Action": "EditData",
@@ -85,7 +85,7 @@
 				"SpaciousBarn": {
 					"Name": "{{i18n:SpaciousBarnName}}",
 					"Description": "{{i18n:SpaciousBarnDescription}}",
-					"Texture": "Buildings/SpaciousBarn.png",
+					"Texture": "Buildings/SpaciousBarn",
 					"Builder": "Robin",
 					"DrawShadow": true,
 					"UpgradeSignTile": "5, 2",
