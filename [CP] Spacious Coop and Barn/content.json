@@ -16,12 +16,12 @@
 		//load artwork from SVE
 		{
 			"Action": "Load",
-			"Target": "Buildings/BSCB_SpaciousCoop",
+			"Target": "Buildings/{{ModId}}_SpaciousCoop",
 			"FromFile": "assets/Buildings/SpaciousCoop.png"
 		},
 		{
 			"Action": "Load",
-			"Target": "Buildings/BSCB_SpaciousBarn",
+			"Target": "Buildings/{{ModId}}_SpaciousBarn",
 			"FromFile": "assets/Buildings/SpaciousBarn.png"
 		},
 		
@@ -32,12 +32,12 @@
 			"Entries": {
 				"SpaciousBarn": {
 					"CreateOnLoad": {
-						"MapPath": "Maps/BSCB_SpaciousBarn"
+						"MapPath": "Maps/{{ModId}}_SpaciousBarn"
 					}
 				},
 				"SpaciousCoop": {
 					"CreateOnLoad": {
-						"MapPath": "Maps/BSCB_SpaciousCoop"
+						"MapPath": "Maps/{{ModId}}_SpaciousCoop"
 					}
 				}
 			}
@@ -46,24 +46,24 @@
 		// add the map files
 		{
             "Action": "Load",
-            "Target": "Maps/BSCB_SpaciousBarn",
+            "Target": "Maps/{{ModId}}_SpaciousBarn",
             "FromFile": "assets/Maps/Buildings/SpaciousBarn.tmx"
         },
 		{
             "Action": "Load",
-            "Target": "Maps/BSCB_SpaciousCoop",
+            "Target": "Maps/{{ModId}}_SpaciousCoop",
             "FromFile": "assets/Maps/Buildings/SpaciousCoop.tmx"
         },
 
 		//load paint masks from SVE
 		{
             "Action": "Load",
-            "Target": "Buildings/BSCB_SpaciousBarn_PaintMask",
+            "Target": "Buildings/{{ModId}}_SpaciousBarn_PaintMask",
             "FromFile": "assets/Buildings/SpaciousBarn_PaintMask.png"
         },
 		{
             "Action": "Load",
-            "Target": "Buildings/BSCB_SpaciousCoop_PaintMask",
+            "Target": "Buildings/{{ModId}}_SpaciousCoop_PaintMask",
             "FromFile": "assets/Buildings/SpaciousCoop_PaintMask.png"
         },
 		{
@@ -85,7 +85,7 @@
 				"{{ModId}}_SpaciousBarn": {
 					"Name": "{{i18n:SpaciousBarnName}}",
 					"Description": "{{i18n:SpaciousBarnDescription}}",
-					"Texture": "Buildings/BSCB_SpaciousBarn",
+					"Texture": "Buildings/{{ModId}}_SpaciousBarn",
 					"Builder": "Robin",
 					"DrawShadow": true,
 					"UpgradeSignTile": "5, 2",
@@ -195,7 +195,7 @@
 							}
 						}
 					],
-					"IndoorMap": "Maps/BSCB_SpaciousBarn",
+					"IndoorMap": "Maps/{{ModId}}_SpaciousBarn",
 					"IndoorMapType": "StardewValley.AnimalHouse",
 					"MaxOccupants": 48,
 					"ValidOccupantTypes": [
@@ -235,7 +235,7 @@
 				"{{ModId}}_SpaciousCoop": {
 					"Name": "{{i18n:SpaciousCoopName}}",
 					"Description": "{{i18n:SpaciousCoopDescription}}",
-					"Texture": "Buildings/BSCB_SpaciousCoop",
+					"Texture": "Buildings/{{ModId}}_SpaciousCoop",
 					"Builder": "Robin",
 					"DrawShadow": true,
 					"UpgradeSignTile": "2, 2",
@@ -345,7 +345,7 @@
 							}
 						}
 					],
-					"IndoorMap": "Maps/BSCB_SpaciousCoop",
+					"IndoorMap": "Maps/{{ModId}}_SpaciousCoop",
 					"IndoorMapType": "StardewValley.AnimalHouse",
 					"MaxOccupants": 48,
 					"ValidOccupantTypes": [
