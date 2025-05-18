@@ -70,7 +70,7 @@ namespace spaciouscoopnbarn
         {
             public static void Postfix(Building __instance, int tile_x, int tile_y, string property_name, string layer_name, ref string property_value, ref bool __result)
             {
-                if (__instance.buildingType.Value == "SpaciousBarn" && __instance.daysOfConstructionLeft.Value <= 0)
+                if (__instance.buildingType.Value == "bobkalonger.spaciouscoopnbarn_SpaciousBarn" && __instance.daysOfConstructionLeft.Value <= 0)
                 {
                     var interior = __instance.GetIndoors();
                     if (tile_x == __instance.tileX.Value + __instance.humanDoor.X + 8 &&
@@ -97,7 +97,7 @@ namespace spaciouscoopnbarn
                     return;
                 }
 
-                if (__instance.buildingType.Value == "SpaciousBarn" && __instance.daysOfConstructionLeft.Value <= 0)
+                if (__instance.buildingType.Value == "bobkalonger.spaciouscoopnbarn_SpaciousBarn" && __instance.daysOfConstructionLeft.Value <= 0)
                 {
                     var interior = __instance.GetIndoors();
                     if (tileLocation.X == __instance.tileX.Value + __instance.humanDoor.X + 8 &&
@@ -134,7 +134,7 @@ namespace spaciouscoopnbarn
         {
             public static void Postfix(Building __instance, GameLocation interior)
             {
-                if (__instance.buildingType.Value != "SpaciousBarn")
+                if (__instance.buildingType.Value != "bobkalonger.spaciouscoopnbarn_SpaciousBarn")
                     return;
                 if (interior == null || interior.warps.Count == 0)
                     return;
@@ -151,11 +151,11 @@ namespace spaciouscoopnbarn
                 string toCheck = null;
                 if (buildingId == "Coop" || buildingId == "Deluxe Coop" || buildingId == "Big Coop" || buildingId == "FlashShifter.StardewValleyExpandedCP_PremiumCoop")
                 {
-                    toCheck = "SpaciousCoop";
+                    toCheck = "bobkalonger.spaciouscoopnbarn_SpaciousCoop";
                 }
                 else if (buildingId == "Barn" || buildingId == "Deluxe Barn" || buildingId == "Big Barn" || buildingId == "FlashShifter.StardewValleyExpandedCP_PremiumBarn")
                 {
-                    toCheck = "SpaciousBarn";
+                    toCheck = "bobkalonger.spaciouscoopnbarn_SpaciousBarn";
                 }
 
                 if (!__result && toCheck != null)
