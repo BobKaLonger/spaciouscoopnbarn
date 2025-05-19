@@ -1,43 +1,25 @@
 ﻿using HarmonyLib;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Netcode;
-using Rectangle = Microsoft.Xna.Framework.Rectangle;
-
+using StardewModdingAPI;
+using StardewModdingAPI.Events;
+using StardewValley;
+using StardewValley.Locations;
+using StardewValley.TerrainFeatures;
 using System;
-using System.Diagnostics;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Collections.Generic;
 using System.Reflection.Emit;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using Enumerable = System.Linq.Enumerable;
-
-using StardewValley;
-using StardewValley.Buildings;
-using StardewValley.Events;
-using StardewValley.Extensions;
-using StardewValley.GameData;
-using StardewValley.Locations;
 using StardewValley.Menus;
-using StardewValley.Network;
 using StardewValley.Objects;
-using StardewValley.TerrainFeatures;
+using Enumerable = System.Linq.Enumerable;
 using StardewValley.Tools;
-using StardewValley.GameData.Buildings;
+using StardewValley.Buildings;
 using StardewValley.GameData.LocationContexts;
 using StardewValley.TokenizableStrings;
-
-using StardewModdingAPI;
-using StardewModdingAPI.Events;
-using StardewModdingAPI.Utilities;
-
-using xTile.Dimensions;
-using xTile.ObjectModel;
+using StardewValley.GameData.Buildings;
 
 namespace spaciouscoopnbarn
 {
