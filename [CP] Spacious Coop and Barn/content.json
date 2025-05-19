@@ -43,15 +43,17 @@
 			"Target": "Data/Locations",
 			"Entries": {
 				"{{ModId}}_SpaciousBarn": {
+					"DisplayName": "Spacious Barn",
+					"DefaultArrivalTile": "19 29",
 					"CreateOnLoad": {
-						"MapPath": "Maps/{{ModId}}_SpaciousBarn",
-						"Type": "StardewValley.AnimalHouse"
+						"MapPath": "Maps//{{ModId}}_SpaciousBarn"
 					}
 				},
 				"{{ModId}}_SpaciousCoop": {
+					"DisplayName": "Spacious Coop",
+					"DefaultArrivalTile": "28 25",
 					"CreateOnLoad": {
-						"MapPath": "Maps/{{ModId}}_SpaciousCoop",
-						"Type": "StardewValley.AnimalHouse"
+						"MapPath": "Maps//{{ModId}}_SpaciousCoop"
 					}
 				}
 			}
