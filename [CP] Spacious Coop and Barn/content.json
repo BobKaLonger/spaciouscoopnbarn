@@ -10,35 +10,22 @@
 			"Default": "True"
 		}
 	},
-	
+
 	"Changes": [
-		
-		//load artwork from SVE
 		{
+			"LogName": "Load Spacious Coop Sprite",
 			"Action": "Load",
 			"Target": "Buildings/{{ModId}}_SpaciousCoop",
 			"FromFile": "assets/SpaciousCoop.png"
 		},
 		{
+			"LogName": "Load Spacious Barn Sprite",
 			"Action": "Load",
 			"Target": "Buildings/{{ModId}}_SpaciousBarn",
 			"FromFile": "assets/SpaciousBarn.png"
 		},
-
-		// add the map files
 		{
-            "Action": "Load",
-            "Target": "Maps/{{ModId}}_SpaciousBarn",
-            "FromFile": "assets/SpaciousBarn.tmx"
-        },
-		{
-            "Action": "Load",
-            "Target": "Maps/{{ModId}}_SpaciousCoop",
-            "FromFile": "assets/SpaciousCoop.tmx"
-        },
-
-		// add location data
-		{
+			"LogName": "Add Spacious Locations Data",
 			"Action": "EditData",
 			"Target": "Data/Locations",
 			"Entries": {
@@ -46,31 +33,44 @@
 					"DisplayName": "Spacious Barn",
 					"DefaultArrivalTile": "19 29",
 					"CreateOnLoad": {
-						"MapPath": "Maps//{{ModId}}_SpaciousBarn"
+						"MapPath": "Maps/{{ModId}}_SpaciousBarn"
 					}
 				},
 				"{{ModId}}_SpaciousCoop": {
 					"DisplayName": "Spacious Coop",
 					"DefaultArrivalTile": "28 25",
 					"CreateOnLoad": {
-						"MapPath": "Maps//{{ModId}}_SpaciousCoop"
+						"MapPath": "Maps/{{ModId}}_SpaciousCoop"
 					}
 				}
 			}
 		},
-
-		//load paint masks from SVE
 		{
+            "LogName": "Add Spacious Barn Map",
+            "Action": "Load",
+            "Target": "Maps/{{ModId}}_SpaciousBarn",
+            "FromFile": "assets/SpaciousBarn.tmx"
+        },
+		{
+            "LogName": "Add Spacious Coop Map",
+            "Action": "Load",
+            "Target": "Maps/{{ModId}}_SpaciousCoop",
+            "FromFile": "assets/SpaciousCoop.tmx"
+        },
+		{
+            "LogName": "Load Spacious Barn Paint Mask",
             "Action": "Load",
             "Target": "Buildings/{{ModId}}_SpaciousBarn_PaintMask",
             "FromFile": "assets/SpaciousBarn_PaintMask.png"
         },
 		{
+            "LogName": "Load Spacious Coop Paint Mask",
             "Action": "Load",
             "Target": "Buildings/{{ModId}}_SpaciousCoop_PaintMask",
             "FromFile": "assets/SpaciousCoop_PaintMask.png"
         },
 		{
+            "LogName": "Update Spacious Paint Data",
             "Action": "EditData",
             "Target": "Data/PaintData",
             "Entries": {
@@ -82,9 +82,6 @@
 			"LogName": "Create Spacious Barn",
 			"Action": "EditData",
 			"Target": "Data/Buildings",
-			"When": {
-				"Spacious Barn": "True"
-			},
 			"Entries": {
 				"{{ModId}}_SpaciousBarn": {
 					"Name": "{{i18n:SpaciousBarnName}}",
