@@ -31,14 +31,20 @@
 			"Entries": {
 				"{{ModId}}_SpaciousBarn": {
 					"DisplayName": "Spacious Barn",
-					"DefaultArrivalTile": "19 29",
+					"DefaultArrivalTile": {
+						"X": 19,
+						"Y": 29
+					},
 					"CreateOnLoad": {
 						"MapPath": "Maps/{{ModId}}_SpaciousBarn"
 					}
 				},
 				"{{ModId}}_SpaciousCoop": {
 					"DisplayName": "Spacious Coop",
-					"DefaultArrivalTile": "28 25",
+					"DefaultArrivalTile": {
+						"X": 28,
+						"Y": 25
+					},
 					"CreateOnLoad": {
 						"MapPath": "Maps/{{ModId}}_SpaciousCoop"
 					}
