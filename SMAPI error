@@ -1,0 +1,40 @@
+debug build bobkalonger.spaciouscoopnbarnCP_SpaciousBarn
+[game] Error trying to instantiate indoors for 'bobkalonger.spaciouscoopnbarnCP_SpaciousBarn'
+MissingMethodException: Constructor on type 'StardewValley.AnimalHouse' not found.
+   at System.RuntimeType.CreateInstanceImpl(BindingFlags bindingAttr, Binder binder, Object[] args, CultureInfo culture)
+   at System.Activator.CreateInstance(Type type, BindingFlags bindingAttr, Binder binder, Object[] args, CultureInfo culture, Object[] activationAttributes)
+   at System.Activator.CreateInstance(Type type, Object[] args)
+   at StardewValley.Buildings.Building.createIndoors(BuildingData data, String nameOfIndoorsWithoutUnique) in D:\GitlabRunner\builds\Gq5qA5P4\1\ConcernedApe\stardewvalley\Farmer\Farmer\Buildings\Building.cs:line 2038
+[game] Error running debug command 'build bobkalonger.spaciouscoopnbarnCP_SpaciousBarn'.
+Microsoft.Xna.Framework.Content.ContentLoadException: The content file was not found.
+ ---> FileNotFoundException: Content/Maps/Maps/bobkalonger.spaciouscoopnbarnCP_SpaciousBarn.xnb
+ ---> DirectoryNotFoundException: Could not find a part of the path '/home/bobkalonger/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps/common/Stardew Valley/Content/Maps/Maps/bobkalonger.spaciouscoopnbarnCP_SpaciousBarn.xnb'.
+   at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirectory, Func`2 errorRewriter)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at Microsoft.Xna.Framework.TitleContainer.PlatformOpenStream(String safeName) in D:\GitlabRunner\builds\Gq5qA5P4\1\ConcernedApe\stardewvalley\MonoGame.Desktop\MonoGame.Framework\Platform\TitleContainer.Desktop.cs:line 29
+   at Microsoft.Xna.Framework.TitleContainer.OpenStream(String name) in D:\GitlabRunner\builds\Gq5qA5P4\1\ConcernedApe\stardewvalley\MonoGame.Desktop\MonoGame.Framework\TitleContainer.cs:line 37
+   at Microsoft.Xna.Framework.TitleContainer.OpenStream(String name) in D:\GitlabRunner\builds\Gq5qA5P4\1\ConcernedApe\stardewvalley\MonoGame.Desktop\MonoGame.Framework\TitleContainer.cs:line 58
+   at Microsoft.Xna.Framework.Content.ContentManager.OpenStream(String assetName) in D:\GitlabRunner\builds\Gq5qA5P4\1\ConcernedApe\stardewvalley\MonoGame.Desktop\MonoGame.Framework\Content\ContentManager.cs:line 272
+   --- End of inner exception stack trace ---
+   at Microsoft.Xna.Framework.Content.ContentManager.OpenStream(String assetName) in D:\GitlabRunner\builds\Gq5qA5P4\1\ConcernedApe\stardewvalley\MonoGame.Desktop\MonoGame.Framework\Content\ContentManager.cs:line 289
+   at Microsoft.Xna.Framework.Content.ContentManager.ReadAsset[T](String assetName, Action`1 recordDisposableObject) in D:\GitlabRunner\builds\Gq5qA5P4\1\ConcernedApe\stardewvalley\MonoGame.Desktop\MonoGame.Framework\Content\ContentManager.cs:line 319
+   at Microsoft.Xna.Framework.Content.ContentManager.Load[T](String assetName) in D:\GitlabRunner\builds\Gq5qA5P4\1\ConcernedApe\stardewvalley\MonoGame.Desktop\MonoGame.Framework\Content\ContentManager.cs:line 255
+   at StardewModdingAPI.Framework.ContentManagers.BaseContentManager.RawLoad[T](IAssetName assetName, Boolean useCache) in SMAPI\Framework\ContentManagers\BaseContentManager.cs:line 340
+   at StardewModdingAPI.Framework.ContentManagers.GameContentManager.<>c__DisplayClass6_0`1.<LoadExact>b__0() in SMAPI\Framework\ContentManagers\GameContentManager.cs:line 127
+   at StardewModdingAPI.Framework.Utilities.ContextHash`1.Track[TResult](T key, Func`1 action) in SMAPI\Framework\Utilities\ContextHash.cs:line 53
+   at StardewModdingAPI.Framework.ContentManagers.GameContentManager.LoadExact[T](IAssetName assetName, Boolean useCache)
+   at StardewModdingAPI.Framework.ContentManagers.BaseContentManager.LoadLocalized[T](IAssetName assetName, LanguageCode language, Boolean useCache) in SMAPI\Framework\ContentManagers\BaseContentManager.cs:line 154
+   at StardewValley.GameLocation.loadMap(String mapPath, Boolean force_reload) in D:\GitlabRunner\builds\Gq5qA5P4\1\ConcernedApe\stardewvalley\Farmer\Farmer\Locations\GameLocation.cs:line 2023
+   at StardewValley.GameLocation.reloadMap() in D:\GitlabRunner\builds\Gq5qA5P4\1\ConcernedApe\stardewvalley\Farmer\Farmer\Locations\GameLocation.cs:line 2187
+   at StardewValley.GameLocation..ctor(String mapPath, String name) in D:\GitlabRunner\builds\Gq5qA5P4\1\ConcernedApe\stardewvalley\Farmer\Farmer\Locations\GameLocation.cs:line 1477
+   at StardewValley.Buildings.Building.createIndoors(BuildingData data, String nameOfIndoorsWithoutUnique) in D:\GitlabRunner\builds\Gq5qA5P4\1\ConcernedApe\stardewvalley\Farmer\Farmer\Buildings\Building.cs:line 2043
+   at StardewValley.Buildings.Building.LoadFromBuildingData(BuildingData data, Boolean forUpgrade, Boolean forConstruction) in D:\GitlabRunner\builds\Gq5qA5P4\1\ConcernedApe\stardewvalley\Farmer\Farmer\Buildings\Building.cs:line 543
+   at StardewValley.Buildings.Building.performActionOnConstruction(GameLocation location, Farmer who) in D:\GitlabRunner\builds\Gq5qA5P4\1\ConcernedApe\stardewvalley\Farmer\Farmer\Buildings\Building.cs:line 1218
+   at StardewValley.FarmerTeam.OnBuildingConstructedEvent(BinaryReader reader) in D:\GitlabRunner\builds\Gq5qA5P4\1\ConcernedApe\stardewvalley\Farmer\Farmer\FarmerTeam.cs:line 1123
+   at Netcode.NetEventBinary.<>c__DisplayClass2_0.<AddReaderHandler>b__0(Byte[] bytes) in D:\GitlabRunner\builds\Gq5qA5P4\1\ConcernedApe\stardewvalley\Farmer\Farmer\Network\NetFields\NetEvent.cs:line 227
+   at Netcode.AbstractNetEvent1`1.Poll() in D:\GitlabRunner\builds\Gq5qA5P4\1\ConcernedApe\stardewvalley\Farmer\Farmer\Network\NetFields\NetEvent.cs:line 144
+   at StardewValley.GameLocation.buildStructure(String typeId, BuildingData data, Vector2 tileLocation, Farmer who, Building& constructed, Boolean magicalConstruction, Boolean skipSafetyChecks) in D:\GitlabRunner\builds\Gq5qA5P4\1\ConcernedApe\stardewvalley\Farmer\Farmer\Locations\GameLocation.cs:line 18047
+   at StardewValley.DebugCommands.DefaultHandlers.Build(String[] command, IGameLogger log)
+   at StardewValley.DebugCommands.TryHandle(String[] command, IGameLogger log) in D:\GitlabRunner\builds\Gq5qA5P4\1\ConcernedApe\stardewvalley\Farmer\Farmer\DebugCommands.cs:line 107
