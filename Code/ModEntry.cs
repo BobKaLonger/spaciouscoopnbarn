@@ -125,24 +125,28 @@ namespace spaciouscoopnbarn
                 interior.warps[1] = new(w.X, w.Y, w.TargetName, w.TargetX + 8, w.TargetY, w.flipFarmer.Value, w.npcOnly.Value);
             }
         }
-    }
 
-    [HarmonyPatch(typeof(Building), nameof(Building.InitializeIndoor))]
-    public static class BuildingAutoGrabberFix
-    {
-        public static void Postfix(Building __instance, BuildingData data, bool forConstruction, bool forUpgrade)
+        [HarmonyPatch(typeof(Utility), "_HasBuildingOrUpgrade")]
+        public static class UtilityHasCoopBarnPatch
         {
-            if (!forConstruction)
-                return;
-            if (__instance.buildingType.Value != "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop" &&
-                __instance.buildingType.Value != "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn")
-                return;
-
-            foreach (var obj in __instance.indoors.Value.Objects.Values)
+            public static void Postfix(GameLocation location, string buildingId, ref bool __result)
             {
-                if (obj.QualifiedItemId == "(BC)165" && obj.heldObject.Value == null)
+                string toCheck = null;
+                if (buildingId == "Coop" || buildingId == "Deluxe Coop" || buildingId == "Big Coop" || buildingId == "FlashShifter.StardewValleyExpandedCP_PremiumCoop")
                 {
-                    obj.heldObject.Value = new Chest();
+                    toCheck = "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop";
+                }
+                else if (buildingId == "Barn" || buildingId == "Deluxe Barn" || buildingId == "Big Barn" || buildingId == "FlashShifter.StardewValleyExpandedCP_PremiumBarn")
+                {
+                    toCheck = "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn";
+                }
+
+                if (!__result && toCheck != null)
+                {
+                    if (location.getNumberBuildingsConstructed(toCheck) > 0)
+                    {
+                        __result = true;
+                    }
                 }
             }
         }
