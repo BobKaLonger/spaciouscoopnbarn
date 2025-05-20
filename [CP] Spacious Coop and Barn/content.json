@@ -36,7 +36,6 @@
 					},
 					"CreateOnLoad": {
 						"MapPath": "Maps/{{ModId}}_SpaciousBarn",
-						"Type": "StardewValley.AnimalHouse"
 					}
 				},
 				"{{ModId}}_SpaciousCoop": {
@@ -46,7 +45,6 @@
 					},
 					"CreateOnLoad": {
 						"MapPath": "Maps/{{ModId}}_SpaciousCoop",
-						"Type": "StardewValley.AnimalHouse"
 					}
 				}
 			}
@@ -109,7 +107,7 @@
 					},
 					"FadeWhenBehind": true,
 					"BuildCondition": null,
-					"BuildingToUpgrade": "FlashShifter.StardewValleyExpandedCP_PremiumBarn",
+					"BuildingToUpgrade": null,
 					"MagicalConstruction": "false",
 					"BuildDays": 5,
 					"BuildCost": 350000,
@@ -259,7 +257,7 @@
 					},
 					"FadeWhenBehind": true,
 					"BuildCondition": null,
-					"BuildingToUpgrade": "FlashShifter.StardewValleyExpandedCP_PremiumCoop",
+					"BuildingToUpgrade": null,
 					"MagicalConstruction": false,
 					"BuildDays": 5,
 					"BuildCost": 300000,
