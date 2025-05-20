@@ -36,7 +36,6 @@
 					},
 					"CreateOnLoad": {
 						"MapPath": "Maps/{{ModId}}_SpaciousBarn",
-						"IndoorMapType": "StardewValley.AnimalHouse"
 					}
 				},
 				"{{ModId}}_SpaciousCoop": {
@@ -46,7 +45,6 @@
 					},
 					"CreateOnLoad": {
 						"MapPath": "Maps/{{ModId}}_SpaciousCoop",
-						"IndoorMapType": "StardewValley.AnimalHouse"
 					}
 				}
 			}
