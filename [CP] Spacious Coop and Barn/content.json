@@ -15,13 +15,13 @@
 		{
 			"LogName": "Load Spacious Coop Sprite",
 			"Action": "Load",
-			"Target": "Buildings/{{ModId}}_SpaciousCoop",
+			"Target": "Buildings/SpaciousCoop",
 			"FromFile": "assets/SpaciousCoop.png"
 		},
 		{
 			"LogName": "Load Spacious Barn Sprite",
 			"Action": "Load",
-			"Target": "Buildings/{{ModId}}_SpaciousBarn",
+			"Target": "Buildings/SpaciousBarn",
 			"FromFile": "assets/SpaciousBarn.png"
 		},
 		{
@@ -35,7 +35,7 @@
 						"Y": 29
 					},
 					"CreateOnLoad": {
-						"MapPath": "Maps/{{ModId}}_SpaciousBarn",
+						"MapPath": "Maps/SpaciousBarn"
 					}
 				},
 				"{{ModId}}_SpaciousCoop": {
@@ -44,7 +44,7 @@
 						"Y": 25
 					},
 					"CreateOnLoad": {
-						"MapPath": "Maps/{{ModId}}_SpaciousCoop",
+						"MapPath": "Maps/SpaciousCoop"
 					}
 				}
 			}
@@ -52,25 +52,25 @@
 		{
             "LogName": "Add Spacious Barn Map",
             "Action": "Load",
-            "Target": "Maps/{{ModId}}_SpaciousBarn",
+            "Target": "Maps/SpaciousBarn",
             "FromFile": "assets/SpaciousBarn.tmx"
         },
 		{
             "LogName": "Add Spacious Coop Map",
             "Action": "Load",
-            "Target": "Maps/{{ModId}}_SpaciousCoop",
+            "Target": "Maps/SpaciousCoop",
             "FromFile": "assets/SpaciousCoop.tmx"
         },
 		{
             "LogName": "Load Spacious Barn Paint Mask",
             "Action": "Load",
-            "Target": "Buildings/{{ModId}}_SpaciousBarn_PaintMask",
+            "Target": "Buildings/SpaciousBarn_PaintMask",
             "FromFile": "assets/SpaciousBarn_PaintMask.png"
         },
 		{
             "LogName": "Load Spacious Coop Paint Mask",
             "Action": "Load",
-            "Target": "Buildings/{{ModId}}_SpaciousCoop_PaintMask",
+            "Target": "Buildings/SpaciousCoop_PaintMask",
             "FromFile": "assets/SpaciousCoop_PaintMask.png"
         },
 		{
@@ -90,7 +90,7 @@
 				"{{ModId}}_SpaciousBarn": {
 					"Name": "{{i18n:SpaciousBarnName}}",
 					"Description": "{{i18n:SpaciousBarnDescription}}",
-					"Texture": "Buildings/{{ModId}}_SpaciousBarn",
+					"Texture": "Buildings/SpaciousBarn",
 					"Builder": "Robin",
 					"DrawShadow": true,
 					"UpgradeSignTile": "5, 2",
@@ -107,7 +107,7 @@
 					},
 					"FadeWhenBehind": true,
 					"BuildCondition": null,
-					"BuildingToUpgrade": null,
+					"BuildingToUpgrade": "FlashShifter.StardewValleyExpandedCP_PremiumBarn",
 					"MagicalConstruction": "false",
 					"BuildDays": 5,
 					"BuildCost": 350000,
@@ -200,7 +200,7 @@
 							}
 						}
 					],
-					"IndoorMap": "Maps/{{ModId}}_SpaciousBarn",
+					"IndoorMap": "Maps/SpaciousBarn",
 					"IndoorMapType": "StardewValley.AnimalHouse",
 					"MaxOccupants": 48,
 					"ValidOccupantTypes": [
@@ -240,7 +240,7 @@
 				"{{ModId}}_SpaciousCoop": {
 					"Name": "{{i18n:SpaciousCoopName}}",
 					"Description": "{{i18n:SpaciousCoopDescription}}",
-					"Texture": "Buildings/{{ModId}}_SpaciousCoop",
+					"Texture": "Buildings/SpaciousCoop",
 					"Builder": "Robin",
 					"DrawShadow": true,
 					"UpgradeSignTile": "2, 2",
@@ -257,7 +257,7 @@
 					},
 					"FadeWhenBehind": true,
 					"BuildCondition": null,
-					"BuildingToUpgrade": null,
+					"BuildingToUpgrade": "FlashShifter.StardewValleyExpandedCP_PremiumCoop",
 					"MagicalConstruction": false,
 					"BuildDays": 5,
 					"BuildCost": 300000,
@@ -350,7 +350,7 @@
 							}
 						}
 					],
-					"IndoorMap": "Maps/{{ModId}}_SpaciousCoop",
+					"IndoorMap": "Maps/SpaciousCoop",
 					"IndoorMapType": "StardewValley.AnimalHouse",
 					"MaxOccupants": 48,
 					"ValidOccupantTypes": [
