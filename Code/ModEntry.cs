@@ -106,6 +106,7 @@ namespace spaciouscoopnbarn
                 }
             }
         }
+        
         [HarmonyPatch(typeof(Building), nameof(Building.updateInteriorWarps))]
         public static class BuildingDeluxeBarnWarpPatch
         {
