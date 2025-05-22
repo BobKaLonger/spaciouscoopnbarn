@@ -68,7 +68,7 @@
                     },
 			"CollisionMap": "XXXXXXOOO\nXXXXXXXXX\nXXXXXXXXX\nXXXXXXOOO",
 			"SortTileOffset": "2.5",
-			"BuildCondition": "ANY,
+			"BuildCondition": "ANY \"BUILDINGS_CONSTRUCTED All \\\"Deluxe Coop\\\"\"",
                     "BuildDays": 0,
                     "BuildCost": 100,
                     "BuildMaterials": [
@@ -214,11 +214,10 @@
                         "Height": 144
                     },
 					"FadeWhenBehind": true,
-					"BuildCondition": null,
-					"BuildingToUpgrade": "FlashShifter.StardewValleyExpandedCP_PremiumBarn",
-                    "BuildDays": 5,
-                    "BuildCost": 350000,
-                    "BuildMaterials": [
+					"BuildCondition": "ANY \"BUILDINGS_CONSTRUCTED All \\\"Deluxe Barn\\\"\"",
+					"BuildDays": 0,
+					"BuildCost": 100,
+					"BuildMaterials": [
 						{
 							"ItemId": "(O)328",
 							"Amount": 900
