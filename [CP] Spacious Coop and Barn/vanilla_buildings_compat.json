@@ -1,7 +1,7 @@
 {
     "Changes": [
 
-        //Loads Custom Building Artwork
+//Loads Custom Building Artwork
 	{
             "Action": "Load",
             "Target": "Buildings/spacious_SpaciousBarn",
@@ -13,7 +13,7 @@
             "FromFile": "assets/SpaciousCoop.png",
         },
 
-		//Loads Custom Building Maps
+//Loads Custom Building Maps
         {
             "Action": "Load",
             "Target": "Maps/spacious_SpaciousBarn",
@@ -88,7 +88,7 @@
 			"BuildMenuDrawOffset": {
                         "X": 0,
                         "Y": 00,
-			},
+		    },
                     "HumanDoor": {
                         "X": 7,
                         "Y": 2,
