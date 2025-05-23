@@ -38,12 +38,26 @@ namespace spaciouscoopnbarn
             {
                 if (b.buildingType.Value == "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn")
                 {
-                    Point tileLoc = new(b.tileX.Value + 2, b.tileY.Value + 2);
+                    Point tileLoc = new(b.tileX.Value + 3, b.tileY.Value + 3);
                     var l = new LightSource($"SVE_PremiumBarnLight_{b.tileX.Value}_{b.tileY.Value}_1", 4, tileLoc.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
                     Game1.currentLightSources.Add(l.Id, l);
 
-                    tileLoc = new(b.tileX.Value + 8, b.tileY.Value + 2);
-                    l = new LightSource($"SVE_PremiumBarnLight_{b.tileX.Value}_{b.tileY.Value}_2",4, tileLoc.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
+                    tileLoc = new(b.tileX.Value + 8, b.tileY.Value + 3);
+                    l = new LightSource($"SVE_PremiumBarnLight_{b.tileX.Value}_{b.tileY.Value}_2", 4, tileLoc.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
+                    Game1.currentLightSources.Add(l.Id, l);
+                }
+
+                if (b.buildingType.Value == "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop")
+                {
+                    Point tileLoc = new(b.tileX.Value + 6, b.tileY.Value + 2);
+                    var l = new LightSource($"SVE_PremiumVarnLight_{b.tileX.Value}_{b.tileY.Value}_3", 4, tileLoc.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
+                    Game1.currentLightSources.Add(l.Id, l);
+                }
+
+                if (b.buildingType.Value == "FlashShifter.StardewValleyExpandedCP_PremiumCoop")
+                {
+                    Point tileLoc = new(b.tileX.Value + 6, b.tileY.Value + 2);
+                    var l = new LightSource($"SVE_PremiumVarnLight_{b.tileX.Value}_{b.tileY.Value}_4", 4, tileLoc.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
                     Game1.currentLightSources.Add(l.Id, l);
                 }
             }
