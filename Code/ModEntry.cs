@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using Microsoft.Xna.Framework;
 using StardewModdingAPI;
+using StardewModdingAPI.Events;
 using StardewValley;
 using System.Reflection;
 using StardewValley.Buildings;
@@ -21,9 +22,31 @@ namespace spaciouscoopnbarn
             var mi = Helper.ModRegistry.Get("bobkalonger.spaciouscoopnbarnCP");
             cpPack = mi.GetType().GetProperty("ContentPack")?.GetValue(mi) as IContentPack;
 
+            helper.Events.Player.Warped += PlayerOnWarped;
+
             var harmony = new Harmony(this.ModManifest.UniqueID);
 
             harmony.PatchAll(Assembly.GetExecutingAssembly());
+        }
+
+        private void PlayerOnWarped(object sender, WarpedEventArgs e)
+        {
+            if (e.NewLocation == null)
+                return;
+
+            foreach (var b in e.NewLocation.buildings)
+            {
+                if (b.buildingType.Value == "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn")
+                {
+                    Point tileLoc = new(b.tileX.Value + 2, b.tileY.Value + 2);
+                    var l = new LightSource($"SVE_PremiumBarnLight_{b.tileX.Value}_{b.tileY.Value}_1", 4, tileLoc.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
+                    Game1.currentLightSources.Add(l.Id, l);
+
+                    tileLoc = new(b.tileX.Value + 8, b.tileY.Value + 2);
+                    l = new LightSource($"SVE_PremiumBarnLight_{b.tileX.Value}_{b.tileY.Value}_2",4, tileLoc.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
+                    Game1.currentLightSources.Add(l.Id, l);
+                }
+            }
         }
 
         [HarmonyPatch(typeof(Building), nameof(Building.doesTileHaveProperty))]
