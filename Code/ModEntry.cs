@@ -175,7 +175,7 @@ namespace spaciouscoopnbarn
     {
         public static void Postfix(Building __instance, BuildingData data, bool forConstruction, bool forUpgrade)
         {
-            if (!forConstruction)
+            if (!forUpgrade)
                 return;
             if (__instance.buildingType.Value != "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop" &&
                 __instance.buildingType.Value != "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn")
