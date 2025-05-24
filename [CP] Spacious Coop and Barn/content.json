@@ -14,19 +14,21 @@
 
     "Changes": [
 
-        //Loads Custom Building Artwork
-		{
+//Loads Custom Building Artwork
+		
+        {
             "Action": "Load",
             "Target": "Buildings/spacious_SpaciousBarn",
-            "FromFile": "assets/SpaciousBarn.png",
+            "FromFile": "assets/SpaciousBarn.png"
         },
         {
             "Action": "Load",
             "Target": "Buildings/spacious_SpaciousCoop",
-            "FromFile": "assets/SpaciousCoop.png",
+            "FromFile": "assets/SpaciousCoop.png"
         },
 
-		//Loads Custom Building Maps
+//Loads Custom Building Maps
+
         {
             "Action": "Load",
             "Target": "Maps/spacious_SpaciousBarn",
@@ -38,8 +40,9 @@
             "FromFile": "assets/SpaciousCoop.tmx"
         },
 
-		//Loads Custom Paint Masks
-		{
+//Loads Custom Paint Masks
+
+        {
             "Action": "Load",
             "Target": "Buildings/spacious_SpaciousBarn_PaintMask",
             "FromFile": "assets/SpaciousBarn_PaintMask.png"
@@ -58,7 +61,8 @@
 		    }
 		},
 
-		//Custom Building Data
+//Custom Building Data
+
         {
             "Action": "EditData",
             "Target": "Data/Buildings",
@@ -70,7 +74,7 @@
                     "Builder": "Robin",
                     "Size": {
                         "X": 9,
-                        "Y": 4,
+                        "Y": 4
                     },
 					"FadeWhenBehind": true,
 					"SourceRect": {
@@ -83,8 +87,8 @@
                     "SortTileOffset": "2.5",
 					"BuildCondition": null,
 					"BuildingToUpgrade": "FlashShifter.StardewValleyExpandedCP_PremiumCoop",
-                    "BuildDays": 5,
-                    "BuildCost": 300000,
+                    "BuildDays": 0,
+                    "BuildCost": 100,
                     "BuildMaterials": [
 						{
 							"ItemId": "(O)328",
@@ -105,7 +109,7 @@
                     },
                     "HumanDoor": {
                         "X": 7,
-                        "Y": 2,
+                        "Y": 2
                     },
                     "AnimalDoor": {
                         "X": 2,
@@ -129,7 +133,7 @@
                               "Height": 12
                               },
 							"DrawPosition": "28, 116",
-                            "DrawInBackground": false,
+                            "DrawInBackground": false
 						},
 						{
                             "Id": "Default_AnimalDoor",
@@ -180,7 +184,7 @@
                     "ValidOccupantTypes": [
                         "Coop"
                     ],
-                    "IndoorItems": [
+                    "IndoorItemMoves": [
 						{
 							"Id": "Default_FeedHopper",
 							"ItemId": "(BC)99",
@@ -207,8 +211,35 @@
 								"Y": 3
 							},
 							"Indestructible": false
-						}
-					],
+						},
+                        {
+                            "Id": "Default_Heater",
+                            "ItemId": "(BC)104",
+                            "Tile": {
+                              "X": 23,
+                              "Y": 3
+                            },
+                            "Indestructible": false
+                        },
+						{
+                            "Id": "Default_AutoPetter",
+                            "ItemId": "(BC)272",
+                            "Tile": {
+                              "X": 13,
+                              "Y": 26
+                            },
+                            "Indestructible": false
+                        },
+						{
+                            "Id": "Default_AutoGrabber",
+                            "ItemId": "(BC)165",
+                            "Tile": {
+                              "X": 14,
+                              "Y": 26
+                            },
+                            "Indestructible": false
+                        }
+					]
                 },
 
                 "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn": {
@@ -218,7 +249,7 @@
                     "Builder": "Robin",
                     "Size": {
                         "X": 11,
-                        "Y": 4,
+                        "Y": 4
                     },
                     "SourceRect": {
                         "X": 0,
@@ -229,8 +260,8 @@
 					"FadeWhenBehind": true,
 					"BuildCondition": null,
 					"BuildingToUpgrade": "FlashShifter.StardewValleyExpandedCP_PremiumBarn",
-                    "BuildDays": 5,
-                    "BuildCost": 350000,
+                    "BuildDays": 0,
+                    "BuildCost": 100,
                     "BuildMaterials": [
 						{
 							"ItemId": "(O)328",
@@ -249,10 +280,12 @@
                         "X": 0,
                         "Y": 5
                     },
-					//2nd door on the right is added via C#
+
+//2nd door on the right is added via C#
+
                     "HumanDoor": {
                         "X": 1,
-                        "Y": 3,
+                        "Y": 3
                     },
                     "AnimalDoor": {
                         "X": 4,
@@ -276,7 +309,7 @@
                               "Height": 32
                               },
 							"DrawPosition": "66, 83",
-                            "DrawInBackground": false,
+                            "DrawInBackground": false
 						},
 						{
                             "Id": "Default_AnimalDoor",
@@ -328,13 +361,13 @@
                         "Barn"
                     ],
 					"AllowAnimalPregnancy": true,
-                    "IndoorItems": [
+                    "IndoorItemMoves": [
                         {
                           "Id": "Default_FeedHopper",
                           "ItemId": "(BC)99",
                           "Tile": {
-                            "X": 4,
-                            "Y": 4
+                            "X": 21,
+                            "Y": 3
                           },
                           "Indestructible": true
                         },
@@ -342,8 +375,8 @@
                             "Id": "Default_Heater",
                             "ItemId": "(BC)104",
                             "Tile": {
-                              "X": 7,
-                              "Y": 7
+                              "X": 44,
+                              "Y": 3
                             },
                             "Indestructible": false
                         },
@@ -351,8 +384,8 @@
                             "Id": "Default_AutoPetter",
                             "ItemId": "(BC)272",
                             "Tile": {
-                              "X": 10,
-                              "Y": 16
+                              "X": 46,
+                              "Y": 3
                             },
                             "Indestructible": false
                         },
@@ -360,14 +393,14 @@
                             "Id": "Default_AutoGrabber",
                             "ItemId": "(BC)165",
                             "Tile": {
-                              "X": 17,
-                              "Y": 16
+                              "X": 19,
+                              "Y": 3
                             },
                             "Indestructible": false
                         }
-                    ],
-                },
+                    ]
+                }
             }
-        },
+        }
     ]
 }
