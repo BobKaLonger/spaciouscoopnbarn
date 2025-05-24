@@ -5,6 +5,8 @@ using StardewModdingAPI.Events;
 using StardewValley;
 using System.Reflection;
 using StardewValley.Buildings;
+using StardewValley.GameData.Buildings;
+using StardewValley.Objects;
 
 namespace spaciouscoopnbarn
 {
@@ -164,6 +166,26 @@ namespace spaciouscoopnbarn
                     {
                         __result = true;
                     }
+                }
+            }
+        }
+    }
+    [HarmonyPatch(typeof(Building), nameof(Building.InitializeIndoor))]
+    public static class BuildingAutoGrabberFix
+    {
+        public static void Postfix(Building __instance, BuildingData data, bool forConstruction, bool forUpgrade)
+        {
+            if (!forConstruction)
+                return;
+            if (__instance.buildingType.Value != "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop" &&
+                __instance.buildingType.Value != "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn")
+                return;
+
+            foreach (var obj in __instance.indoors.Value.Objects.Values)
+            {
+                if (obj.QualifiedItemId == "(BC)165" && obj.heldObject.Value == null)
+                {
+                    obj.heldObject.Value = new Chest();
                 }
             }
         }
