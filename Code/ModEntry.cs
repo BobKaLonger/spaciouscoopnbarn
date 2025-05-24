@@ -66,7 +66,7 @@ namespace spaciouscoopnbarn
         }
 
         [HarmonyPatch(typeof(Building), nameof(Building.doesTileHaveProperty))]
-        public static class BuildingDeluxeBarnDoorCursorPatch
+        public static class SpaciousBuildingsCursorPatch
         {
             public static void Postfix(Building __instance, int tile_x, int tile_y, string property_name, string layer_name, ref string property_value, ref bool __result)
             {
@@ -84,11 +84,26 @@ namespace spaciouscoopnbarn
                         }
                     }
                 }
+
+                if (__instance.buildingType.Value == "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop" && __instance.daysOfConstructionLeft.Value <= 0)
+                {
+                    var interior = __instance.GetIndoors();
+                    if (tile_x == __instance.tileX.Value + __instance.humanDoor.X - 2 &&
+                        tile_y == __instance.tileY.Value + __instance.humanDoor.Y - 2 &&
+                        interior != null)
+                    {
+                        if (property_name == "Action")
+                        {
+                            property_value = "meow";
+                            __result = true;
+                        }
+                    }
+                }
             }
         }
 
         [HarmonyPatch(typeof(Building), nameof(Building.doAction))]
-        public static class BuildingDeluxeBarnDoorPatch
+        public static class SpaciousBuildingsDoorPatch
         {
             public static void Postfix(Building __instance, Vector2 tileLocation, Farmer who, ref bool __result)
             {
@@ -127,6 +142,37 @@ namespace spaciouscoopnbarn
                         return;
                     }
                 }
+
+                if (__instance.buildingType.Value == "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop" && __instance.daysOfConstructionLeft.Value <= 0)
+                {
+                    var interior = __instance.GetIndoors();
+                    if (tileLocation.X == __instance.tileX.Value + __instance.humanDoor.X - 2 &&
+                        tileLocation.Y == __instance.tileY.Value + __instance.humanDoor.Y - 2 &&
+                        interior != null)
+                    {
+                        if (who.mount != null)
+                        {
+                            Game1.showRedMessage(Game1.content.LoadString("Strings\\Buildings:DismountBeforeEntering"));
+                            __result = false;
+                            return;
+                        }
+                        if (who.team.demolishLock.IsLocked())
+                        {
+                            Game1.showRedMessage(Game1.content.LoadString("Strings\\Buildings:CantEnter"));
+                            __result = false;
+                            return;
+                        }
+                        if (__instance.OnUseHumanDoor(who))
+                        {
+                            who.currentLocation.playSound("doorClose", tileLocation);
+                            bool isStructure = __instance.indoors.Value != null;
+                            Game1.warpFarmer(interior.NameOrUniqueName, interior.warps[1].X, interior.warps[1].Y - 1, Game1.player.FacingDirection, isStructure);
+                        }
+
+                        __result = true;
+                        return;
+                    }
+                }
             }
         }
 
@@ -135,7 +181,8 @@ namespace spaciouscoopnbarn
         {
             public static void Postfix(Building __instance, GameLocation interior)
             {
-                if (__instance.buildingType.Value != "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn")
+                if (__instance.buildingType.Value != "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop" &&
+                    __instance.buildingType.Value != "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn")
                     return;
                 if (interior == null || interior.warps.Count == 0)
                     return;
