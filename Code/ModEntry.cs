@@ -166,7 +166,7 @@ namespace spaciouscoopnbarn
                         {
                             who.currentLocation.playSound("doorClose", tileLocation);
                             bool isStructure = __instance.indoors.Value != null;
-                            Game1.warpFarmer(interior.NameOrUniqueName, interior.warps[1].X - 1, interior.warps[1].Y, Game1.player.FacingDirection, isStructure);
+                            Game1.warpFarmer(interior.NameOrUniqueName, interior.warps[1].X + 1, interior.warps[1].Y, Game1.player.FacingDirection, isStructure);
                         }
 
                         __result = true;
