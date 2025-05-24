@@ -166,7 +166,7 @@ namespace spaciouscoopnbarn
                         {
                             who.currentLocation.playSound("doorClose", tileLocation);
                             bool isStructure = __instance.indoors.Value != null;
-                            Game1.warpFarmer(interior.NameOrUniqueName, interior.warps[1].X, interior.warps[1].Y - 1, Game1.player.FacingDirection, isStructure);
+                            Game1.warpFarmer(interior.NameOrUniqueName, interior.warps[1].X - 1, interior.warps[1].Y, Game1.player.FacingDirection, isStructure);
                         }
 
                         __result = true;
@@ -177,18 +177,31 @@ namespace spaciouscoopnbarn
         }
 
         [HarmonyPatch(typeof(Building), nameof(Building.updateInteriorWarps))]
-        public static class BuildingDeluxeBarnWarpPatch
+        public static class SpaciousBarnWarpPatch
         {
             public static void Postfix(Building __instance, GameLocation interior)
             {
-                if (__instance.buildingType.Value != "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop" &&
-                    __instance.buildingType.Value != "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn")
+                if (__instance.buildingType.Value != "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn")
                     return;
                 if (interior == null || interior.warps.Count == 0)
                     return;
 
                 var w = interior.warps[1];
                 interior.warps[1] = new(w.X, w.Y, w.TargetName, w.TargetX + 8, w.TargetY, w.flipFarmer.Value, w.npcOnly.Value);
+            }
+        }
+
+        public static class SpaciousCoopWarpPatch
+        {
+            public static void Postfix(Building __instance, GameLocation interior)
+            {
+                if (__instance.buildingType.Value != "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn")
+                    return;
+                if (interior == null || interior.warps.Count == 0)
+                    return;
+
+                var w = interior.warps[1];
+                interior.warps[1] = new(w.X, w.Y, w.TargetName, w.TargetX - 2, w.TargetY - 2, w.flipFarmer.Value, w.npcOnly.Value);
             }
         }
 
