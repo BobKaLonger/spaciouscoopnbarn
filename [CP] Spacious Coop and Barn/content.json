@@ -184,9 +184,12 @@
                     "ValidOccupantTypes": [
                         "Coop"
                     ],
-                    "IndoorItemMoves": [
+
+//Spacious Coop Indoor Items
+
+                    "IndoorItems": [
 						{
-							"Id": "Default_FeedHopper",
+							"Id": "spacious_FeedHopper",
 							"ItemId": "(BC)99",
 							"Tile": {
 								"X": 4,
@@ -195,7 +198,7 @@
 							"Indestructible": true
 						},
 						{
-							"Id": "Default_Incubator",
+							"Id": "spacious_Incubator",
 							"ItemId": "(BC)101",
 							"Tile": {
 								"X": 3,
@@ -204,7 +207,7 @@
 							"Indestructible": true
 						},
 						{
-							"Id": "Extra_Incubator",
+							"Id": "spacious_ExtraIncubator",
 							"ItemId": "(BC)101",
 							"Tile": {
 								"X": 24,
@@ -213,7 +216,7 @@
 							"Indestructible": false
 						},
                         {
-                            "Id": "Default_Heater",
+                            "Id": "spacious_Heater",
                             "ItemId": "(BC)104",
                             "Tile": {
                               "X": 23,
@@ -222,7 +225,7 @@
                             "Indestructible": false
                         },
 						{
-                            "Id": "Default_AutoPetter",
+                            "Id": "spacious_AutoPetter",
                             "ItemId": "(BC)272",
                             "Tile": {
                               "X": 13,
@@ -231,7 +234,7 @@
                             "Indestructible": false
                         },
 						{
-                            "Id": "Default_AutoGrabber",
+                            "Id": "spacious_AutoGrabber",
                             "ItemId": "(BC)165",
                             "Tile": {
                               "X": 14,
@@ -361,9 +364,12 @@
                         "Barn"
                     ],
 					"AllowAnimalPregnancy": true,
-                    "IndoorItemMoves": [
+                    
+//Spacious Barn Indoor Items
+                    
+                    "IndoorItems": [
                         {
-                          "Id": "Default_FeedHopper",
+                          "Id": "spacious_FeedHopper",
                           "ItemId": "(BC)99",
                           "Tile": {
                             "X": 21,
@@ -372,7 +378,7 @@
                           "Indestructible": true
                         },
                         {
-                            "Id": "Default_Heater",
+                            "Id": "spacious_Heater",
                             "ItemId": "(BC)104",
                             "Tile": {
                               "X": 44,
@@ -381,7 +387,7 @@
                             "Indestructible": false
                         },
 						{
-                            "Id": "Default_AutoPetter",
+                            "Id": "spacious_AutoPetter",
                             "ItemId": "(BC)272",
                             "Tile": {
                               "X": 46,
@@ -390,7 +396,7 @@
                             "Indestructible": false
                         },
 						{
-                            "Id": "Default_AutoGrabber",
+                            "Id": "spacious_AutoGrabber",
                             "ItemId": "(BC)165",
                             "Tile": {
                               "X": 19,

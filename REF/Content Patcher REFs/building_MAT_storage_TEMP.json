@@ -1,0 +1,59 @@
+//Spacious Coop
+{
+"IndoorItems": [
+    {
+        "Id": "spacious_FeedHopper",
+		"ItemId": "(BC)99",
+		"Tile": {
+			"X": 4,
+			"Y": 3
+		},
+		"Indestructible": true
+	},
+	{
+		"Id": "spacious_Incubator",
+		"ItemId": "(BC)101",
+		"Tile": {
+			"X": 3,
+			"Y": 3
+		},
+		"Indestructible": true
+	},
+	{
+		"Id": "spacious_ExtraIncubator",
+		"ItemId": "(BC)101",
+		"Tile": {
+			"X": 24,
+			"Y": 3
+		},
+		"Indestructible": false
+	},
+    {
+        "Id": "spacious_Heater",
+        "ItemId": "(BC)104",
+        "Tile": {
+            "X": 23,
+            "Y": 3
+        },
+        "Indestructible": false
+    },
+    {
+        "Id": "spacious_AutoPetter",
+        "ItemId": "(BC)272",
+        "Tile": {
+            "X": 13,
+            "Y": 26
+        },
+        "Indestructible": false
+    },
+    {
+        "Id": "spacious_AutoGrabber",
+        "ItemId": "(BC)165",
+        "Tile": {
+            "X": 14,
+            "Y": 26
+        },
+        "Indestructible": false
+    }
+]
+}
