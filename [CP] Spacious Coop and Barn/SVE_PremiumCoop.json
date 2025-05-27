@@ -1,137 +1,51 @@
 {
-	"Format": "2.6.0",
-
-	"ConfigSchema": {
-		"Barn to Upgrade": {
-			"AllowValues": "Premium Barn (SVE), Mega Barn (Jen's), Deluxe Barn (Vanilla), None (New Building)",
-			"Default": "Premium Barn (SVE)"
-		},
-		"Coop to Upgrade": {
-			"AllowValues": "Premium Coop (SVE), Mega Coop (Jen's), Giant Coop (Resource Chickens), Deluxe Coop (Vanilla), None (New Building)",
-			"Default": "Premium Coop (SVE)"
-		}
-	},
-
     "Changes": [
 
-        //Barn Config Breakouts
-
-        {
-            "Action": "Include",
-            "FromFile": "SVE_PremiumBarn.json",
-            "When": {
-                "Barn to Upgrade": "Premium Barn (SVE)"
-            }
-        },
-        {
-            "Action": "Include",
-            "FromFile": "JMCB_MegaBarn.json",
-            "When": {
-                "Barn to Upgrade": "Mega Barn (Jen's)"
-            }
-        },
-        {
-            "Action": "Include",
-            "FromFile": "Vanilla_DeluxeBarn.json",
-            "When": {
-                "Barn to Upgrade": "Deluxe Barn (Vanilla)"
-            }
-        },
-        {
-            "Action": "Include",
-            "FromFile": "ADDNEW_SpaciousBarn.json",
-            "When": {
-                "Barn to Upgrade": "None (New Building)"
-            }
-        },
-
-        //Coop config Breakouts
-
-          {
-            "Action": "Include",
-            "FromFile": "SVE_PremiumCoop.json",
-            "When": {
-                "Barn to Upgrade": "Premium Coop (SVE)"
-            }
-        },
-        {
-            "Action": "Include",
-            "FromFile": "JMCB_MegaCoop.json",
-            "When": {
-                "Barn to Upgrade": "Mega Coop (Jen's)"
-            }
-        },
-        {
-            "Action": "Include",
-            "FromFile": "RC_GiantCoop.json",
-            "When": {
-                "Barn to Upgrade": "Giant Coop (Resource Chickens)"
-            }
-        },
-        {
-            "Action": "Include",
-            "FromFile": "Vanilla_DeluxeCoop.json",
-            "When": {
-                "Barn to Upgrade": "Deluxe Coop (Vanilla)"
-            }
-        },
-        {
-            "Action": "Include",
-            "FromFile": "ADDNEW_SpaciousCoop.json",
-            "When": {
-                "Barn to Upgrade": "None (New Building)"
-            }
-        },
-
         //Loads Custom Building Artwork
-		
-        {
+	{
             "Action": "Load",
             "Target": "Buildings/spacious_SpaciousBarn",
-            "FromFile": "assets/SpaciousBarn.png"
+            "FromFile": "assets/SpaciousBarn.png",
         },
         {
             "Action": "Load",
             "Target": "Buildings/spacious_SpaciousCoop",
-            "FromFile": "assets/SpaciousCoop.png"
+            "FromFile": "assets/SpaciousCoop.png",
         },
 
-//Loads Custom Building Maps
-
+		//Loads Custom Building Maps
         {
             "Action": "Load",
             "Target": "Maps/spacious_SpaciousBarn",
             "FromFile": "assets/SpaciousBarn.tmx"
         },
-		{
+	{
             "Action": "Load",
             "Target": "Maps/spacious_SpaciousCoop",
             "FromFile": "assets/SpaciousCoop.tmx"
         },
 
 //Loads Custom Paint Masks
-
-        {
+	{
             "Action": "Load",
             "Target": "Buildings/spacious_SpaciousBarn_PaintMask",
             "FromFile": "assets/SpaciousBarn_PaintMask.png"
         },
-		{
+	{
             "Action": "Load",
             "Target": "Buildings/spacious_SpaciousCoop_PaintMask",
             "FromFile": "assets/SpaciousCoop_PaintMask.png"
         },
-		{
+	{
             "Action": "EditData",
             "Target": "Data/PaintData",
             "Entries": {
-			    "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn": "Building/-10 0/Roof/-10 5/Trim/-5 0",
-				"bobkalonger.spaciouscoopnbarnCP_SpaciousCoop": "Building/-12 0/Roof/-10 5/Trim/-10 5"
-		    }
-		},
+		"bobkalonger.spaciouscoopnbarnCP_SpaciousBarn": "Building/-10 0/Roof/-10 5/Trim/-5 0",
+		"bobkalonger.spaciouscoopnbarnCP_SpaciousCoop": "Building/-12 0/Roof/-10 5/Trim/-10 5"
+		}
+	},
 
 //Custom Building Data
-
         {
             "Action": "EditData",
             "Target": "Data/Buildings",
@@ -143,76 +57,90 @@
                     "Builder": "Robin",
                     "Size": {
                         "X": 9,
-                        "Y": 4
+                        "Y": 4,
                     },
-					"FadeWhenBehind": true,
-					"SourceRect": {
+			"FadeWhenBehind": true,
+			"SourceRect": {
                         "X": 0,
                         "Y": 0,
                         "Width": 144,
                         "Height": 144
                     },
-                    "CollisionMap": "XXXXXXOOO\nXXXXXXXXX\nXXXXXXXXX\nXXXXXXOOO",
-                    "SortTileOffset": "2.5",
-					"BuildCondition": null,
-					"BuildingToUpgrade": "FlashShifter.StardewValleyExpandedCP_PremiumCoop",
+			"CollisionMap": "XXXXXXOOO\nXXXXXXXXX\nXXXXXXXXX\nXXXXXXOOO",
+			"SortTileOffset": "2.5",
+			"BuildCondition": null,
+			"BuildingToUpgrade": "FlashShifter.StardewValleyExpandedCP_PremiumCoop",
                     "BuildDays": 0,
                     "BuildCost": 100,
-                    "BuildMaterials": [],
-                    "BuildMenuDrawOffset": {
+                    "BuildMaterials": [
+			    {
+				    "ItemId": "(O)328",
+				    "Amount": 800
+			    },
+			    {
+				    "ItemId": "(O)322",
+				    "Amount": 400
+			    },
+			    {
+				    "ItemId": "(O)337",
+				    "Amount": 20
+			    }
+		    ],
+			"BuildMenuDrawOffset": {
                         "X": 0,
-                        "Y": 0
-                    },
+                        "Y": 00,
+			},
                     "HumanDoor": {
                         "X": 7,
-                        "Y": 2
-                    },
+                        "Y": 2,
+		    },
                     "AnimalDoor": {
                         "X": 2,
                         "Y": 3,
                         "Width": 2,
                         "Height": 1
                     },
-					"AnimalDoorOpenDuration": 0.3125,
-                    "AnimalDoorOpenSound": "doorCreak",
-                    "AnimalDoorCloseDuration": 0.3125,
-                    "AnimalDoorCloseSound": "doorCreakReverse",
-					"NonInstancedIndoorLocation": null,
-					"DrawLayers": [
-					    {
-                            "Id": "Default_Overlay",
-							"Texture": null,
-                            "SourceRect": {
-                              "X": 90,
-                              "Y": 146,
-                              "Width": 40,
-                              "Height": 12
-                              },
-							"DrawPosition": "28, 116",
-                            "DrawInBackground": false
+			"AnimalDoorOpenDuration": 0.3125
+			"AnimalDoorOpenSound": "doorCreak",
+			"AnimalDoorCloseDuration": 0.3125,
+			"AnimalDoorCloseSound": "doorCreakReverse",
+			"NonInstancedIndoorLocation": null,
+			"DrawLayers": [
+				{
+					"Id": "Default_Overlay"Y": 146,
+                           
+			"DrawLayers": [
+				"NonInstancedIndoorLocation": null,
+				"DrawLayers": [
+					{
+						"Id": "Default_Overlay": "28, 116",
+						"DrawInBackground": false,
+					},
+				
+					{"Id": : false,
+					},
+					{
+						"Id": "Default_AnimalDoor",
+						"Texture": null,
+						"SourceRect": {
+							"X": 0,
+							"Y": 144,
+							"Width": 40,
+							"Height": 16
 						},
-						{
-                            "Id": "Default_AnimalDoor",
-							"Texture": null,
-                            "SourceRect": {
-                              "X": 0,
-                              "Y": 144,
-                              "Width": 40,
-                              "Height": 16
-                              },
-							"DrawPosition": "28, 127",
-							"DrawInBackground": false,
-							"SortTileOffset": 0.02,
-							"OnlyDrawIfChestHasContents": null,
-							"FrameDuration": 90,
-                            "FrameCount": 1,
-                            "FramesPerRow": -1,
-							"AnimalDoorOffset": {
-                                "X": 0,
-                                "Y": -12
-                            }
-                        },
-                        {
+						"DrawPosition": "28, 127",
+						"DrawInBackground": false,
+						"SortTileOffset": 0.02,
+						"OnlyDrawIfChestHasContents": null,
+						"FrameDuration": 90,
+						"FrameCount": 1,
+						"FramesPerRow": -1,
+						"AnimalDoorOffset": {
+							"X": 0,
+							"Y": -12
+						}
+					},
+					{
                             "Id": "Default_AnimalDoor_Open",
 							"Texture": null,
                             "SourceRect": {
@@ -240,12 +168,9 @@
                     "ValidOccupantTypes": [
                         "Coop"
                     ],
-
-//Spacious Coop Indoor Items
-
                     "IndoorItems": [
 						{
-							"Id": "spacious_FeedHopper",
+							"Id": "Default_FeedHopper",
 							"ItemId": "(BC)99",
 							"Tile": {
 								"X": 4,
@@ -254,7 +179,7 @@
 							"Indestructible": true
 						},
 						{
-							"Id": "spacious_Incubator",
+							"Id": "Default_Incubator",
 							"ItemId": "(BC)101",
 							"Tile": {
 								"X": 3,
@@ -263,42 +188,15 @@
 							"Indestructible": true
 						},
 						{
-							"Id": "spacious_ExtraIncubator",
+							"Id": "Extra_Incubator",
 							"ItemId": "(BC)101",
 							"Tile": {
 								"X": 24,
 								"Y": 3
 							},
 							"Indestructible": false
-						},
-                        {
-                            "Id": "spacious_Heater",
-                            "ItemId": "(BC)104",
-                            "Tile": {
-                              "X": 23,
-                              "Y": 3
-                            },
-                            "Indestructible": false
-                        },
-						{
-                            "Id": "spacious_AutoPetter",
-                            "ItemId": "(BC)272",
-                            "Tile": {
-                              "X": 13,
-                              "Y": 26
-                            },
-                            "Indestructible": false
-                        },
-						{
-                            "Id": "spacious_AutoGrabber",
-                            "ItemId": "(BC)165",
-                            "Tile": {
-                              "X": 14,
-                              "Y": 26
-                            },
-                            "Indestructible": false
-                        }
-					]
+						}
+					],
                 },
 
                 "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn": {
@@ -308,7 +206,7 @@
                     "Builder": "Robin",
                     "Size": {
                         "X": 11,
-                        "Y": 4
+                        "Y": 4,
                     },
                     "SourceRect": {
                         "X": 0,
@@ -319,19 +217,30 @@
 					"FadeWhenBehind": true,
 					"BuildCondition": null,
 					"BuildingToUpgrade": "FlashShifter.StardewValleyExpandedCP_PremiumBarn",
-                    "BuildDays": 0,
-                    "BuildCost": 100,
-                    "BuildMaterials": [],
+                    "BuildDays": 5,
+                    "BuildCost": 350000,
+                    "BuildMaterials": [
+						{
+							"ItemId": "(O)328",
+							"Amount": 900
+						},
+						{
+							"ItemId": "(O)322",
+							"Amount": 450
+						},
+						{
+							"ItemId": "(O)337",
+							"Amount": 30
+						}
+					],
                     "BuildMenuDrawOffset": {
                         "X": 0,
                         "Y": 5
                     },
-
-//2nd door on the right is added via C#
-
+					//2nd door on the right is added via C#
                     "HumanDoor": {
                         "X": 1,
-                        "Y": 3
+                        "Y": 3,
                     },
                     "AnimalDoor": {
                         "X": 4,
@@ -355,7 +264,7 @@
                               "Height": 32
                               },
 							"DrawPosition": "66, 83",
-                            "DrawInBackground": false
+                            "DrawInBackground": false,
 						},
 						{
                             "Id": "Default_AnimalDoor",
@@ -407,49 +316,46 @@
                         "Barn"
                     ],
 					"AllowAnimalPregnancy": true,
-                    
-//Spacious Barn Indoor Items
-                    
                     "IndoorItems": [
                         {
-                          "Id": "spacious_FeedHopper",
+                          "Id": "Default_FeedHopper",
                           "ItemId": "(BC)99",
                           "Tile": {
-                            "X": 21,
-                            "Y": 3
+                            "X": 4,
+                            "Y": 4
                           },
                           "Indestructible": true
                         },
                         {
-                            "Id": "spacious_Heater",
+                            "Id": "Default_Heater",
                             "ItemId": "(BC)104",
                             "Tile": {
-                              "X": 44,
-                              "Y": 3
+                              "X": 7,
+                              "Y": 7
                             },
                             "Indestructible": false
                         },
 						{
-                            "Id": "spacious_AutoPetter",
+                            "Id": "Default_AutoPetter",
                             "ItemId": "(BC)272",
                             "Tile": {
-                              "X": 46,
-                              "Y": 3
+                              "X": 10,
+                              "Y": 16
                             },
                             "Indestructible": false
                         },
 						{
-                            "Id": "spacious_AutoGrabber",
+                            "Id": "Default_AutoGrabber",
                             "ItemId": "(BC)165",
                             "Tile": {
-                              "X": 19,
-                              "Y": 3
+                              "X": 17,
+                              "Y": 16
                             },
                             "Indestructible": false
                         }
-                    ]
-                }
+                    ],
+                },
             }
-        }
+        },
     ]
 }

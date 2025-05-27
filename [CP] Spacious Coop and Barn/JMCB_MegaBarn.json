@@ -7,31 +7,31 @@
             "Target": "Maps/spacious_SpaciousBarn",
             "FromFile": "assets/SpaciousBarn.tmx"
         },
-	{
+	    {
             "Action": "Load",
             "Target": "Maps/spacious_SpaciousCoop",
             "FromFile": "assets/SpaciousCoop.tmx"
         },
 
 //Loads Custom Paint Masks
-	{
+	    {
             "Action": "Load",
             "Target": "Buildings/spacious_SpaciousBarn_PaintMask",
             "FromFile": "assets/SpaciousBarn_PaintMask.png"
         },
-	{
+	    {
             "Action": "Load",
             "Target": "Buildings/spacious_SpaciousCoop_PaintMask",
             "FromFile": "assets/SpaciousCoop_PaintMask.png"
         },
-	{
+	    {
             "Action": "EditData",
             "Target": "Data/PaintData",
             "Entries": {
 		"bobkalonger.spaciouscoopnbarnCP_SpaciousBarn": "Building/-10 0/Roof/-10 5/Trim/-5 0",
 		"bobkalonger.spaciouscoopnbarnCP_SpaciousCoop": "Building/-12 0/Roof/-10 5/Trim/-10 5"
-		}
-	},
+		    }
+	    },
 
 //Custom Building Data
         {
@@ -251,7 +251,7 @@
                               "Height": 32
                               },
 							"DrawPosition": "66, 83",
-                            "DrawInBackground": false,
+                            "DrawInBackground": false
 						},
 						{
                             "Id": "Default_AnimalDoor",
@@ -340,9 +340,9 @@
                             },
                             "Indestructible": false
                         }
-                    ],
-                },
+                    ]
+                }
             }
-        },
+        }
     ]
 }
