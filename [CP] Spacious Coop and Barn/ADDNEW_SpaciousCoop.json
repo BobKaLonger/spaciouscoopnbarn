@@ -20,7 +20,7 @@
             "Action": "EditData",
             "Target": "Data/PaintData",
             "Entries": {
-		"bobkalonger.spaciouscoopnbarnCP_SpaciousCoop": "Building/-12 0/Roof/-10 5/Trim/-10 5"
+				"bobkalonger.spaciouscoopnbarnCP_SpaciousCoop": "Building/-12 0/Roof/-10 5/Trim/-10 5"
 		    }
 	    },
         {
@@ -36,61 +36,61 @@
                         "X": 9,
                         "Y": 4
                     },
-			"FadeWhenBehind": true,
-			"SourceRect": {
+					"FadeWhenBehind": true,
+					"SourceRect": {
                         "X": 0,
                         "Y": 0,
                         "Width": 144,
                         "Height": 144
                     },
-			"CollisionMap": "XXXXXXOOO\nXXXXXXXXX\nXXXXXXXXX\nXXXXXXOOO",
-			"SortTileOffset": "2.5",
-			"BuildCondition": "ANY \"BUILDINGS_CONSTRUCTED All \\\"Deluxe Coop\\\"\"",
-            "BuildDays": 0,
-            "BuildCost": 100,
-            "BuildMaterials": [
-			    {
-				    "ItemId": "(O)328",
-				    "Amount": 800
-			    },
-			    {
-				    "ItemId": "(O)322",
-				    "Amount": 400
-			    },
-			    {
-				    "ItemId": "(O)337",
-				    "Amount": 20
-			    }
-		    ],
-			"BuildMenuDrawOffset": {
-                "X": 0,
-                "Y": 0
-			},
-            "HumanDoor": {
-                "X": 7,
-                "Y": 2
-		    },
-            "AnimalDoor": {
-                "X": 2,
-                "Y": 3,
-                "Width": 2,
-                "Height": 1
-            },
-			"AnimalDoorOpenDuration": 0.3125,
-			"AnimalDoorOpenSound": "doorCreak",
-			"AnimalDoorCloseDuration": 0.3125,
-			"AnimalDoorCloseSound": "doorCreakReverse",
-			"NonInstancedIndoorLocation": null,
-			"DrawLayers": [
+					"CollisionMap": "XXXXXXOOO\nXXXXXXXXX\nXXXXXXXXX\nXXXXXXOOO",
+					"SortTileOffset": "2.5",
+					"BuildCondition": "ANY \"BUILDINGS_CONSTRUCTED All \\\"Deluxe Coop\\\"\"",
+            		"BuildDays": 0,
+            		"BuildCost": 100,
+            		"BuildMaterials": [
+			    		{
+				    		"ItemId": "(O)328",
+				    		"Amount": 800
+			    		},
+			    		{
+				    		"ItemId": "(O)322",
+				   			"Amount": 400
+			    		},
+			    		{
+				    		"ItemId": "(O)337",
+				    		"Amount": 20
+						}
+		    		],
+					"BuildMenuDrawOffset": {
+                		"X": 0,
+                		"Y": 0
+					},
+            		"HumanDoor": {
+                		"X": 7,
+                		"Y": 2
+		    		},
+            		"AnimalDoor": {
+                		"X": 2,
+                		"Y": 3,
+                		"Width": 2,
+                		"Height": 1
+            		},
+					"AnimalDoorOpenDuration": 0.3125,
+					"AnimalDoorOpenSound": "doorCreak",
+					"AnimalDoorCloseDuration": 0.3125,
+					"AnimalDoorCloseSound": "doorCreakReverse",
+					"NonInstancedIndoorLocation": null,
+					"DrawLayers": [
 					    {
                             "Id": "Default_Overlay",
 							"Texture": null,
                             "SourceRect": {
-                              "X": 90,
-                              "Y": 146,
-                              "Width": 40,
-                              "Height": 12
-                              },
+                              	"X": 90,
+                              	"Y": 146,
+                              	"Width": 40,
+                              	"Height": 12
+                            },
 							"DrawPosition": "28, 116",
                             "DrawInBackground": false
 						},
@@ -119,10 +119,10 @@
                             "Id": "Default_AnimalDoor_Open",
 							"Texture": null,
                             "SourceRect": {
-                              "X": 48,
-                              "Y": 144,
-                              "Width": 40,
-                              "Height": 16
+                            	"X": 48,
+                            	"Y": 144,
+                            	"Width": 40,
+                            	"Height": 16
                             },
 							"DrawPosition": "28, 127",
                             "DrawInBackground": false,
@@ -132,8 +132,8 @@
                             "FrameCount": 1,
                             "FramesPerRow": -1,
 							"AnimalDoorOffset": {
-							  "X": 0,
-							  "Y": 0
+								"X": 0,
+								"Y": 0
                             }
 						}
                     ],
@@ -170,8 +170,36 @@
 								"Y": 3
 							},
 							"Indestructible": false
-						}
-					]
+						},
+						{
+                            "Id": "Default_Heater",
+                            "ItemId": "(BC)104",
+                            "Tile": {
+                            	"X": 23,
+                            	"Y": 3
+                            },
+                            "Indestructible": false
+                        },
+						{
+                            "Id": "Default_AutoPetter",
+                            "ItemId": "(BC)272",
+                            "Tile": {
+                            	"X": 13,
+                            	"Y": 26
+                            },
+                            "Indestructible": false
+                        },
+						{
+                            "Id": "Default_AutoGrabber",
+                            "ItemId": "(BC)165",
+                            "Tile": {
+                            	"X": 14,
+                            	"Y": 26
+                            },
+                            "Indestructible": false
+                        }
+					],
+					"MagicalConstruction": false
                 }
             }
         }

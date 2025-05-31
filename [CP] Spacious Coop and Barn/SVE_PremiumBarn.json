@@ -20,7 +20,7 @@
             "Action": "EditData",
             "Target": "Data/PaintData",
             "Entries": {
-		"bobkalonger.spaciouscoopnbarnCP_SpaciousBarn": "Building/-10 0/Roof/-10 5/Trim/-5 0"
+		        "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn": "Building/-10 0/Roof/-10 5/Trim/-5 0"
             }
 	    },
         {
@@ -146,20 +146,20 @@
 					"AllowAnimalPregnancy": true,
                     "IndoorItems": [
                         {
-                          "Id": "Default_FeedHopper",
-                          "ItemId": "(BC)99",
-                          "Tile": {
-                            "X": 4,
-                            "Y": 4
-                          },
-                          "Indestructible": true
+                            "Id": "Default_FeedHopper",
+                            "ItemId": "(BC)99",
+                            "Tile": {
+                                "X": 21,
+                                "Y": 3
+                            },
+                            "Indestructible": true
                         },
                         {
                             "Id": "Default_Heater",
                             "ItemId": "(BC)104",
                             "Tile": {
-                              "X": 7,
-                              "Y": 7
+                                "X": 44,
+                                "Y": 3
                             },
                             "Indestructible": false
                         },
@@ -167,8 +167,8 @@
                             "Id": "Default_AutoPetter",
                             "ItemId": "(BC)272",
                             "Tile": {
-                              "X": 10,
-                              "Y": 16
+                                "X": 45,
+                                "Y": 3
                             },
                             "Indestructible": false
                         },
@@ -176,12 +176,16 @@
                             "Id": "Default_AutoGrabber",
                             "ItemId": "(BC)165",
                             "Tile": {
-                              "X": 17,
-                              "Y": 16
+                                "X": 20,
+                                "Y": 3
                             },
                             "Indestructible": false
                         }
-                    ]
+                    ],
+                    "DrawShadow": true,
+                    "UpgradeSignTile": "4.5, 2",
+                    "UpgradeSignHeight": 31.0,
+                    "MagicalConstruction": false
                 }
             }
         }
