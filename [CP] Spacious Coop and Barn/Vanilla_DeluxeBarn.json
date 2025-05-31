@@ -3,7 +3,7 @@
         {
             "Action": "Load",
             "Target": "Maps/spacious_SuperDenseBarn",
-            "FromFile": "assets/SpaciousBarn.tmx"
+            "FromFile": "assets/SuperDenseBarn.tmx"
         },
         {
             "Action": "EditData",
@@ -155,7 +155,7 @@
                             }
                         }
                     ],
-                    "IndoorMap": "spacious_SpaciousBarn",
+                    "IndoorMap": "spacious_SuperDenseBarn",
                     "IndoorMapType": "StardewValley.AnimalHouse",
                     "MaxOccupants": 48,
                     "ValidOccupantTypes": [

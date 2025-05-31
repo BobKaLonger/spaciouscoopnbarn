@@ -3,7 +3,7 @@
         {
             "Action": "Load",
             "Target": "Maps/spacious_SuperDenseCoop",
-            "FromFile": "assets/SpaciousCoop.tmx"
+            "FromFile": "assets/SuperDenseCoop.tmx"
         },
         {
             "Action": "EditData",
@@ -113,7 +113,7 @@
                             }
                         }
                     ],
-                    "IndoorMap": "spacious_SpaciousCoop",
+                    "IndoorMap": "spacious_SuperDenseCoop",
                     "IndoorMapType": "StardewValley.AnimalHouse",
                     "MaxOccupants": 48,
                     "ValidOccupantTypes": [
