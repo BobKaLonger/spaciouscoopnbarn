@@ -1,0 +1,188 @@
+{
+    "Changes": [
+
+        {
+            "Action": "Load",
+            "Target": "Buildings/spacious_SpaciousBarn",
+            "FromFile": "assets/SpaciousBarn.png"
+        },
+        {
+            "Action": "Load",
+            "Target": "Maps/spacious_SpaciousBarn",
+            "FromFile": "assets/SpaciousBarn.tmx"
+        },
+        {
+            "Action": "Load",
+            "Target": "Buildings/spacious_SpaciousBarn_PaintMask",
+            "FromFile": "assets/SpaciousBarn_PaintMask.png"
+        },
+	    {
+            "Action": "EditData",
+            "Target": "Data/PaintData",
+            "Entries": {
+		"bobkalonger.spaciouscoopnbarnCP_SpaciousBarn": "Building/-10 0/Roof/-10 5/Trim/-5 0"
+            }
+	    },
+        {
+            "Action": "EditData",
+            "Target": "Data/Buildings",
+            "Entries": {
+                "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn": {
+                    "Name": "{{i18n:building.spacious-barn.name}}",
+                    "Description": "{{i18n:building.spacious-barn.description}}",
+                    "Texture": "Buildings\\spacious_SpaciousBarn",
+                    "Builder": "Robin",
+                    "Size": {
+                        "X": 11,
+                        "Y": 4
+                    },
+                    "SourceRect": {
+                        "X": 0,
+                        "Y": 0,
+                        "Width": 176,
+                        "Height": 144
+                    },
+					"FadeWhenBehind": true,
+					"BuildCondition": "ANY \"BUILDINGS_CONSTRUCTED All \\\"Deluxe Barn\\\"\"",
+                    "BuildDays": 5,
+                    "BuildCost": 350000,
+                    "BuildMaterials": [
+						{
+							"ItemId": "(O)328",
+							"Amount": 900
+						},
+						{
+							"ItemId": "(O)322",
+							"Amount": 450
+						},
+						{
+							"ItemId": "(O)337",
+							"Amount": 30
+						}
+					],
+                    "BuildMenuDrawOffset": {
+                        "X": 0,
+                        "Y": 5
+                    },
+					//2nd door on the right is added via C#
+                    "HumanDoor": {
+                        "X": 1,
+                        "Y": 3
+                    },
+                    "AnimalDoor": {
+                        "X": 4,
+                        "Y": 3,
+                        "Width": 3,
+                        "Height": 1
+                    },
+					"AnimalDoorOpenDuration": 0.75,
+                    "AnimalDoorOpenSound": "doorCreak",
+                    "AnimalDoorCloseDuration": 0.6,
+                    "AnimalDoorCloseSound": "doorCreakReverse",
+					"NonInstancedIndoorLocation": null,
+					"DrawLayers": [
+					    {
+                            "Id": "Default_Overlay",
+							"Texture": null,
+                            "SourceRect": {
+                              "X": 98,
+                              "Y": 144,
+                              "Width": 44,
+                              "Height": 32
+                              },
+							"DrawPosition": "66, 83",
+                            "DrawInBackground": false
+						},
+						{
+                            "Id": "Default_AnimalDoor",
+							"Texture": null,
+                            "SourceRect": {
+                              "X": 2,
+                              "Y": 146,
+                              "Width": 44,
+                              "Height": 28
+                              },
+							"DrawPosition": "66, 115",
+							"DrawInBackground": false,
+							"SortTileOffset": 0.02,
+							"OnlyDrawIfChestHasContents": null,
+							"FrameDuration": 90,
+                            "FrameCount": 1,
+                            "FramesPerRow": -1,
+							"AnimalDoorOffset": {
+                                "X": 0,
+                                "Y": -24
+                            }
+                        },
+                        {
+                            "Id": "Default_AnimalDoor_Open",
+							"Texture": null,
+                            "SourceRect": {
+                              "X": 50,
+                              "Y": 146,
+                              "Width": 44,
+                              "Height": 28
+                              },
+							"DrawPosition": "66, 115",
+                            "DrawInBackground": false,
+							"SortTileOffset": 1.0,
+							"OnlyDrawIfChestHasContents": null,
+							"FrameDuration": 90,
+                            "FrameCount": 1,
+                            "FramesPerRow": -1,
+							"AnimalDoorOffset": {
+							  "X": 0,
+							  "Y": 0
+                            }
+						}
+                    ],
+                    "IndoorMap": "spacious_SpaciousBarn",
+                    "IndoorMapType": "StardewValley.AnimalHouse",
+                    "MaxOccupants": 48,
+                    "ValidOccupantTypes": [
+                        "Barn"
+                    ],
+					"AllowAnimalPregnancy": true,
+                    "IndoorItems": [
+                        {
+                          "Id": "Default_FeedHopper",
+                          "ItemId": "(BC)99",
+                          "Tile": {
+                            "X": 4,
+                            "Y": 4
+                          },
+                          "Indestructible": true
+                        },
+                        {
+                            "Id": "Default_Heater",
+                            "ItemId": "(BC)104",
+                            "Tile": {
+                              "X": 7,
+                              "Y": 7
+                            },
+                            "Indestructible": false
+                        },
+						{
+                            "Id": "Default_AutoPetter",
+                            "ItemId": "(BC)272",
+                            "Tile": {
+                              "X": 10,
+                              "Y": 16
+                            },
+                            "Indestructible": false
+                        },
+						{
+                            "Id": "Default_AutoGrabber",
+                            "ItemId": "(BC)165",
+                            "Tile": {
+                              "X": 17,
+                              "Y": 16
+                            },
+                            "Indestructible": false
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}
