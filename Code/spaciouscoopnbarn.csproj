@@ -2,7 +2,7 @@
   <PropertyGroup>
     <AssemblyName>spaciouscoopnbarn</AssemblyName>
     <RootNamespace>spaciouscoopnbarn</RootNamespace>
-    <Version>1.4.1</Version>
+    <Version>1.5.1</Version>
     <TargetFramework>net6.0</TargetFramework>
     <Platforms>AnyCPU</Platforms>
     <PlatformTarget>AnyCPU</PlatformTarget>
