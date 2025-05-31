@@ -2,7 +2,7 @@
     "Changes": [
         {
             "Action": "Load",
-            "Target": "Maps/spacious_SpaciousBarn",
+            "Target": "Maps/spacious_SuperDenseBarn",
             "FromFile": "assets/SpaciousBarn.tmx"
         },
         {

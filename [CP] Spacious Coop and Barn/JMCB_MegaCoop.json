@@ -2,7 +2,7 @@
     "Changes": [
         {
             "Action": "Load",
-            "Target": "Maps/spacious_SpaciousCoop",
+            "Target": "Maps/spacious_SuperDenseCoop",
             "FromFile": "assets/SpaciousCoop.tmx"
         },
         {
