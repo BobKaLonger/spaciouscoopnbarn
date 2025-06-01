@@ -1,20 +1,8 @@
 {
 	"Format": "2.6.0",
 
-	"ConfigSchema": {
-		"Barn to Upgrade": {
-			"AllowValues": "SVE Premium Barn, Jen's Mega Barn, Gigantic Barn, Vanilla Deluxe Barn, Add Building",
-			"Default": "SVE Premium Barn"
-		},
-		"Coop to Upgrade": {
-			"AllowValues": "SVE Premium Coop, Jen's Mega Coop, Resource Chickens Giant Coop, Gigantic Coop, Vanilla Deluxe Coop, Add Building",
-			"Default": "SVE Premium Coop"
-		}
-	},
-
     "Changes": [
 
-        //Load Spacious Set
         {
             "Action": "Load",
             "Target": "Buildings/spacious_SpaciousBarn",
@@ -60,113 +48,320 @@
 		    }
 	    },
 
-        //Load SuperDense Set
-
-        {
-            "Action": "Load",
-            "Target": "Maps/spacious_SuperDenseBarn",
-            "FromFile": "assets/SuperDenseBarn.tmx"
-        },
-        {
-            "Action": "Load",
-            "Target": "Maps/spacious_SuperDenseCoop",
-            "FromFile": "assets/SuperDenseCoop.tmx"
-        },
         {
             "Action": "EditData",
-            "Target": "Data/PaintData",
+            "Target": "Data/Buildings",
             "Entries": {
-	            "bobkalonger.spaciouscoopnbarnCP_SuperDenseBarn": "Building/-15 0/Roof/-10 5/Trim/-10 5"
+                "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn": {
+                    "Name": "{{i18n:building.spacious-barn.name}}",
+                    "Description": "{{i18n:building.spacious-barn.description}}",
+                    "Texture": "Buildings\\spacious_SpaciousBarn",
+                    "Builder": "Robin",
+                    "Size": {
+                        "X": 11,
+                        "Y": 4
+                    },
+                    "SourceRect": {
+                        "X": 0,
+                        "Y": 0,
+                        "Width": 176,
+                        "Height": 144
+                    },
+					"FadeWhenBehind": true,
+					"BuildCondition": "ANY \"BUILDINGS_CONSTRUCTED All \\\"Deluxe Barn\\\"\"",
+                    "BuildDays": 0,
+                    "BuildCost": 10,
+                    "BuildMaterials": [],
+                    "BuildMenuDrawOffset": {
+                        "X": 0,
+                        "Y": 5
+                    },
+                    "HumanDoor": {
+                        "X": 1,
+                        "Y": 3
+                    },
+                    "AnimalDoor": {
+                        "X": 4,
+                        "Y": 3,
+                        "Width": 3,
+                        "Height": 1
+                    },
+					"AnimalDoorOpenDuration": 0.75,
+                    "AnimalDoorOpenSound": "doorCreak",
+                    "AnimalDoorCloseDuration": 0.6,
+                    "AnimalDoorCloseSound": "doorCreakReverse",
+					"NonInstancedIndoorLocation": null,
+					"DrawLayers": [
+					    {
+                            "Id": "Default_Overlay",
+							"Texture": null,
+                            "SourceRect": {
+                              "X": 98,
+                              "Y": 144,
+                              "Width": 44,
+                              "Height": 32
+                              },
+							"DrawPosition": "66, 83",
+                            "DrawInBackground": false
+						},
+						{
+                            "Id": "Default_AnimalDoor",
+							"Texture": null,
+                            "SourceRect": {
+                              "X": 2,
+                              "Y": 146,
+                              "Width": 44,
+                              "Height": 28
+                              },
+							"DrawPosition": "66, 115",
+							"DrawInBackground": false,
+							"SortTileOffset": 0.02,
+							"OnlyDrawIfChestHasContents": null,
+							"FrameDuration": 90,
+                            "FrameCount": 1,
+                            "FramesPerRow": -1,
+							"AnimalDoorOffset": {
+                                "X": 0,
+                                "Y": -24
+                            }
+                        },
+                        {
+                            "Id": "Default_AnimalDoor_Open",
+							"Texture": null,
+                            "SourceRect": {
+                              "X": 50,
+                              "Y": 146,
+                              "Width": 44,
+                              "Height": 28
+                              },
+							"DrawPosition": "66, 115",
+                            "DrawInBackground": false,
+							"SortTileOffset": 1.0,
+							"OnlyDrawIfChestHasContents": null,
+							"FrameDuration": 90,
+                            "FrameCount": 1,
+                            "FramesPerRow": -1,
+							"AnimalDoorOffset": {
+							  "X": 0,
+							  "Y": 0
+                            }
+						}
+                    ],
+                    "IndoorMap": "spacious_SpaciousBarn",
+                    "IndoorMapType": "StardewValley.AnimalHouse",
+                    "MaxOccupants": 48,
+                    "ValidOccupantTypes": [
+                        "Barn"
+                    ],
+					"AllowAnimalPregnancy": true,
+                    "IndoorItems": [
+                        {
+                            "Id": "Default_FeedHopper",
+                            "ItemId": "(BC)99",
+                            "Tile": {
+                                "X": 21,
+                                "Y": 3
+                            },
+                            "Indestructible": true
+                        },
+                        {
+                            "Id": "Default_Heater",
+                            "ItemId": "(BC)104",
+                            "Tile": {
+                                "X": 44,
+                                "Y": 3
+                            },
+                            "Indestructible": false
+                        },
+						{
+                            "Id": "Default_AutoPetter",
+                            "ItemId": "(BC)272",
+                            "Tile": {
+                                "X": 45,
+                                "Y": 3
+                            },
+                            "Indestructible": false
+                        },
+						{
+                            "Id": "Default_AutoGrabber",
+                            "ItemId": "(BC)165",
+                            "Tile": {
+                                "X": 20,
+                                "Y": 3
+                            },
+                            "Indestructible": false
+                        }
+                    ],
+                    "MagicalConstruction": false
+                }
             }
         },
+        
         {
             "Action": "EditData",
-            "Target": "Data/PaintData",
+            "Target": "Data/Buildings",
             "Entries": {
-	            "bobkalonger.spaciouscoopnbarnCP_SuperDenseCoop": "Building/-25 0/Roof/-15 5/Trim/-25 0"
-            }
-        },
-
-        //Barn Config Breakouts
-
-        {
-            "Action": "Include",
-            "FromFile": "code/Buildings/SVE_PremiumBarn.json",
-            "When": {
-                "Barn to Upgrade": "SVE Premium Barn"
-            }
-        },
-        {
-            "Action": "Include",
-            "FromFile": "code/Buildings/JMCB_MegaBarn.json",
-            "When": {
-                "Barn to Upgrade": "Jen's Mega Barn"
-            }
-        },
-        {
-            "Action": "Include",
-            "FromFile": "code/Buildings/GiganticBarn.json",
-            "When": {
-                "Barn to Upgrade": "Gigantic Barn"
-            }
-        },
-        {
-            "Action": "Include",
-            "FromFile": "code/Buildings/Vanilla_DeluxeBarn.json",
-            "When": {
-                "Barn to Upgrade": "Vanilla Deluxe Barn"
-            }
-        },
-        {
-            "Action": "Include",
-            "FromFile": "code/Buildings/ADDNEW_SpaciousBarn.json",
-            "When": {
-                "Barn to Upgrade": "Add Building"
-            }
-        },
-
-        //Coop config Breakouts
-
-        {
-            "Action": "Include",
-            "FromFile": "code/Buildings/SVE_PremiumCoop.json",
-            "When": {
-                "Coop to Upgrade": "SVE Premium Coop"
-            }
-        },
-        {
-            "Action": "Include",
-            "FromFile": "code/Buildings/JMCB_MegaCoop.json",
-            "When": {
-                "Coop to Upgrade": "Jen's Mega Coop"
-            }
-        },
-        {
-            "Action": "Include",
-            "FromFile": "code/Buildings/RC_GiantCoop.json",
-            "When": {
-                "Coop to Upgrade": "Resource Chickens Giant Coop"
-            }
-        },
-        {
-            "Action": "Include",
-            "FromFile": "code/Buildings/GiganticCoop.json",
-            "When": {
-                "Coop to Upgrade": "Gigantic Coop"
-            }
-        },
-        {
-            "Action": "Include",
-            "FromFile": "code/Buildings/Vanilla_DeluxeCoop.json",
-            "When": {
-                "Coop to Upgrade": "Vanilla Deluxe Coop"
-            }
-        },
-        {
-            "Action": "Include",
-            "FromFile": "code/Buildings/ADDNEW_SpaciousCoop.json",
-            "When": {
-                "Coop to Upgrade": "Add Building"
+                "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop": {
+                    "Name": "{{i18n:building.spacious-coop.name}}",
+                    "Description": "{{i18n:building.spacious-coop.description}}",
+                    "Texture": "Buildings\\spacious_SpaciousCoop",
+                    "Builder": "Robin",
+                    "Size": {
+                        "X": 9,
+                        "Y": 4
+                    },
+					"FadeWhenBehind": true,
+					"SourceRect": {
+                        "X": 0,
+                        "Y": 0,
+                        "Width": 144,
+                        "Height": 144
+                    },
+					"CollisionMap": "XXXXXXOOO\nXXXXXXXXX\nXXXXXXXXX\nXXXXXXOOO",
+					"SortTileOffset": "2.5",
+					"BuildCondition": "ANY \"BUILDINGS_CONSTRUCTED All \\\"Deluxe Coop\\\"\"",
+            		"BuildDays": 0,
+                    "BuildCost": 10,
+                    "BuildMaterials": [],
+                    "BuildMenuDrawOffset": {
+                		"X": 0,
+                		"Y": 0
+					},
+            		"HumanDoor": {
+                		"X": 7,
+                		"Y": 2
+		    		},
+            		"AnimalDoor": {
+                		"X": 2,
+                		"Y": 3,
+                		"Width": 2,
+                		"Height": 1
+            		},
+					"AnimalDoorOpenDuration": 0.3125,
+					"AnimalDoorOpenSound": "doorCreak",
+					"AnimalDoorCloseDuration": 0.3125,
+					"AnimalDoorCloseSound": "doorCreakReverse",
+					"NonInstancedIndoorLocation": null,
+					"DrawLayers": [
+					    {
+                            "Id": "Default_Overlay",
+							"Texture": null,
+                            "SourceRect": {
+                              	"X": 90,
+                              	"Y": 146,
+                              	"Width": 40,
+                              	"Height": 12
+                            },
+							"DrawPosition": "28, 116",
+                            "DrawInBackground": false
+						},
+					    {
+						"Id": "Default_AnimalDoor",
+						"Texture": null,
+						"SourceRect": {
+							"X": 0,
+							"Y": 144,
+							"Width": 40,
+							"Height": 16
+						    },
+						"DrawPosition": "28, 127",
+						"DrawInBackground": false,
+						"SortTileOffset": 0.02,
+						"OnlyDrawIfChestHasContents": null,
+						"FrameDuration": 90,
+						"FrameCount": 1,
+						"FramesPerRow": -1,
+						"AnimalDoorOffset": {
+							"X": 0,
+							"Y": -12
+						    }
+					    },
+					    {
+                            "Id": "Default_AnimalDoor_Open",
+							"Texture": null,
+                            "SourceRect": {
+                            	"X": 48,
+                            	"Y": 144,
+                            	"Width": 40,
+                            	"Height": 16
+                            },
+							"DrawPosition": "28, 127",
+                            "DrawInBackground": false,
+							"SortTileOffset": 1.0,
+							"OnlyDrawIfChestHasContents": null,
+							"FrameDuration": 90,
+                            "FrameCount": 1,
+                            "FramesPerRow": -1,
+							"AnimalDoorOffset": {
+								"X": 0,
+								"Y": 0
+                            }
+						}
+                    ],
+                    "IndoorMap": "spacious_SpaciousCoop",
+                    "IndoorMapType": "StardewValley.AnimalHouse",
+                    "MaxOccupants": 48,
+                    "ValidOccupantTypes": [
+                        "Coop"
+                    ],
+                    "IndoorItems": [
+						{
+							"Id": "Default_FeedHopper",
+							"ItemId": "(BC)99",
+							"Tile": {
+								"X": 4,
+								"Y": 3
+							},
+							"Indestructible": true
+						},
+						{
+							"Id": "Default_Incubator",
+							"ItemId": "(BC)101",
+							"Tile": {
+								"X": 3,
+								"Y": 3
+							},
+							"Indestructible": true
+						},
+						{
+							"Id": "Extra_Incubator",
+							"ItemId": "(BC)101",
+							"Tile": {
+								"X": 24,
+								"Y": 3
+							},
+							"Indestructible": false
+						},
+						{
+                            "Id": "Default_Heater",
+                            "ItemId": "(BC)104",
+                            "Tile": {
+                            	"X": 23,
+                            	"Y": 3
+                            },
+                            "Indestructible": false
+                        },
+						{
+                            "Id": "Default_AutoPetter",
+                            "ItemId": "(BC)272",
+                            "Tile": {
+                            	"X": 13,
+                            	"Y": 26
+                            },
+                            "Indestructible": false
+                        },
+						{
+                            "Id": "Default_AutoGrabber",
+                            "ItemId": "(BC)165",
+                            "Tile": {
+                            	"X": 14,
+                            	"Y": 26
+                            },
+                            "Indestructible": false
+                        }
+					],
+					"MagicalConstruction": false
+                }
             }
         }
     ]
