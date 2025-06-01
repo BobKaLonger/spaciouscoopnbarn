@@ -22,7 +22,7 @@
                     },
                     "FadeWhenBehind": true,
                     "BuildCondition": null,
-                    "BuildingToUpgrade": "jenf1.megacoopbarn_Barn4",
+                    "BuildingToUpgrade": "jenf1.megacoopbarn_MegaBarn",
                     "BuildDays": 0,
                     "BuildCost": 10,
                     "BuildMaterials": [],

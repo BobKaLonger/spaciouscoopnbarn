@@ -22,7 +22,7 @@
                     },
                     "FadeWhenBehind": true,
                     "BuildCondition": null,
-                    "BuildingToUpgrade": "UncleArya.ResourceChickens_GiantCoop",
+                    "BuildingToUpgrade": "UncleArya.ResourceChickens.GiantCoop",
                     "BuildDays": 0,
                     "BuildCost": 10,
                     "BuildMaterials": [],
