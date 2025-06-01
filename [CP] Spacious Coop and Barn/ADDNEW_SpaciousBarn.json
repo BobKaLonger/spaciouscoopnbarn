@@ -44,22 +44,9 @@
                     },
 					"FadeWhenBehind": true,
 					"BuildCondition": "ANY \"BUILDINGS_CONSTRUCTED All \\\"Deluxe Barn\\\"\"",
-                    "BuildDays": 5,
-                    "BuildCost": 350000,
-                    "BuildMaterials": [
-						{
-							"ItemId": "(O)328",
-							"Amount": 900
-						},
-						{
-							"ItemId": "(O)322",
-							"Amount": 450
-						},
-						{
-							"ItemId": "(O)337",
-							"Amount": 30
-						}
-					],
+                    "BuildDays": 0,
+                    "BuildCost": 100,
+                    "BuildMaterials": [],
                     "BuildMenuDrawOffset": {
                         "X": 0,
                         "Y": 5

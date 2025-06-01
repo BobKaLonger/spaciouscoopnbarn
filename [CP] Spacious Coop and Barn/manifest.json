@@ -34,6 +34,11 @@
       		"UniqueID": "UncleArya.ResourceChickens",
       		"MinimumVersion": "1.0.1",
       		"IsRequired": false
-    	}
+    	},
+		{
+			"UniqueID": "bobkalonger.gigacoopnbarn",
+			"MinimumVersion": "1.0.2",
+			"IsRequired": false
+		}
   	]
 }

@@ -47,22 +47,9 @@
 					"SortTileOffset": "2.5",
 					"BuildCondition": "ANY \"BUILDINGS_CONSTRUCTED All \\\"Deluxe Coop\\\"\"",
             		"BuildDays": 0,
-            		"BuildCost": 100,
-            		"BuildMaterials": [
-			    		{
-				    		"ItemId": "(O)328",
-				    		"Amount": 800
-			    		},
-			    		{
-				    		"ItemId": "(O)322",
-				   			"Amount": 400
-			    		},
-			    		{
-				    		"ItemId": "(O)337",
-				    		"Amount": 20
-						}
-		    		],
-					"BuildMenuDrawOffset": {
+                    "BuildCost": 100,
+                    "BuildMaterials": [],
+                    "BuildMenuDrawOffset": {
                 		"X": 0,
                 		"Y": 0
 					},
