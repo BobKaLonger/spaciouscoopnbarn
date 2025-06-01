@@ -16,29 +16,9 @@
       		"IsRequired": true
     	},
     	{
-      		"UniqueID": "bobkalonger.BSCB_code",
-      		"MinimumVersion": "1.3.9",
-      		"IsRequired": true
-    	},
-    	{
-      		"UniqueID": "FlashShifter.StardewValleyExpandedCP",
-      		"MinimumVersion": "1.15.10",
-		    "IsRequired": false
-    	},
-    	{
       		"UniqueID": "jenf1.megacoopbarn",
       		"MinimumVersion": "1.4.2",
-      		"IsRequired": false
-    	},
-    	{
-      		"UniqueID": "UncleArya.ResourceChickens",
-      		"MinimumVersion": "1.0.1",
-      		"IsRequired": false
-    	},
-		{
-			"UniqueID": "bobkalonger.gigacoopnbarn",
-			"MinimumVersion": "1.0.2",
-			"IsRequired": false
-		}
+      		"IsRequired": true
+    	}
   	]
 }
