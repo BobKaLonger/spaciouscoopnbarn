@@ -14,6 +14,79 @@
 
     "Changes": [
 
+        //Load Spacious Set
+        {
+            "Action": "Load",
+            "Target": "Buildings/spacious_SpaciousBarn",
+            "FromFile": "assets/SpaciousBarn.png"
+        },
+        {
+            "Action": "Load",
+            "Target": "Buildings/spacious_SpaciousCoop",
+            "FromFile": "assets/SpaciousCoop.png"
+        },
+        {
+            "Action": "Load",
+            "Target": "Maps/spacious_SpaciousBarn",
+            "FromFile": "assets/SpaciousBarn.tmx"
+        },
+        {
+            "Action": "Load",
+            "Target": "Maps/spacious_SpaciousCoop",
+            "FromFile": "assets/SpaciousCoop.tmx"
+        },
+        {
+            "Action": "Load",
+            "Target": "Buildings/spacious_SpaciousBarn_PaintMask",
+            "FromFile": "assets/SpaciousBarn_PaintMask.png"
+        },
+        {
+            "Action": "Load",
+            "Target": "Buildings/spacious_SpaciousCoop_PaintMask",
+            "FromFile": "assets/SpaciousCoop_PaintMask.png"
+        },
+        {
+            "Action": "EditData",
+            "Target": "Data/PaintData",
+            "Entries": {
+		        "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn": "Building/-10 0/Roof/-10 5/Trim/-5 0"
+            }
+	    },
+        {
+            "Action": "EditData",
+            "Target": "Data/PaintData",
+            "Entries": {
+				"bobkalonger.spaciouscoopnbarnCP_SpaciousCoop": "Building/-12 0/Roof/-10 5/Trim/-10 5"
+		    }
+	    },
+
+        //Load SuperDense Set
+
+        {
+            "Action": "Load",
+            "Target": "Maps/spacious_SuperDenseBarn",
+            "FromFile": "assets/SuperDenseBarn.tmx"
+        },
+        {
+            "Action": "Load",
+            "Target": "Maps/spacious_SuperDenseCoop",
+            "FromFile": "assets/SuperDenseCoop.tmx"
+        },
+        {
+            "Action": "EditData",
+            "Target": "Data/PaintData",
+            "Entries": {
+	            "bobkalonger.spaciouscoopnbarnCP_SuperDenseBarn": "Building/-15 0/Roof/-10 5/Trim/-10 5"
+            }
+        },
+        {
+            "Action": "EditData",
+            "Target": "Data/PaintData",
+            "Entries": {
+	            "bobkalonger.spaciouscoopnbarnCP_SuperDenseCoop": "Building/-25 0/Roof/-15 5/Trim/-25 0"
+            }
+        },
+
         //Barn Config Breakouts
 
         {

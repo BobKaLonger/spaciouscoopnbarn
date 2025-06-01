@@ -2,28 +2,6 @@
     "Changes": [
 
         {
-            "Action": "Load",
-            "Target": "Buildings/spacious_SpaciousBarn",
-            "FromFile": "assets/SpaciousBarn.png"
-        },
-        {
-            "Action": "Load",
-            "Target": "Maps/spacious_SpaciousBarn",
-            "FromFile": "assets/SpaciousBarn.tmx"
-        },
-        {
-            "Action": "Load",
-            "Target": "Buildings/spacious_SpaciousBarn_PaintMask",
-            "FromFile": "assets/SpaciousBarn_PaintMask.png"
-        },
-	    {
-            "Action": "EditData",
-            "Target": "Data/PaintData",
-            "Entries": {
-		        "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn": "Building/-10 0/Roof/-10 5/Trim/-5 0"
-            }
-	    },
-        {
             "Action": "EditData",
             "Target": "Data/Buildings",
             "Entries": {
@@ -45,7 +23,7 @@
 					"FadeWhenBehind": true,
 					"BuildCondition": "ANY \"BUILDINGS_CONSTRUCTED All \\\"Deluxe Barn\\\"\"",
                     "BuildDays": 0,
-                    "BuildCost": 100,
+                    "BuildCost": 10,
                     "BuildMaterials": [],
                     "BuildMenuDrawOffset": {
                         "X": 0,

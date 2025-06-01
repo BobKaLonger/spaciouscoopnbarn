@@ -1,17 +1,6 @@
 {
     "Changes": [
-        {
-            "Action": "Load",
-            "Target": "Maps/spacious_SuperDenseCoop",
-            "FromFile": "assets/SuperDenseCoop.tmx"
-        },
-        {
-            "Action": "EditData",
-            "Target": "Data/PaintData",
-            "Entries": {
-	            "bobkalonger.spaciouscoopnbarnCP_SuperDenseCoop": "Building/-25 0/Roof/-15 5/Trim/-25 0"
-            }
-        },
+        
         {
             "Action": "EditData",
             "Target": "Data/Buildings",
@@ -35,7 +24,7 @@
                     "BuildCondition": null,
                     "BuildingToUpgrade": "bobkalonger.gigacoopnbarn_GigaCoop",
                     "BuildDays": 0,
-                    "BuildCost": 100,
+                    "BuildCost": 10,
                     "BuildMaterials": [],
                     "BuildMenuDrawOffset": {
                         "X": 0,
