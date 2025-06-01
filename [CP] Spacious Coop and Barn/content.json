@@ -18,35 +18,35 @@
 
         {
             "Action": "Include",
-            "FromFile": "SVE_PremiumBarn.json",
+            "FromFile": "code/Buildings/SVE_PremiumBarn.json",
             "When": {
                 "Barn to Upgrade": "SVE Premium Barn"
             }
         },
         {
             "Action": "Include",
-            "FromFile": "JMCB_MegaBarn.json",
+            "FromFile": "code/Buildings/JMCB_MegaBarn.json",
             "When": {
                 "Barn to Upgrade": "Jen's Mega Barn"
             }
         },
         {
             "Action": "Include",
-            "FromFile": "GiganticBarn.json",
+            "FromFile": "code/Buildings/GiganticBarn.json",
             "When": {
                 "Barn to Upgrade": "Gigantic Barn"
             }
         },
         {
             "Action": "Include",
-            "FromFile": "Vanilla_DeluxeBarn.json",
+            "FromFile": "code/Buildings/Vanilla_DeluxeBarn.json",
             "When": {
                 "Barn to Upgrade": "Vanilla Deluxe Barn"
             }
         },
         {
             "Action": "Include",
-            "FromFile": "ADDNEW_SpaciousBarn.json",
+            "FromFile": "code/Buildings/ADDNEW_SpaciousBarn.json",
             "When": {
                 "Barn to Upgrade": "Add Building"
             }
@@ -56,42 +56,42 @@
 
         {
             "Action": "Include",
-            "FromFile": "SVE_PremiumCoop.json",
+            "FromFile": "code/Buildings/SVE_PremiumCoop.json",
             "When": {
                 "Coop to Upgrade": "SVE Premium Coop"
             }
         },
         {
             "Action": "Include",
-            "FromFile": "JMCB_MegaCoop.json",
+            "FromFile": "code/Buildings/JMCB_MegaCoop.json",
             "When": {
                 "Coop to Upgrade": "Jen's Mega Coop"
             }
         },
         {
             "Action": "Include",
-            "FromFile": "RC_GiantCoop.json",
+            "FromFile": "code/Buildings/RC_GiantCoop.json",
             "When": {
                 "Coop to Upgrade": "Resource Chickens Giant Coop"
             }
         },
         {
             "Action": "Include",
-            "FromFile": "GiganticCoop.json",
+            "FromFile": "code/Buildings/GiganticCoop.json",
             "When": {
                 "Coop to Upgrade": "Gigantic Coop"
             }
         },
         {
             "Action": "Include",
-            "FromFile": "Vanilla_DeluxeCoop.json",
+            "FromFile": "code/Buildings/Vanilla_DeluxeCoop.json",
             "When": {
                 "Coop to Upgrade": "Vanilla Deluxe Coop"
             }
         },
         {
             "Action": "Include",
-            "FromFile": "ADDNEW_SpaciousCoop.json",
+            "FromFile": "code/Buildings/ADDNEW_SpaciousCoop.json",
             "When": {
                 "Coop to Upgrade": "Add Building"
             }
