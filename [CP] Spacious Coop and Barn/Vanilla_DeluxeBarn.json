@@ -9,14 +9,14 @@
             "Action": "EditData",
             "Target": "Data/PaintData",
             "Entries": {
-	            "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn": "Building/-15 0/Roof/-10 5/Trim/-10 5"
+	            "bobkalonger.spaciouscoopnbarnCP_SuperDenseBarn": "Building/-15 0/Roof/-10 5/Trim/-10 5"
             }
         },
         {
             "Action": "EditData",
             "Target": "Data/Buildings",
             "Entries": {
-                "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn": {
+                "bobkalonger.spaciouscoopnbarnCP_SuperDenseBarn": {
                     "Name": "{{i18n:building.spacious-barn.name}}",
                     "Description": "{{i18n:building.spacious-barn.description}}",
                     "Texture": "Buildings\\Deluxe Barn",

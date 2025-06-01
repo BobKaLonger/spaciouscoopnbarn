@@ -9,14 +9,14 @@
             "Action": "EditData",
             "Target": "Data/PaintData",
             "Entries": {
-	            "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop": "Building/-25 0/Roof/-15 5/Trim/-25 0"
+	            "bobkalonger.spaciouscoopnbarnCP_SuperDenseCoop": "Building/-25 0/Roof/-15 5/Trim/-25 0"
             }
         },
         {
             "Action": "EditData",
             "Target": "Data/Buildings",
             "Entries": {
-                "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop": {
+                "bobkalonger.spaciouscoopnbarnCP_SuperDenseCoop": {
                     "Name": "{{i18n:building.spacious-coop.name}}",
                     "Description": "{{i18n:building.spacious-coop.description}}",
                     "Texture": "Buildings\\Deluxe Coop",
