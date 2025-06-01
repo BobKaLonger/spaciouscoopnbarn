@@ -79,7 +79,7 @@
             "Action": "Include",
             "FromFile": "GiganticCoop.json",
             "When": {
-                "Barn to Upgrade": "Gigantic Coop"
+                "Coop to Upgrade": "Gigantic Coop"
             }
         },
         {
