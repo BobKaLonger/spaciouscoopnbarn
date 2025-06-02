@@ -1,66 +1,7 @@
 {
 	"Format": "2.6.0",
 
-	"ConfigSchema": {
-		"Barn to Upgrade": {
-			"AllowValues": "SVE Premium Barn, Jen's Mega Barn, Gigantic Barn, Vanilla Deluxe Barn, Add Building",
-			"Default": "SVE Premium Barn"
-		},
-		"Coop to Upgrade": {
-			"AllowValues": "SVE Premium Coop, Jen's Mega Coop, Resource Chickens Giant Coop, Gigantic Coop, Vanilla Deluxe Coop, Add Building",
-			"Default": "SVE Premium Coop"
-		}
-	},
-
     "Changes": [
-
-        //Load Spacious Set
-        {
-            "Action": "Load",
-            "Target": "Buildings/spacious_SpaciousBarn",
-            "FromFile": "assets/SpaciousBarn.png"
-        },
-        {
-            "Action": "Load",
-            "Target": "Buildings/spacious_SpaciousCoop",
-            "FromFile": "assets/SpaciousCoop.png"
-        },
-        {
-            "Action": "Load",
-            "Target": "Maps/spacious_SpaciousBarn",
-            "FromFile": "assets/SpaciousBarn.tmx"
-        },
-        {
-            "Action": "Load",
-            "Target": "Maps/spacious_SpaciousCoop",
-            "FromFile": "assets/SpaciousCoop.tmx"
-        },
-        {
-            "Action": "Load",
-            "Target": "Buildings/spacious_SpaciousBarn_PaintMask",
-            "FromFile": "assets/SpaciousBarn_PaintMask.png"
-        },
-        {
-            "Action": "Load",
-            "Target": "Buildings/spacious_SpaciousCoop_PaintMask",
-            "FromFile": "assets/SpaciousCoop_PaintMask.png"
-        },
-        {
-            "Action": "EditData",
-            "Target": "Data/PaintData",
-            "Entries": {
-		        "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn": "Building/-10 0/Roof/-10 5/Trim/-5 0"
-            }
-	    },
-        {
-            "Action": "EditData",
-            "Target": "Data/PaintData",
-            "Entries": {
-				"bobkalonger.spaciouscoopnbarnCP_SpaciousCoop": "Building/-12 0/Roof/-10 5/Trim/-10 5"
-		    }
-	    },
-
-        //Load SuperDense Set
 
         {
             "Action": "Load",
@@ -87,86 +28,345 @@
             }
         },
 
-        //Barn Config Breakouts
+       {
+            "Action": "EditData",
+            "Target": "Data/Buildings",
+            "Entries": {
+                "bobkalonger.spaciouscoopnbarnCP_SuperDenseBarn": {
+                    "Name": "{{i18n:building.spacious-barn.name}}",
+                    "Description": "{{i18n:building.spacious-barn.description}}",
+                    "Texture": "Buildings\\Deluxe Barn",
+                    "Builder": "Robin",
+                    "Size": {
+                        "X": 7,
+                        "Y": 4
+                    },
+                    "SourceRect": {
+                        "X": 0,
+                        "Y": 0,
+                        "Width": 112,
+                        "Height": 112
+                    },
+                    "FadeWhenBehind": true,
+                    "BuildCondition": null,
+                    "BuildingToUpgrade": "Deluxe Barn",
+                    "BuildDays": 0,
+                    "BuildCost": 10,
+                    "BuildMaterials": [],
+                    "BuildMenuDrawOffset": {
+                        "X": 0,
+                        "Y": 0
+                    },
+                    "HumanDoor": {
+                        "X": 1,
+                        "Y": 3
+                    },
+                    "AnimalDoor": {
+                        "X": 4,
+                        "Y": 3,
+                        "Width": 2,
+                        "Height": 1
+                    },
+                    "AnimalDoorOpenDuration": 0.4,
+                    "AnimalDoorOpenSound": "doorCreak",
+                    "AnimalDoorCloseDuration": 0.6,
+                    "AnimalDoorCloseSound": "doorCreakReverse",
+                    "NonInstancedIndoorLocation": null,
+                    "DrawLayers": [
+                        {
+                            "Id": "Default_AnimalDoor_Bottom",
+                            "Texture": null,
+                            "SourceRect": {
+                                "X": 0,
+                                "Y": 112,
+                                "Width": 32,
+                                "Height": 16
+                            },
+                            "DrawPosition": "64, 96",
+                            "DrawInBackground": false,
+                            "SortTileOffset": 0.02,
+                            "OnlyDrawIfChestHasContents": null,
+                            "FrameDuration": 90,
+                            "FrameCount": 1,
+                            "FramesPerRow": -1,
+                            "AnimalDoorOffset": {
+                                "X": 0,
+                                "Y": -19
+                            }
+                        },
+                        {
+                            "Id": "Default_AnimalDoor_Top",
+                            "Texture": null,
+                            "SourceRect": {
+                                "X": 0,
+                                "Y": 112,
+                                "Width": 32,
+                                "Height": 12
+                            },
+                            "DrawPosition": "64, 84",
+                            "DrawInBackground": false,
+                            "SortTileOffset": 0.02,
+                            "OnlyDrawIfChestHasContents": null,
+                            "FrameDuration": 90,
+                            "FrameCount": 1,
+                            "FramesPerRow": -1,
+                            "AnimalDoorOffset": {
+                                "X": 0,
+                                "Y": -19
+                            }
+                        },
+                        {
+                            "Id": "Default_AnimalDoor_Open_Top",
+                            "Texture": null,
+                            "SourceRect": {
+                                "X": 32,
+                                "Y": 112,
+                                "Width": 32,
+                                "Height": 16
+                            },
+                            "DrawPosition": "64, 80",
+                            "DrawInBackground": false,
+                            "SortTileOffset": 1.0,
+                            "OnlyDrawIfChestHasContents": null,
+                            "FrameDuration": 90,
+                            "FrameCount": 1,
+                            "FramesPerRow": -1,
+                            "AnimalDoorOffset": {
+                                "X": 0,
+                                "Y": 0
+                            }
+                        },
+                        {
+                            "Id": "Default_AnimalDoor_Open_Bottom",
+                            "Texture": null,
+                            "SourceRect": {
+                                "X": 64,
+                                "Y": 112,
+                                "Width": 32,
+                                "Height": 16
+                            },
+                            "DrawPosition": "64, 96",
+                            "DrawInBackground": false,
+                            "SortTileOffset": 1.0,
+                            "OnlyDrawIfChestHasContents": null,
+                            "FrameDuration": 90,
+                            "FrameCount": 1,
+                            "FramesPerRow": -1,
+                            "AnimalDoorOffset": {
+                                "X": 0,
+                                "Y": 0
+                            }
+                        }
+                    ],
+                    "IndoorMap": "spacious_SuperDenseBarn",
+                    "IndoorMapType": "StardewValley.AnimalHouse",
+                    "MaxOccupants": 48,
+                    "ValidOccupantTypes": [
+                        "Barn"
+                    ],
+                    "AllowAnimalPregnancy": true,
+                    "IndoorItems": [
+                        {
+                            "Id": "Default_FeedHopper",
+                            "ItemId": "(BC)99",
+                            "Tile": {
+                                "X": 21,
+                                "Y": 3
+                            },
+                            "Indestructible": true
+                        },
+                        {
+                            "Id": "Default_Heater",
+                            "ItemId": "(BC)104",
+                            "Tile": {
+                                "X": 44,
+                                "Y": 3
+                            },
+                            "Indestructible": false
+                        },
+						{
+                            "Id": "Default_AutoPetter",
+                            "ItemId": "(BC)272",
+                            "Tile": {
+                                "X": 45,
+                                "Y": 3
+                            },
+                            "Indestructible": false
+                        },
+						{
+                            "Id": "Default_AutoGrabber",
+                            "ItemId": "(BC)165",
+                            "Tile": {
+                                "X": 20,
+                                "Y": 3
+                            },
+                            "Indestructible": false
+                        }
+                    ],
+                    "DrawShadow": true,
+                    "UpgradeSignTile": "4.5, 2",
+                    "UpgradeSignHeight": 31.0,
+                    "MagicalConstruction": false
+                }
+            }
+        },
 
         {
-            "Action": "Include",
-            "FromFile": "code/Buildings/SVE_PremiumBarn.json",
-            "When": {
-                "Barn to Upgrade": "SVE Premium Barn"
-            }
-        },
-        {
-            "Action": "Include",
-            "FromFile": "code/Buildings/JMCB_MegaBarn.json",
-            "When": {
-                "Barn to Upgrade": "Jen's Mega Barn"
-            }
-        },
-        {
-            "Action": "Include",
-            "FromFile": "code/Buildings/GiganticBarn.json",
-            "When": {
-                "Barn to Upgrade": "Gigantic Barn"
-            }
-        },
-        {
-            "Action": "Include",
-            "FromFile": "code/Buildings/Vanilla_DeluxeBarn.json",
-            "When": {
-                "Barn to Upgrade": "Vanilla Deluxe Barn"
-            }
-        },
-        {
-            "Action": "Include",
-            "FromFile": "code/Buildings/ADDNEW_SpaciousBarn.json",
-            "When": {
-                "Barn to Upgrade": "Add Building"
-            }
-        },
-
-        //Coop config Breakouts
-
-        {
-            "Action": "Include",
-            "FromFile": "code/Buildings/SVE_PremiumCoop.json",
-            "When": {
-                "Coop to Upgrade": "SVE Premium Coop"
-            }
-        },
-        {
-            "Action": "Include",
-            "FromFile": "code/Buildings/JMCB_MegaCoop.json",
-            "When": {
-                "Coop to Upgrade": "Jen's Mega Coop"
-            }
-        },
-        {
-            "Action": "Include",
-            "FromFile": "code/Buildings/RC_GiantCoop.json",
-            "When": {
-                "Coop to Upgrade": "Resource Chickens Giant Coop"
-            }
-        },
-        {
-            "Action": "Include",
-            "FromFile": "code/Buildings/GiganticCoop.json",
-            "When": {
-                "Coop to Upgrade": "Gigantic Coop"
-            }
-        },
-        {
-            "Action": "Include",
-            "FromFile": "code/Buildings/Vanilla_DeluxeCoop.json",
-            "When": {
-                "Coop to Upgrade": "Vanilla Deluxe Coop"
-            }
-        },
-        {
-            "Action": "Include",
-            "FromFile": "code/Buildings/ADDNEW_SpaciousCoop.json",
-            "When": {
-                "Coop to Upgrade": "Add Building"
+            "Action": "EditData",
+            "Target": "Data/Buildings",
+            "Entries": {
+                "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop": {
+                    "Name": "{{i18n:building.spacious-coop.name}}",
+                    "Description": "{{i18n:building.spacious-coop.description}}",
+                    "Texture": "Buildings\\Deluxe Coop",
+                    "Builder": "Robin",
+                    "Size": {
+                        "X": 6,
+                        "Y": 3
+                    },
+                    "SourceRect": {
+                        "X": 0,
+                        "Y": 0,
+                        "Width": 96,
+                        "Height": 112
+                    },
+                    "FadeWhenBehind": true,
+                    "BuildCondition": null,
+                    "BuildingToUpgrade": "Deluxe Coop",
+                    "BuildDays": 0,
+                    "BuildCost": 10,
+                    "BuildMaterials": [],
+                    "BuildMenuDrawOffset": {
+                        "X": 0,
+                        "Y": 0
+                    },
+                    "HumanDoor": {
+                        "X": 1,
+                        "Y": 2
+                    },
+                    "AnimalDoor": {
+                        "X": 2,
+                        "Y": 2,
+                        "Width": 1,
+                        "Height": 1
+                    },
+                    "AnimalDoorOpenDuration": 0.3125,
+                    "AnimalDoorOpenSound": "doorCreak",
+                    "AnimalDoorCloseDuration": 0.3125,
+                    "AnimalDoorCloseSound": "doorCreakReverse",
+                    "NonInstancedIndoorLocation": null,
+                    "DrawLayers": [
+                        {
+                            "Id": "Default_AnimalDoor",
+                            "Texture": null,
+                            "SourceRect": {
+                                "X": 0,
+                                "Y": 112,
+                                "Width": 16,
+                                "Height": 16
+                            },
+                            "DrawPosition": "32, 96",
+                            "DrawInBackground": false,
+                            "SortTileOffset": 0.02,
+                            "OnlyDrawIfChestHasContents": null,
+                            "FrameDuration": 90,
+                            "FrameCount": 1,
+                            "FramesPerRow": -1,
+                            "AnimalDoorOffset": {
+                                "X": 0,
+                                "Y": -13
+                            }
+                        },
+                        {
+                            "Id": "Default_AnimalDoor_Open",
+                            "Texture": null,
+                            "SourceRect": {
+                                "X": 16,
+                                "Y": 112,
+                                "Width": 16,
+                                "Height": 16
+                            },
+                            "DrawPosition": "32, 96",
+                            "DrawInBackground": false,
+                            "SortTileOffset": 1.0,
+                            "OnlyDrawIfChestHasContents": null,
+                            "FrameDuration": 90,
+                            "FrameCount": 1,
+                            "FramesPerRow": -1,
+                            "AnimalDoorOffset": {
+                                "X": 0,
+                                "Y": 0
+                            }
+                        }
+                    ],
+                    "IndoorMap": "spacious_SuperDenseCoop",
+                    "IndoorMapType": "StardewValley.AnimalHouse",
+                    "MaxOccupants": 48,
+                    "ValidOccupantTypes": [
+                        "Coop"
+                    ],
+                    "AllowAnimalPregnancy": false,
+                    "IndoorItems": [
+						{
+							"Id": "Default_FeedHopper",
+							"ItemId": "(BC)99",
+							"Tile": {
+								"X": 4,
+								"Y": 3
+							},
+							"Indestructible": true
+						},
+						{
+							"Id": "Default_Incubator",
+							"ItemId": "(BC)101",
+							"Tile": {
+								"X": 3,
+								"Y": 3
+							},
+							"Indestructible": true
+						},
+						{
+							"Id": "Extra_Incubator",
+							"ItemId": "(BC)101",
+							"Tile": {
+								"X": 24,
+								"Y": 3
+							},
+							"Indestructible": false
+						},
+						{
+                            "Id": "Default_Heater",
+                            "ItemId": "(BC)104",
+                            "Tile": {
+                            	"X": 23,
+                            	"Y": 3
+                            },
+                            "Indestructible": false
+                        },
+						{
+                            "Id": "Default_AutoPetter",
+                            "ItemId": "(BC)272",
+                            "Tile": {
+                            	"X": 13,
+                            	"Y": 26
+                            },
+                            "Indestructible": false
+                        },
+						{
+                            "Id": "Default_AutoGrabber",
+                            "ItemId": "(BC)165",
+                            "Tile": {
+                            	"X": 14,
+                            	"Y": 26
+                            },
+                            "Indestructible": false
+                        }
+					],
+                    "DrawShadow": true,
+                    "UpgradeSignTile": "4.5, 2",
+                    "UpgradeSignHeight": 31.0,
+                    "MagicalConstruction": false
+                }
             }
         }
     ]
