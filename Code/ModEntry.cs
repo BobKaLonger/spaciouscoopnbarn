@@ -7,7 +7,6 @@ using System.Reflection;
 using StardewValley.Buildings;
 using StardewValley.GameData.Buildings;
 using StardewValley.Objects;
-using RidgesideVillage;
 
 namespace spaciouscoopnbarn
 {
@@ -26,8 +25,6 @@ namespace spaciouscoopnbarn
             cpPack = mi.GetType().GetProperty("ContentPack")?.GetValue(mi) as IContentPack;
 
             helper.Events.Player.Warped += PlayerOnWarped;
-
-            RidgesideVillage.InstallationChecker.AutoCheck(Helper, Monitor);
 
             var harmony = new Harmony(this.ModManifest.UniqueID);
 
