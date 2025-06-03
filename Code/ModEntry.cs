@@ -10,6 +10,43 @@ using StardewValley.Objects;
 
 namespace spaciouscoopnbarn
 {
+    internal class CompatibilityChecker
+    {
+        IModHelper helper;
+
+        bool hasSVE = true;
+        bool hasBKGCB = true;
+        bool hasJMCB = true;
+        bool hasUARC = true;
+        bool hasBOTH = true;
+        bool hasVanilla = true;
+
+        public bool checkCompatibilities(IModHelper Helper, IMonitor Monitor)
+        {
+            helper = Helper;
+
+            if (helper.ModRegistry.IsLoaded("FlashShifter.StardewValleyExpandedCP"))
+                return hasSVE;
+
+            else if (helper.ModRegistry.IsLoaded("bobkalonger.gigacoopnbarn"))
+                return hasBKGCB;
+
+            else if (helper.ModRegistry.IsLoaded("jenf1.megacoopbarn"))
+            {
+                if (helper.ModRegistry.IsLoaded("UncleArya.ResourceChickens"))
+                    return hasBOTH;
+                else
+                    return hasJMCB;
+            }
+            else
+            {
+                if (helper.ModRegistry.IsLoaded("UncleArya.ResourceChickens"))
+                    return hasUARC;
+                else
+                    return hasVanilla;
+            }
+        }
+    }
     public class ModEntry : Mod
     {
         public static Mod modInstance;
