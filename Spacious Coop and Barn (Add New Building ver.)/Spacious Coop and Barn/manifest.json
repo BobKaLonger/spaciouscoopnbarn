@@ -1,9 +1,0 @@
-{
-  "Name": "Spacious Coop and Barn",
-  "Author": "bobkalonger",
-  "Version": "1.5.1",
-  "Description": "Code for Spacious Coop and Barn",
-  "UniqueID": "bobkalonger.BSCB_code",
-  "EntryDll": "spaciouscoopnbarn.dll",
-  "UpdateKeys": [ "Nexus:???" ]
-}
