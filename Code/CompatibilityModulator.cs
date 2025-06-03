@@ -7,6 +7,13 @@ using System.Collections.Generic;
 
 namespace spaciouscoopnbarn
 {
+    internal static class Log
+    {
+        internal static IMonitor Monitor { get; private set; } = null;
+        internal static void Error(string msg) => Monitor.Log(msg, LogLevel.Error);
+        internal static void Trace(string msg) => Monitor.Log(msg, LogLevel.Trace);
+    }
+
     public class Compatibility
     {
         public string name;
@@ -22,13 +29,13 @@ namespace spaciouscoopnbarn
         bool hasJMCB = true;
         bool hasUARC = true;
 
-        public bool checkSVE(IModHelper Helper)
+        public bool checkInstallation(IModHelper Helper)
         {
             helper = Helper;
-            var compatibilities = ;
 
             if (!helper.ModRegistry.IsLoaded("FlashShifter.StardewValleyExpandedCP"))
                 hasSVE = false;
+            else return hasSVE;
 
             if (!helper.ModRegistry.IsLoaded("bobkalonger.gigacoopnbarn"))
                 hasBKGCB = false;
