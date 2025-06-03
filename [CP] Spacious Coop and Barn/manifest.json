@@ -1,7 +1,7 @@
 {
 	"Name": "Spacious Coop and Barn",
 	"Author": "bobkalonger",
-  	"Version": "1.5.1",
+  	"Version": "1.3.1",
   	"Description": "Adds a new upgrade level to coops and barns, increasing the animal limit to 48!",
   	"UniqueID": "bobkalonger.spaciouscoopnbarnCP",
   	"UpdateKeys": [ "Nexus:???" ],
