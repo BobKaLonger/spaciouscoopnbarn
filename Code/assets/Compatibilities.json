@@ -1,70 +1,20 @@
 {
+	//Compatible mods (NOT REQUIRED)
 
-	/******************************
-	** Mods required by other mods
-	******************************/
-
-	// SMAPI (not how it works but w/e)
-	"SMAPI": {
-		"uniqueID": "Pathoschild.SMAPI",
-		"author": "Pathoschild",
-		"name": "SMAPI",
-		"minVersion": "3.14.1",
-		"required": true,
-		"url": "https://www.nexusmods.com/stardewvalley/mods/2400"
-	},
-
-	// Content Patcher (CP)
-	"CP": {
-		"uniqueID": "Pathoschild.ContentPatcher",
-		"author": "Pathoschild",
-		"name": "Content Patcher",
-		"minVersion": "1.25.0",
-		"required": true,
-		"url": "https://www.nexusmods.com/stardewvalley/mods/1915",
-		"parents": "SMAPI"
-	},
-
-	/****************************
-	** Required mods with parents
-	*****************************/
-
-	// Farm Type Manager (FTM)
-	"FarmTypeManager": {
-		"uniqueID": "Esca.FarmTypeManager",
-		"author": "Esca",
-		"name": "Farm Type Manager (FTM)",
-		"required": true,
-		"url": "https://www.nexusmods.com/stardewvalley/mods/3231",
-		"parents": "Content Patcher"
-	},
-
-	/************************************
-	** Bundled components (parts of SVE)
-	************************************/
-
+	//Stardew Valley Expanded (RECOMMENDED)
 	"SVE_CP": {
-		"uniqueID": "FlashShifter.StardewValleyExpandedCP",
-		"author": "FlashShifter",
-		"name": "[CP] Stardew Valley Expanded",
-		"minVersion": "1.14.12",
-		"required": true,
-		"url": "https://www.nexusmods.com/stardewvalley/mods/3753",
-		"component": true
+		"uniqueID": "FlashShifter.StardewValleyExpandedCP"
 	},
 
-	"SVE_FTM": {
-		"uniqueID": "FlashShifter.SVE-FTM",
-		"author": "FlashShifter",
-		"name": "[FTM] Stardew Valley Expanded",
-		"minVersion": "1.14.12",
-		"required": true,
-		"url": "https://www.nexusmods.com/stardewvalley/mods/3753",
-		"component": true
+	"BKGCB": {
+		"uniqueID": "bobkalonger.gigacoopnbarn"
 	},
 
-	/***************************************
-	** Optional mods (with minimum versions)
-	***************************************/
+	"JMCB": {
+		"uniqueID": "jenf1.megacoopbarn"
+	},
 
+	"UARC": {
+		"uniqueID": "UncleArya.ResourceChickens"
+	}
 }
