@@ -4,6 +4,7 @@ using StardewModdingAPI.Utilities;
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace spaciouscoopnbarn
 {
@@ -29,25 +30,31 @@ namespace spaciouscoopnbarn
         bool hasJMCB = true;
         bool hasUARC = true;
 
-        public bool checkInstallation(IModHelper Helper)
+        public static void AutoCheck(IModHelper Helper, IMonitor Monitor)
+        {
+            if (new spaciouscoopnbarn.CompatibilityModulator().checkCompatibilities(Helper, Monitor))
+                Monitor.Log(Helper.Translation.Get("compatibilitymodulator.success"), LogLevel.Info);
+        }
+
+        public bool checkCompatibilities(IModHelper Helper)
         {
             helper = Helper;
+            var compatibilities = helper.Data.ReadJsonFile<Dictionary<string, Compatibility>>(PathUtilities.NormalizePath("assets/Compatibilities.json"));
 
-            if (!helper.ModRegistry.IsLoaded("FlashShifter.StardewValleyExpandedCP"))
-                hasSVE = false;
-            else return hasSVE;
+            foreach (var compatibility in compatibilities.Values)
+            {
+                if ($"{compatibility.uniqueID}" == "FlashShifter.StardewValleyExpandedCP" && !helper.ModRegistry.IsLoaded("FlashShifter.StardewValleyExpandedCP"))
+                    hasSVE = false;
+                
+                if ($"{compatibility.uniqueID}" == "bobkalonger.gigacoopnbarn" && !helper.ModRegistry.IsLoaded("bobkalonger.gigacoopnbarn"))
+                    hasBKGCB = false;
 
-            if (!helper.ModRegistry.IsLoaded("bobkalonger.gigacoopnbarn"))
-                hasBKGCB = false;
-            else return hasBKGCB;
-
-            if (!helper.ModRegistry.IsLoaded("jenf1.megacoopbarn"))
-                hasJMCB = false;
-            else return hasJMCB;
-
-            if (!helper.ModRegistry.IsLoaded("UncleArya.ResourceChickens"))
-                hasUARC = false;
-            else return hasUARC;
+                if ($"{compatibility.uniqueID}" == "jenf1.megacoopbarn" && !helper.ModRegistry.IsLoaded("jenf1.megacoopbarn"))
+                    hasJMCB = false;
+                
+                if ($"{compatibility.uniqueID}" == "UncleArya.ResourceChickens" && !helper.ModRegistry.IsLoaded("UncleArya.ResourceChickens"))
+                    hasUARC = false;
+            }
         }
     }
 }
