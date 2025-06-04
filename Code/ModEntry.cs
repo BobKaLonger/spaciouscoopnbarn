@@ -62,7 +62,6 @@ namespace spaciouscoopnbarn
             cpPack = mi.GetType().GetProperty("ContentPack")?.GetValue(mi) as IContentPack;
 
             helper.Events.Player.Warped += PlayerOnWarped;
-            helper.Events.GameLoop.UpdateTicked += OnUpdateTicked;
 
             var harmony = new Harmony(this.ModManifest.UniqueID);
 
