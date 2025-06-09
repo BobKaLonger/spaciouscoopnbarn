@@ -7,45 +7,20 @@ using System.Reflection;
 using StardewValley.Buildings;
 using StardewValley.GameData.Buildings;
 using StardewValley.Objects;
+using System;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace spaciouscoopnbarn
 {
-    internal class CompatibilityChecker
+    //Holds config info
+    public class ModConfig
     {
-        IModHelper helper;
-
-        bool modSVE = true;
-        bool modBKGCB = true;
-        bool modJMCB = true;
-        bool modUARC = true;
-        bool modBOTH = true;
-        bool Vanilla = true;
-
-        public bool checkCompatibilities(IModHelper Helper, IMonitor Monitor)
-        {
-            helper = Helper;
-
-            if (helper.ModRegistry.IsLoaded("FlashShifter.StardewValleyExpandedCP"))
-                return modSVE;
-
-            else if (helper.ModRegistry.IsLoaded("bobkalonger.gigacoopnbarn"))
-                return modBKGCB;
-
-            else if (helper.ModRegistry.IsLoaded("jenf1.megacoopbarn"))
-            {
-                if (helper.ModRegistry.IsLoaded("UncleArya.ResourceChickens"))
-                    return modBOTH;
-                else
-                    return modJMCB;
-            }
-            else
-            {
-                if (helper.ModRegistry.IsLoaded("UncleArya.ResourceChickens"))
-                    return modUARC;
-                else
-                    return Vanilla;
-            }
-        }
+        public bool HasSVE { get; set; }
+        public bool HasBKGCB { get; set; }
+        public bool HasJMCB { get; set; }
+        public bool HasUARC { get; set; }
+        public string SpaciousMode { get; set; }
     }
     public class ModEntry : Mod
     {
@@ -60,6 +35,69 @@ namespace spaciouscoopnbarn
 
             var mi = Helper.ModRegistry.Get("bobkalonger.spaciouscoopnbarnCP");
             cpPack = mi.GetType().GetProperty("ContentPack")?.GetValue(mi) as IContentPack;
+
+            //Check for compatible mods
+            bool hasSVE = helper.ModRegistry.IsLoaded("FlashShifter.StardewValleyExpandedCP");
+            bool hasBKGCB = helper.ModRegistry.IsLoaded("bobkalonger.gigacoopnbarn");
+            bool hasJMCB = helper.ModRegistry.IsLoaded("jenf1.megacoopbarn");
+            bool hasUARC = helper.ModRegistry.IsLoaded("UncleArya.ResourceChickens");
+
+            // Determine the spaciousMode
+            string spaciousMode;
+            if (hasSVE)
+            {
+                spaciousMode = "SVE";
+            }
+            else if (hasBKGCB)
+            {
+                spaciousMode = "BKGCB";
+            }
+            else if (hasJMCB)
+            {
+                if (hasUARC)
+                {
+                    spaciousMode = "Both";
+                }
+                else
+                {
+                    spaciousMode = "JMCB";
+                }
+            }
+            else if (hasUARC)
+            {
+                //By the time the logic gets here, we already know JMCB is false
+                spaciousMode = "UARC";
+            }
+            else
+            {
+                spaciousMode = "Vanilla";
+            }
+
+            //Let's make that config now
+            ModConfig config = new ModConfig
+            {
+                HasSVE = hasSVE,
+                HasBKGCB = hasBKGCB,
+                HasJMCB = hasJMCB,
+                HasUARC = hasUARC,
+                SpaciousMode = spaciousMode
+            };
+
+            //Path to the content patcher config file
+            string spaciousFolder = Path.GetFullPath(Path.Combine(helper.DirectoryPath, ".."));
+            string spaciousCP = Path.Combine(spaciousFolder, "[CP] Spacious Coop and Barn");
+            string configPath = Path.Combine(spaciousCP, "config.json");
+            string json = JsonConvert.SerializeObject(config, Formatting.Indented);
+
+            try
+            {
+                File.WriteAllText(configPath, json);
+                Monitor.Log($"Configuration updated successfully at \"{configPath}\"!", LogLevel.Info);
+            }
+            catch (Exception ex)
+            {
+                Monitor.Log($"Error writing config.json: {ex.Message}", LogLevel.Error);
+            }
 
             helper.Events.Player.Warped += PlayerOnWarped;
 

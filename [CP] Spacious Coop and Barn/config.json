@@ -2,9 +2,9 @@
 This file is populated automatically by the SMAPI component of this mod*/
 
 {
-    "SVE": true, //Stardew Valley Expanded
-    "BKGCB": true, //Gigantic Coop and Barn
-    "JMCB": true, //Jen's Mega Coop and Barn
-    "UARC": true, //Resource Chickens
+    "Stardew Valley Expanded": true, //Stardew Valley Expanded
+    "Gigantic Coop and Barn": true, //Gigantic Coop and Barn
+    "Jen's Mega Coop and Barn": true, //Jen's Mega Coop and Barn
+    "Resource Chickens": true, //Resource Chickens
     "SpaciousMode": "SVE" //Controls which json file to include
 }
