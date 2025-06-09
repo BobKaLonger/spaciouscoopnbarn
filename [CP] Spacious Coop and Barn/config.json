@@ -1,35 +1,10 @@
+/*MANUALLY CHANGING THIS FILE IS NOT RECOMMENDED
+This file is populated automatically by the SMAPI component of this mod*/
+
 {
-  "Compatible Mods": {
     "SVE": true, //Stardew Valley Expanded
     "BKGCB": true, //Gigantic Coop and Barn
     "JMCB": true, //Jen's Mega Coop and Barn
-    "UARC": true //Resource Chickens
-  },
-
-  "Compatibility Switches": {
-    "upgradeSVE": {
-      "Enabled": true,
-      "Condition": "SVE"
-    },
-    "upgradeGiga": {
-      "Enabled": false,
-      "Condition": "!SVE && BKGCB"
-    },
-    "upgradeBoth": {
-        "Enabled": false,
-        "Condition": "!SVE && !BKGCB && JMCB && UARC"
-    },
-    "upgradeMega": {
-        "Enabled": false,
-        "Condition": "!SVE && !BKGCB && !UARC && JMCB"
-    },
-    "upgradeGiant": {
-        "Enabled": false,
-        "Condition": "!SVE && !BKGCB && !JMCB && UARC"
-    },
-    "upgradeVanilla": {
-        "Enabled": false,
-        "Condition": "!SVE && !BKGCB && !JMCB && !UARC"
-    }
-  }
+    "UARC": true, //Resource Chickens
+    "SpaciousMode": "SVE" //Controls which json file to include
 }

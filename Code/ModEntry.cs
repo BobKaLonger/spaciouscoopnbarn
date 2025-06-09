@@ -14,36 +14,36 @@ namespace spaciouscoopnbarn
     {
         IModHelper helper;
 
-        bool hasSVE = true;
-        bool hasBKGCB = true;
-        bool hasJMCB = true;
-        bool hasUARC = true;
-        bool hasBOTH = true;
-        bool hasVanilla = true;
+        bool modSVE = true;
+        bool modBKGCB = true;
+        bool modJMCB = true;
+        bool modUARC = true;
+        bool modBOTH = true;
+        bool Vanilla = true;
 
         public bool checkCompatibilities(IModHelper Helper, IMonitor Monitor)
         {
             helper = Helper;
 
             if (helper.ModRegistry.IsLoaded("FlashShifter.StardewValleyExpandedCP"))
-                return hasSVE;
+                return modSVE;
 
             else if (helper.ModRegistry.IsLoaded("bobkalonger.gigacoopnbarn"))
-                return hasBKGCB;
+                return modBKGCB;
 
             else if (helper.ModRegistry.IsLoaded("jenf1.megacoopbarn"))
             {
                 if (helper.ModRegistry.IsLoaded("UncleArya.ResourceChickens"))
-                    return hasBOTH;
+                    return modBOTH;
                 else
-                    return hasJMCB;
+                    return modJMCB;
             }
             else
             {
                 if (helper.ModRegistry.IsLoaded("UncleArya.ResourceChickens"))
-                    return hasUARC;
+                    return modUARC;
                 else
-                    return hasVanilla;
+                    return Vanilla;
             }
         }
     }
