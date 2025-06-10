@@ -89,15 +89,7 @@ namespace spaciouscoopnbarn
             string configPath = Path.Combine(spaciousCP, "config.json");
             string json = JsonConvert.SerializeObject(config, Formatting.Indented);
 
-            try
-            {
-                File.WriteAllText(configPath, json);
-                Monitor.Log($"Configuration updated successfully at \"{configPath}\"!", LogLevel.Info);
-            }
-            catch (Exception ex)
-            {
-                Monitor.Log($"Error writing config.json: {ex.Message}", LogLevel.Error);
-            }
+            File.WriteAllText(configPath, json);
 
             helper.Events.Player.Warped += PlayerOnWarped;
 
