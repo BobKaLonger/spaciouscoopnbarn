@@ -6,16 +6,6 @@
         //Load Spacious Set
         {
             "Action": "Load",
-            "Target": "Buildings/spacious_SpaciousBarn",
-            "FromFile": "assets/SpaciousBarn.png"
-        },
-        {
-            "Action": "Load",
-            "Target": "Buildings/spacious_SpaciousCoop",
-            "FromFile": "assets/SpaciousCoop.png"
-        },
-        {
-            "Action": "Load",
             "Target": "Maps/spacious_SpaciousBarn",
             "FromFile": "assets/SpaciousBarn.tmx"
         },
@@ -23,16 +13,6 @@
             "Action": "Load",
             "Target": "Maps/spacious_SpaciousCoop",
             "FromFile": "assets/SpaciousCoop.tmx"
-        },
-        {
-            "Action": "Load",
-            "Target": "Buildings/spacious_SpaciousBarn_PaintMask",
-            "FromFile": "assets/SpaciousBarn_PaintMask.png"
-        },
-        {
-            "Action": "Load",
-            "Target": "Buildings/spacious_SpaciousCoop_PaintMask",
-            "FromFile": "assets/SpaciousCoop_PaintMask.png"
         },
         {
             "Action": "EditData",
