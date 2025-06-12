@@ -2,7 +2,6 @@
     "Format": "2.6.0",
     
     "Changes": [
-        //Building data
         {
             "Action": "EditData",
             "Target": "Data/Buildings",
@@ -24,7 +23,7 @@
                     },
 					"FadeWhenBehind": true,
 					"BuildCondition": null,
-					"BuildingToUpgrade": "FlashShifter.StardewValleyExpandedCP_PremiumBarn",
+					"BuildingToUpgrade": "Buildings\\SVE_PremiumBarn",
                     "BuildDays": 0,
                     "BuildCost": 10,
                     "BuildMaterials": [],
@@ -180,7 +179,7 @@
 					"CollisionMap": "XXXXXXOOO\nXXXXXXXXX\nXXXXXXXXX\nXXXXXXOOO",
 					"SortTileOffset": "2.5",
 					"BuildCondition": null,
-					"BuildingToUpgrade": "FlashShifter.StardewValleyExpandedCP_PremiumCoop",
+					"BuildingToUpgrade": "Buildings\\SVE_PremiumCoop",
             		"BuildDays": 0,
                     "BuildCost": 10,
                     "BuildMaterials": [],
