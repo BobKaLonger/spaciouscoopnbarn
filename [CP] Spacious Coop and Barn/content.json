@@ -3,7 +3,7 @@
 
     "Changes": [
 
-        //Load Spacious Set
+        //Load Maps
         {
             "Action": "Load",
             "Target": "Maps/spacious_SpaciousBarn",
@@ -24,6 +24,7 @@
             "Target": "Maps/SuperDenseBarn",
             "FromFile": "assets/SuperDenseBarn.tmx"
         },
+        //Make paintable
         {
             "Action": "EditData",
             "Target": "Data/PaintData",
@@ -38,7 +39,21 @@
 				"bobkalonger.spaciouscoopnbarnCP_SpaciousCoop": "Building/-12 0/Roof/-10 5/Trim/-10 5"
 		    }
 	    },
-
+	    {
+            "Action": "EditData",
+            "Target": "Data/PaintData",
+            "Entries": {
+	            "bobkalonger.spaciouscoopnbarnCP_SuperDenseBarn": "Building/-15 0/Roof/-10 5/Trim/-10 5"
+            }
+        },
+        {
+            "Action": "EditData",
+            "Target": "Data/PaintData",
+            "Entries": {
+	            "bobkalonger.spaciouscoopnbarnCP_SuperDenseCoop": "Building/-25 0/Roof/-15 5/Trim/-25 0"
+            }
+        },
+        //Building data
         {
             "Action": "EditData",
             "Target": "Data/Buildings",
