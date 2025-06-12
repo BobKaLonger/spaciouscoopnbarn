@@ -15,6 +15,16 @@
             "FromFile": "assets/SpaciousCoop.tmx"
         },
         {
+            "Action": "Load",
+            "Target": "Maps/spacious_SuperDenseBarn",
+            "FromFile": "assets/SuperDenseBarn.tmx"
+        },
+        {
+            "Action": "Load",
+            "Target": "Maps/SuperDenseBarn",
+            "FromFile": "assets/SuperDenseBarn.tmx"
+        },
+        {
             "Action": "EditData",
             "Target": "Data/PaintData",
             "Entries": {
