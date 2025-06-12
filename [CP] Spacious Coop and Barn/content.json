@@ -61,7 +61,7 @@
                 "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn": {
                     "Name": "{{i18n:building.spacious-barn.name}}",
                     "Description": "{{i18n:building.spacious-barn.description}}",
-                    "Texture": "Buildings\\spacious_SpaciousBarn",
+                    "Texture": "Buildings\\SVE_PremiumBarn",
                     "Builder": "Robin",
                     "Size": {
                         "X": 11,
@@ -215,7 +215,7 @@
                 "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop": {
                     "Name": "{{i18n:building.spacious-coop.name}}",
                     "Description": "{{i18n:building.spacious-coop.description}}",
-                    "Texture": "Buildings\\spacious_SpaciousCoop",
+                    "Texture": "Buildings\\SVE_PremiumCoop",
                     "Builder": "Robin",
                     "Size": {
                         "X": 9,
