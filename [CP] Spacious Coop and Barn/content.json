@@ -53,6 +53,56 @@
 	            "bobkalonger.spaciouscoopnbarnCP_SuperDenseCoop": "Building/-25 0/Roof/-15 5/Trim/-25 0"
             }
         },
+        
+        //Patch picker
+        {
+            "Action": "Include",
+            "FromFile": "upgradeSVE.json",
+            "When":
+            {
+                "Spacious Mode": "SVE"
+            }
+        },
+        {
+            "Action": "Include",
+            "FromFile": "upgradeBKGCB.json",
+            "When":
+            {
+                "Spacious Mode": "BKGCB"
+            }
+        },
+        {
+            "Action": "Include",
+            "FromFile": "upgradeJMCB.json",
+            "When":
+            {
+                "Spacious Mode": "JMCB"
+            }
+        },
+        {
+            "Action": "Include",
+            "FromFile": "upgradeBoth.json",
+            "When":
+            {
+                "Spacious Mode": "Both"
+            }
+        },
+        {
+            "Action": "Include",
+            "FromFile": "upgradeUARC.json",
+            "When":
+            {
+                "Spacious Mode": "UARC"
+            }
+        },
+        {
+            "Action": "Include",
+            "FromFile": "upgradeVanilla.json",
+            "When":
+            {
+                "Spacious Mode": "Vanilla"
+            }
+        },
         //Building data
         {
             "Action": "EditData",
