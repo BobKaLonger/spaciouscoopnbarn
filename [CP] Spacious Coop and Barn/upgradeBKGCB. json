@@ -21,7 +21,7 @@
                     },
                     "FadeWhenBehind": true,
                     "BuildCondition": null,
-                    "BuildingToUpgrade": "jenf1.megacoopbarn_MegaBarn",
+                    "BuildingToUpgrade": "bobkalonger.gigacoopnbarn_GigaBarn",
                     "BuildDays": 0,
                     "BuildCost": 10,
                     "BuildMaterials": [],
