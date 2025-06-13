@@ -6,9 +6,9 @@
         //Load compatibility file checkmods.json
         
         {
-        "Action": "Include",
-        "FromFile": "data/checkmods.json"
-        }
+            "Action": "Include",
+            "FromFile": "data/checkmods.json"
+        },
         
         //Load Maps
         {
