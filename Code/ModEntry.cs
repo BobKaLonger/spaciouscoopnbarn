@@ -43,7 +43,7 @@ namespace spaciouscoopnbarn
             bool hasJMCB = helper.ModRegistry.IsLoaded("jenf1.megacoopbarn");
             bool hasUARC = helper.ModRegistry.IsLoaded("UncleArya.ResourceChickens");
 
-            //Dictionary for bool results
+            //Dictionary
             var checkData = new Dictionary<string, bool>
             {
                 {"Stardew Valley Expanded", hasSVE},
@@ -51,9 +51,6 @@ namespace spaciouscoopnbarn
                 {"Jen's Mega Coop and Barn", hasJMCB},
                 {"Resource Chickens", hasUARC},
             };
-
-            //Serialize dictionary
-            string json = JsonConvert.SerializeObject(checkData, Formatting.Indented);
 
             // Determine the spaciousMode
             string spaciousMode;
@@ -86,11 +83,13 @@ namespace spaciouscoopnbarn
                 spaciousMode = "Vanilla";
             }
 
-            //Path to the content patcher config file
+            //Path to files
             string spaciousFolder = Path.GetFullPath(Path.Combine(helper.DirectoryPath, ".."));
-            string configPath = Path.Combine(spaciousFolder, "[CP] Spacious Coop and Barn", "data", "checkmods.json");
+            string dataPath = Path.Combine(spaciousFolder, "[CP] Spacious Coop and Barn", "data", "checkmods.json");
+            string json = JsonConvert.SerializeObject(checkData, Formatting.Indented);
 
-            File.WriteAllText(configPath, json);
+            File.WriteAllText(dataPath, json);
+            File.AppendAllText(dataPath, spaciousMode);
 
             helper.Events.Player.Warped += PlayerOnWarped;
 
