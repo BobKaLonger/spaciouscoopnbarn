@@ -91,11 +91,12 @@ namespace spaciouscoopnbarn
             //Path to files
             string spaciousFolder = Path.GetFullPath(Path.Combine(helper.DirectoryPath, ".."));
             string dataPath = Path.Combine(spaciousFolder, "[CP] Spacious Coop and Barn", "data", "checkmods.json");
+            string modePath = Path.Combine(spaciousFolder, "[CP] Spacious Coop and Barn", "data", "modCompat.json");
             string json = JsonConvert.SerializeObject(checkData, Formatting.Indented);
             string modulator = JsonConvert.SerializeObject(modeData, Formatting.Indented);
 
             File.WriteAllText(dataPath, json);
-            File.AppendAllText(dataPath, modulator);
+            File.WriteAllText(modePath, modulator);
 
             helper.Events.Player.Warped += PlayerOnWarped;
 

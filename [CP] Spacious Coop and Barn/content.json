@@ -7,7 +7,7 @@
         
         {
             "Action": "Include",
-            "FromFile": "data/checkmods.json"
+            "FromFile": "data/modCompat.json"
         },
         
         //Load Maps
