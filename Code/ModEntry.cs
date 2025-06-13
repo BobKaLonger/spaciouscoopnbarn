@@ -10,6 +10,7 @@ using StardewValley.Objects;
 using System;
 using System.IO;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace spaciouscoopnbarn
 {
@@ -42,6 +43,18 @@ namespace spaciouscoopnbarn
             bool hasJMCB = helper.ModRegistry.IsLoaded("jenf1.megacoopbarn");
             bool hasUARC = helper.ModRegistry.IsLoaded("UncleArya.ResourceChickens");
 
+            //Dictionary for bool results
+            var checkData = new Dictionary<string, bool>
+            {
+                {"Stardew Valley Expanded", hasSVE},
+                {"Gigantic Coop and Barn", hasBKGCB},
+                {"Jen's Mega Coop and Barn", hasJMCB},
+                {"Resource Chickens", hasUARC},
+            };
+
+            //Serialize dictionary
+            string json = JsonConvert.SerializeObject(checkData, Formatting.Indented);
+
             // Determine the spaciousMode
             string spaciousMode;
             if (hasSVE)
@@ -73,20 +86,9 @@ namespace spaciouscoopnbarn
                 spaciousMode = "Vanilla";
             }
 
-            //Let's make that config now
-            ModConfig config = new ModConfig
-            {
-                HasSVE = hasSVE,
-                HasBKGCB = hasBKGCB,
-                HasJMCB = hasJMCB,
-                HasUARC = hasUARC,
-                SpaciousMode = spaciousMode
-            };
-
             //Path to the content patcher config file
             string spaciousFolder = Path.GetFullPath(Path.Combine(helper.DirectoryPath, ".."));
-            string configPath = Path.Combine(spaciousFolder, "[CP] Spacious Coop and Barn", "config.json");
-            string json = JsonConvert.SerializeObject(config, Formatting.Indented);
+            string configPath = Path.Combine(spaciousFolder, "[CP] Spacious Coop and Barn", "data", "checkmods.json");
 
             File.WriteAllText(configPath, json);
 
