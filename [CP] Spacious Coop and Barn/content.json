@@ -67,7 +67,7 @@
             "FromFile": "data/upgradeSVE.json",
             "When":
             {
-                "SpaciousMode": "SVE"
+                "Spacious Mode": "SVE"
             }
         },
         {
@@ -75,7 +75,7 @@
             "FromFile": "data/upgradeBKGCB.json",
             "When":
             {
-                "SpaciousMode": "BKGCB"
+                "Spacious Mode": "BKGCB"
             }
         },
         {
@@ -83,7 +83,7 @@
             "FromFile": "data/upgradeJMCB.json",
             "When":
             {
-                "SpaciousMode": "JMCB"
+                "Spacious Mode": "JMCB"
             }
         },
         {
@@ -91,7 +91,7 @@
             "FromFile": "data/upgradeBoth.json",
             "When":
             {
-                "SpaciousMode": "Both"
+                "Spacious Mode": "Both"
             }
         },
         {
@@ -99,7 +99,7 @@
             "FromFile": "data/upgradeUARC.json",
             "When":
             {
-                "SpaciousMode": "UARC"
+                "Spacious Mode": "UARC"
             }
         },
         {
@@ -107,7 +107,7 @@
             "FromFile": "data/upgradeVanilla.json",
             "When":
             {
-                "SpaciousMode": "Vanilla"
+                "Spacious Mode": "Vanilla"
             }
         }
     ]

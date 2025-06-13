@@ -83,13 +83,19 @@ namespace spaciouscoopnbarn
                 spaciousMode = "Vanilla";
             }
 
+            var modeData = new Dictionary<string, string>
+            {
+                {"Spacious Mode", spaciousMode},
+            };
+
             //Path to files
             string spaciousFolder = Path.GetFullPath(Path.Combine(helper.DirectoryPath, ".."));
             string dataPath = Path.Combine(spaciousFolder, "[CP] Spacious Coop and Barn", "data", "checkmods.json");
             string json = JsonConvert.SerializeObject(checkData, Formatting.Indented);
+            string modulator = JsonConvert.SerializeObject(modeData, Formatting.Indented);
 
             File.WriteAllText(dataPath, json);
-            File.AppendAllText(dataPath, spaciousMode);
+            File.AppendAllText(dataPath, modulator);
 
             helper.Events.Player.Warped += PlayerOnWarped;
 
