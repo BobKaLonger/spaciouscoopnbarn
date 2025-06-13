@@ -85,8 +85,7 @@ namespace spaciouscoopnbarn
 
             //Path to the content patcher config file
             string spaciousFolder = Path.GetFullPath(Path.Combine(helper.DirectoryPath, ".."));
-            string spaciousCP = Path.Combine(spaciousFolder, "[CP] Spacious Coop and Barn");
-            string configPath = Path.Combine(spaciousCP, "config.json");
+            string configPath = Path.Combine(spaciousFolder, "[CP] Spacious Coop and Barn", "config.json");
             string json = JsonConvert.SerializeObject(config, Formatting.Indented);
 
             File.WriteAllText(configPath, json);
