@@ -57,51 +57,7 @@
         //Patch picker
         {
             "Action": "Include",
-            "FromFile": "data/upgradeSVE.json",
-            "When":
-            {
-                "player_modData:bobkalonger.BKSCB_code/SpaciousMode": "SVE"
-            }
-        },
-        {
-            "Action": "Include",
-            "FromFile": "data/upgradeBKGCB.json",
-            "When":
-            {
-                "player_modData:bobkalonger.BKSCB_code/SpaciousMode": "BKGCB"
-            }
-        },
-        {
-            "Action": "Include",
-            "FromFile": "data/upgradeBoth.json",
-            "When":
-            {
-                "player_modData:bobkalonger.BKSCB_code/SpaciousMode": "Both"
-            }
-        },
-        {
-            "Action": "Include",
-            "FromFile": "data/upgradeJMCB.json",
-            "When":
-            {
-                "player_modData:bobkalonger.BKSCB_code/SpaciousMode": "JMCB"
-            }
-        },
-        {
-            "Action": "Include",
-            "FromFile": "data/upgradeUARC.json",
-            "When":
-            {
-                "player_modData:bobkalonger.BKSCB_code/SpaciousMode": "UARC"
-            }
-        },
-        {
-            "Action": "Include",
-            "FromFile": "data/upgradeVanilla.json",
-            "When":
-            {
-                "player_modData:bobkalonger.BKSCB_code/SpaciousMode": "Vanilla"
-            }
+            "FromFile": "data/upgrade{{SpaciousMode}}.json"
         }
     ]
 }

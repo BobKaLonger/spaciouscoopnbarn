@@ -11,15 +11,19 @@ using System;
 using System.IO;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using ContentPatcher;
 
 namespace spaciouscoopnbarn
 {
+    public interface IContentPatcherAPI
+    {
+        void RegisterToken(IManifest mod, string name, Func<IEnumerable<string>> getValue);
+    }
     public class ModEntry : Mod
     {
         public static Mod modInstance;
         public static IContentPack cpPack;
         private const string ModDataKey = "bobkalonger.BKSCB_code/SpaciousMode";
-
         public override void Entry(IModHelper helper)
         {
             ModEntry.modInstance = this;
@@ -29,6 +33,7 @@ namespace spaciouscoopnbarn
             var mi = Helper.ModRegistry.Get("bobkalonger.spaciouscoopnbarnCP");
             cpPack = mi.GetType().GetProperty("ContentPack")?.GetValue(mi) as IContentPack;
 
+            helper.Events.GameLoop.GameLaunched += OnGameLaunched;
             helper.Events.GameLoop.SaveLoaded += UpdateSpaciousMode; // first run right after a save finishes loading
             helper.Events.GameLoop.DayStarted += UpdateSpaciousMode; // fires every in-game morning (handles mod enable/disable mid-play)
 
@@ -38,12 +43,31 @@ namespace spaciouscoopnbarn
 
             harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
+        private void OnGameLaunched(object sender, GameLaunchedEventArgs e)
+        {
+            var cp = Helper.ModRegistry.GetApi<IContentPatcherAPI>("Pathoschild.ContentPatcher");
+            if (cp is null)
+            {
+                Monitor.Log("Content Patcher not found; dynamic token will not be available.", LogLevel.Warn);
+                return;
+            }
+
+            cp.RegisterToken(ModManifest, "SpaciousMode", GetCurrentSpaciousMode);
+        }
+        private IEnumerable<string> GetCurrentSpaciousMode()
+        {
+            if (!Context.IsWorldReady)
+            {
+                return Array.Empty<string>();
+            }
+            return new[] { CopmuteSpaciousMode() };
+        }
         private void UpdateSpaciousMode(object sender, EventArgs e)
         {
             if (!Context.IsWorldReady)
                 return;
 
-            string mode = SpaciousMode();
+            string mode = CopmuteSpaciousMode();
 
             if (!Game1.player.modData.TryGetValue(ModDataKey, out string current) || current != mode)
             {
@@ -51,7 +75,7 @@ namespace spaciouscoopnbarn
                 Monitor.Log($"[SpaciousMode] set to “{mode}”.", LogLevel.Info);
             }
         }
-        private string SpaciousMode()
+        private string CopmuteSpaciousMode()
         {
             bool hasSVE = Helper.ModRegistry.IsLoaded("FlashShifter.StardewValleyExpandedCP");
             bool hasBKGCB = Helper.ModRegistry.IsLoaded("bobkalonger.gigacoopnbarn");
