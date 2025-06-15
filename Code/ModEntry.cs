@@ -130,7 +130,7 @@ namespace spaciouscoopnbarn
         }
 
         [HarmonyPatch(typeof(Building), nameof(Building.doesTileHaveProperty))]
-        public static class SpaciousBarnCursorPatch
+        public static class SpaciousCursorPatch
         {
             public static void Postfix(Building __instance, int tile_x, int tile_y, string property_name, string layer_name, ref string property_value, ref bool __result)
             {
@@ -166,7 +166,7 @@ namespace spaciouscoopnbarn
         }
 
         [HarmonyPatch(typeof(Building), nameof(Building.doAction))]
-        public static class SpaciousBarnDoorPatch
+        public static class SpaciousDoorPatch
         {
             public static void Postfix(Building __instance, Vector2 tileLocation, Farmer who, ref bool __result)
             {
@@ -252,7 +252,8 @@ namespace spaciouscoopnbarn
                 interior.warps[1] = new(w.X, w.Y, w.TargetName, w.TargetX + 8, w.TargetY, w.flipFarmer.Value, w.npcOnly.Value);
             }
         }
-
+        
+        [HarmonyPatch(typeof(Building), nameof(Building.updateInteriorWarps))]
         public static class SpaciousCoopWarpPatch
         {
             public static void Postfix(Building __instance, GameLocation interior)
