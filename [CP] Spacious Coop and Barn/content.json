@@ -60,7 +60,7 @@
             "FromFile": "data/upgradeSVE.json",
             "When":
             {
-                "player_modData:bobkalonger.BKSCB_code/SpaciousMode": "SVE"
+                "SpaciousMode": "SVE"
             }
         },
         {
@@ -68,7 +68,7 @@
             "FromFile": "data/upgradeBKGCB.json",
             "When":
             {
-                "player_modData:bobkalonger.BKSCB_code/SpaciousMode": "BKGCB"
+                "SpaciousMode": "BKGCB"
             }
         },
         {
@@ -76,7 +76,7 @@
             "FromFile": "data/upgradeBoth.json",
             "When":
             {
-                "player_modData:bobkalonger.BKSCB_code/SpaciousMode": "Both"
+                "SpaciousMode": "Both"
             }
         },
         {
@@ -84,7 +84,7 @@
             "FromFile": "data/upgradeJMCB.json",
             "When":
             {
-                "player_modData:bobkalonger.BKSCB_code/SpaciousMode": "JMCB"
+                "SpaciousMode": "JMCB"
             }
         },
         {
@@ -92,7 +92,7 @@
             "FromFile": "data/upgradeUARC.json",
             "When":
             {
-                "player_modData:bobkalonger.BKSCB_code/SpaciousMode": "UARC"
+                "SpaciousMode": "UARC"
             }
         },
         {
@@ -100,7 +100,7 @@
             "FromFile": "data/upgradeVanilla.json",
             "When":
             {
-                "player_modData:bobkalonger.BKSCB_code/SpaciousMode": "Vanilla"
+                "SpaciousMode": "Vanilla"
             }
         }
     ]
