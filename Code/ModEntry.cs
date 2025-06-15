@@ -130,7 +130,7 @@ namespace spaciouscoopnbarn
         }
 
         [HarmonyPatch(typeof(Building), nameof(Building.doesTileHaveProperty))]
-        public static class SpaciousBuildingsCursorPatch
+        public static class SpaciousBarnCursorPatch
         {
             public static void Postfix(Building __instance, int tile_x, int tile_y, string property_name, string layer_name, ref string property_value, ref bool __result)
             {
@@ -148,7 +148,14 @@ namespace spaciouscoopnbarn
                         }
                     }
                 }
+            }
+        }
 
+        [HarmonyPatch(typeof(Building), nameof(Building.doesTileHaveProperty))]
+        public static class SpaciousCoopCursorPatch
+        {
+            public static void Postfix(Building __instance, int tile_x, int tile_y, string property_name, string layer_name, ref string property_value, ref bool __result)
+            {
                 if (__instance.buildingType.Value == "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop" && __instance.daysOfConstructionLeft.Value <= 0)
                 {
                     var interior = __instance.GetIndoors();
@@ -167,7 +174,7 @@ namespace spaciouscoopnbarn
         }
 
         [HarmonyPatch(typeof(Building), nameof(Building.doAction))]
-        public static class SpaciousBuildingsDoorPatch
+        public static class SpaciousBarnDoorPatch
         {
             public static void Postfix(Building __instance, Vector2 tileLocation, Farmer who, ref bool __result)
             {
@@ -206,7 +213,14 @@ namespace spaciouscoopnbarn
                         return;
                     }
                 }
+            }
+        }
 
+        [HarmonyPatch(typeof(Building), nameof(Building.doAction))]
+        public static class SpaciousCoopDoorPatch
+        {
+            public static void Postfix(Building __instance, Vector2 tileLocation, Farmer who, ref bool __result)
+            {
                 if (__instance.buildingType.Value == "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop" && __instance.daysOfConstructionLeft.Value <= 0)
                 {
                     var interior = __instance.GetIndoors();
