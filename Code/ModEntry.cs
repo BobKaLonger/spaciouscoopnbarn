@@ -8,10 +8,7 @@ using StardewValley.Buildings;
 using StardewValley.GameData.Buildings;
 using StardewValley.Objects;
 using System;
-using System.IO;
-using Newtonsoft.Json;
 using System.Collections.Generic;
-using ContentPatcher;
 
 namespace spaciouscoopnbarn
 {
@@ -34,8 +31,6 @@ namespace spaciouscoopnbarn
             cpPack = mi.GetType().GetProperty("ContentPack")?.GetValue(mi) as IContentPack;
 
             helper.Events.GameLoop.GameLaunched += OnGameLaunched;
-            helper.Events.GameLoop.SaveLoaded += UpdateSpaciousMode; // first run right after a save finishes loading
-            helper.Events.GameLoop.DayStarted += UpdateSpaciousMode; // fires every in-game morning (handles mod enable/disable mid-play)
 
             helper.Events.Player.Warped += PlayerOnWarped;
 
@@ -61,19 +56,6 @@ namespace spaciouscoopnbarn
                 return Array.Empty<string>();
             }
             return new[] { CopmuteSpaciousMode() };
-        }
-        private void UpdateSpaciousMode(object sender, EventArgs e)
-        {
-            if (!Context.IsWorldReady)
-                return;
-
-            string mode = CopmuteSpaciousMode();
-
-            if (!Game1.player.modData.TryGetValue(ModDataKey, out string current) || current != mode)
-            {
-                Game1.player.modData[ModDataKey] = mode;
-                Monitor.Log($"[SpaciousMode] set to “{mode}”.", LogLevel.Info);
-            }
         }
         private string CopmuteSpaciousMode()
         {
