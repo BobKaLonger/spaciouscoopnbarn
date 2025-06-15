@@ -96,7 +96,8 @@ namespace spaciouscoopnbarn
             string modulator = JsonConvert.SerializeObject(modeData, Formatting.Indented);
 
             File.WriteAllText(dataPath, json);
-            File.WriteAllText(modePath, modulator);
+            File.WriteAllText(modePath, );
+            File.AppendAllText(modePath, modulator);
 
             helper.Events.Player.Warped += PlayerOnWarped;
 
