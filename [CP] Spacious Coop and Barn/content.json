@@ -57,7 +57,51 @@
         //Patch picker
         {
             "Action": "Include",
-            "FromFile": "data/upgrade{{SpaciousMode}}.json"
+            "FromFile": "data/upgradeSVE.json",
+            "When":
+            {
+                "SpaciousMode": "SVE"
+            }
+        },
+        {
+            "Action": "Include",
+            "FromFile": "data/upgradeBKGCB.json",
+            "When":
+            {
+                "SpaciousMode": "BKGCB"
+            }
+        },
+        {
+            "Action": "Include",
+            "FromFile": "data/upgradeBoth.json",
+            "When":
+            {
+                "SpaciousMode": "Both"
+            }
+        },
+        {
+            "Action": "Include",
+            "FromFile": "data/upgradeJMCB.json",
+            "When":
+            {
+                "SpaciousMode": "JMCB"
+            }
+        },
+        {
+            "Action": "Include",
+            "FromFile": "data/upgradeUARC.json",
+            "When":
+            {
+                "SpaciousMode": "UARC"
+            }
+        },
+        {
+            "Action": "Include",
+            "FromFile": "data/upgradeVanilla.json",
+            "When":
+            {
+                "SpaciousMode": "Vanilla"
+            }
         }
     ]
 }
