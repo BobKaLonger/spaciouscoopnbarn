@@ -22,7 +22,7 @@
 					"FadeWhenBehind": true,
 					"BuildCondition": null,
 					"BuildingToUpgrade": "FlashShifter.StardewValleyExpandedCP_PremiumBarn",
-                    "BuildDays": 0,
+                    "BuildDays": 1,
                     "BuildCost": 10,
                     "BuildMaterials": [],
                     "BuildMenuDrawOffset": {
@@ -178,7 +178,7 @@
 					"SortTileOffset": "2.5",
 					"BuildCondition": null,
 					"BuildingToUpgrade": "FlashShifter.StardewValleyExpandedCP_PremiumCoop",
-            		"BuildDays": 0,
+            		"BuildDays": 1,
                     "BuildCost": 10,
                     "BuildMaterials": [],
                     "BuildMenuDrawOffset": {
