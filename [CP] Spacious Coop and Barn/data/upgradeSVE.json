@@ -13,6 +13,15 @@
                         "X": 4.5,
                         "Y": 0.5
                     },
+                    "Upgrades": [
+                        {
+                            "Id": "SpaciousBarn_Upgrade",
+                            "UpgradeSignTile": {
+                                "X": 4.5,
+                                "Y": 0.5
+                            }
+                        }
+                    ],
                     "UpgradeSignHeight": 31.0,
                     "MagicalConstruction": false,
                     "Builder": "Robin",
@@ -170,6 +179,15 @@
                         "X": 0.5,
                         "Y": 2.5
                     },
+                    "Upgrades": [
+                        {
+                            "Id": "SpaciousCoop_Upgrade",
+                            "UpgradeSignHeight": {
+                                "X": 0.5,
+                                "Y": 2.5
+                            }
+                        }
+                    ],
                     "UpgradeSignHeight": 18.0,
                     "MagicalConstruction": false,
                     "Builder": "Robin",
