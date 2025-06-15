@@ -252,7 +252,7 @@ namespace spaciouscoopnbarn
                 interior.warps[1] = new(w.X, w.Y, w.TargetName, w.TargetX + 8, w.TargetY, w.flipFarmer.Value, w.npcOnly.Value);
             }
         }
-
+        
         [HarmonyPatch(typeof(Building), nameof(Building.updateInteriorWarps))]
         public static class SpaciousCoopWarpPatch
         {
@@ -264,7 +264,7 @@ namespace spaciouscoopnbarn
                     return;
 
                 var w = interior.warps[1];
-                interior.warps[1] = new(w.X, w.Y, w.TargetName, w.TargetX, w.TargetY, w.flipFarmer.Value, w.npcOnly.Value);
+                interior.warps[1] = new(w.X, w.Y, w.TargetName, w.TargetX - 1, w.TargetY - 3, w.flipFarmer.Value, w.npcOnly.Value);
             }
         }
 
