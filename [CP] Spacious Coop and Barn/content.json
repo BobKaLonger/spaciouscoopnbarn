@@ -21,8 +21,8 @@
         },
         {
             "Action": "Load",
-            "Target": "Maps/SuperDenseBarn",
-            "FromFile": "assets/SuperDenseBarn.tmx"
+            "Target": "Maps/spacious_SuperDenseCoop",
+            "FromFile": "assets/SuperDenseCoop.tmx"
         },
         //Make paintable
         {
