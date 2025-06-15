@@ -2,13 +2,6 @@
 	"Format": "2.6.0",
 
     "Changes": [
-
-        //Load compatibility file checkmods.json
-        
-        {
-            "Action": "Include",
-            "FromFile": "data/modCompat.json"
-        },
         
         //Load Maps
         {
@@ -67,7 +60,7 @@
             "FromFile": "data/upgradeSVE.json",
             "When":
             {
-                "Spacious Mode": "SVE"
+                "player_modData:bobkalonger.BKSCB_code/SpaciousMode": "SVE"
             }
         },
         {
@@ -75,15 +68,7 @@
             "FromFile": "data/upgradeBKGCB.json",
             "When":
             {
-                "Spacious Mode": "BKGCB"
-            }
-        },
-        {
-            "Action": "Include",
-            "FromFile": "data/upgradeJMCB.json",
-            "When":
-            {
-                "Spacious Mode": "JMCB"
+                "player_modData:bobkalonger.BKSCB_code/SpaciousMode": "BKGCB"
             }
         },
         {
@@ -91,7 +76,15 @@
             "FromFile": "data/upgradeBoth.json",
             "When":
             {
-                "Spacious Mode": "Both"
+                "player_modData:bobkalonger.BKSCB_code/SpaciousMode": "Both"
+            }
+        },
+        {
+            "Action": "Include",
+            "FromFile": "data/upgradeJMCB.json",
+            "When":
+            {
+                "player_modData:bobkalonger.BKSCB_code/SpaciousMode": "JMCB"
             }
         },
         {
@@ -99,7 +92,7 @@
             "FromFile": "data/upgradeUARC.json",
             "When":
             {
-                "Spacious Mode": "UARC"
+                "player_modData:bobkalonger.BKSCB_code/SpaciousMode": "UARC"
             }
         },
         {
@@ -107,7 +100,7 @@
             "FromFile": "data/upgradeVanilla.json",
             "When":
             {
-                "Spacious Mode": "Vanilla"
+                "player_modData:bobkalonger.BKSCB_code/SpaciousMode": "Vanilla"
             }
         }
     ]

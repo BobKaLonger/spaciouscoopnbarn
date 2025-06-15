@@ -14,19 +14,11 @@ using System.Collections.Generic;
 
 namespace spaciouscoopnbarn
 {
-    //Holds config info
-    public class ModConfig
-    {
-        public bool HasSVE { get; set; }
-        public bool HasBKGCB { get; set; }
-        public bool HasJMCB { get; set; }
-        public bool HasUARC { get; set; }
-        public string SpaciousMode { get; set; }
-    }
     public class ModEntry : Mod
     {
         public static Mod modInstance;
         public static IContentPack cpPack;
+        private const string ModDataKey = "bobkalonger.BKSCB_code/SpaciousMode";
 
         public override void Entry(IModHelper helper)
         {
@@ -37,73 +29,64 @@ namespace spaciouscoopnbarn
             var mi = Helper.ModRegistry.Get("bobkalonger.spaciouscoopnbarnCP");
             cpPack = mi.GetType().GetProperty("ContentPack")?.GetValue(mi) as IContentPack;
 
-            //Check for compatible mods
-            bool hasSVE = helper.ModRegistry.IsLoaded("FlashShifter.StardewValleyExpandedCP");
-            bool hasBKGCB = helper.ModRegistry.IsLoaded("bobkalonger.gigacoopnbarn");
-            bool hasJMCB = helper.ModRegistry.IsLoaded("jenf1.megacoopbarn");
-            bool hasUARC = helper.ModRegistry.IsLoaded("UncleArya.ResourceChickens");
-
-            //Dictionary
-            var checkData = new Dictionary<string, bool>
-            {
-                {"Stardew Valley Expanded", hasSVE},
-                {"Gigantic Coop and Barn", hasBKGCB},
-                {"Jen's Mega Coop and Barn", hasJMCB},
-                {"Resource Chickens", hasUARC},
-            };
-
-            // Determine the spaciousMode
-            string spaciousMode;
-            if (hasSVE)
-            {
-                spaciousMode = "SVE";
-            }
-            else if (hasBKGCB)
-            {
-                spaciousMode = "BKGCB";
-            }
-            else if (hasJMCB)
-            {
-                if (hasUARC)
-                {
-                    spaciousMode = "Both";
-                }
-                else
-                {
-                    spaciousMode = "JMCB";
-                }
-            }
-            else if (hasUARC)
-            {
-                //By the time the logic gets here, we already know JMCB is false
-                spaciousMode = "UARC";
-            }
-            else
-            {
-                spaciousMode = "Vanilla";
-            }
-
-            var modeData = new Dictionary<string, string>
-            {
-                {"Spacious Mode", spaciousMode},
-            };
-
-            //Path to files
-            string spaciousFolder = Path.GetFullPath(Path.Combine(helper.DirectoryPath, ".."));
-            string dataPath = Path.Combine(spaciousFolder, "[CP] Spacious Coop and Barn", "data", "checkmods.json");
-            string modePath = Path.Combine(spaciousFolder, "[CP] Spacious Coop and Barn", "data", "modCompat.json");
-            string json = JsonConvert.SerializeObject(checkData, Formatting.Indented);
-            string modulator = JsonConvert.SerializeObject(modeData, Formatting.Indented);
-
-            File.WriteAllText(dataPath, json);
-            File.WriteAllText(modePath, );
-            File.AppendAllText(modePath, modulator);
+            helper.Events.GameLoop.SaveLoaded += UpdateSpaciousMode; // first run right after a save finishes loading
+            helper.Events.GameLoop.DayStarted += UpdateSpaciousMode; // fires every in-game morning (handles mod enable/disable mid-play)
 
             helper.Events.Player.Warped += PlayerOnWarped;
 
             var harmony = new Harmony(this.ModManifest.UniqueID);
 
             harmony.PatchAll(Assembly.GetExecutingAssembly());
+        }
+        private void UpdateSpaciousMode(object sender, EventArgs e)
+        {
+            if (!Context.IsWorldReady)
+                return;
+
+            string mode = SpaciousMode();
+
+            if (!Game1.player.modData.TryGetValue(ModDataKey, out string current) || current != mode)
+            {
+                Game1.player.modData[ModDataKey] = mode;
+                Monitor.Log($"[SpaciousMode] set to “{mode}”.", LogLevel.Info);
+            }
+        }
+        private string SpaciousMode()
+        {
+            bool hasSVE = Helper.ModRegistry.IsLoaded("FlashShifter.StardewValleyExpandedCP");
+            bool hasBKGCB = Helper.ModRegistry.IsLoaded("bobkalonger.gigacoopnbarn");
+            bool hasJMCB = Helper.ModRegistry.IsLoaded("jenf1.megacoopbarn");
+            bool hasUARC = Helper.ModRegistry.IsLoaded("UncleArya.ResourceChickens");
+
+            // Determine the spaciousMode
+            if (hasSVE)
+            {
+                return "SVE";
+            }
+            else if (hasBKGCB)
+            {
+                return "BKGCB";
+            }
+            else if (hasJMCB)
+            {
+                if (hasUARC)
+                {
+                    return "Both";
+                }
+                else
+                {
+                    return "JMCB";
+                }
+            }
+            else if (hasUARC)
+            {
+                //By the time the logic gets here, we already know JMCB is false
+                return "UARC";
+            }
+            else
+            {
+                return "Vanilla";
+            }
         }
 
         private void PlayerOnWarped(object sender, WarpedEventArgs e)
