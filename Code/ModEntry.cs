@@ -54,35 +54,6 @@ namespace spaciouscoopnbarn
                 return;
             }
             cp.RegisterToken(ModManifest, "SpaciousMode", GetCurrentSpaciousMode);
-
-            // Register SVEUpgradeUnderConstruction token
-            cp.RegisterToken(ModManifest, "SVEUpgradeUnderConstruction", () =>
-            {
-                return new[] { IsSVEUpgradeUnderConstruction() ? "true" : "false" };
-            });
-        }
-
-        /// <summary>
-        /// Returns true if any SVE Premium Coop or Premium Barn is under construction on any farm location.
-        /// </summary>
-        private bool IsSVEUpgradeUnderConstruction()
-        {
-            foreach (var location in Game1.locations)
-            {
-                if (location is BuildableGameLocation buildable)
-                {
-                    foreach (var building in buildable.buildings)
-                    {
-                        if ((building.buildingType.Value == "FlashShifter.StardewValleyExpandedCP_PremiumCoop" ||
-                             building.buildingType.Value == "FlashShifter.StardewValleyExpandedCP_PremiumBarn")
-                            && building.daysOfConstructionLeft.Value > 0)
-                        {
-                            return true;
-                        }
-                    }
-                }
-            }
-            return false;
         }
 
         private IEnumerable<string> GetCurrentSpaciousMode()
@@ -108,7 +79,15 @@ namespace spaciouscoopnbarn
 
         private void PlayerOnWarped(object sender, WarpedEventArgs e)
         {
-            foreach (var b in e.NewLocation.buildings)
+            var buildingsProp = e.NewLocation.GetType().GetProperty("buildings");
+            if (buildingsProp == null)
+                return;
+
+            var buildings = buildingsProp.GetValue(e.NewLocation) as IEnumerable<object>;
+            if (buildings == null)
+                return;
+
+            foreach (dynamic b in buildings)
             {
                 if (b.buildingType.Value == SpaciousBarn)
                 {
