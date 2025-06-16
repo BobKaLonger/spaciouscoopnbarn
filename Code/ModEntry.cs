@@ -23,7 +23,7 @@ namespace spaciouscoopnbarn
         private const string ModDataKey = "bobkalonger.BKSCB_code/SpaciousMode";
         internal const string SpaciousBarn = "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn";
         internal const string SpaciousCoop = "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop";
-        private const string SVECoopType = "FlashShifter.StardewValleyExpandedCP_PremiumCoop";
+        private const string SVECoop = "FlashShifter.StardewValleyExpandedCP_PremiumCoop";
 
         public override void Entry(IModHelper helper)
         {
@@ -54,6 +54,35 @@ namespace spaciouscoopnbarn
                 return;
             }
             cp.RegisterToken(ModManifest, "SpaciousMode", GetCurrentSpaciousMode);
+
+            // Register SVEUpgradeUnderConstruction token
+            cp.RegisterToken(ModManifest, "SVEUpgradeUnderConstruction", () =>
+            {
+                return new[] { IsSVEUpgradeUnderConstruction() ? "true" : "false" };
+            });
+        }
+
+        /// <summary>
+        /// Returns true if any SVE Premium Coop or Premium Barn is under construction on any farm location.
+        /// </summary>
+        private bool IsSVEUpgradeUnderConstruction()
+        {
+            foreach (var location in Game1.locations)
+            {
+                if (location is BuildableGameLocation buildable)
+                {
+                    foreach (var building in buildable.buildings)
+                    {
+                        if ((building.buildingType.Value == "FlashShifter.StardewValleyExpandedCP_PremiumCoop" ||
+                             building.buildingType.Value == "FlashShifter.StardewValleyExpandedCP_PremiumBarn")
+                            && building.daysOfConstructionLeft.Value > 0)
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
         }
 
         private IEnumerable<string> GetCurrentSpaciousMode()
@@ -97,7 +126,7 @@ namespace spaciouscoopnbarn
                     var l = new LightSource($"spacious_SpaciousCoopLight_{b.tileX.Value}_{b.tileY.Value}_1", 4, tileLoc.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
                     Game1.currentLightSources.Add(l.Id, l);
                 }
-                else if (b.buildingType.Value == SVECoopType)
+                else if (b.buildingType.Value == SVECoop)
                 {
                     var tileLoc = new Point(b.tileX.Value + 6, b.tileY.Value + 2);
                     var l = new LightSource($"SVE_PremiumCoopLight_{b.tileX.Value}_{b.tileY.Value}_1", 4, tileLoc.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
