@@ -9,81 +9,9 @@ using StardewValley.GameData.Buildings;
 using StardewValley.Objects;
 using System;
 using System.Collections.Generic;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace spaciouscoopnbarn
 {
-    internal sealed class ConstructionSignOverlay
-    {
-        private readonly IMonitor Monitor;
-        private readonly IModHelper Helper;
-        private Texture2D cursorSheet = null!;
-        private Rectangle signSource = new(593, 1272, 16, 16);
-        private IDictionary<string, BuildingData> buildingData = null!; // fixed field name
-
-        public ConstructionSignOverlay(IModHelper helper, IMonitor monitor)
-        {
-            Helper = helper;
-            Monitor = monitor;
-
-            Helper.Events.GameLoop.GameLaunched += OnGameLaunched;
-            Helper.Events.Display.RenderingWorld += OnRenderingWorld;
-        }
-
-        private void OnGameLaunched(object sender, GameLaunchedEventArgs e)
-        {
-            cursorSheet = Game1.content.Load<Texture2D>("LooseSprites/Cursors");
-            buildingData = Game1.content.Load<Dictionary<string, BuildingData>>("Data/Buildings");
-        }
-
-        private void OnRenderingWorld(object sender, RenderingWorldEventArgs e)
-        {
-            if (!Context.IsWorldReady || buildingData == null)
-                return;
-
-            SpriteBatch b = Game1.spriteBatch;
-            Farm farm = Game1.getFarm();
-
-            foreach (Building bd in Game1.getFarm().buildings)
-            {
-                if (bd.daysOfConstructionLeft.Value <= 0)
-                    continue;
-
-                if (!buildingData.TryGetValue(bd.buildingType.Value, out BuildingData data)) // fixed field name
-                    continue;
-
-                Vector2 tileOffset = data.UpgradeSignTile.Equals(default(Vector2)) ? new Vector2(0.5f, 0f) : data.UpgradeSignTile;
-                float heightPx = data.UpgradeSignHeight == 0f ? 18f : data.UpgradeSignHeight;
-
-                Vector2 worldPx = new(
-                    (bd.tileX.Value + tileOffset.X) * 64f,
-                    (bd.tileY.Value + tileOffset.Y) * 64f - heightPx);
-
-                Vector2 screenPx = Game1.GlobalToLocal(Game1.viewport, worldPx);
-
-                float depth = ((bd.tileY.Value + bd.tilesHigh.Value) * 64f + 1f) / 10000f;
-
-                b.Draw(
-                    texture:      cursorSheet,
-                    position:     screenPx,
-                    sourceRectangle: signSource,
-                    color:        Color.White,
-                    rotation:     0f,
-                    origin:       Vector2.Zero,
-                    scale:        4f,
-                    effects:      SpriteEffects.None,
-                    layerDepth:   depth
-                );
-            }
-        }
-
-        // Remove or fix this method if not used
-        // private void RefreshBuildingData()
-        // {
-        //     buildingData = Game1.content.Load<Dictionary<string, BuildingData>>("Data/Buildings");
-        //     Monitor.Log($"[ConstructionSignOverlay] Cached {buildingData.Count} building entries.", LogLevel.Trace);
-        // }
-    }
     public interface IContentPatcherAPI
     {
         void RegisterToken(IManifest mod, string name, Func<IEnumerable<string>> getValue);
@@ -93,25 +21,30 @@ namespace spaciouscoopnbarn
         public static Mod modInstance;
         public static IContentPack cpPack;
         private const string ModDataKey = "bobkalonger.BKSCB_code/SpaciousMode";
+        internal const string SpaciousBarn = "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn";
+        internal const string SpaciousCoop = "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop";
+        private const string SVECoopType = "FlashShifter.StardewValleyExpandedCP_PremiumCoop";
+
         public override void Entry(IModHelper helper)
         {
-            ModEntry.modInstance = this;
-
+            modInstance = this;
             I18n.Init(Helper.Translation);
 
             var mi = Helper.ModRegistry.Get("bobkalonger.spaciouscoopnbarnCP");
             cpPack = mi.GetType().GetProperty("ContentPack")?.GetValue(mi) as IContentPack;
-
-            new ConstructionSignOverlay(helper, Monitor);
+            if (cpPack == null)
+            {
+                Monitor.Log("Failed to get content pack for spaciouscoopnbarnCP.", LogLevel.Error);
+                return;
+            }
 
             helper.Events.GameLoop.GameLaunched += OnGameLaunched;
-
             helper.Events.Player.Warped += PlayerOnWarped;
 
             var harmony = new Harmony(this.ModManifest.UniqueID);
-
             harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
+
         private void OnGameLaunched(object sender, GameLaunchedEventArgs e)
         {
             var cp = Helper.ModRegistry.GetApi<IContentPatcherAPI>("Pathoschild.ContentPatcher");
@@ -120,83 +53,53 @@ namespace spaciouscoopnbarn
                 Monitor.Log("Content Patcher not found; dynamic token will not be available.", LogLevel.Warn);
                 return;
             }
-
             cp.RegisterToken(ModManifest, "SpaciousMode", GetCurrentSpaciousMode);
         }
+
         private IEnumerable<string> GetCurrentSpaciousMode()
         {
             if (!Context.IsWorldReady)
-            {
                 return Array.Empty<string>();
-            }
-            return new[] { ComputeSpaciousMode() }; // fixed typo
+            return new[] { ComputeSpaciousMode() };
         }
-        private string ComputeSpaciousMode() // fixed typo
+
+        private string ComputeSpaciousMode()
         {
             bool hasSVE = Helper.ModRegistry.IsLoaded("FlashShifter.StardewValleyExpandedCP");
             bool hasBKGCB = Helper.ModRegistry.IsLoaded("bobkalonger.gigacoopnbarn");
             bool hasJMCB = Helper.ModRegistry.IsLoaded("jenf1.megacoopbarn");
             bool hasUARC = Helper.ModRegistry.IsLoaded("UncleArya.ResourceChickens");
 
-            // Determine the spaciousMode
-            if (hasSVE)
-            {
-                return "SVE";
-            }
-            else if (hasBKGCB)
-            {
-                return "BKGCB";
-            }
-            else if (hasJMCB)
-            {
-                if (hasUARC)
-                {
-                    return "Both";
-                }
-                else
-                {
-                    return "JMCB";
-                }
-            }
-            else if (hasUARC)
-            {
-                //By the time the logic gets here, we already know JMCB is false
-                return "UARC";
-            }
-            else
-            {
-                return "Vanilla";
-            }
+            if (hasSVE) return "SVE";
+            if (hasBKGCB) return "BKGCB";
+            if (hasJMCB) return hasUARC ? "Both" : "JMCB";
+            if (hasUARC) return "UARC";
+            return "Vanilla";
         }
 
         private void PlayerOnWarped(object sender, WarpedEventArgs e)
         {
-            if (e.NewLocation == null)
-                return;
-
             foreach (var b in e.NewLocation.buildings)
             {
-                if (b.buildingType.Value == "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn")
+                if (b.buildingType.Value == SpaciousBarn)
                 {
-                    Point tileLoc = new(b.tileX.Value + 3, b.tileY.Value + 3);
-                    var l = new LightSource($"spacious_SpaciousBarnLight_{b.tileX.Value}_{b.tileY.Value}_1", 4, tileLoc.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
-                    Game1.currentLightSources.Add(l.Id, l);
+                    var tileLoc1 = new Point(b.tileX.Value + 3, b.tileY.Value + 3);
+                    var l1 = new LightSource($"spacious_SpaciousBarnLight_{b.tileX.Value}_{b.tileY.Value}_1", 4, tileLoc1.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
+                    Game1.currentLightSources.Add(l1.Id, l1);
 
-                    tileLoc = new(b.tileX.Value + 8, b.tileY.Value + 3);
-                    l = new LightSource($"spacious_SpaciousBarnLight_{b.tileX.Value}_{b.tileY.Value}_2", 4, tileLoc.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
-                    Game1.currentLightSources.Add(l.Id, l);
+                    var tileLoc2 = new Point(b.tileX.Value + 8, b.tileY.Value + 3);
+                    var l2 = new LightSource($"spacious_SpaciousBarnLight_{b.tileX.Value}_{b.tileY.Value}_2", 4, tileLoc2.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
+                    Game1.currentLightSources.Add(l2.Id, l2);
                 }
-
-                if (b.buildingType.Value == "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop")
+                else if (b.buildingType.Value == SpaciousCoop)
                 {
-                    Point tileLoc = new(b.tileX.Value + 6, b.tileY.Value + 2);
+                    var tileLoc = new Point(b.tileX.Value + 6, b.tileY.Value + 2);
                     var l = new LightSource($"spacious_SpaciousCoopLight_{b.tileX.Value}_{b.tileY.Value}_1", 4, tileLoc.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
                     Game1.currentLightSources.Add(l.Id, l);
                 }
-
-                if (b.buildingType.Value == "FlashShifter.StardewValleyExpandedCP_PremiumCoop")
+                else if (b.buildingType.Value == SVECoopType)
                 {
-                    Point tileLoc = new(b.tileX.Value + 6, b.tileY.Value + 2);
+                    var tileLoc = new Point(b.tileX.Value + 6, b.tileY.Value + 2);
                     var l = new LightSource($"SVE_PremiumCoopLight_{b.tileX.Value}_{b.tileY.Value}_1", 4, tileLoc.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
                     Game1.currentLightSources.Add(l.Id, l);
                 }
@@ -208,32 +111,29 @@ namespace spaciouscoopnbarn
         {
             public static void Postfix(Building __instance, int tile_x, int tile_y, string property_name, string layer_name, ref string property_value, ref bool __result)
             {
-                if (__instance.buildingType.Value == "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn" && __instance.daysOfConstructionLeft.Value <= 0)
+                // Barn
+                if (__instance.buildingType.Value == SpaciousBarn && __instance.daysOfConstructionLeft.Value <= 0)
                 {
                     var interior = __instance.GetIndoors();
                     if (tile_x == __instance.tileX.Value + __instance.humanDoor.X + 8 &&
                         tile_y == __instance.tileY.Value + __instance.humanDoor.Y &&
-                        interior != null)
+                        interior != null && property_name == "Action")
                     {
-                        if (property_name == "Action")
-                        {
-                            property_value = "meow";
-                            __result = true;
-                        }
+                        property_value = "meow";
+                        __result = true;
+                        return;
                     }
                 }
-                if (__instance.buildingType.Value == "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop" && __instance.daysOfConstructionLeft.Value <= 0)
+                // Coop
+                if (__instance.buildingType.Value == SpaciousCoop && __instance.daysOfConstructionLeft.Value <= 0)
                 {
                     var interior = __instance.GetIndoors();
                     if (tile_x == __instance.tileX.Value + __instance.humanDoor.X - 2 &&
                         tile_y == __instance.tileY.Value + __instance.humanDoor.Y - 2 &&
-                        interior != null)
+                        interior != null && property_name == "Action")
                     {
-                        if (property_name == "Action")
-                        {
-                            property_value = "meow";
-                            __result = true;
-                        }
+                        property_value = "meow";
+                        __result = true;
                     }
                 }
             }
@@ -245,11 +145,10 @@ namespace spaciouscoopnbarn
             public static void Postfix(Building __instance, Vector2 tileLocation, Farmer who, ref bool __result)
             {
                 if (who.ActiveObject != null && who.ActiveObject.IsFloorPathItem() && who.currentLocation != null && !who.currentLocation.terrainFeatures.ContainsKey(tileLocation))
-                {
                     return;
-                }
 
-                if (__instance.buildingType.Value == "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn" && __instance.daysOfConstructionLeft.Value <= 0)
+                // Barn
+                if (__instance.buildingType.Value == SpaciousBarn && __instance.daysOfConstructionLeft.Value <= 0)
                 {
                     var interior = __instance.GetIndoors();
                     if (tileLocation.X == __instance.tileX.Value + __instance.humanDoor.X + 8 &&
@@ -274,12 +173,12 @@ namespace spaciouscoopnbarn
                             bool isStructure = __instance.indoors.Value != null;
                             Game1.warpFarmer(interior.NameOrUniqueName, interior.warps[1].X, interior.warps[1].Y - 1, Game1.player.FacingDirection, isStructure);
                         }
-
                         __result = true;
                         return;
                     }
                 }
-                if (__instance.buildingType.Value == "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop" && __instance.daysOfConstructionLeft.Value <= 0)
+                // Coop
+                if (__instance.buildingType.Value == SpaciousCoop && __instance.daysOfConstructionLeft.Value <= 0)
                 {
                     var interior = __instance.GetIndoors();
                     if (tileLocation.X == __instance.tileX.Value + __instance.humanDoor.X - 2 &&
@@ -304,7 +203,6 @@ namespace spaciouscoopnbarn
                             bool isStructure = __instance.indoors.Value != null;
                             Game1.warpFarmer(interior.NameOrUniqueName, interior.warps[1].X - 1, interior.warps[1].Y, Game1.player.FacingDirection, isStructure);
                         }
-
                         __result = true;
                         return;
                     }
@@ -317,24 +215,20 @@ namespace spaciouscoopnbarn
         {
             public static void Postfix(Building __instance, GameLocation interior)
             {
-                if (__instance.buildingType.Value != "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn")
-                    return;
-                if (interior == null || interior.warps.Count == 0)
+                if (__instance.buildingType.Value != SpaciousBarn || interior == null || interior.warps.Count == 0)
                     return;
 
                 var w = interior.warps[1];
                 interior.warps[1] = new(w.X, w.Y, w.TargetName, w.TargetX + 8, w.TargetY, w.flipFarmer.Value, w.npcOnly.Value);
             }
         }
-        
+
         [HarmonyPatch(typeof(Building), nameof(Building.updateInteriorWarps))]
         public static class SpaciousCoopWarpPatch
         {
             public static void Postfix(Building __instance, GameLocation interior)
             {
-                if (__instance.buildingType.Value != "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop")
-                    return;
-                if (interior == null || interior.warps.Count == 0)
+                if (__instance.buildingType.Value != SpaciousCoop || interior == null || interior.warps.Count == 0)
                     return;
 
                 var w = interior.warps[1];
@@ -347,26 +241,21 @@ namespace spaciouscoopnbarn
         {
             public static void Postfix(GameLocation location, string buildingId, ref bool __result)
             {
-                string toCheck = null;
-                if (buildingId == "Coop" || buildingId == "Deluxe Coop" || buildingId == "Big Coop" || buildingId == "FlashShifter.StardewValleyExpandedCP_PremiumCoop")
+                string toCheck = buildingId switch
                 {
-                    toCheck = "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop";
-                }
-                else if (buildingId == "Barn" || buildingId == "Deluxe Barn" || buildingId == "Big Barn" || buildingId == "FlashShifter.StardewValleyExpandedCP_PremiumBarn")
-                {
-                    toCheck = "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn";
-                }
+                    "Coop" or "Deluxe Coop" or "Big Coop" or "FlashShifter.StardewValleyExpandedCP_PremiumCoop" => SpaciousCoop,
+                    "Barn" or "Deluxe Barn" or "Big Barn" or "FlashShifter.StardewValleyExpandedCP_PremiumBarn" => SpaciousBarn,
+                    _ => null
+                };
 
-                if (!__result && toCheck != null)
+                if (!__result && toCheck != null && location.getNumberBuildingsConstructed(toCheck) > 0)
                 {
-                    if (location.getNumberBuildingsConstructed(toCheck) > 0)
-                    {
-                        __result = true;
-                    }
+                    __result = true;
                 }
             }
         }
     }
+
     [HarmonyPatch(typeof(Building), nameof(Building.InitializeIndoor))]
     public static class BuildingAutoGrabberFix
     {
@@ -374,8 +263,8 @@ namespace spaciouscoopnbarn
         {
             if (!forUpgrade)
                 return;
-            if (__instance.buildingType.Value != "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop" &&
-                __instance.buildingType.Value != "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn")
+            if (__instance.buildingType.Value != ModEntry.SpaciousCoop &&
+                __instance.buildingType.Value != ModEntry.SpaciousBarn)
                 return;
 
             foreach (var obj in __instance.indoors.Value.Objects.Values)
