@@ -9,9 +9,81 @@ using StardewValley.GameData.Buildings;
 using StardewValley.Objects;
 using System;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace spaciouscoopnbarn
 {
+    internal sealed class ConstructionSignOverlay
+    {
+        private readonly IMonitor Monitor;
+        private readonly IModHelper Helper;
+        private Texture2D cursorSheet = null!;
+        private Rectangle signSource = new(593, 1272, 16, 16);
+        private IDictionary<string, BuildingData> buildingData = null!;
+
+        public ConstructionSignOverlay(IModHelper helper, IMonitor monitor)
+        {
+            Helper = helper;
+            Monitor = monitor;
+
+
+            Helper.Events.GameLoop.GameLaunched += OnGameLaunched;
+            Helper.Events.Display.RenderingWorld += OnRenderingWorld;
+        }
+
+        private void OnGameLaunched(object sender, GameLaunchedEventArgs e)
+        {
+            cursorSheet = Game1.content.Load<Texture2D>("LooseSprites/Cursors");
+            buildingData = Game1.content.Load<Dictionary<string, BuildingData>>("Data/Buildings");
+        }
+
+        private void OnRenderingWorld(object sender, RenderingWorldEventArgs e)
+        {
+            if (!Context.IsWorldReady)
+                return;
+
+            SpriteBatch b = Game1.spriteBatch;
+            Farm farm = Game1.getFarm();
+
+            foreach (Building bd in Game1.getFarm().buildings)
+            {
+                if (bd.daysOfConstructionLeft.Value <= 0)
+                    continue;
+
+                if (!BuildingData.TryGetValue(bd.buildingType.Value, out BuildingData data))
+                    continue;
+
+                Vector2 tileOffset = data.UpgradeSignTile ?? new Vector2(0.5f, 0f);
+                float heightPx = data.UpgradeSignHeight ?? 18f;
+
+                Vector2 worldPx = new(
+                    (bd.tileX.Value + tileOffset.X) * 64f,
+                    (bd.tileY.Value + tileOffset.Y) * 64f - heightPx);
+
+                Vector2 screenPx = Utility.GlobalToLocal(Game1.viewport, worldPx);
+
+                float depth = ((bd.tileY.Value + bd.tilesHigh.Value) * 64f + 1f) / 10000f;
+
+                b.Draw(
+                    texture:      cursorSheet,
+                    position:     screenPx,
+                    sourceRectangle: signSource,
+                    color:        Color.White,
+                    rotation:     0f,
+                    origin:       Vector2.Zero,
+                    scale:        4f,
+                    effects:      SpriteEffects.None,
+                    layerDepth:   depth
+                );
+            }
+        }
+
+        private void RefreshBuildingData()
+        {
+            BuildingData = Game1.content.Load<Dictionary<string, BuildingData>>("Data/Buildings");
+            Monitor.Log($"[ConstructionSignOverlay] Cached {BuildingData.Count} building entries.", LogLevel.Trace);
+        }
+    }
     public interface IContentPatcherAPI
     {
         void RegisterToken(IManifest mod, string name, Func<IEnumerable<string>> getValue);
@@ -29,6 +101,8 @@ namespace spaciouscoopnbarn
 
             var mi = Helper.ModRegistry.Get("bobkalonger.spaciouscoopnbarnCP");
             cpPack = mi.GetType().GetProperty("ContentPack")?.GetValue(mi) as IContentPack;
+
+            new ConstructionSignOverlay(helper, Monitor);
 
             helper.Events.GameLoop.GameLaunched += OnGameLaunched;
 
