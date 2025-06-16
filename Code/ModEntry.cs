@@ -19,13 +19,12 @@ namespace spaciouscoopnbarn
         private readonly IModHelper Helper;
         private Texture2D cursorSheet = null!;
         private Rectangle signSource = new(593, 1272, 16, 16);
-        private IDictionary<string, BuildingData> buildingData = null!;
+        private IDictionary<string, BuildingData> buildingData = null!; // fixed field name
 
         public ConstructionSignOverlay(IModHelper helper, IMonitor monitor)
         {
             Helper = helper;
             Monitor = monitor;
-
 
             Helper.Events.GameLoop.GameLaunched += OnGameLaunched;
             Helper.Events.Display.RenderingWorld += OnRenderingWorld;
@@ -39,7 +38,7 @@ namespace spaciouscoopnbarn
 
         private void OnRenderingWorld(object sender, RenderingWorldEventArgs e)
         {
-            if (!Context.IsWorldReady)
+            if (!Context.IsWorldReady || buildingData == null)
                 return;
 
             SpriteBatch b = Game1.spriteBatch;
@@ -50,17 +49,17 @@ namespace spaciouscoopnbarn
                 if (bd.daysOfConstructionLeft.Value <= 0)
                     continue;
 
-                if (!BuildingData.TryGetValue(bd.buildingType.Value, out BuildingData data))
+                if (!buildingData.TryGetValue(bd.buildingType.Value, out BuildingData data)) // fixed field name
                     continue;
 
-                Vector2 tileOffset = data.UpgradeSignTile ?? new Vector2(0.5f, 0f);
-                float heightPx = data.UpgradeSignHeight ?? 18f;
+                Vector2 tileOffset = data.UpgradeSignTile.Equals(default(Vector2)) ? new Vector2(0.5f, 0f) : data.UpgradeSignTile;
+                float heightPx = data.UpgradeSignHeight == 0f ? 18f : data.UpgradeSignHeight;
 
                 Vector2 worldPx = new(
                     (bd.tileX.Value + tileOffset.X) * 64f,
                     (bd.tileY.Value + tileOffset.Y) * 64f - heightPx);
 
-                Vector2 screenPx = Utility.GlobalToLocal(Game1.viewport, worldPx);
+                Vector2 screenPx = Game1.GlobalToLocal(Game1.viewport, worldPx);
 
                 float depth = ((bd.tileY.Value + bd.tilesHigh.Value) * 64f + 1f) / 10000f;
 
@@ -78,11 +77,12 @@ namespace spaciouscoopnbarn
             }
         }
 
-        private void RefreshBuildingData()
-        {
-            BuildingData = Game1.content.Load<Dictionary<string, BuildingData>>("Data/Buildings");
-            Monitor.Log($"[ConstructionSignOverlay] Cached {BuildingData.Count} building entries.", LogLevel.Trace);
-        }
+        // Remove or fix this method if not used
+        // private void RefreshBuildingData()
+        // {
+        //     buildingData = Game1.content.Load<Dictionary<string, BuildingData>>("Data/Buildings");
+        //     Monitor.Log($"[ConstructionSignOverlay] Cached {buildingData.Count} building entries.", LogLevel.Trace);
+        // }
     }
     public interface IContentPatcherAPI
     {
@@ -129,9 +129,9 @@ namespace spaciouscoopnbarn
             {
                 return Array.Empty<string>();
             }
-            return new[] { CopmuteSpaciousMode() };
+            return new[] { ComputeSpaciousMode() }; // fixed typo
         }
-        private string CopmuteSpaciousMode()
+        private string ComputeSpaciousMode() // fixed typo
         {
             bool hasSVE = Helper.ModRegistry.IsLoaded("FlashShifter.StardewValleyExpandedCP");
             bool hasBKGCB = Helper.ModRegistry.IsLoaded("bobkalonger.gigacoopnbarn");
