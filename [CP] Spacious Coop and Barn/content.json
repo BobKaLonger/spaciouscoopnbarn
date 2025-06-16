@@ -49,8 +49,6 @@
 	            "bobkalonger.spaciouscoopnbarnCP_SuperDenseCoop": "Building/-25 0/Roof/-15 5/Trim/-25 0"
             }
         },
-        
-        //Patch picker
         {
             "Action": "Include",
             "FromFile": "data/upgradeSVE.json",
