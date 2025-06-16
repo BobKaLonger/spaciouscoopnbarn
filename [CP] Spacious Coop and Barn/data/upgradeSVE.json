@@ -106,7 +106,15 @@
 							  "X": 0,
 							  "Y": 0
                             }
-						}
+						},
+                        {
+                            "Id": "Default_UpgradeSign",
+                            "Texture": null,
+                            "SourceRect": null,
+                            "DrawPosition": null,
+                            "DrawInBackground": false,
+                            "SortTileOffset": 0.2
+                        }
                     ],
                     "IndoorMap": "spacious_SpaciousBarn",
                     "IndoorMapType": "StardewValley.AnimalHouse",
@@ -264,7 +272,15 @@
 								"X": 0,
 								"Y": 0
                             }
-						}
+						},
+                        {
+                            "Id": "Default_UpgradeSign",
+                            "Texture": null,
+                            "SourceRect": null,
+                            "DrawPosition": null,
+                            "DrawInBackground": false,
+                            "SortTileOffset": 0.2
+                        }
                     ],
                     "IndoorMap": "spacious_SpaciousCoop",
                     "IndoorMapType": "StardewValley.AnimalHouse",
