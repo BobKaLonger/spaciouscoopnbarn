@@ -10,18 +10,9 @@
                     "Texture": "Buildings\\SVE_PremiumBarn",
                     "DrawShadow": true,
                     "UpgradeSignTile": {
-                        "X": 4.5,
-                        "Y": 0.5
+                        "X": 5,
+                        "Y": 1
                     },
-                    "Upgrades": [
-                        {
-                            "Id": "SpaciousBarn_Upgrade",
-                            "UpgradeSignTile": {
-                                "X": 4.5,
-                                "Y": 0.5
-                            }
-                        }
-                    ],
                     "UpgradeSignHeight": 31.0,
                     "MagicalConstruction": false,
                     "Builder": "Robin",
@@ -176,18 +167,9 @@
                     "Texture": "Buildings\\SVE_PremiumCoop",
                     "DrawShadow": true,
                     "UpgradeSignTile": {
-                        "X": 0.5,
-                        "Y": 2.5
+                        "X": 1,
+                        "Y": 3
                     },
-                    "Upgrades": [
-                        {
-                            "Id": "SpaciousCoop_Upgrade",
-                            "UpgradeSignHeight": {
-                                "X": 0.5,
-                                "Y": 2.5
-                            }
-                        }
-                    ],
                     "UpgradeSignHeight": 18.0,
                     "MagicalConstruction": false,
                     "Builder": "Robin",
