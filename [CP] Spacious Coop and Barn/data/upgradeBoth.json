@@ -11,7 +11,7 @@
                     "DrawShadow": true,
                     "UpgradeSignTile": "4.5, 2",
                     "UpgradeSignHeight": 31.0,
-                    "MagicalConstruction": false
+                    "MagicalConstruction": false,
                     "Builder": "Robin",
                     "Size": {
                         "X": 7,
