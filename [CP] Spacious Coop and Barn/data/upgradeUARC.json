@@ -8,6 +8,10 @@
                     "Name": "{{i18n:building.spacious-barn.name}}",
                     "Description": "{{i18n:building.spacious-barn.description}}",
                     "Texture": "Buildings\\Deluxe Barn",
+                    "DrawShadow": true,
+                    "UpgradeSignTile": "4.5, 2",
+                    "UpgradeSignHeight": 31.0,
+                    "MagicalConstruction": false,
                     "Builder": "Robin",
                     "Size": {
                         "X": 7,
@@ -174,11 +178,7 @@
                             },
                             "Indestructible": false
                         }
-                    ],
-                    "DrawShadow": true,
-                    "UpgradeSignTile": "4.5, 2",
-                    "UpgradeSignHeight": 31.0,
-                    "MagicalConstruction": false
+                    ]
                 }
             }
         },
@@ -191,6 +191,10 @@
                     "Name": "{{i18n:building.spacious-coop.name}}",
                     "Description": "{{i18n:building.spacious-coop.description}}",
                     "Texture": "Buildings\\Deluxe Coop",
+                    "DrawShadow": true,
+                    "UpgradeSignTile": "4.5, 2",
+                    "UpgradeSignHeight": 31.0,
+                    "MagicalConstruction": false,
                     "Builder": "Robin",
                     "Size": {
                         "X": 6,
@@ -333,12 +337,7 @@
                             },
                             "Indestructible": false
                         }
-		    	    ],
-                    "DrawShadow": true,
-                    "UpgradeSignTile": "4.5, 2",
-                    "UpgradeSignHeight": 31.0,
-                    "MagicalConstruction": false
-                    }
+		    	    ]
                 }
             }
         }
