@@ -106,7 +106,7 @@ namespace spaciouscoopnbarn
 
             foreach (var b in e.NewLocation.buildings)
             {
-                if (b.buildingType.Value == "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn")
+                if (b.buildingType.Value == SpaciousBarn)
                 {
                     Point tileLoc = new(b.tileX.Value + 3, b.tileY.Value + 3);
                     var l = new LightSource($"spacious_SpaciousBarnLight_{b.tileX.Value}_{b.tileY.Value}_1", 4, tileLoc.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
@@ -117,14 +117,14 @@ namespace spaciouscoopnbarn
                     Game1.currentLightSources.Add(l.Id, l);
                 }
 
-                if (b.buildingType.Value == "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop")
+                if (b.buildingType.Value == SpaciousCoop)
                 {
                     Point tileLoc = new(b.tileX.Value + 6, b.tileY.Value + 2);
                     var l = new LightSource($"spacious_SpaciousCoopLight_{b.tileX.Value}_{b.tileY.Value}_1", 4, tileLoc.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
                     Game1.currentLightSources.Add(l.Id, l);
                 }
 
-                if (b.buildingType.Value == "FlashShifter.StardewValleyExpandedCP_PremiumCoop")
+                if (b.buildingType.Value == SVE_PremiumCoop)
                 {
                     Point tileLoc = new(b.tileX.Value + 6, b.tileY.Value + 2);
                     var l = new LightSource($"spacious_PremiumCoopLight_{b.tileX.Value}_{b.tileY.Value}_1", 4, tileLoc.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
