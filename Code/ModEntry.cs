@@ -306,7 +306,10 @@ namespace spaciouscoopnbarn
     [HarmonyPatch(typeof(Building), nameof(Building.draw))]
     public static class SpaciousUpgradeSignPatch
     {
-        public static void Postfix(Building __instance, Microsoft.Xna.Framework.Graphics.SpriteBatch b, int x, int y, float alpha = 1f)
+        // Fix: Match the exact parameter list of the current Building.draw method in Stardew Valley 1.6.
+        // The draw method signature is:
+        // public virtual void draw(SpriteBatch b)
+        public static void Postfix(Building __instance, Microsoft.Xna.Framework.Graphics.SpriteBatch b)
         {
             if ((__instance.buildingType.Value == ModEntry.SpaciousBarn || __instance.buildingType.Value == ModEntry.SpaciousCoop)
                 && __instance.daysOfConstructionLeft.Value > 0)
@@ -325,7 +328,7 @@ namespace spaciouscoopnbarn
                     signTex,
                     drawPos,
                     signSource,
-                    Color.White * alpha,
+                    Color.White,
                     0f,
                     Vector2.Zero,
                     4f,
