@@ -9,6 +9,7 @@ using StardewValley.GameData.Buildings;
 using StardewValley.Objects;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace spaciouscoopnbarn
 {
@@ -79,6 +80,8 @@ namespace spaciouscoopnbarn
 
         private void PlayerOnWarped(object sender, WarpedEventArgs e)
         {
+            RemoveCustomLights(e.OldLocation);
+
             var buildingsProp = e.NewLocation.GetType().GetProperty("buildings");
             if (buildingsProp == null)
                 return;
@@ -108,8 +111,23 @@ namespace spaciouscoopnbarn
                 else if (b.buildingType.Value == SVECoop)
                 {
                     var tileLoc = new Point(b.tileX.Value + 6, b.tileY.Value + 2);
-                    var l = new LightSource($"SVE_PremiumCoopLight_{b.tileX.Value}_{b.tileY.Value}_1", 4, tileLoc.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
+                    var l = new LightSource($"spacious_PremiumCoopLight_{b.tileX.Value}_{b.tileY.Value}_1", 4, tileLoc.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
                     Game1.currentLightSources.Add(l.Id, l);
+                }
+            }
+        }
+
+        private static void RemoveCustomLights(GameLocation location)
+        {
+            if (location == null || !location.IsFarm)
+                return;
+
+            foreach (var light in Game1.currentLightSources.ToArray())
+            {
+                // Remove custom lights by checking the key for the custom prefix
+                if (light.Key is string keyStr && keyStr.StartsWith("spacious_"))
+                {
+                    Game1.currentLightSources.Remove(light.Key);
                 }
             }
         }
