@@ -123,7 +123,7 @@ namespace spaciouscoopnbarn
                 if (b.buildingType.Value == "FlashShifter.StardewValleyExpandedCP_PremiumCoop")
                 {
                     Point tileLoc = new(b.tileX.Value + 6, b.tileY.Value + 2);
-                    var l = new LightSource($"SVE_PremiumCoopLight_{b.tileX.Value}_{b.tileY.Value}_1", 4, tileLoc.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
+                    var l = new LightSource($"spacious_PremiumCoopLight_{b.tileX.Value}_{b.tileY.Value}_1", 4, tileLoc.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
                     Game1.currentLightSources.Add(l.Id, l);
                 }
             }
