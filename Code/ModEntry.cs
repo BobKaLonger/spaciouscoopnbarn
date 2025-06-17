@@ -151,8 +151,8 @@ namespace spaciouscoopnbarn
                 if (__instance.buildingType.Value == "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop" && __instance.daysOfConstructionLeft.Value <= 0)
                 {
                     var interior = __instance.GetIndoors();
-                    if (tile_x == __instance.tileX.Value + __instance.humanDoor.X - 2 &&
-                        tile_y == __instance.tileY.Value + __instance.humanDoor.Y - 2 &&
+                    if (tile_x == __instance.tileX.Value + __instance.humanDoor.X - 1 &&
+                        tile_y == __instance.tileY.Value + __instance.humanDoor.Y - 3 &&
                         interior != null)
                     {
                         if (property_name == "Action")
@@ -208,8 +208,8 @@ namespace spaciouscoopnbarn
                 if (__instance.buildingType.Value == "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop" && __instance.daysOfConstructionLeft.Value <= 0)
                 {
                     var interior = __instance.GetIndoors();
-                    if (tileLocation.X == __instance.tileX.Value + __instance.humanDoor.X - 2 &&
-                        tileLocation.Y == __instance.tileY.Value + __instance.humanDoor.Y - 2 &&
+                    if (tileLocation.X == __instance.tileX.Value + __instance.humanDoor.X - 1 &&
+                        tileLocation.Y == __instance.tileY.Value + __instance.humanDoor.Y - 3 &&
                         interior != null)
                     {
                         if (who.mount != null)
