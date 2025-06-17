@@ -109,10 +109,6 @@ namespace spaciouscoopnbarn
             {
                 if (b.buildingType.Value == SpaciousBarn)
                 {
-                    /*Point tileLoc = new(b.tileX.Value + 3, b.tileY.Value + 3);
-                    var l = new LightSource($"spacious_SpaciousBarnLight_{b.tileX.Value}_{b.tileY.Value}_1", 4, tileLoc.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
-                    Game1.currentLightSources.Add(l.Id, l);*/
-
                     var spaciousLight1 = new Point(b.tileX.Value + 3, b.tileY.Value + 3);
                     var l1 = new LightSource($"spacious_SpaciousBarnLight_{b.tileX.Value}_{b.tileY.Value}_1", 4, spaciousLight1.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
                     Game1.currentLightSources.Add(l1.Id, l1);
@@ -120,10 +116,6 @@ namespace spaciouscoopnbarn
                     var spaciousLight2 = new Point(b.tileX.Value + 8, b.tileY.Value + 3);
                     var l2 = new LightSource($"spacious_SpaciousBarnLight_{b.tileX.Value}_{b.tileY.Value}_2", 4, spaciousLight2.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
                     Game1.currentLightSources.Add(l2.Id, l2);
-
-                    /*tileLoc = new(b.tileX.Value + 8, b.tileY.Value + 3);
-                    l = new LightSource($"spacious_SpaciousBarnLight_{b.tileX.Value}_{b.tileY.Value}_2", 4, tileLoc.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
-                    Game1.currentLightSources.Add(l.Id, l);*/
                 }
 
                 else if (b.buildingType.Value == SpaciousCoop)
@@ -164,8 +156,8 @@ namespace spaciouscoopnbarn
                 if (__instance.buildingType.Value == SpaciousCoop && __instance.daysOfConstructionLeft.Value <= 0)
                 {
                     var interior = __instance.GetIndoors();
-                    if (tile_x == __instance.tileX.Value + __instance.humanDoor.X - 1 &&
-                        tile_y == __instance.tileY.Value + __instance.humanDoor.Y - 3 &&
+                    if (tile_x == __instance.tileX.Value + __instance.humanDoor.X - 2 &&
+                        tile_y == __instance.tileY.Value + __instance.humanDoor.Y - 2 &&
                         interior != null)
                     {
                         if (property_name == "Action")
@@ -221,8 +213,8 @@ namespace spaciouscoopnbarn
                 if (__instance.buildingType.Value == SpaciousCoop && __instance.daysOfConstructionLeft.Value <= 0)
                 {
                     var interior = __instance.GetIndoors();
-                    if (tileLocation.X == __instance.tileX.Value + __instance.humanDoor.X - 1 &&
-                        tileLocation.Y == __instance.tileY.Value + __instance.humanDoor.Y - 3 &&
+                    if (tileLocation.X == __instance.tileX.Value + __instance.humanDoor.X - 2 &&
+                        tileLocation.Y == __instance.tileY.Value + __instance.humanDoor.Y - 2 &&
                         interior != null)
                     {
                         if (who.mount != null)
