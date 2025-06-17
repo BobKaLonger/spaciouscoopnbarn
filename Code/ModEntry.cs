@@ -25,7 +25,7 @@ namespace spaciouscoopnbarn
         internal const string SpaciousCoop = "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop";
         private const string SVE_PremiumCoop = "FlashShifter.StardewValleyExpandedCP_PremiumCoop";
         private const string SVE_PremiumBarn = "FlashShifter.StardewValleyExpandedCP_PremiumBarn";
-        
+
         public override void Entry(IModHelper helper)
         {
             modInstance = this;
@@ -112,13 +112,13 @@ namespace spaciouscoopnbarn
                     /*Point tileLoc = new(b.tileX.Value + 3, b.tileY.Value + 3);
                     var l = new LightSource($"spacious_SpaciousBarnLight_{b.tileX.Value}_{b.tileY.Value}_1", 4, tileLoc.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
                     Game1.currentLightSources.Add(l.Id, l);*/
-                    
-                    var spaciousLight1 = new Point(b.tileX.Value + 3, b.tileY.Value +3);
+
+                    var spaciousLight1 = new Point(b.tileX.Value + 3, b.tileY.Value + 3);
                     var l1 = new LightSource($"spacious_SpaciousBarnLight_{b.tileX.Value}_{b.tileY.Value}_1", 4, spaciousLight1.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
                     Game1.currentLightSources.Add(l1.Id, l1);
-                    
-                    var spaciousLight2 = new Point(b.tileX.Value + 8, b.tileY.Value +3);
-                    var l2 = new LightSource($"spacious_SpaciousBarnLight_{b.tileX.Value_b.tileY.Value}_2, 4, spaciousLight2.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSouce.LightContext.None);
+
+                    var spaciousLight2 = new Point(b.tileX.Value + 8, b.tileY.Value + 3);
+                    var l2 = new LightSource($"spacious_SpaciousBarnLight_{b.tileX.Value}_{b.tileY.Value}_2", 4, spaciousLight2.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
                     Game1.currentLightSources.Add(l2.Id, l2);
 
                     /*tileLoc = new(b.tileX.Value + 8, b.tileY.Value + 3);
@@ -265,7 +265,7 @@ namespace spaciouscoopnbarn
                 interior.warps[1] = new(w.X, w.Y, w.TargetName, w.TargetX + 8, w.TargetY, w.flipFarmer.Value, w.npcOnly.Value);
             }
         }
-        
+
         [HarmonyPatch(typeof(Building), nameof(Building.updateInteriorWarps))]
         public static class SpaciousCoopWarpPatch
         {
@@ -305,23 +305,24 @@ namespace spaciouscoopnbarn
                 }
             }
         }
-    }
-    [HarmonyPatch(typeof(Building), nameof(Building.InitializeIndoor))]
-    public static class BuildingAutoGrabberFix
-    {
-        public static void Postfix(Building __instance, BuildingData data, bool forConstruction, bool forUpgrade)
-        {
-            if (!forUpgrade)
-                return;
-            if (__instance.buildingType.Value != SpaciousCoop &&
-                __instance.buildingType.Value != SpaciousBarn)
-                return;
 
-            foreach (var obj in __instance.indoors.Value.Objects.Values)
+        [HarmonyPatch(typeof(Building), nameof(Building.InitializeIndoor))]
+        public static class BuildingAutoGrabberFix
+        {
+            public static void Postfix(Building __instance, BuildingData data, bool forConstruction, bool forUpgrade)
             {
-                if (obj.QualifiedItemId == "(BC)165" && obj.heldObject.Value == null)
+                if (!forUpgrade)
+                    return;
+                if (__instance.buildingType.Value != SpaciousCoop &&
+                    __instance.buildingType.Value != SpaciousBarn)
+                    return;
+
+                foreach (var obj in __instance.indoors.Value.Objects.Values)
                 {
-                    obj.heldObject.Value = new Chest();
+                    if (obj.QualifiedItemId == "(BC)165" && obj.heldObject.Value == null)
+                    {
+                        obj.heldObject.Value = new Chest();
+                    }
                 }
             }
         }
