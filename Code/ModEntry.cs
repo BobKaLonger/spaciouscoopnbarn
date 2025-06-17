@@ -55,7 +55,7 @@ namespace spaciouscoopnbarn
             {
                 return Array.Empty<string>();
             }
-            return new[] { CopmuteSpaciousMode() };
+            return new[] { ComputeSpaciousMode() };
         }
         private string CopmuteSpaciousMode()
         {
