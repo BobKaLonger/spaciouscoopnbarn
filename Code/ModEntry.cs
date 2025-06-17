@@ -57,7 +57,7 @@ namespace spaciouscoopnbarn
             }
             return new[] { ComputeSpaciousMode() };
         }
-        private string CopmuteSpaciousMode()
+        private string ComputeSpaciousMode()
         {
             bool hasSVE = Helper.ModRegistry.IsLoaded("FlashShifter.StardewValleyExpandedCP");
             bool hasBKGCB = Helper.ModRegistry.IsLoaded("bobkalonger.gigacoopnbarn");
