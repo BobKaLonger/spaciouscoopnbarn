@@ -24,6 +24,7 @@ namespace spaciouscoopnbarn
         internal const string SpaciousBarn = "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn";
         internal const string SpaciousCoop = "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop";
         private const string SVE_PremiumCoop = "FlashShifter.StardewValleyExpandedCP_PremiumCoop";
+        private const string SVE_PremiumBarn = "FlashShifter.StardewValleyExpandedCP_PremiumBarn";
         
         public override void Entry(IModHelper helper)
         {
@@ -138,7 +139,7 @@ namespace spaciouscoopnbarn
         {
             public static void Postfix(Building __instance, int tile_x, int tile_y, string property_name, string layer_name, ref string property_value, ref bool __result)
             {
-                if (__instance.buildingType.Value == "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn" && __instance.daysOfConstructionLeft.Value <= 0)
+                if (__instance.buildingType.Value == SpaciousBarn && __instance.daysOfConstructionLeft.Value <= 0)
                 {
                     var interior = __instance.GetIndoors();
                     if (tile_x == __instance.tileX.Value + __instance.humanDoor.X + 8 &&
@@ -152,7 +153,7 @@ namespace spaciouscoopnbarn
                         }
                     }
                 }
-                if (__instance.buildingType.Value == "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop" && __instance.daysOfConstructionLeft.Value <= 0)
+                if (__instance.buildingType.Value == SpaciousCoop && __instance.daysOfConstructionLeft.Value <= 0)
                 {
                     var interior = __instance.GetIndoors();
                     if (tile_x == __instance.tileX.Value + __instance.humanDoor.X - 1 &&
@@ -179,7 +180,7 @@ namespace spaciouscoopnbarn
                     return;
                 }
 
-                if (__instance.buildingType.Value == "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn" && __instance.daysOfConstructionLeft.Value <= 0)
+                if (__instance.buildingType.Value == SpaciousBarn && __instance.daysOfConstructionLeft.Value <= 0)
                 {
                     var interior = __instance.GetIndoors();
                     if (tileLocation.X == __instance.tileX.Value + __instance.humanDoor.X + 8 &&
@@ -209,7 +210,7 @@ namespace spaciouscoopnbarn
                         return;
                     }
                 }
-                if (__instance.buildingType.Value == "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop" && __instance.daysOfConstructionLeft.Value <= 0)
+                if (__instance.buildingType.Value == SpaciousCoop && __instance.daysOfConstructionLeft.Value <= 0)
                 {
                     var interior = __instance.GetIndoors();
                     if (tileLocation.X == __instance.tileX.Value + __instance.humanDoor.X - 1 &&
@@ -247,7 +248,7 @@ namespace spaciouscoopnbarn
         {
             public static void Postfix(Building __instance, GameLocation interior)
             {
-                if (__instance.buildingType.Value != "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn")
+                if (__instance.buildingType.Value != SpaciousBarn)
                     return;
                 if (interior == null || interior.warps.Count == 0)
                     return;
@@ -262,7 +263,7 @@ namespace spaciouscoopnbarn
         {
             public static void Postfix(Building __instance, GameLocation interior)
             {
-                if (__instance.buildingType.Value != "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop")
+                if (__instance.buildingType.Value != SpaciousCoop)
                     return;
                 if (interior == null || interior.warps.Count == 0)
                     return;
@@ -278,13 +279,13 @@ namespace spaciouscoopnbarn
             public static void Postfix(GameLocation location, string buildingId, ref bool __result)
             {
                 string toCheck = null;
-                if (buildingId == "Coop" || buildingId == "Deluxe Coop" || buildingId == "Big Coop" || buildingId == "FlashShifter.StardewValleyExpandedCP_PremiumCoop")
+                if (buildingId == "Coop" || buildingId == "Deluxe Coop" || buildingId == "Big Coop" || buildingId == SVE_PremiumCoop)
                 {
-                    toCheck = "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop";
+                    toCheck = SpaciousCoop;
                 }
-                else if (buildingId == "Barn" || buildingId == "Deluxe Barn" || buildingId == "Big Barn" || buildingId == "FlashShifter.StardewValleyExpandedCP_PremiumBarn")
+                else if (buildingId == "Barn" || buildingId == "Deluxe Barn" || buildingId == "Big Barn" || buildingId == SVE_PremiumBarn)
                 {
-                    toCheck = "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn";
+                    toCheck = SpaciousBarn;
                 }
 
                 if (!__result && toCheck != null)
@@ -304,8 +305,8 @@ namespace spaciouscoopnbarn
         {
             if (!forUpgrade)
                 return;
-            if (__instance.buildingType.Value != "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop" &&
-                __instance.buildingType.Value != "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn")
+            if (__instance.buildingType.Value != SpaciousCoop &&
+                __instance.buildingType.Value != SpaciousBarn)
                 return;
 
             foreach (var obj in __instance.indoors.Value.Objects.Values)
