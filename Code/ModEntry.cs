@@ -306,7 +306,7 @@ namespace spaciouscoopnbarn
     [HarmonyPatch(typeof(Building), nameof(Building.draw))]
     public static class SpaciousUpgradeSignPatch
     {
-        public static void Postfix(Building __instance, Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch, int x, int y, float alpha = 1f)
+        public static void Postfix(Building __instance, Microsoft.Xna.Framework.Graphics.SpriteBatch b, int x, int y, float alpha = 1f)
         {
             if ((__instance.buildingType.Value == ModEntry.SpaciousBarn || __instance.buildingType.Value == ModEntry.SpaciousCoop)
                 && __instance.daysOfConstructionLeft.Value > 0)
@@ -321,7 +321,7 @@ namespace spaciouscoopnbarn
 
                 Vector2 drawPos = Game1.GlobalToLocal(Game1.viewport, new Vector2(signX * 64, (signY * 64) - signHeight));
 
-                spriteBatch.Draw(
+                b.Draw(
                     signTex,
                     drawPos,
                     signSource,
