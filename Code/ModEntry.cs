@@ -83,11 +83,11 @@ namespace spaciouscoopnbarn
             if (buildingsProp == null)
                 return;
 
-            var buildings = buildingsProp.GetValue(e.NewLocation) as IEnumerable<object>;
+            var buildings = buildingsProp.GetValue(e.NewLocation) as IEnumerable<Building>;
             if (buildings == null)
                 return;
 
-            foreach (dynamic b in buildings)
+            foreach (Building b in buildings)
             {
                 if (b.buildingType.Value == SpaciousBarn)
                 {
@@ -179,7 +179,7 @@ namespace spaciouscoopnbarn
                         {
                             who.currentLocation.playSound("doorClose", tileLocation);
                             bool isStructure = __instance.indoors.Value != null;
-                            Game1.warpFarmer(interior.NameOrUniqueName, interior.warps[1].X, interior.warps[1].Y - 1, Game1.player.FacingDirection, isStructure);
+                            Game1.warpFarmer(interior.NameOrUniqueName, interior.warps[1].X, interior.warps[1].Y - 1, isStructure);
                         }
                         __result = true;
                         return;
@@ -209,7 +209,7 @@ namespace spaciouscoopnbarn
                         {
                             who.currentLocation.playSound("doorClose", tileLocation);
                             bool isStructure = __instance.indoors.Value != null;
-                            Game1.warpFarmer(interior.NameOrUniqueName, interior.warps[1].X - 1, interior.warps[1].Y, Game1.player.FacingDirection, isStructure);
+                            Game1.warpFarmer(interior.NameOrUniqueName, interior.warps[1].X - 1, interior.warps[1].Y, isStructure);
                         }
                         __result = true;
                         return;
@@ -227,7 +227,7 @@ namespace spaciouscoopnbarn
                     return;
 
                 var w = interior.warps[1];
-                interior.warps[1] = new(w.X, w.Y, w.TargetName, w.TargetX + 8, w.TargetY, w.flipFarmer.Value, w.npcOnly.Value);
+                interior.warps[1] = new Warp(w.X, w.Y, w.TargetName, w.TargetX + 8, w.TargetY, w.flipFarmer.Value, w.npcOnly.Value);
             }
         }
 
@@ -240,7 +240,7 @@ namespace spaciouscoopnbarn
                     return;
 
                 var w = interior.warps[1];
-                interior.warps[1] = new(w.X, w.Y, w.TargetName, w.TargetX - 1, w.TargetY - 3, w.flipFarmer.Value, w.npcOnly.Value);
+                interior.warps[1] = new Warp(w.X, w.Y, w.TargetName, w.TargetX - 1, w.TargetY - 3, w.flipFarmer.Value, w.npcOnly.Value);
             }
         }
 
@@ -277,10 +277,43 @@ namespace spaciouscoopnbarn
 
             foreach (var obj in __instance.indoors.Value.Objects.Values)
             {
-                if (obj.QualifiedItemId == "(BC)165" && obj.heldObject.Value == null)
+                if ((obj.QualifiedItemId == "(BC)165" || obj.QualifiedItemId == "165") && obj.heldObject.Value == null)
                 {
                     obj.heldObject.Value = new Chest();
                 }
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(Building), nameof(Building.draw))]
+    public static class SpaciousUpgradeSignPatch
+    {
+        public static void Postfix(Building __instance, Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch, int x, int y, float alpha = 1f)
+        {
+            if ((__instance.buildingType.Value == ModEntry.SpaciousBarn || __instance.buildingType.Value == ModEntry.SpaciousCoop)
+                && __instance.daysOfConstructionLeft.Value > 0)
+            {
+                var data = __instance.GetData();
+                float signX = __instance.tileX.Value + (float)data.UpgradeSignTile.X;
+                float signY = __instance.tileY.Value + (float)data.UpgradeSignTile.Y;
+                float signHeight = (float)data.UpgradeSignHeight;
+
+                var signTex = Game1.mouseCursors;
+                var signSource = new Rectangle(366, 372, 18, 18);
+
+                Vector2 drawPos = Game1.GlobalToLocal(Game1.viewport, new Vector2(signX * 64, (signY * 64) - signHeight));
+
+                spriteBatch.Draw(
+                    signTex,
+                    drawPos,
+                    signSource,
+                    Color.White * alpha,
+                    0f,
+                    Vector2.Zero,
+                    4f,
+                    Microsoft.Xna.Framework.Graphics.SpriteEffects.None,
+                    ((signY + 1f) * 64f) / 10000f
+                );
             }
         }
     }
