@@ -28,7 +28,7 @@ namespace spaciouscoopnbarn
         
         public override void Entry(IModHelper helper)
         {
-            ModEntry.modInstance = this;
+            modInstance = this;
 
             I18n.Init(Helper.Translation);
 
