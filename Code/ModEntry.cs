@@ -126,18 +126,18 @@ namespace spaciouscoopnbarn
                     Game1.currentLightSources.Add(l.Id, l);*/
                 }
 
-                if (b.buildingType.Value == SpaciousCoop)
+                else if (b.buildingType.Value == SpaciousCoop)
                 {
-                    Point tileLoc = new(b.tileX.Value + 6, b.tileY.Value + 2);
-                    var l = new LightSource($"spacious_SpaciousCoopLight_{b.tileX.Value}_{b.tileY.Value}_1", 4, tileLoc.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
-                    Game1.currentLightSources.Add(l.Id, l);
+                    var spaciousLight3 = new Point(b.tileX.Value + 6, b.tileY.Value + 2);
+                    var l3 = new LightSource($"spacious_SpaciousCoopLight_{b.tileX.Value}_{b.tileY.Value}_1", 4, spaciousLight3.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
+                    Game1.currentLightSources.Add(l3.Id, l3);
                 }
 
                 if (b.buildingType.Value == SVE_PremiumCoop)
                 {
-                    Point tileLoc = new(b.tileX.Value + 6, b.tileY.Value + 2);
-                    var l = new LightSource($"spacious_PremiumCoopLight_{b.tileX.Value}_{b.tileY.Value}_1", 4, tileLoc.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
-                    Game1.currentLightSources.Add(l.Id, l);
+                    var spaciousLight4 = new Point(b.tileX.Value + 6, b.tileY.Value + 2);
+                    var l4 = new LightSource($"spacious_PremiumCoopLight_{b.tileX.Value}_{b.tileY.Value}_1", 4, spaciousLight4.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
+                    Game1.currentLightSources.Add(l4.Id, l4);
                 }
             }
         }
