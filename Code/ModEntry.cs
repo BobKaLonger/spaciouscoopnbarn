@@ -115,6 +115,35 @@ namespace spaciouscoopnbarn
                     var spaciousLightBR = new Point(b.tileX.Value + 8, b.tileY.Value + 3);
                     var lr = new LightSource($"{SpaciousCP}BarnLight_{b.tileX.Value}_{b.tileY.Value}_R", 4, spaciousLightBR.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
                     Game1.currentLightSources.Add(lr.Id, lr);
+
+                    if (b.daysOfConstructionLeft.Value > 0)
+                    {
+                        var signTile = new Rectangle(16, 80, 16, 32);
+                        float signX = b.tileX.Value + 4.5f;
+                        float signY = b.tileY.Value + 0.5f;
+                        var signPosition = new Vector2(signX, signY) * Game1.tileSize;
+
+                        Helper.Events.Display.RenderedWorld += (s, args) =>
+                        {
+                            // Only draw if still under construction and player is on the same location
+                            if (b.daysOfConstructionLeft.Value > 0 && Game1.currentLocation == e.NewLocation)
+                            {
+                                // Use the default buildings texture
+                                var texture = Game1.mouseCursors;
+                                args.SpriteBatch.Draw(
+                                    texture,
+                                    Game1.GlobalToLocal(signPosition),
+                                    signTile,
+                                    Color.White,
+                                    0f,
+                                    Vector2.Zero,
+                                    Game1.pixelZoom,
+                                    Microsoft.Xna.Framework.Graphics.SpriteEffects.None,
+                                    (signPosition.Y + 32) / 10000f // draw above floor
+                                );
+                            }
+                        };
+                    }
                 }
 
                 if (b.buildingType.Value == SpaciousCoop)
@@ -122,13 +151,44 @@ namespace spaciouscoopnbarn
                     var spaciousLightC = new Point(b.tileX.Value + 6, b.tileY.Value + 2);
                     var lc = new LightSource($"{SpaciousCP}CoopLight_{b.tileX.Value}_{b.tileY.Value}", 4, spaciousLightC.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
                     Game1.currentLightSources.Add(lc.Id, lc);
-                }
 
-                if (b.buildingType.Value == spaciousPremiumCoop)
-                {
-                    var spaciousLightPCP = new Point(b.tileX.Value + 6, b.tileY.Value + 2);
-                    var lp = new LightSource($"{SpaciousCP}PremiumCoopLight_patch_{b.tileX.Value}_{b.tileY.Value}", 4, spaciousLightPCP.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
-                    Game1.currentLightSources.Add(lp.Id, lp);
+                    if (b.daysOfConstructionLeft.Value > 0)
+                    {
+                        var signTile = new Rectangle(16, 80, 16, 32);
+                        // Use floats for more precise placement
+                        float signX = b.tileX.Value + 0.5f;
+                        float signY = b.tileY.Value + 2.5f;
+                        var signPosition = new Vector2(signX, signY) * Game1.tileSize;
+
+                        // Draw manually using the HUDRendered event
+                        Helper.Events.Display.RenderedWorld += (s, args) =>
+                        {
+                            // Only draw if still under construction and player is on the same location
+                            if (b.daysOfConstructionLeft.Value > 0 && Game1.currentLocation == e.NewLocation)
+                            {
+                                // Use the default buildings texture
+                                var texture = Game1.mouseCursors;
+                                args.SpriteBatch.Draw(
+                                    texture,
+                                    Game1.GlobalToLocal(signPosition),
+                                    signTile,
+                                    Color.White,
+                                    0f,
+                                    Vector2.Zero,
+                                    Game1.pixelZoom,
+                                    Microsoft.Xna.Framework.Graphics.SpriteEffects.None,
+                                    (signPosition.Y + 32) / 10000f // draw above floor
+                                );
+                            }
+                        };
+                    }
+
+                    if (b.buildingType.Value == spaciousPremiumCoop)
+                    {
+                        var spaciousLightPCP = new Point(b.tileX.Value + 6, b.tileY.Value + 2);
+                        var lp = new LightSource($"{SpaciousCP}PremiumCoopLight_patch_{b.tileX.Value}_{b.tileY.Value}", 4, spaciousLightPCP.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
+                        Game1.currentLightSources.Add(lp.Id, lp);
+                    }
                 }
             }
         }
@@ -146,6 +206,8 @@ namespace spaciouscoopnbarn
                 }
             }
         }
+
+
 
         [HarmonyPatch(typeof(Building), nameof(Building.doesTileHaveProperty))]
         public static class SpaciousCursorPatch
