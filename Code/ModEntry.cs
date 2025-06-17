@@ -21,8 +21,8 @@ namespace spaciouscoopnbarn
         public static Mod modInstance;
         public static IContentPack cpPack;
         private const string ModDataKey = "bobkalonger.BKSCB_code/SpaciousMode";
-        internal const string ModDataKey = "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn";
-        internal const string ModDataKey = "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop";
+        internal const string SpaciousBarn = "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn";
+        internal const string SpaciousCoop = "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop";
         private const string SVE_PremiumCoop = "FlashShifter.StardewValleyExpandedCP_PremiumCoop";
         
         public override void Entry(IModHelper helper)
