@@ -57,7 +57,7 @@
 					"NonInstancedIndoorLocation": null,
 					"DrawLayers": [
 					    {
-                            "Id": "Default_Overlay",
+                            "Id": "BKSCB_Default_Overlay",
 							"Texture": null,
                             "SourceRect": {
                               "X": 98,
@@ -69,7 +69,7 @@
                             "DrawInBackground": false
 						},
 						{
-                            "Id": "Default_AnimalDoor",
+                            "Id": "BKSCB_Default_AnimalDoor",
 							"Texture": null,
                             "SourceRect": {
                               "X": 2,
@@ -90,7 +90,7 @@
                             }
                         },
                         {
-                            "Id": "Default_AnimalDoor_Open",
+                            "Id": "BKSCB_Default_AnimalDoor_Open",
 							"Texture": null,
                             "SourceRect": {
                               "X": 50,
@@ -120,7 +120,7 @@
 					"AllowAnimalPregnancy": true,
                     "IndoorItems": [
                         {
-                            "Id": "Default_FeedHopper",
+                            "Id": "BKSCB_Default_FeedHopper",
                             "ItemId": "(BC)99",
                             "Tile": {
                                 "X": 21,
@@ -129,7 +129,7 @@
                             "Indestructible": true
                         },
                         {
-                            "Id": "Default_Heater",
+                            "Id": "BKSCB_Default_Heater",
                             "ItemId": "(BC)104",
                             "Tile": {
                                 "X": 44,
@@ -138,7 +138,7 @@
                             "Indestructible": false
                         },
 						{
-                            "Id": "Default_AutoPetter",
+                            "Id": "BKSCB_Default_AutoPetter",
                             "ItemId": "(BC)272",
                             "Tile": {
                                 "X": 45,
@@ -147,7 +147,7 @@
                             "Indestructible": false
                         },
 						{
-                            "Id": "Default_AutoGrabber",
+                            "Id": "BKSCB_Default_AutoGrabber",
                             "ItemId": "(BC)165",
                             "Tile": {
                                 "X": 20,
@@ -218,19 +218,19 @@
 					"NonInstancedIndoorLocation": null,
 					"DrawLayers": [
 					    {
-                            "Id": "Default_Overlay",
+                            "Id": "BKSCB_Default_Overlay",
 							"Texture": null,
                             "SourceRect": {
                               	"X": 90,
                               	"Y": 146,
-                              	"Width": 40,
+                              	"Width": 40,    
                               	"Height": 12
                             },
 							"DrawPosition": "28, 116",
                             "DrawInBackground": false
 						},
 					    {
-                            "Id": "Default_AnimalDoor",
+                            "Id": "BKSCB_Default_AnimalDoor",
                             "Texture": null,
                             "SourceRect": {
                                 "X": 0,
@@ -251,7 +251,7 @@
                             }
 					    },
 					    {
-                            "Id": "Default_AnimalDoor_Open",
+                            "Id": "BKSCB_Default_AnimalDoor_Open",
 							"Texture": null,
                             "SourceRect": {
                             	"X": 48,
@@ -280,7 +280,7 @@
                     ],
                     "IndoorItems": [
 						{
-							"Id": "Default_FeedHopper",
+							"Id": "BKSCB_Default_FeedHopper",
 							"ItemId": "(BC)99",
 							"Tile": {
 								"X": 4,
@@ -289,7 +289,7 @@
 							"Indestructible": true
 						},
 						{
-							"Id": "Default_Incubator",
+							"Id": "BKSCB_Default_Incubator",
 							"ItemId": "(BC)101",
 							"Tile": {
 								"X": 3,
@@ -298,7 +298,7 @@
 							"Indestructible": true
 						},
 						{
-							"Id": "Extra_Incubator",
+							"Id": "BKSCB_Extra_Incubator",
 							"ItemId": "(BC)101",
 							"Tile": {
 								"X": 24,
@@ -307,7 +307,7 @@
 							"Indestructible": false
 						},
 						{
-                            "Id": "Default_Heater",
+                            "Id": "BKSCB_Default_Heater",
                             "ItemId": "(BC)104",
                             "Tile": {
                             	"X": 23,
@@ -316,7 +316,7 @@
                             "Indestructible": false
                         },
 						{
-                            "Id": "Default_AutoPetter",
+                            "Id": "BKSCB_Default_AutoPetter",
                             "ItemId": "(BC)272",
                             "Tile": {
                             	"X": 13,
@@ -325,7 +325,7 @@
                             "Indestructible": false
                         },
 						{
-                            "Id": "Default_AutoGrabber",
+                            "Id": "BKSCB_Default_AutoGrabber",
                             "ItemId": "(BC)165",
                             "Tile": {
                             	"X": 14,
