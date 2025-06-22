@@ -347,6 +347,31 @@ namespace spaciouscoopnbarn
             }
         }
 
+        [HarmonyPatch(typeof(Utility), "_HasBuildingOrUpgrade")]
+        public static class UtilityHasCoopBarnPatch
+        {
+            public static void Postfix(GameLocation location, string buildingId, ref bool __result)
+            {
+                string toCheck = null;
+                if (buildingId == "Coop" || buildingId == "Big Coop" || buildingId == "Deluxe Coop" || buildingId == spaciousPremiumCoop)
+                {
+                    toCheck = SpaciousCoop;
+                }
+                else if (buildingId == "Barn" || buildingId == "Big Barn" || buildingId == "Deluxe Barn" || buildingId == spaciousPremiumBarn)
+                {
+                    toCheck = SpaciousBarn;
+                }
+
+                if (!__result && toCheck != null)
+                {
+                    if (location.getNumberBuildingsConstructed(toCheck) > 0)
+                    {
+                        __result = true;
+                    }
+                }
+            }
+        }
+
         [HarmonyPatch(typeof(Building), nameof(Building.InitializeIndoor))]
         public static class BuildingAutoGrabberFix
         {
