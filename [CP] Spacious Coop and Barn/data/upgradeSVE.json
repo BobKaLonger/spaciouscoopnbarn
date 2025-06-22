@@ -11,7 +11,7 @@
                     "Texture": "Buildings\\SVE_PremiumBarn",
                     "Skins": [],
                     "DrawShadow": true,
-                    "UpgradeSignTile": "4.5, 0.5",
+                    "UpgradeSignTile": "4.5, 2",
                     "UpgradeSignHeight": 31.0,
                     "MagicalConstruction": false,
                     "Builder": "Robin",
@@ -172,8 +172,8 @@
                     "Texture": "Buildings\\SVE_PremiumCoop",
                     "Skins": [],
                     "DrawShadow": true,
-                    "UpgradeSignTile": "0.5, 2.5",
-                    "UpgradeSignHeight": 31.0,
+                    "UpgradeSignTile": "2, 2",
+                    "UpgradeSignHeight": 18.0,
                     "MagicalConstruction": false,
                     "Builder": "Robin",
                     "Size": {
@@ -230,25 +230,25 @@
                             "DrawInBackground": false
 						},
 					    {
-						"Id": "Default_AnimalDoor",
-						"Texture": null,
-						"SourceRect": {
-							"X": 0,
-							"Y": 144,
-							"Width": 40,
-							"Height": 16
-						    },
-						"DrawPosition": "28, 127",
-						"DrawInBackground": false,
-						"SortTileOffset": 0.02,
-						"OnlyDrawIfChestHasContents": null,
-						"FrameDuration": 90,
-						"FrameCount": 1,
-						"FramesPerRow": -1,
-						"AnimalDoorOffset": {
-							"X": 0,
-							"Y": -12
-						    }
+                            "Id": "Default_AnimalDoor",
+                            "Texture": null,
+                            "SourceRect": {
+                                "X": 0,
+                                "Y": 144,
+                                "Width": 40,
+                                "Height": 16
+                            },
+                            "DrawPosition": "28, 127",
+                            "DrawInBackground": false,
+						    "SortTileOffset": 0.02,
+						    "OnlyDrawIfChestHasContents": null,
+						    "FrameDuration": 90,
+						    "FrameCount": 1,
+						    "FramesPerRow": -1,
+						    "AnimalDoorOffset": {
+							    "X": 0,
+							    "Y": -12
+                            }
 					    },
 					    {
                             "Id": "Default_AnimalDoor_Open",

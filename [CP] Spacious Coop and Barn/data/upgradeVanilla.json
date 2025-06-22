@@ -202,8 +202,8 @@
                     "Texture": "Buildings\\Deluxe Coop",
                     "Skins": [],
                     "DrawShadow": true,
-                    "UpgradeSignTile": "4.5, 2",
-                    "UpgradeSignHeight": 31.0,
+                    "UpgradeSignTile": "2, 2",
+                    "UpgradeSignHeight": 18.0,
                     "MagicalConstruction": false,
                     "Builder": "Robin",
                     "Size": {
