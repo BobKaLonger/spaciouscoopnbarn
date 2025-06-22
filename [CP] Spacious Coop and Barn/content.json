@@ -54,7 +54,7 @@
             "FromFile": "data/upgradeSVE.json",
             "When":
             {
-                "bobkalonger.BKSCB_code/SpaciousMode": "Vanilla"
+                "bobkalonger.BKSCB_code/SpaciousMode": "BKGCB"
             }
         },
         {
@@ -62,7 +62,7 @@
             "FromFile": "data/upgradeBKGCB.json",
             "When":
             {
-                "bobkalonger.BKSCB_code/SpaciousMode": "BKGCB"
+                "bobkalonger.BKSCB_code/SpaciousMode": "SVE"
             }
         },
         {
@@ -94,7 +94,7 @@
             "FromFile": "data/upgradeVanilla.json",
             "When":
             {
-                "bobkalonger.BKSCB_code/SpaciousMode": "SVE"
+                "bobkalonger.BKSCB_code/SpaciousMode": "Vanilla"
             }
         }
     ]
