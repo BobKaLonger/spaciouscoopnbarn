@@ -353,11 +353,11 @@ namespace spaciouscoopnbarn
             public static void Postfix(GameLocation location, string buildingId, ref bool __result)
             {
                 string toCheck = null;
-                if (buildingId == "Coop" || buildingId == "Big Coop" || buildingId == "Deluxe Coop")
+                if (buildingId == "Coop" || buildingId == "Big Coop" || buildingId == "Deluxe Coop" || buildingId == spaciousPremiumCoop)
                 {
                     toCheck = SpaciousCoop;
                 }
-                else if (buildingId == "Barn" || buildingId == "Big Barn" || buildingId == "Deluxe Barn")
+                else if (buildingId == "Barn" || buildingId == "Big Barn" || buildingId == "Deluxe Barn" || buildingId == spaciousPremiumBarn)
                 {
                     toCheck = SpaciousBarn;
                 }
