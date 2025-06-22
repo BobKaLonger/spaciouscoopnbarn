@@ -26,7 +26,7 @@
                     "FadeWhenBehind": true,
                     "BuildCondition": null,
                     "BuildingToUpgrade": "Deluxe Barn",
-                    "BuildDays": 0,
+                    "BuildDays": 2,
                     "BuildCost": 10,
                     "BuildMaterials": [],
                     "BuildMenuDrawOffset": {
@@ -209,7 +209,7 @@
                     "FadeWhenBehind": true,
                     "BuildCondition": null,
                     "BuildingToUpgrade": "Deluxe Coop",
-                    "BuildDays": 0,
+                    "BuildDays": 2,
                     "BuildCost": 10,
                     "BuildMaterials": [],
                     "BuildMenuDrawOffset": {
