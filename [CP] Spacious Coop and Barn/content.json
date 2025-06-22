@@ -54,7 +54,7 @@
             "FromFile": "data/upgradeSVE.json",
             "When":
             {
-                "bobkalonger.BKSCB_code/SpaciousMode": "JMCB"
+                "bobkalonger.BKSCB_code/SpaciousMode": "SVE"
             }
         },
         {
@@ -78,7 +78,7 @@
             "FromFile": "data/upgradeJMCB.json",
             "When":
             {
-                "bobkalonger.BKSCB_code/SpaciousMode": "SVE"
+                "bobkalonger.BKSCB_code/SpaciousMode": "JMCB"
             }
         },
         {
