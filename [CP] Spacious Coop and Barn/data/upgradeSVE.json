@@ -172,11 +172,8 @@
                     "Texture": "Buildings\\SVE_PremiumCoop",
                     "Skins": [],
                     "DrawShadow": true,
-                    "UpgradeSignTile": {
-                        "X": 0.5,
-                        "Y": 2.5
-                    },
-                    "UpgradeSignHeight": 18.0,
+                    "UpgradeSignTile": "0.5, 2.5",
+                    "UpgradeSignHeight": 31.0,
                     "MagicalConstruction": false,
                     "Builder": "Robin",
                     "Size": {
