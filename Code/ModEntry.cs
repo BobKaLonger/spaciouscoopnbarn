@@ -116,7 +116,7 @@ namespace spaciouscoopnbarn
                     var lr = new LightSource($"{SpaciousCP}BarnLight_{b.tileX.Value}_{b.tileY.Value}_R", 4, spaciousLightBR.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
                     Game1.currentLightSources.Add(lr.Id, lr);
 
-                    if (b.daysOfConstructionLeft.Value > 0)
+                    /*if (b.daysUntilUpgrade.Value > 0)
                     {
                         var signTile = new Rectangle(16, 80, 16, 32);
                         float signX = b.tileX.Value + 4.5f;
@@ -126,7 +126,7 @@ namespace spaciouscoopnbarn
                         Helper.Events.Display.RenderedWorld += (s, args) =>
                         {
                             // Only draw if still under construction and player is on the same location
-                            if (b.daysOfConstructionLeft.Value > 0 && Game1.currentLocation == e.NewLocation)
+                            if (b.daysUntilUpgrade.Value > 0 && Game1.currentLocation == e.NewLocation)
                             {
                                 // Use the default buildings texture
                                 var texture = Game1.mouseCursors;
@@ -143,7 +143,7 @@ namespace spaciouscoopnbarn
                                 );
                             }
                         };
-                    }
+                    }*/
                 }
 
                 if (b.buildingType.Value == SpaciousCoop)
@@ -152,7 +152,7 @@ namespace spaciouscoopnbarn
                     var lc = new LightSource($"{SpaciousCP}CoopLight_{b.tileX.Value}_{b.tileY.Value}", 4, spaciousLightC.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
                     Game1.currentLightSources.Add(lc.Id, lc);
 
-                    if (b.daysOfConstructionLeft.Value > 0)
+                    /* if (b.daysUntilUpgrade.Value > 0)
                     {
                         var signTile = new Rectangle(16, 80, 16, 32);
                         // Use floats for more precise placement
@@ -160,11 +160,10 @@ namespace spaciouscoopnbarn
                         float signY = b.tileY.Value + 2.5f;
                         var signPosition = new Vector2(signX, signY) * Game1.tileSize;
 
-                        // Draw manually using the HUDRendered event
                         Helper.Events.Display.RenderedWorld += (s, args) =>
                         {
                             // Only draw if still under construction and player is on the same location
-                            if (b.daysOfConstructionLeft.Value > 0 && Game1.currentLocation == e.NewLocation)
+                            if (b.daysUntilUpgrade.Value > 0 && Game1.currentLocation == e.NewLocation)
                             {
                                 // Use the default buildings texture
                                 var texture = Game1.mouseCursors;
@@ -181,7 +180,7 @@ namespace spaciouscoopnbarn
                                 );
                             }
                         };
-                    }
+                    } */
 
                     if (b.buildingType.Value == spaciousPremiumCoop)
                     {
@@ -214,7 +213,7 @@ namespace spaciouscoopnbarn
         {
             public static void Postfix(Building __instance, int tile_x, int tile_y, string property_name, ref string property_value, ref bool __result)
             {
-                if (__instance.buildingType.Value == SpaciousBarn && __instance.daysOfConstructionLeft.Value <= 0)
+                if (__instance.buildingType.Value == SpaciousBarn && __instance.daysUntilUpgrade.Value <= 0)
                 {
                     var interior = __instance.GetIndoors();
                     if (tile_x == __instance.tileX.Value + __instance.humanDoor.X + 8 &&
@@ -228,7 +227,7 @@ namespace spaciouscoopnbarn
                         }
                     }
                 }
-                if (__instance.buildingType.Value == SpaciousCoop && __instance.daysOfConstructionLeft.Value <= 0)
+                if (__instance.buildingType.Value == SpaciousCoop && __instance.daysUntilUpgrade.Value <= 0)
                 {
                     var interior = __instance.GetIndoors();
                     if (tile_x == __instance.tileX.Value + __instance.humanDoor.X - 2 &&
@@ -255,7 +254,7 @@ namespace spaciouscoopnbarn
                     return;
                 }
 
-                if (__instance.buildingType.Value == SpaciousBarn && __instance.daysOfConstructionLeft.Value <= 0)
+                if (__instance.buildingType.Value == SpaciousBarn && __instance.daysUntilUpgrade.Value <= 0)
                 {
                     var interior = __instance.GetIndoors();
                     if (tileLocation.X == __instance.tileX.Value + __instance.humanDoor.X + 8 &&
@@ -285,7 +284,7 @@ namespace spaciouscoopnbarn
                         return;
                     }
                 }
-                if (__instance.buildingType.Value == SpaciousCoop && __instance.daysOfConstructionLeft.Value <= 0)
+                if (__instance.buildingType.Value == SpaciousCoop && __instance.daysUntilUpgrade.Value <= 0)
                 {
                     var interior = __instance.GetIndoors();
                     if (tileLocation.X == __instance.tileX.Value + __instance.humanDoor.X - 2 &&
@@ -354,11 +353,11 @@ namespace spaciouscoopnbarn
             public static void Postfix(GameLocation location, string buildingId, ref bool __result)
             {
                 string toCheck = null;
-                if (buildingId == "Coop" || buildingId == "Deluxe Coop" || buildingId == "Big Coop" || buildingId == spaciousPremiumCoop)
+                if (buildingId == "Coop" || buildingId == "Big Coop" || buildingId == "Deluxe Coop")
                 {
                     toCheck = SpaciousCoop;
                 }
-                else if (buildingId == "Barn" || buildingId == "Deluxe Barn" || buildingId == "Big Barn" || buildingId == spaciousPremiumBarn)
+                else if (buildingId == "Barn" || buildingId == "Big Barn" || buildingId == "Deluxe Barn")
                 {
                     toCheck = SpaciousBarn;
                 }
