@@ -5,9 +5,15 @@
             "Target": "Data/Buildings",
             "Entries": {
                 "bobkalonger.spaciouscoopnbarnCP_SuperDenseBarn": {
+                    "ID": "{{i18n:building.spacious-barn.name}}",
                     "Name": "{{i18n:building.spacious-barn.name}}",
                     "Description": "{{i18n:building.spacious-barn.description}}",
                     "Texture": "Buildings\\Deluxe Barn",
+                    "Skins": [],
+                    "DrawShadow": true,
+                    "UpgradeSignTile": "4.5, 2",
+                    "UpgradeSignHeight": 31.0,
+                    "MagicalConstruction": false,
                     "Builder": "Robin",
                     "Size": {
                         "X": 7,
@@ -19,10 +25,15 @@
                         "Width": 112,
                         "Height": 112
                     },
+                    "DrawOffset": "0, 0",
+                    "SortTileOffset": 0.0,
+                    "CollisionMap": null,
+                    "AdditionalPlacementTiles": null,
+                    "BuildingType": null,
                     "FadeWhenBehind": true,
                     "BuildCondition": null,
                     "BuildingToUpgrade": "bobkalonger.gigacoopnbarn_GigaBarn",
-                    "BuildDays": 0,
+                    "BuildDays": 2,
                     "BuildCost": 10,
                     "BuildMaterials": [],
                     "BuildMenuDrawOffset": {
@@ -175,10 +186,7 @@
                             "Indestructible": false
                         }
                     ],
-                    "DrawShadow": true,
-                    "UpgradeSignTile": "4.5, 2",
-                    "UpgradeSignHeight": 31.0,
-                    "MagicalConstruction": false
+                    "CustomFields": null
                 }
             }
         },
@@ -187,9 +195,15 @@
             "Target": "Data/Buildings",
             "Entries": {
                 "bobkalonger.spaciouscoopnbarnCP_SuperDenseCoop": {
+                    "ID": "{{i18n:building.spacious-coop.name}}",
                     "Name": "{{i18n:building.spacious-coop.name}}",
                     "Description": "{{i18n:building.spacious-coop.description}}",
                     "Texture": "Buildings\\Deluxe Coop",
+                    "Skins": [],
+                    "DrawShadow": true,
+                    "UpgradeSignTile": "4.5, 2",
+                    "UpgradeSignHeight": 31.0,
+                    "MagicalConstruction": false,
                     "Builder": "Robin",
                     "Size": {
                         "X": 6,
@@ -201,10 +215,15 @@
                         "Width": 96,
                         "Height": 112
                     },
+                    "DrawOffset": "0, 0",
+                    "SortTileOffset": 0.0,
+                    "CollisionMap": null,
+                    "AdditionalPlacementTiles": null,
+                    "BuildingType": null,
                     "FadeWhenBehind": true,
                     "BuildCondition": null,
                     "BuildingToUpgrade": "bobkalonger.gigacoopnbarn_GigaCoop",
-                    "BuildDays": 0,
+                    "BuildDays": 2,
                     "BuildCost": 10,
                     "BuildMaterials": [],
                     "BuildMenuDrawOffset": {
@@ -333,10 +352,7 @@
                             "Indestructible": false
                         }
                     ],
-                    "DrawShadow": true,
-                    "UpgradeSignTile": "4.5, 2",
-                    "UpgradeSignHeight": 31.0,
-                    "MagicalConstruction": false
+                    "CustomFields": null
                 }
             }
         }

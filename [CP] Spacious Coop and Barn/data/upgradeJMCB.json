@@ -5,9 +5,11 @@
             "Target": "Data/Buildings",
             "Entries": {
                 "bobkalonger.spaciouscoopnbarnCP_SuperDenseBarn": {
+                    "ID": "{{i18n:building.spacious-barn.name}}",
                     "Name": "{{i18n:building.spacious-barn.name}}",
                     "Description": "{{i18n:building.spacious-barn.description}}",
                     "Texture": "Buildings\\Deluxe Barn",
+                    "Skins": [],
                     "DrawShadow": true,
                     "UpgradeSignTile": "4.5, 2",
                     "UpgradeSignHeight": 31.0,
@@ -23,10 +25,15 @@
                         "Width": 112,
                         "Height": 112
                     },
+                    "DrawOffset": "0, 0",
+                    "SortTileOffset": 0.0,
+                    "CollisionMap": null,
+                    "AdditionalPlacementTiles": null,
+                    "BuildingType": null,
                     "FadeWhenBehind": true,
                     "BuildCondition": null,
                     "BuildingToUpgrade": "jenf1.megacoopbarn_MegaBarn",
-                    "BuildDays": 0,
+                    "BuildDays": 2,
                     "BuildCost": 10,
                     "BuildMaterials": [],
                     "BuildMenuDrawOffset": {
@@ -178,7 +185,8 @@
                             },
                             "Indestructible": false
                         }
-                    ]
+                    ],
+                    "CustomFields": null
                 }
             }
         },
@@ -188,9 +196,11 @@
             "Target": "Data/Buildings",
             "Entries": {
                 "bobkalonger.spaciouscoopnbarnCP_SuperDenseCoop": {
+                    "ID": "{{i18n:building.spacious-coop.name}}",
                     "Name": "{{i18n:building.spacious-coop.name}}",
                     "Description": "{{i18n:building.spacious-coop.description}}",
                     "Texture": "Buildings\\Deluxe Coop",
+                    "Skins": [],
                     "DrawShadow": true,
                     "UpgradeSignTile": "4.5, 2",
                     "UpgradeSignHeight": 31.0,
@@ -206,10 +216,15 @@
                         "Width": 96,
                         "Height": 112
                     },
+                    "DrawOffset": "0, 0",
+                    "SortTileOffset": 0.0,
+                    "CollisionMap": null,
+                    "AdditionalPlacementTiles": null,
+                    "BuildingType": null,
                     "FadeWhenBehind": true,
                     "BuildCondition": null,
                     "BuildingToUpgrade": "jenf1.megacoopbarn_MegaCoop",
-                    "BuildDays": 0,
+                    "BuildDays": 2,
                     "BuildCost": 10,
                     "BuildMaterials": [],
                     "BuildMenuDrawOffset": {
@@ -337,9 +352,10 @@
                             },
                             "Indestructible": false
                         }
-                    ]
-                    }
+                    ],
+                    "CustomFields": null
                 }
             }
-        ]
-    }
+        }
+    ]
+}

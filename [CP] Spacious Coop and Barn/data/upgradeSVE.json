@@ -5,14 +5,13 @@
             "Target": "Data/Buildings",
             "Entries": {
                 "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn": {
+                    "ID": "{{i18n:building.spacious-barn.name}}",
                     "Name": "{{i18n:building.spacious-barn.name}}",
                     "Description": "{{i18n:building.spacious-barn.description}}",
                     "Texture": "Buildings\\SVE_PremiumBarn",
+                    "Skins": [],
                     "DrawShadow": true,
-                    "UpgradeSignTile": {
-                        "X": 4.5,
-                        "Y": 0.5
-                    },
+                    "UpgradeSignTile": "4.5, 0.5",
                     "UpgradeSignHeight": 31.0,
                     "MagicalConstruction": false,
                     "Builder": "Robin",
@@ -26,6 +25,11 @@
                         "Width": 176,
                         "Height": 144
                     },
+                    "DrawOffset": "0, 0",
+                    "SortTileOffset": 0.0,
+                    "CollisionMap": null,
+                    "AdditionalPlacementTiles": null,
+                    "BuildingType": null,
 					"FadeWhenBehind": true,
 					"BuildCondition": null,
 					"BuildingToUpgrade": "FlashShifter.StardewValleyExpandedCP_PremiumBarn",
@@ -151,7 +155,8 @@
                             },
                             "Indestructible": false
                         }
-                    ]
+                    ],
+                    "CustomFields": null
                 }
             }
         },
@@ -161,9 +166,11 @@
             "Target": "Data/Buildings",
             "Entries": {
                 "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop": {
+                    "ID": "{{i18n:building.spacious-coop.name}}",
                     "Name": "{{i18n:building.spacious-coop.name}}",
                     "Description": "{{i18n:building.spacious-coop.description}}",
                     "Texture": "Buildings\\SVE_PremiumCoop",
+                    "Skins": [],
                     "DrawShadow": true,
                     "UpgradeSignTile": {
                         "X": 0.5,
@@ -183,11 +190,14 @@
                         "Width": 144,
                         "Height": 144
                     },
+                    "DrawOffset": "0, 0",
+                    "SortTileOffset": "2.5",
 					"CollisionMap": "XXXXXXOOO\nXXXXXXXXX\nXXXXXXXXX\nXXXXXXOOO",
-					"SortTileOffset": "2.5",
+					"AdditionalPlacementTiles": null,
+                    "BuildingType": null,
 					"BuildCondition": null,
 					"BuildingToUpgrade": "FlashShifter.StardewValleyExpandedCP_PremiumCoop",
-            		"BuildDays": 1,
+            		"BuildDays": 2,
                     "BuildCost": 10,
                     "BuildMaterials": [],
                     "BuildMenuDrawOffset": {
@@ -326,7 +336,8 @@
                             },
                             "Indestructible": false
                         }
-					]
+					],
+                    "CustomFields": null
                 }
             }
         }
