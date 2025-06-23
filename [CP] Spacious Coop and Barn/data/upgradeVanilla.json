@@ -11,8 +11,8 @@
                     "Texture": "Buildings\\Deluxe Barn",
                     "Skins": [],
                     "DrawShadow": true,
-                    "UpgradeSignTile": "4.5, 2",
-                    "UpgradeSignHeight": 31.0,
+                    "UpgradeSignTile": "4.5, 1",
+                    "UpgradeSignHeight": 18.0,
                     "MagicalConstruction": false,
                     "Builder": "Robin",
                     "Size": {
