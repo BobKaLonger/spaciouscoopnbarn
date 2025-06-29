@@ -8,6 +8,10 @@ using StardewValley.Buildings;
 using StardewValley.Objects;
 using System;
 using System.Collections.Generic;
+/*using xTile;
+using xTile.Tiles;
+using xTile.Layers;
+using xTile.Dimensions;*/
 
 namespace spaciouscoopnbarn
 {
@@ -36,13 +40,33 @@ namespace spaciouscoopnbarn
             cpPack = mi.GetType().GetProperty("ContentPack")?.GetValue(mi) as IContentPack;
 
             helper.Events.GameLoop.GameLaunched += OnGameLaunched;
-
+            //helper.Events.Content.AssetRequested += this.OnAssetRequested;
             helper.Events.Player.Warped += PlayerOnWarped;
 
             var harmony = new Harmony(ModManifest.UniqueID);
 
             harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
+        ///<inheritdoc cref="IContentEvents.AssetRequested"/> 
+        /*private void OnAssetRequested(object sender, AssetRequestedEventArgs e)
+        {
+            if (e.Name.IsEquivalentTo("Maps/Farm"))
+            {
+                e.Edit(asset =>
+                {
+                    IAssetDataForMap editor = asset.AsMap();
+                    Map map = editor.Data;
+                });
+            }
+        }
+        private Tile GetTile(Map map, string layerName, int tileX, int tileY)
+        {
+            Layer layer = map.GetLayer(layerName);
+            Location pixelPosition = new Location(tileX * Game1.tileSize, tileY * Game1.tileSize);
+
+            return layer.PickTile(pixelPosition, Game1.viewport.Size);
+        }*/
+        ///<inheritdoc cref="IGameLoopEvents.GameLaunched"/>
         private void OnGameLaunched(object sender, GameLaunchedEventArgs e)
         {
             var cp = Helper.ModRegistry.GetApi<IContentPatcherAPI>("Pathoschild.ContentPatcher");
@@ -60,7 +84,7 @@ namespace spaciouscoopnbarn
             {
                 return Array.Empty<string>();
             }
-            return new[] {ComputeSpaciousMode()};
+            return new[] { ComputeSpaciousMode() };
         }
         private string ComputeSpaciousMode()
         {
