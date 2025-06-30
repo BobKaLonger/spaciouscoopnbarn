@@ -8,6 +8,7 @@ using StardewValley.Buildings;
 using StardewValley.Objects;
 using System;
 using System.Collections.Generic;
+using StardewValley.GameData.Buildings;
 
 namespace spaciouscoopnbarn
 {
@@ -25,6 +26,7 @@ namespace spaciouscoopnbarn
         internal const string SpaciousCoop = $"{SpaciousCP}SpaciousCoop";
         private const string spaciousPremiumCoop = $"{SVExpandCP}PremiumCoop";
         private const string spaciousPremiumBarn = $"{SVExpandCP}PremiumBarn";
+        
 
         public override void Entry(IModHelper helper)
         {
@@ -42,7 +44,6 @@ namespace spaciouscoopnbarn
 
             harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
-   
         ///<inheritdoc cref="IGameLoopEvents.GameLaunched"/>
         private void OnGameLaunched(object sender, GameLaunchedEventArgs e)
         {
