@@ -39,10 +39,35 @@ namespace spaciouscoopnbarn
 
             helper.Events.GameLoop.GameLaunched += OnGameLaunched;
             helper.Events.Player.Warped += PlayerOnWarped;
+            helper.Events.Content.AssetRequested += OnAssetRequested;
 
             var harmony = new Harmony(ModManifest.UniqueID);
 
             harmony.PatchAll(Assembly.GetExecutingAssembly());
+        }
+        ///<inheritdoc cref="IContentEvents.AssetRequested"/>
+        private void OnAssetRequested(object sender, AssetRequestedEventArgs e)
+        {
+            if (e.NameWithoutLocale.IsEquivalentTo("Data/Buildings"))
+            {
+                e.Edit(asset =>
+                {
+                    var data = asset.AsDictionary<string, BuildingData>().Data;
+
+                    if (data.TryGetValue("Deluxe Coop", out var coop))
+                    {
+                        coop.UpgradeSignTileOffset = new Point(1, 1);
+                        coop.UpgradeSignTileHeight = 4;
+                        coop.UpgradeSignDrawAboveBuilding = true;
+                    }
+                    if (data.TryGetValue("Deluxe Barn", out var barn))
+                    {
+                        barn.UpgradeSignTileOffset = new Point(2, 2);
+                        barn.UpgradeSignTileHeight = 4;
+                        barn.UpgradeSignDrawAboveBuilding = true;
+                    }
+                });
+            }
         }
         ///<inheritdoc cref="IGameLoopEvents.GameLaunched"/>
         private void OnGameLaunched(object sender, GameLaunchedEventArgs e)
