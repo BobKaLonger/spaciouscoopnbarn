@@ -8,7 +8,6 @@ using StardewValley.Buildings;
 using StardewValley.Objects;
 using System;
 using System.Collections.Generic;
-using StardewValley.GameData.Buildings;
 
 namespace spaciouscoopnbarn
 {
