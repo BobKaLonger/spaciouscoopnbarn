@@ -5,17 +5,17 @@
 		{
             "Action": "Load",
             "Target": "Buildings/SVE_PremiumCoop",
-            "FromFile": "assets/Buildings/PremiumCoop.png",
+            "FromFile": "assets/Buildings/PremiumCoop.png"
         },
         {
             "Action": "Load",
             "Target": "Buildings/SVE_PremiumBarn",
-            "FromFile": "assets/Buildings/PremiumBarn.png",
+            "FromFile": "assets/Buildings/PremiumBarn.png"
         },
 		{
             "Action": "Load",
             "Target": "Buildings/SVE_Winery",
-            "FromFile": "assets/Buildings/Winery.png",
+            "FromFile": "assets/Buildings/Winery.png"
         },
 		
 		//Loads Custom Building Maps
@@ -57,7 +57,7 @@
             "Entries": {
 			    "FlashShifter.StardewValleyExpandedCP_PremiumBarn": "Building/-10 0/Roof/-10 5/Trim/-5 0",
 				"FlashShifter.StardewValleyExpandedCP_PremiumCoop": "Building/-12 0/Roof/-10 5/Trim/-10 5",
-				"FlashShifter.StardewValleyExpandedCP_Winery": "Building/-10 0/Roof/-10 5/Trim/-5 5",
+				"FlashShifter.StardewValleyExpandedCP_Winery": "Building/-10 0/Roof/-10 5/Trim/-5 5"
 		    }
 		},
 		
@@ -73,7 +73,7 @@
                     "Builder": "Robin",
                     "Size": {
                         "X": 12,
-                        "Y": 5,
+                        "Y": 5
                     },
                     "BuildCondition": "!BUILDINGS_CONSTRUCTED All FlashShifter.StardewValleyExpandedCP_Winery 1 10 true, PLAYER_HAS_SEEN_EVENT Any 8402752",
                     "BuildDays": 7,
@@ -93,7 +93,7 @@
                             "Id": "(O)709",
                             "ItemId": "(O)709",
                             "Amount": 200
-                        },
+                        }
                     ],
                     "BuildMenuDrawOffset": {
                         "X": -140,
@@ -101,9 +101,9 @@
                     },
                     "HumanDoor": {
                         "X": 9,
-                        "Y": 4,
+                        "Y": 4
                     },
-                    "IndoorMap": "SVE_Winery",
+                    "IndoorMap": "SVE_Winery"
                 },
                 "FlashShifter.StardewValleyExpandedCP_PremiumCoop": {
                     "Name": "{{i18n:building.premium-coop.name}}",
@@ -112,7 +112,7 @@
                     "Builder": "Robin",
                     "Size": {
                         "X": 9,
-                        "Y": 4,
+                        "Y": 4
                     },
 					"FadeWhenBehind": true,
 					"SourceRect": {
@@ -141,7 +141,7 @@
                             "ID": "(O)390",
                             "ItemId": "(O)390",
                             "Amount": 600
-                        },
+                        }
                     ],
                     "BuildMenuDrawOffset": {
                         "X": 0,
@@ -149,7 +149,7 @@
                     },
                     "HumanDoor": {
                         "X": 7,
-                        "Y": 2,
+                        "Y": 2
                     },
                     "AnimalDoor": {
                         "X": 2,
@@ -173,7 +173,7 @@
                               "Height": 12
                               },
 							"DrawPosition": "28, 116",
-                            "DrawInBackground": false,
+                            "DrawInBackground": false
 						},
 						{
                             "Id": "Default_AnimalDoor",
@@ -270,7 +270,7 @@
                             },
                             "Indestructible": false
                         }
-                      ],
+                      ]
                 },
                 "FlashShifter.StardewValleyExpandedCP_PremiumBarn": {
                     "Name": "{{i18n:building.premium-barn.name}}",
@@ -279,7 +279,7 @@
                     "Builder": "Robin",
                     "Size": {
                         "X": 11,
-                        "Y": 4,
+                        "Y": 4
                     },
                     "SourceRect": {
                         "X": 0,
@@ -306,7 +306,7 @@
                             "ID": "(O)390",
                             "ItemId": "(O)390",
                             "Amount": 950
-                        },
+                        }
                     ],
                     "BuildMenuDrawOffset": {
                         "X": 0,
@@ -315,7 +315,7 @@
 					//2nd door on the right is added via C#
                     "HumanDoor": {
                         "X": 1,
-                        "Y": 3,
+                        "Y": 3
                     },
                     "AnimalDoor": {
                         "X": 4,
@@ -339,7 +339,7 @@
                               "Height": 32
                               },
 							"DrawPosition": "66, 83",
-                            "DrawInBackground": false,
+                            "DrawInBackground": false
 						},
 						{
                             "Id": "Default_AnimalDoor",
@@ -428,9 +428,9 @@
                             },
                             "Indestructible": false
                         }
-                    ],
-                },
+                    ]
+                }
             }
-        },
+        }
     ]
 }
