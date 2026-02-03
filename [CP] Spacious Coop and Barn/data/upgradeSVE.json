@@ -276,59 +276,14 @@
                     ],
                     "IndoorItems": [
 						{
-							"Id": "BKSCB_Default_FeedHopper",
-							"ItemId": "(BC)99",
-							"Tile": {
-								"X": 4,
-								"Y": 3
-							},
-							"Indestructible": true
-						},
-						{
-							"Id": "BKSCB_Default_Incubator",
-							"ItemId": "(BC)101",
-							"Tile": {
-								"X": 3,
-								"Y": 3
-							},
-							"Indestructible": true
-						},
-						{
 							"Id": "BKSCB_Extra_Incubator",
 							"ItemId": "(BC)101",
 							"Tile": {
 								"X": 24,
-								"Y": 3
+								"Y": 4
 							},
 							"Indestructible": false
-						},
-						{
-                            "Id": "BKSCB_Default_Heater",
-                            "ItemId": "(BC)104",
-                            "Tile": {
-                            	"X": 23,
-                            	"Y": 3
-                            },
-                            "Indestructible": false
-                        },
-						{
-                            "Id": "BKSCB_Default_AutoPetter",
-                            "ItemId": "(BC)272",
-                            "Tile": {
-                            	"X": 13,
-                            	"Y": 26
-                            },
-                            "Indestructible": false
-                        },
-						{
-                            "Id": "BKSCB_Default_AutoGrabber",
-                            "ItemId": "(BC)165",
-                            "Tile": {
-                            	"X": 14,
-                            	"Y": 26
-                            },
-                            "Indestructible": false
-                        }
+						}
 					],
                     "CustomFields": null
                 }
