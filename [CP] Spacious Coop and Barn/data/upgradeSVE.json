@@ -116,44 +116,7 @@
                         "Barn"
                     ],
 					"AllowAnimalPregnancy": true,
-                    "IndoorItems": [
-                        {
-                            "Id": "BKSCB_Default_FeedHopper",
-                            "ItemId": "(BC)99",
-                            "Tile": {
-                                "X": 21,
-                                "Y": 3
-                            },
-                            "Indestructible": true
-                        },
-                        {
-                            "Id": "BKSCB_Default_Heater",
-                            "ItemId": "(BC)104",
-                            "Tile": {
-                                "X": 44,
-                                "Y": 3
-                            },
-                            "Indestructible": false
-                        },
-						{
-                            "Id": "BKSCB_Default_AutoPetter",
-                            "ItemId": "(BC)272",
-                            "Tile": {
-                                "X": 45,
-                                "Y": 3
-                            },
-                            "Indestructible": false
-                        },
-						{
-                            "Id": "BKSCB_Default_AutoGrabber",
-                            "ItemId": "(BC)165",
-                            "Tile": {
-                                "X": 20,
-                                "Y": 3
-                            },
-                            "Indestructible": false
-                        }
-                    ],
+                    "IndoorItems": [],
                     "CustomFields": null
                 }
             }
