@@ -9,6 +9,7 @@ using StardewValley.Objects;
 using System;
 using System.Collections.Generic;
 
+
 namespace spaciouscoopnbarn
 {
     public interface IContentPatcherAPI
@@ -148,7 +149,25 @@ namespace spaciouscoopnbarn
             }
         }
 
-
+        // [HarmonyPatch(typeof(Building), nameof(Building.getUpgradeSignLocation))]
+        // 	public virtual Vector2 getUpgradeSignLocation()
+        //     {
+        //         BuildingData data = GetData();
+        //         Vector2 signOffset = data?.UpgradeSignTile ?? new Vector2(0.5f, 0f);
+        //         float signHeight = data?.UpgradeSignHeight ?? 8f;
+        //         return new Vector2(((float)(int)tileX + signOffset.X) * 64f, ((float)(int)tileY + signOffset.Y) * 64f - signHeight * 4f);
+        //     }
+                
+        //     if (data != null)
+        //     {
+        //         if (data.UpgradeSignTile.X >= 0f)
+        //         {
+        //             sortY = ((float)(int)tileY + data.UpgradeSignTile.Y + 1f) * 64f;
+        //             sortY += 2f;
+        //             sortY /= 10000f;
+        //             b.Draw(Game1.mouseCursors, Game1.GlobalToLocal(Game1.viewport, getUpgradeSignLocation()), new Microsoft.Xna.Framework.Rectangle(367, 309, 16, 15), Color.White * alpha, 0f, Vector2.Zero, 4f, SpriteEffects.None, sortY);
+        //         }
+        //     }
 
         [HarmonyPatch(typeof(Building), nameof(Building.doesTileHaveProperty))]
         public static class SpaciousCursorPatch
