@@ -36,22 +36,22 @@ https://www.nexusmods.com/stardewvalley/mods/27521
 
 I have reviewed the mods below, and believe their behavior to be directly conflicting with Ultimate Coop and Barn. Using my mod with any mod listed below will cause unexpected behavior or crashes!
 
-JP's Upgradeable Barns and Coops (*I plan to contact the author to see if integration can be worked out)
+--JP's Upgradeable Barns and Coops (*I plan to contact the author to see if integration can be worked out)
 https://www.nexusmods.com/stardewvalley/mods/42753
 
-Natural Cozy Coops and Barns (Map Conflict)
+--Natural Cozy Coops and Barns (Map Conflict)
 https://www.nexusmods.com/stardewvalley/mods/39411
 
-Cuter Coops and Better Barns (Map Conflict)
+--Cuter Coops and Better Barns (Map Conflict)
 https://www.nexusmods.com/stardewvalley/mods/4226
 
-Green Coops and Barns (Map Conflict)
+--Green Coops and Barns (Map Conflict)
 https://www.nexusmods.com/stardewvalley/mods/28530
 
-Practical Barn and Coop (Map Conflict)
+--Practical Barn and Coop (Map Conflict)
 https://www.nexusmods.com/stardewvalley/mods/27052
 
-Immersive Barns and Coops (Map and Function Conflict)
+--Immersive Barns and Coops (Map and Function Conflict)
 https://www.nexusmods.com/stardewvalley/mods/28462
 
 Bigger coop barn and silo from Ghilland (*I plan to contact the author to see if integration can be worked out)
