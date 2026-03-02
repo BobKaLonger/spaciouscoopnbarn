@@ -1,11 +1,11 @@
-**UPDATE PENDING**
+---UPDATE PENDING
 
 
 Adds an immense new upgrade tier for the coop and barn, holding 48 animals. Auto-compatible with SVE and multiple other coop and barn mods, and you can choose between a clean or a cozy interior!
 
 This mod adapts to your modlist in a safe way. The mod will check for the compatible mods listed below, and change its config internally based on logic. Please note that adding or removing the compatible mods will NOT break this mod. The behavior that is dynamic is Robin's upgrade menu, meaning the building to upgrade and the upgrade costs are the only things to change. Check the table below for compatible mods and expected mod behavior!
 
---Compatible Mods--
+Compatible Mods
 
 Stardew Valley Expanded
 https://www.nexusmods.com/stardewvalley/mods/3753
@@ -17,7 +17,7 @@ Jen's Mega Coop and Barn
 https://www.nexusmods.com/stardewvalley/mods/25586
 
 Resource Chickens
-https://www.nexusmods.com/stardewvalley/mods/21800?tab=description
+https://www.nexusmods.com/stardewvalley/mods/21800
 
 
 --Reskins/Recolors--
