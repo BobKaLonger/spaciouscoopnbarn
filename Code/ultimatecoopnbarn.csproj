@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <AssemblyName>spaciouscoopnbarn</AssemblyName>
-    <RootNamespace>spaciouscoopnbarn</RootNamespace>
+    <AssemblyName>ultimatecoopnbarn</AssemblyName>
+    <RootNamespace>ultimatecoopnbarn</RootNamespace>
     <Version>1.6.9</Version>
     <TargetFramework>net6.0</TargetFramework>
     <Platforms>AnyCPU</Platforms>

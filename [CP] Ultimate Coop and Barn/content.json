@@ -3,50 +3,50 @@
 	"Changes": [
 		{
 			"Action": "Load",
-			"Target": "Maps/spacious_SpaciousBarn",
-			"FromFile": "assets/SpaciousBarn.tmx"
+			"Target": "Maps/ultimate_UltimateBarn",
+			"FromFile": "assets/UltimateBarn.tmx"
 		},
 		{
 			"Action": "Load",
-			"Target": "Maps/spacious_SpaciousCoop",
-			"FromFile": "assets/SpaciousCoop.tmx"
+			"Target": "Maps/ultimate_UltimateCoop",
+			"FromFile": "assets/UltimateCoop.tmx"
 		},
 		{
 			"Action": "Load",
-			"Target": "Maps/spacious_SuperDenseBarn",
+			"Target": "Maps/ultimate_SuperDenseBarn",
 			"FromFile": "assets/SuperDenseBarn.tmx"
 		},
 		{
 			"Action": "Load",
-			"Target": "Maps/spacious_SuperDenseCoop",
+			"Target": "Maps/ultimate_SuperDenseCoop",
 			"FromFile": "assets/SuperDenseCoop.tmx"
 		},
 		{
 			"Action": "EditData",
 			"Target": "Data/PaintData",
 			"Entries": {
-				"bobkalonger.spaciouscoopnbarnCP_SpaciousBarn": "Building/-10 0/Roof/-10 5/Trim/-5 0"
+				"bobkalonger.ultimatecoopnbarnCP_UltimateBarn": "Building/-10 0/Roof/-10 5/Trim/-5 0"
 			}
 		},
 		{
 			"Action": "EditData",
 			"Target": "Data/PaintData",
 			"Entries": {
-				"bobkalonger.spaciouscoopnbarnCP_SpaciousCoop": "Building/-12 0/Roof/-10 5/Trim/-10 5"
+				"bobkalonger.ultimatecoopnbarnCP_UltimateCoop": "Building/-12 0/Roof/-10 5/Trim/-10 5"
 		    }
 	    },
 	    {
             "Action": "EditData",
             "Target": "Data/PaintData",
             "Entries": {
-	            "bobkalonger.spaciouscoopnbarnCP_SuperDenseBarn": "Building/-15 0/Roof/-10 5/Trim/-10 5"
+	            "bobkalonger.ultimatecoopnbarnCP_SuperDenseBarn": "Building/-15 0/Roof/-10 5/Trim/-10 5"
             }
         },
         {
             "Action": "EditData",
             "Target": "Data/PaintData",
             "Entries": {
-	            "bobkalonger.spaciouscoopnbarnCP_SuperDenseCoop": "Building/-25 0/Roof/-15 5/Trim/-25 0"
+	            "bobkalonger.ultimatecoopnbarnCP_SuperDenseCoop": "Building/-25 0/Roof/-15 5/Trim/-25 0"
             }
         },
         {
@@ -54,7 +54,7 @@
             "FromFile": "data/upgradeSVE.json",
             "When":
             {
-                "bobkalonger.BKSCB_code/SpaciousMode": "SVE"
+                "bobkalonger.BKSCB_code/UltimateMode": "SVE"
             }
         },
         {
@@ -62,7 +62,7 @@
             "FromFile": "data/upgradeBKGCB.json",
             "When":
             {
-                "bobkalonger.BKSCB_code/SpaciousMode": "BKGCB"
+                "bobkalonger.BKSCB_code/UltimateMode": "BKGCB"
             }
         },
         {
@@ -70,7 +70,7 @@
             "FromFile": "data/upgradeBoth.json",
             "When":
             {
-                "bobkalonger.BKSCB_code/SpaciousMode": "Both"
+                "bobkalonger.BKSCB_code/UltimateMode": "Both"
             }
         },
         {
@@ -78,7 +78,7 @@
             "FromFile": "data/upgradeJMCB.json",
             "When":
             {
-                "bobkalonger.BKSCB_code/SpaciousMode": "JMCB"
+                "bobkalonger.BKSCB_code/UltimateMode": "JMCB"
             }
         },
         {
@@ -86,7 +86,7 @@
             "FromFile": "data/upgradeUARC.json",
             "When":
             {
-                "bobkalonger.BKSCB_code/SpaciousMode": "UARC"
+                "bobkalonger.BKSCB_code/UltimateMode": "UARC"
             }
         },
         {
@@ -94,7 +94,7 @@
             "FromFile": "data/upgradeVanilla.json",
             "When":
             {
-                "bobkalonger.BKSCB_code/SpaciousMode": "Vanilla"
+                "bobkalonger.BKSCB_code/UltimateMode": "Vanilla"
             }
         }
     ]

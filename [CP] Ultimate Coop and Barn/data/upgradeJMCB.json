@@ -4,10 +4,10 @@
             "Action": "EditData",
             "Target": "Data/Buildings",
             "Entries": {
-                "bobkalonger.spaciouscoopnbarnCP_SuperDenseBarn": {
-                    "ID": "{{i18n:building.spacious-barn.name}}",
-                    "Name": "{{i18n:building.spacious-barn.name}}",
-                    "Description": "{{i18n:building.spacious-barn.description}}",
+                "bobkalonger.ultimatecoopnbarnCP_SuperDenseBarn": {
+                    "ID": "{{i18n:building.ultimate-barn.name}}",
+                    "Name": "{{i18n:building.ultimate-barn.name}}",
+                    "Description": "{{i18n:building.ultimate-barn.description}}",
                     "Texture": "Buildings\\Deluxe Barn",
                     "Skins": [],
                     "DrawShadow": true,
@@ -30,7 +30,7 @@
                     "BuildingType": null,
                     "FadeWhenBehind": true,
                     "BuildCondition": null,
-                    "BuildingToUpgrade": "bobkalonger.gigacoopnbarn_GigaBarn",
+                    "BuildingToUpgrade": "jenf1.megacoopbarn_MegaBarn",
                     "BuildDays": 2,
                     "BuildCost": 10,
                     "BuildMaterials": [],
@@ -139,7 +139,7 @@
                             }
                         }
                     ],
-                    "IndoorMap": "spacious_SuperDenseBarn",
+                    "IndoorMap": "ultimate_SuperDenseBarn",
                     "IndoorMapType": "StardewValley.AnimalHouse",
                     "MaxOccupants": 48,
                     "ValidOccupantTypes": [
@@ -165,7 +165,7 @@
                             },
                             "Indestructible": false
                         },
-                        {
+					    {
                             "Id": "Default_AutoPetter",
                             "ItemId": "(BC)272",
                             "Tile": {
@@ -174,7 +174,7 @@
                             },
                             "Indestructible": false
                         },
-                        {
+					    {
                             "Id": "Default_AutoGrabber",
                             "ItemId": "(BC)165",
                             "Tile": {
@@ -188,14 +188,15 @@
                 }
             }
         },
+        
         {
             "Action": "EditData",
             "Target": "Data/Buildings",
             "Entries": {
-                "bobkalonger.spaciouscoopnbarnCP_SuperDenseCoop": {
-                    "ID": "{{i18n:building.spacious-coop.name}}",
-                    "Name": "{{i18n:building.spacious-coop.name}}",
-                    "Description": "{{i18n:building.spacious-coop.description}}",
+                "bobkalonger.ultimatecoopnbarnCP_SuperDenseCoop": {
+                    "ID": "{{i18n:building.ultimate-coop.name}}",
+                    "Name": "{{i18n:building.ultimate-coop.name}}",
+                    "Description": "{{i18n:building.ultimate-coop.description}}",
                     "Texture": "Buildings\\Deluxe Coop",
                     "Skins": [],
                     "DrawShadow": true,
@@ -218,7 +219,7 @@
                     "BuildingType": null,
                     "FadeWhenBehind": true,
                     "BuildCondition": null,
-                    "BuildingToUpgrade": "bobkalonger.gigacoopnbarn_GigaCoop",
+                    "BuildingToUpgrade": "jenf1.megacoopbarn_MegaCoop",
                     "BuildDays": 2,
                     "BuildCost": 10,
                     "BuildMaterials": [],
@@ -285,7 +286,7 @@
                             }
                         }
                     ],
-                    "IndoorMap": "spacious_SuperDenseCoop",
+                    "IndoorMap": "ultimate_SuperDenseCoop",
                     "IndoorMapType": "StardewValley.AnimalHouse",
                     "MaxOccupants": 48,
                     "ValidOccupantTypes": [
@@ -293,48 +294,48 @@
                     ],
                     "AllowAnimalPregnancy": false,
                     "IndoorItems": [
-                        {
-                            "Id": "Default_FeedHopper",
-                            "ItemId": "(BC)99",
-                            "Tile": {
-                                "X": 4,
-                                "Y": 3
-                            },
-                            "Indestructible": true
-                        },
-                        {
-                            "Id": "Default_Incubator",
-                            "ItemId": "(BC)101",
-                            "Tile": {
-                                "X": 3,
-                                "Y": 3
-                            },
-                            "Indestructible": true
-                        },
-                        {
-                            "Id": "Extra_Incubator",
-                            "ItemId": "(BC)101",
-                            "Tile": {
-                                "X": 24,
-                                "Y": 3
-                            },
-                            "Indestructible": false
-                        },
-                        {
+    					{
+						    "Id": "Default_FeedHopper",
+						    "ItemId": "(BC)99",
+						    "Tile": {
+    							"X": 4,
+							    "Y": 3
+						    },
+						    "Indestructible": true
+					    },
+					    {
+    						"Id": "Default_Incubator",
+						    "ItemId": "(BC)101",
+						    "Tile": {
+    							"X": 3,
+							    "Y": 3
+						    },
+						    "Indestructible": true
+					    },
+					    {
+    						"Id": "Extra_Incubator",
+						    "ItemId": "(BC)101",
+						    "Tile": {
+    							"X": 24,
+							    "Y": 3
+						    },
+						    "Indestructible": false
+					    },
+					    {
                             "Id": "Default_Heater",
                             "ItemId": "(BC)104",
                             "Tile": {
-                                "X": 23,
-                                "Y": 3
+                            	"X": 23,
+                        	    "Y": 3
                             },
                             "Indestructible": false
                         },
-                        {
+					    {
                             "Id": "Default_AutoPetter",
                             "ItemId": "(BC)272",
                             "Tile": {
-                                "X": 13,
-                                "Y": 26
+                            	"X": 13,
+                        	    "Y": 26
                             },
                             "Indestructible": false
                         },
@@ -342,8 +343,8 @@
                             "Id": "Default_AutoGrabber",
                             "ItemId": "(BC)165",
                             "Tile": {
-                                "X": 14,
-                                "Y": 26
+                            	"X": 14,
+                        	    "Y": 26
                             },
                             "Indestructible": false
                         }

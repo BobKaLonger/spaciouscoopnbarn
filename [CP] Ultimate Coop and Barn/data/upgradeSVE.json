@@ -4,10 +4,10 @@
             "Action": "EditData",
             "Target": "Data/Buildings",
             "Entries": {
-                "bobkalonger.spaciouscoopnbarnCP_SpaciousBarn": {
-                    "ID": "{{i18n:building.spacious-barn.name}}",
-                    "Name": "{{i18n:building.spacious-barn.name}}",
-                    "Description": "{{i18n:building.spacious-barn.description}}",
+                "bobkalonger.ultimatecoopnbarnCP_SpaciousBarn": {
+                    "ID": "{{i18n:building.ultimate-barn.name}}",
+                    "Name": "{{i18n:building.ultimate-barn.name}}",
+                    "Description": "{{i18n:building.ultimate-barn.description}}",
                     "Texture": "Buildings\\SVE_PremiumBarn",
                     "Skins": [],
                     "DrawShadow": true,
@@ -109,7 +109,7 @@
                             }
 						}
                     ],
-                    "IndoorMap": "spacious_SpaciousBarn",
+                    "IndoorMap": "ultimate_SpaciousBarn",
                     "IndoorMapType": "StardewValley.AnimalHouse",
                     "MaxOccupants": 48,
                     "ValidOccupantTypes": [
@@ -126,10 +126,10 @@
             "Action": "EditData",
             "Target": "Data/Buildings",
             "Entries": {
-                "bobkalonger.spaciouscoopnbarnCP_SpaciousCoop": {
-                    "ID": "{{i18n:building.spacious-coop.name}}",
-                    "Name": "{{i18n:building.spacious-coop.name}}",
-                    "Description": "{{i18n:building.spacious-coop.description}}",
+                "bobkalonger.ultimatecoopnbarnCP_SpaciousCoop": {
+                    "ID": "{{i18n:building.ultimate-coop.name}}",
+                    "Name": "{{i18n:building.ultimate-coop.name}}",
+                    "Description": "{{i18n:building.ultimate-coop.description}}",
                     "Texture": "Buildings\\SVE_PremiumCoop",
                     "Skins": [],
                     "DrawShadow": true,
@@ -231,7 +231,7 @@
                             }
 						}
                     ],
-                    "IndoorMap": "spacious_SpaciousCoop",
+                    "IndoorMap": "ultimate_SpaciousCoop",
                     "IndoorMapType": "StardewValley.AnimalHouse",
                     "MaxOccupants": 48,
                     "ValidOccupantTypes": [
