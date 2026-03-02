@@ -1,25 +1,33 @@
-!! UPDATE PENDING !!
+**UPDATE PENDING**
 
-Adds a 4th upgrade after the Mega Coop and Barn (added by jenf1) upping animal capacity to 40.
 
-Is mega still not enough? Do you want to have a silly amount of animals in one building? Well, for some reason, I did, so I made this mod.
+Adds an immense new upgrade tier for the coop and barn, holding 48 animals. Auto-compatible with SVE and multiple other coop and barn mods, and you can choose between a clean or a cozy interior!
 
-Gigantic Coops and Barns will hold up to 40 animals each, with TWO rows of hay and plenty of room for some machines. I made the maps extremely clean (no hay piles or junk) with a regular floor and lighting pattern because of my personal preference. The water sources ARE water sources, and the Giga Coop will come with another extra incubator, movable (spawns in a new spot so as not to crash with the default placement of the Mega Coop's extra incubator).
+This mod adapts to your modlist in a safe way. The mod will check for the compatible mods listed below, and change its config internally based on logic. Please note that adding or removing the compatible mods will NOT break this mod. The behavior that is dynamic is Robin's upgrade menu, meaning the building to upgrade and the upgrade costs are the only things to change. Check the table below for compatible mods and expected mod behavior!
 
-The building footprints and exterior appearance stay the same as the vanilla Deluxe Coop and Barn (just like the Mega Coop and Barn) so any recolors or reskins should carry over. These buildings won't take up any more space but you're going to need more silos....or just a Bigger Silo Size.
+--Compatible Mods--
 
-Giga Barn cost:
-150000g
-900 wood
-700 stone
-300 hardwood
+Stardew Valley Expanded
+https://www.nexusmods.com/stardewvalley/mods/3753
 
-Giga Coop cost
-120000g
-800 wood
-600 stone
-200 hardwood
+Gigantic Coop and Barn
+https://www.nexusmods.com/stardewvalley/mods/33727
 
-You absolutely MUST have jenf1's Mega Coop and Barn mod because this upgrade only upgrades the Mega Coop or Barn.
+Jen's Mega Coop and Barn
+https://www.nexusmods.com/stardewvalley/mods/25586
 
-Screenshots are recolored with Coop and Barn Facelift Redux to bluegray walls and VPR everything else. 
+Resource Chickens
+https://www.nexusmods.com/stardewvalley/mods/21800?tab=description
+
+
+--Reskins/Recolors--
+
+Ultimate Coop and Barn should be compatible with any farm animal reskin mods. If you're using SVE, my buildings will use any exterior reskin that works for the Premium buildings. If you're not using SVE, you'll have vanilla buildings* and can use any vanilla reskins or recolors.
+
+*If you're using Resource Chickens, the coop will revert back to the vanilla Deluxe Coop texture. The author of Resource Chickens prefers their assets not be re-used in mods that receive donation points, and that's okay. You could probably just swap the textures manually if that's your preference.
+
+
+--Incompatible Mods--
+
+I have reviewed the mods below, and believe their behavior to be directly conflicting with Ultimate Coop and Barn. Using my mod with any mod listed below will cause unexpected behavior or crashes!
+
