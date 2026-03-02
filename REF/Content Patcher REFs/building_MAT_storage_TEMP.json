@@ -1,4 +1,4 @@
-//Spacious Coop
+//Ultimate Coop
 {
     "ItemId": "(O)328",
     "Amount": 800
@@ -12,7 +12,7 @@
     "Amount": 20
 },
 
-//Spacious Barn
+//Ultimate Barn
 {
 	"ItemId": "(O)328",
 	"Amount": 900
