@@ -71,7 +71,6 @@ namespace ultimatecoopnbarn
             bool hasJMCB = Helper.ModRegistry.IsLoaded("jenf1.megacoopbarn");
             bool hasUARC = Helper.ModRegistry.IsLoaded("UncleArya.ResourceChickens");
 
-            // Determine the ultimateMode
             if (hasSVE)
             {
                 return "SVE";
@@ -93,7 +92,6 @@ namespace ultimatecoopnbarn
             }
             else if (hasUARC)
             {
-                //By the time the logic gets here, we already know JMCB is false
                 return "UARC";
             }
             else
