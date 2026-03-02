@@ -55,7 +55,7 @@
 					"NonInstancedIndoorLocation": null,
 					"DrawLayers": [
 					    {
-                            "Id": "BKSCB_Default_Overlay",
+                            "Id": "UltCB_Default_Overlay",
 							"Texture": null,
                             "SourceRect": {
                               "X": 98,
@@ -67,7 +67,7 @@
                             "DrawInBackground": false
 						},
 						{
-                            "Id": "BKSCB_Default_AnimalDoor",
+                            "Id": "UltCB_Default_AnimalDoor",
 							"Texture": null,
                             "SourceRect": {
                               "X": 2,
@@ -88,7 +88,7 @@
                             }
                         },
                         {
-                            "Id": "BKSCB_Default_AnimalDoor_Open",
+                            "Id": "UltCB_Default_AnimalDoor_Open",
 							"Texture": null,
                             "SourceRect": {
                               "X": 50,
@@ -177,7 +177,7 @@
 					"NonInstancedIndoorLocation": null,
 					"DrawLayers": [
 					    {
-                            "Id": "BKSCB_Default_Overlay",
+                            "Id": "UltCB_Default_Overlay",
 							"Texture": null,
                             "SourceRect": {
                               	"X": 90,
@@ -189,7 +189,7 @@
                             "DrawInBackground": false
 						},
 					    {
-                            "Id": "BKSCB_Default_AnimalDoor",
+                            "Id": "UltCB_Default_AnimalDoor",
                             "Texture": null,
                             "SourceRect": {
                                 "X": 0,
@@ -210,7 +210,7 @@
                             }
 					    },
 					    {
-                            "Id": "BKSCB_Default_AnimalDoor_Open",
+                            "Id": "UltCB_Default_AnimalDoor_Open",
 							"Texture": null,
                             "SourceRect": {
                             	"X": 48,
@@ -239,7 +239,7 @@
                     ],
                     "IndoorItems": [
 						{
-							"Id": "BKSCB_Extra_Incubator",
+							"Id": "UltCB_Extra_Incubator",
 							"ItemId": "(BC)101",
 							"Tile": {
 								"X": 24,
