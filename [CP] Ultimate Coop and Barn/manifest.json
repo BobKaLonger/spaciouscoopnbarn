@@ -16,7 +16,7 @@
 			"IsRequired": true
 		},
 		{
-			"UniqueID": "bobkalonger.BKSCB_code",
+			"UniqueID": "bobkalonger.UltCB_code",
 			"MinimumVersion": "1.6.7",
 			"IsRequired": true
 		},

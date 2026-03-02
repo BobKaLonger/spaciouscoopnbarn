@@ -3,7 +3,7 @@
     "Author": "bobkalonger",
     "Version": "1.6.9",
     "Description": "Code for Ultimate Coop and Barn",
-    "UniqueID": "bobkalonger.BKSCB_code",
+    "UniqueID": "bobkalonger.UltCB_code",
     "EntryDll": "ultimatecoopnbarn.dll",
     "UpdateKeys": [ "Nexus:???" ],
     "Dependencies": [
