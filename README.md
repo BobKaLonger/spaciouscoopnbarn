@@ -5,6 +5,7 @@ Adds an immense new upgrade tier for the coop and barn, holding 48 animals. Auto
 
 This mod adapts to your modlist in a safe way. The mod will check for the compatible mods listed below, and change its config internally based on logic. Please note that adding or removing the compatible mods will **not** break this mod. The behavior that is dynamic is Robin's upgrade menu, meaning the building to be upgraded and those upgrade costs are the only things to change. Check the table below for compatible mods and expected mod behavior!
 
+
 **--Compatible Mods--**
 
 Stardew Valley Expanded
@@ -20,14 +21,23 @@ Resource Chickens
 https://www.nexusmods.com/stardewvalley/mods/21800
 
 
+**--Mods Adding Coop/Barn Animals--**
+
+As far as I know, all of these mods should work with my mod! The barns are barns and the coops are coops. The snozberriers taste like snozberries. Let me know if you run into any issues!
+
+
 **--Reskins/Recolors--**
 
-Ultimate Coop and Barn should be compatible with any farm animal reskin mods. If you're using SVE, my buildings will use any exterior reskin that works for the Premium buildings. If you're not using SVE, you'll have vanilla buildings* and can use any vanilla reskins or recolors. Here are my favorite mods in this category!
+Ultimate Coop and Barn should be compatible with any farm animal reskin mods. If you're using SVE, my buildings will use any exterior reskin or recolor that works for the Premium buildings. If you're not using SVE, you'll have vanilla buildings* and can use any vanilla reskins or recolors. Here are my favorite mods in this category!
 
 Coop and Barn Facelift Redux
 https://www.nexusmods.com/stardewvalley/mods/27521
 
+Updated Seasonal Japanese Buildings
+https://www.nexusmods.com/stardewvalley/mods/9704
 
+Vibrant Pastoral Redrawn
+https://www.nexusmods.com/stardewvalley/mods/6367
 
 *If you're using Resource Chickens, the coop will revert back to the vanilla Deluxe Coop texture. The author of Resource Chickens prefers their assets not be re-used in mods that receive donation points, and that's okay. You could probably just swap the textures manually if that's your preference.
 
@@ -36,22 +46,22 @@ https://www.nexusmods.com/stardewvalley/mods/27521
 
 I have reviewed the mods below, and believe their behavior to be directly conflicting with Ultimate Coop and Barn. Using my mod with any mod listed below will cause unexpected behavior or crashes!
 
---JP's Upgradeable Barns and Coops (*I plan to contact the author to see if integration can be worked out)
+JP's Upgradeable Barns and Coops (*I plan to contact the author to see if integration can be worked out)
 https://www.nexusmods.com/stardewvalley/mods/42753
 
---Natural Cozy Coops and Barns (Map Conflict)
+Natural Cozy Coops and Barns (Map Conflict)
 https://www.nexusmods.com/stardewvalley/mods/39411
 
---Cuter Coops and Better Barns (Map Conflict)
+Cuter Coops and Better Barns (Map Conflict)
 https://www.nexusmods.com/stardewvalley/mods/4226
 
---Green Coops and Barns (Map Conflict)
+Green Coops and Barns (Map Conflict)
 https://www.nexusmods.com/stardewvalley/mods/28530
 
---Practical Barn and Coop (Map Conflict)
+Practical Barn and Coop (Map Conflict)
 https://www.nexusmods.com/stardewvalley/mods/27052
 
---Immersive Barns and Coops (Map and Function Conflict)
+Immersive Barns and Coops (Map and Function Conflict)
 https://www.nexusmods.com/stardewvalley/mods/28462
 
 Bigger coop barn and silo from Ghilland (*I plan to contact the author to see if integration can be worked out)
@@ -91,6 +101,3 @@ https://www.nexusmods.com/stardewvalley/mods/9362
 !.!.!.!.need to check.!.!.!.!
 https://www.nexusmods.com/stardewvalley/mods/40936
 https://www.nexusmods.com/stardewvalley/mods/33514
-https://www.nexusmods.com/stardewvalley/mods/20528
-https://www.nexusmods.com/stardewvalley/mods/22241
-https://www.nexusmods.com/stardewvalley/mods/26356
