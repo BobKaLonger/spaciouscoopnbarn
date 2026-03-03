@@ -8,6 +8,7 @@ using StardewValley.Buildings;
 using StardewValley.Objects;
 using System;
 using System.Collections.Generic;
+using StardewValley.GameData.Buildings;
 
 
 namespace ultimatecoopnbarn
@@ -40,7 +41,7 @@ namespace ultimatecoopnbarn
             helper.Events.GameLoop.GameLaunched += OnGameLaunched;
             helper.Events.Player.Warped += PlayerOnWarped;
 
-            var harmony = new Harmony(ModManifest.UniqueID);
+            var harmony = new Harmony(this.ModManifest.UniqueID);
 
             harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
@@ -54,9 +55,9 @@ namespace ultimatecoopnbarn
                 return;
             }
 
-            cp.RegisterToken(ModManifest, "UltimateMode", GetCurrentUltimateMode);
+            cp.RegisterToken(ModManifest, "UltimateMode", GetUltimateMode);
         }
-        private IEnumerable<string> GetCurrentUltimateMode()
+        private IEnumerable<string> GetUltimateMode()
         {
             if (!Context.IsWorldReady)
             {
@@ -147,8 +148,22 @@ namespace ultimatecoopnbarn
             }
         }
 
-        // [HarmonyPatch(typeof(Building), nameof(Building.getUpgradeSignLocation))]
-        // 	public virtual Vector2 getUpgradeSignLocation()
+        [HarmonyPatch(typeof(BuildingData), nameof(BuildingData.UpgradeSignTile))]
+        public static class UpgradeSignPatch
+        {
+            public static void Postfix(Building __instance, int tile_x, int tile_y, string property_name, ref string property_value, ref bool __result)
+            {
+                if (__instance.daysUntilUpgrade.Value <= 0)
+                {
+                    return;
+                }
+                
+                if (__instance.buildingType.Value == UltimateBarn || UltimateCoop && __instance.daysUntilUpgrade.Value > 0)
+                {
+                    BuildingData data = GetData();
+                }
+            }
+        }
         //     {
         //         BuildingData data = GetData();
         //         Vector2 signOffset = data?.UpgradeSignTile ?? new Vector2(0.5f, 0f);
