@@ -160,7 +160,7 @@ namespace ultimatecoopnbarn
                 
                 if (__instance.buildingType.Value == UltimateBarn || UltimateCoop && __instance.daysUntilUpgrade.Value > 0)
                 {
-                    BuildingData data = GetData();
+                    
                 }
             }
         }
