@@ -148,12 +148,12 @@ namespace ultimatecoopnbarn
             }
         }
 
-        [HarmonyPatch(typeof(BuildingData), nameof(Building.getUpgradeSignLocation))]
+        [HarmonyPatch(typeof(Building), nameof(Building.GetData))]
         public static class UltimateSignPatch
         {
-            public static void Postfix(Building __instance, ref BuildingData __result, bool forUpgrade)
+            public static void Postfix(Building __instance, ref BuildingData __result)
             {
-                if (!forUpgrade)
+                if (__result == null)
                     return;
                 
                 if (__instance.buildingType.Value != UltimateBarn && __instance.buildingType.Value != UltimateCoop)
