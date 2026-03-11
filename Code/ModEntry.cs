@@ -28,7 +28,6 @@ namespace ultimatecoopnbarn
         private const string ultimatePremiumCoop = $"{SVExpandCP}PremiumCoop";
         private const string ultimatePremiumBarn = $"{SVExpandCP}PremiumBarn";
         
-
         public override void Entry(IModHelper helper)
         {
             modInstance = this;
@@ -151,16 +150,34 @@ namespace ultimatecoopnbarn
         [HarmonyPatch(typeof(BuildingData), nameof(BuildingData.UpgradeSignTile))]
         public static class UpgradeSignPatch
         {
-            public static void Postfix(Building __instance, int tile_x, int tile_y, string property_name, ref string property_value, ref bool __result)
+            public static void Postfix(Building __instance)
             {
                 if (__instance.daysUntilUpgrade.Value <= 0)
                 {
                     return;
                 }
                 
-                if (__instance.buildingType.Value == UltimateBarn || UltimateCoop && __instance.daysUntilUpgrade.Value > 0)
+                else
                 {
-                    
+                    Vector2 UpgradeSignTile;
+                    float UpgradeSignHeight;
+
+                    if (__instance.buildingType.Value == UltimateBarn)
+                    {
+                        UpgradeSignTile = new Vector2(5, 4);
+                        UpgradeSignHeight = 16.0f; 
+                    }
+
+                    else if (__instance.buildingType.Value == UltimateCoop)
+                    {
+                        UpgradeSignTile = new Vector2(2, 6);
+                        UpgradeSignHeight = 12.0f; 
+                    }
+
+                    else
+                    {
+                        return;
+                    }
                 }
             }
         }
