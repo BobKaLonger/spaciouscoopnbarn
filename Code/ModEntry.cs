@@ -9,7 +9,6 @@ using StardewValley.Objects;
 using System;
 using System.Collections.Generic;
 using StardewValley.GameData.Buildings;
-using xTile.Format;
 
 
 namespace ultimatecoopnbarn
@@ -156,19 +155,19 @@ namespace ultimatecoopnbarn
                 if (__result == null)
                     return;
                 
-                if (__instance.buildingType.Value != UltimateBarn && __instance.buildingType.Value != UltimateCoop)
+                if (__instance.upgradeName.Value != UltimateBarn && __instance.upgradeName.Value != UltimateCoop)
                     return;
-                
-                if (__instance.buildingType.Value == UltimateBarn)
+
+                if (__instance.upgradeName.Value == UltimateBarn)
                 {       
-                    __result.UpgradeSignTile = new Vector2(5f, 4f);
-                    __result.UpgradeSignHeight = 16f;
+                    __result.UpgradeSignTile = new Vector2(3.5f, 4f);
+                    __result.UpgradeSignHeight = 60f;
                 }
 
                 else
                 {
-                    __result.UpgradeSignTile = new Vector2(2f, 6f);
-                    __result.UpgradeSignHeight = 12f;
+                    __result.UpgradeSignTile = new Vector2(4.5f, 4f);
+                    __result.UpgradeSignHeight = 28f;
                 }
             }
         }
