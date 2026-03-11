@@ -161,13 +161,13 @@ namespace ultimatecoopnbarn
                 
                 if (__instance.buildingType.Value == UltimateBarn)
                 {       
-                    __result.UpgradeSignTile = new Vector2(5, 4);
+                    __result.UpgradeSignTile = new Vector2(5f, 4f);
                     __result.UpgradeSignHeight = 16f;
                 }
 
                 else
                 {
-                    __result.UpgradeSignTile = new Vector2(2, 6);
+                    __result.UpgradeSignTile = new Vector2(2f, 6f);
                     __result.UpgradeSignHeight = 12f;
                 }
             }
