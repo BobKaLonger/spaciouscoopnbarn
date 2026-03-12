@@ -160,15 +160,32 @@ namespace ultimatecoopnbarn
 
                 if (__instance.upgradeName.Value == UltimateBarn)
                 {       
-                    __result.UpgradeSignTile = new Vector2(3.5f, 4f);
-                    __result.UpgradeSignHeight = 60f;
+                    if (__instance.buildingType.Value == ultimatePremiumBarn)
+                    {
+                        __result.UpgradeSignTile = new Vector2(3.5f, 4f);
+                        __result.UpgradeSignHeight = 60f;
+                    }
+
+                    else
+                    {
+                        __result.UpgradeSignTile = new Vector2(1f, 4f);
+                        __result.UpgradeSignHeight = 48f;
+                    }
                 }
 
                 else
                 {
-                    __result.UpgradeSignTile = new Vector2(4.5f, 4f);
-                    __result.UpgradeSignHeight = 28f;
-                }
+                    if (__instance.buildingType.Value == ultimatePremiumCoop)
+                    {
+                        __result.UpgradeSignTile = new Vector2(4.5f, 4f);
+                        __result.UpgradeSignHeight = 28f;
+                    }
+
+                    else
+                    {
+                        __result.UpgradeSignTile = new Vector2(1f, 4f);
+                        __result.UpgradeSignHeight = 32f;
+                    }
             }
         }
 
