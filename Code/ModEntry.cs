@@ -25,8 +25,10 @@ namespace ultimatecoopnbarn
         internal const string SVExpandCP = "FlashShifter.StardewValleyExpandedCP_";
         internal const string UltimateBarn = $"{UltimateCP}UltimateBarn";
         internal const string UltimateCoop = $"{UltimateCP}UltimateCoop";
-        private const string ultimatePremiumCoop = $"{SVExpandCP}PremiumCoop";
-        private const string ultimatePremiumBarn = $"{SVExpandCP}PremiumBarn";
+        internal const string SuperDenseBarn = $"{UltimateCP}SuperDenseBarn";
+        internal const string SuperDenseCoop = $"{UltimateCP}SuperDenseCoop";
+        private const string UltimatePremiumCoop = $"{SVExpandCP}PremiumCoop";
+        private const string UltimatePremiumBarn = $"{SVExpandCP}PremiumBarn";
         
         public override void Entry(IModHelper helper)
         {
@@ -123,7 +125,7 @@ namespace ultimatecoopnbarn
                     var lc = new LightSource($"{UltimateCP}CoopLight_{b.tileX.Value}_{b.tileY.Value}", 4, ultimateLightC.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
                     Game1.currentLightSources.Add(lc.Id, lc);
 
-                    if (b.buildingType.Value == ultimatePremiumCoop)
+                    if (b.buildingType.Value == UltimatePremiumCoop)
                     {
                         var ultimateLightPCP = new Point(b.tileX.Value + 6, b.tileY.Value + 2);
                         var lp = new LightSource($"{UltimateCP}PremiumCoopLight_patch_{b.tileX.Value}_{b.tileY.Value}", 4, ultimateLightPCP.ToVector2() * Game1.tileSize, 1f, Color.Black, LightSource.LightContext.None);
@@ -155,37 +157,31 @@ namespace ultimatecoopnbarn
                 if (__result == null)
                     return;
                 
-                if (__instance.upgradeName.Value != UltimateBarn && __instance.upgradeName.Value != UltimateCoop)
+                if (__instance.upgradeName.Value is not (UltimateBarn or UltimateCoop or SuperDenseBarn or SuperDenseCoop))
                     return;
 
                 if (__instance.upgradeName.Value == UltimateBarn)
-                {       
-                    if (__instance.buildingType.Value == ultimatePremiumBarn)
-                    {
-                        __result.UpgradeSignTile = new Vector2(3.5f, 4f);
-                        __result.UpgradeSignHeight = 60f;
-                    }
-
-                    else
-                    {
-                        __result.UpgradeSignTile = new Vector2(1f, 4f);
-                        __result.UpgradeSignHeight = 48f;
-                    }
+                {
+                    __result.UpgradeSignTile = new Vector2(3.5f, 4f);
+                    __result.UpgradeSignHeight = 60f;
                 }
 
-                else
+                if (__instance.upgradeName.Value == SuperDenseBarn)
                 {
-                    if (__instance.buildingType.Value == ultimatePremiumCoop)
-                    {
-                        __result.UpgradeSignTile = new Vector2(4.5f, 4f);
-                        __result.UpgradeSignHeight = 28f;
-                    }
+                    __result.UpgradeSignTile = new Vector2(1f, 4f);
+                    __result.UpgradeSignHeight = 16f;
+                }
+                
+                if (__instance.upgradeName.Value == UltimatePremiumCoop)
+                {
+                    __result.UpgradeSignTile = new Vector2(4.5f, 4f);
+                    __result.UpgradeSignHeight = 28f;
+                }
 
-                    else
-                    {
-                        __result.UpgradeSignTile = new Vector2(1f, 4f);
-                        __result.UpgradeSignHeight = 32f;
-                    }
+                if (__instance.upgradeName.Value == SuperDenseCoop)
+                {
+                    __result.UpgradeSignTile = new Vector2(1f, 4f);
+                    __result.UpgradeSignHeight = 32f;
                 }
             }
         }
@@ -335,11 +331,11 @@ namespace ultimatecoopnbarn
             public static void Postfix(GameLocation location, string buildingId, ref bool __result)
             {
                 string toCheck = null;
-                if (buildingId == "Coop" || buildingId == "Big Coop" || buildingId == "Deluxe Coop" || buildingId == ultimatePremiumCoop)
+                if (buildingId == "Coop" || buildingId == "Big Coop" || buildingId == "Deluxe Coop" || buildingId == UltimatePremiumCoop)
                 {
                     toCheck = UltimateCoop;
                 }
-                else if (buildingId == "Barn" || buildingId == "Big Barn" || buildingId == "Deluxe Barn" || buildingId == ultimatePremiumBarn)
+                else if (buildingId == "Barn" || buildingId == "Big Barn" || buildingId == "Deluxe Barn" || buildingId == UltimatePremiumBarn)
                 {
                     toCheck = UltimateBarn;
                 }
