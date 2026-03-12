@@ -168,8 +168,8 @@ namespace ultimatecoopnbarn
 
                 if (__instance.upgradeName.Value == SuperDenseBarn)
                 {
-                    __result.UpgradeSignTile = new Vector2(1f, 4f);
-                    __result.UpgradeSignHeight = 16f;
+                    __result.UpgradeSignTile = new Vector2(4.5f, 4f);
+                    __result.UpgradeSignHeight = 50f;
                 }
                 
                 if (__instance.upgradeName.Value == UltimatePremiumCoop)
@@ -180,8 +180,8 @@ namespace ultimatecoopnbarn
 
                 if (__instance.upgradeName.Value == SuperDenseCoop)
                 {
-                    __result.UpgradeSignTile = new Vector2(1f, 4f);
-                    __result.UpgradeSignHeight = 32f;
+                    __result.UpgradeSignTile = new Vector2(4.5f, 4f);
+                    __result.UpgradeSignHeight = 52f;
                 }
             }
         }
