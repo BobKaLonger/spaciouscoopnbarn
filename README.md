@@ -39,14 +39,17 @@ https://www.nexusmods.com/stardewvalley/mods/9704
 Vibrant Pastoral Redrawn
 https://www.nexusmods.com/stardewvalley/mods/6367
 
-*If you're using Resource Chickens, the coop will revert back to the vanilla Deluxe Coop texture. The author of Resource Chickens prefers their assets not be re-used in mods that receive donation points, and that's okay. You could probably just swap the textures manually if that's your preference.
+*If you're using Resource Chickens, the Ultimate Coop will revert back to the vanilla Deluxe Coop texture. The author of Resource Chickens prefers their assets not be re-used in mods that receive donation points, so I chose to go back to the vanilla appearance. You could probably just swap the textures manually if that's your preference.
 
 
 **--Incompatible Mods--**
 
-I have reviewed the mods below, and believe their behavior to be directly conflicting with Ultimate Coop and Barn. Using my mod with any mod listed below will cause unexpected behavior or crashes!
+I have reviewed the mods below, and believe their behavior to be directly conflicting with Ultimate Coop and Barn. Using my mod with any mod listed below will cause unexpected behavior or crashes! I still posted links to all the pages because many of these are extremely cool and I think the mod authors deserve a shout out!
 
-JP's Upgradeable Barns and Coops (*I plan to contact the author to see if integration can be worked out)
+Warm Stalls and Cozy Boxes - A Barns and Coops Overhaul (Map Conflict)
+https://www.nexusmods.com/stardewvalley/mods/43227
+
+JP's Upgradeable Barns and Coops (Restrictive Permissions from Mod Author)
 https://www.nexusmods.com/stardewvalley/mods/42753
 
 Natural Cozy Coops and Barns (Map Conflict)
@@ -64,7 +67,7 @@ https://www.nexusmods.com/stardewvalley/mods/27052
 Immersive Barns and Coops (Map and Function Conflict)
 https://www.nexusmods.com/stardewvalley/mods/28462
 
-Bigger coop barn and silo from Ghilland (*I plan to contact the author to see if integration can be worked out)
+Bigger coop barn and silo from Ghilland (Map Conflict)
 https://www.nexusmods.com/stardewvalley/mods/22649
 
 Peehell's Bigger Coop (Map Conflict)
