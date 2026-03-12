@@ -186,6 +186,7 @@ namespace ultimatecoopnbarn
                         __result.UpgradeSignTile = new Vector2(1f, 4f);
                         __result.UpgradeSignHeight = 32f;
                     }
+                }
             }
         }
 
